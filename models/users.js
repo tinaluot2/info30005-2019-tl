@@ -71,10 +71,7 @@ var array =  [
     ]
 
 
-app.get('/', function(req, res){
 
-    res.send("homepage");
-})
 
 app.get('/users', function(req, res){
 

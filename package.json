@@ -1,0 +1,22 @@
+{
+  "name": "info30005-2019-tl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinaluot2/info30005-2019-tl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinaluot2/info30005-2019-tl/issues"
+  },
+  "homepage": "https://github.com/tinaluot2/info30005-2019-tl#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

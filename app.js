@@ -277,7 +277,7 @@ var array =  [
 
 app.get('/', function(req, res){
 
-    res.send("try /all");
+    res.send("Group Name: Homepage");
 })
 
 app.get('/all', function(req, res){

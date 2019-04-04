@@ -11,7 +11,7 @@ var array =  [
 			"email_address": "gleung@student.unimelb.edu.au",
 			"username": "gleung",
 			"password": "gleung1234",
-		}
+		},
 
 		{
 			"name": "Gigi Leung",
@@ -25,7 +25,7 @@ var array =  [
 				"recycling",
 				"the environment"
 			]
-		}
+		},
 
 		{
 			"name": "Tina Luo",
@@ -39,7 +39,7 @@ var array =  [
 				"recycling",
 				"the environment"
 			]
-		}
+		},
 
 		{
 			"name": "Marin Iida",
@@ -53,7 +53,7 @@ var array =  [
 				"recycling",
 				"the environment"
 			]
-		}
+		},
 
 		{
 			"name": "Mark Junge Wang",
@@ -67,6 +67,6 @@ var array =  [
 				"recycling",
 				"the environment"
 			]
-		}
+		},
     ]
 

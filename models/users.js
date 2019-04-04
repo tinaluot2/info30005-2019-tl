@@ -74,12 +74,12 @@ var array =  [
 
 
 
-router.get('/users', function(req, res){
+#router.get('/users', function(req, res){
+#
+#    res.send(array);
+#})
 
-    res.send(array);
-})
 
-
-router.listen(3000, function(){
-    console.log("Server started at 3000");
-});
+#router.listen(3000, function(){
+#    console.log("Server started at 3000");
+#});

@@ -1,5 +1,6 @@
 const express = require('express');
 var app = express();
+var router = express.Router()
 
 var array =  [
         {
@@ -73,12 +74,12 @@ var array =  [
 
 
 
-app.get('/users', function(req, res){
+router.get('/users', function(req, res){
 
     res.send(array);
 })
 
 
-app.listen(3000, function(){
+router.listen(3000, function(){
     console.log("Server started at 3000");
 });

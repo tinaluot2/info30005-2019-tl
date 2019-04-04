@@ -70,3 +70,18 @@ var array =  [
 		},
     ]
 
+
+app.get('/', function(req, res){
+
+    res.send("homepage");
+})
+
+app.get('/users', function(req, res){
+
+    res.send(array);
+})
+
+
+app.listen(3000, function(){
+    console.log("Server started at 3000");
+});

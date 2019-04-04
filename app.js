@@ -4,8 +4,7 @@ var app = express();
 
 app.get('/', function(req, res){
 
-    res.send("Group Name: Homepage\n");
-	res.send(array);
+    res.send(array);
 })
 
 app.get('/all', function(req, res){

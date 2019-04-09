@@ -71,18 +71,23 @@ var array =  [
 		},
     ]
 
-  var item_profile_data = []
+  var item_profile_data = [
+    {
+      "item_name": "Glass bottle lamp".
+      "item_id": "1234"
+      "item_description": "Lamp made from recycled glass Coke bottles",
+
+    }
+  ]
 
 
+app.get('/users', function(req, res)){
+
+    res.send(array);
+}
 
 
-#router.get('/users', function(req, res){
-#
-#    res.send(array);
-#})
-
-
-app.get('/item_profile', function(req, res){
+app.get('/item_profile', function(req, res)){
 
   res.send(item_profile_data);
 }

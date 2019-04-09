@@ -70,16 +70,24 @@ var array =  [
 		},
     ]
 
+  var item_profile_data = []
+
 
 app.get('/', function(req, res){
 
-    res.send("homepage");
+    res.send("Reformed Recycling (Homepage)");
+    res.send("Reformed Lab COMP30023")
 })
 
 app.get('/users', function(req, res){
 
     res.send(array);
 })
+
+app.get('/item_profile', function(req, res){
+
+  res.send(item_profile_data);
+}
 
 
 app.listen(3000, function(){

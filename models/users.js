@@ -1,5 +1,6 @@
 const express = require('express');
 var app = express();
+var router = express.Router()
 
 var array =  [
         {
@@ -73,16 +74,13 @@ var array =  [
   var item_profile_data = []
 
 
-app.get('/', function(req, res){
 
-    res.send("Reformed Recycling (Homepage)");
-    res.send("Reformed Lab COMP30023")
-})
 
-app.get('/users', function(req, res){
+#router.get('/users', function(req, res){
+#
+#    res.send(array);
+#})
 
-    res.send(array);
-})
 
 app.get('/item_profile', function(req, res){
 

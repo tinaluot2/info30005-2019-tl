@@ -70,7 +70,7 @@ var user_profiles =  [
       "item_name": "Glass bottle lamp".
       "item_id": "1234"
       "item_description": "Lamp made from recycled glass Coke bottles",
-      var image = new_image("https://i.pinimg.com/originals/7b/81/f9/7b81f94ce50e7f5d6c5d694410cd3f31.jpg")
+      /*var image = new_image("https://i.pinimg.com/originals/7b/81/f9/7b81f94ce50e7f5d6c5d694410cd3f31.jpg") */
     }
   ]
 

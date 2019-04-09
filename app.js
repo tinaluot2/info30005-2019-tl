@@ -13,7 +13,7 @@ app.get('/users', function(req, res){
     res.send("users page");
 })
 
-app.get('/Ideas', function(req, res){
+app.get('/ideas', function(req, res){
 
     res.send("Reuse ideas page");
 })

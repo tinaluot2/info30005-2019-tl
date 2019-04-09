@@ -76,20 +76,20 @@ var user_profiles =  [
 
 /*need post, put and delete as well; post is create*/
 
-app.get('/user_profile', function(req, res)){
+app.get('/user_profile', function(req, res){
 
     res.send(user_profiles);
-}
+})
 
-app.get('/item_profile', function(req, res)){
+app.get('/item_profile', function(req, res){
 
   res.send(item_profile_data);
-}
+})
 
-app.get('/login_page', function(req, res)){
+app.get('/login_page', function(req, res){
 
   res.send(fake_login);
-}
+})
 
 app.listen(3000, function(){
     console.log("Server started at 3000");

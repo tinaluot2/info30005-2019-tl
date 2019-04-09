@@ -2,20 +2,11 @@ const express = require('express');
 var app = express();
 var router = express.Router()
 
-var array =  [
-        {
-			"name": "Gigi Leung",
-			"height": "159",
-			"birth_date": "07/03/1995",
-			"gender": "female",
-			"location": "https://goo.gl/maps/pHThkiRXBL12",
-			"email_address": "gleung@student.unimelb.edu.au",
-			"username": "gleung",
-			"password": "gleung1234",
-		},
+var user_profiles =  [
 
 		{
 			"name": "Gigi Leung",
+      "user_id": "1234",
 			"username": "gleung",
 			"password": "gleung1234",
 			"birth_date": "07/03/1995",
@@ -30,6 +21,7 @@ var array =  [
 
 		{
 			"name": "Tina Luo",
+      "user_id": "1235",
 			"username": "luot2",
 			"password": "luot21234",
 			"birth_date": "27/04/1997",
@@ -44,6 +36,7 @@ var array =  [
 
 		{
 			"name": "Marin Iida",
+      "user_id": "1236",
 			"username": "mariniida",
 			"password": "mariniida1234",
 			"birth_date": "07/12/1997",
@@ -58,6 +51,7 @@ var array =  [
 
 		{
 			"name": "Mark Junge Wang",
+      "user_id":"1237",
 			"username": "jungew",
 			"password": "jungew1234",
 			"birth_date": "29/11/1998",
@@ -76,22 +70,27 @@ var array =  [
       "item_name": "Glass bottle lamp".
       "item_id": "1234"
       "item_description": "Lamp made from recycled glass Coke bottles",
-
+      var image = new_image("https://i.pinimg.com/originals/7b/81/f9/7b81f94ce50e7f5d6c5d694410cd3f31.jpg")
     }
   ]
 
+/*need post, put and delete as well; post is create*/
 
-app.get('/users', function(req, res)){
+app.get('/user_profile', function(req, res)){
 
-    res.send(array);
+    res.send(user_profiles);
 }
-
 
 app.get('/item_profile', function(req, res)){
 
   res.send(item_profile_data);
+  app
 }
 
+app.get('/login_page', function(req, res)){
+
+  res.send(fake_login);
+}
 
 app.listen(3000, function(){
     console.log("Server started at 3000");

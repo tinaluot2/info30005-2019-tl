@@ -84,7 +84,6 @@ app.get('/user_profile', function(req, res)){
 app.get('/item_profile', function(req, res)){
 
   res.send(item_profile_data);
-  app
 }
 
 app.get('/login_page', function(req, res)){

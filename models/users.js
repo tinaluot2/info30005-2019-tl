@@ -74,7 +74,7 @@ var user_profiles =  [
     }
   ]
 
-/*need post, put and delete as well; post is create*/
+need post, put and delete as well; post is create*/
 /*
 app.get('/user_profile', function(req, res){
 
@@ -94,4 +94,3 @@ app.get('/login_page', function(req, res){
 app.listen(3000, function(){
     console.log("Server started at 3000");
 });
-*/

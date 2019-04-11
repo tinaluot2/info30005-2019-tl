@@ -14,8 +14,8 @@ var user_profiles =  [
 			"location": "https://goo.gl/maps/pHThkiRXBL12",
 			"email_address": "gleung@student.unimelb.edu.au",
 			"interests": [
-				"recycling",
-				"the environment"
+				"yoga",
+				"bowling"
 			]
 		},
 
@@ -30,7 +30,7 @@ var user_profiles =  [
 			"email_address": "luot2@student.unimelb.edu.au",
 			"interests": [
 				"recycling",
-				"the environment"
+				"sports"
 			]
 		},
 
@@ -44,8 +44,8 @@ var user_profiles =  [
 			"location": "https://goo.gl/maps/pHThkiRXBL12",
 			"email_address": "mariniida@student.unimelb.edu.au",
 			"interests": [
-				"recycling",
-				"the environment"
+				"watching tv",
+				"vegan protesting"
 			]
 		},
 
@@ -59,8 +59,8 @@ var user_profiles =  [
 			"location": "https://goo.gl/maps/pHThkiRXBL12",
 			"email_address": "jungew@student.unimelb.edu.au",
 			"interests": [
-				"recycling",
-				"the environment"
+				"reading",
+				"games"
 			]
 		},
     ]
@@ -75,10 +75,16 @@ var user_profiles =  [
   ]
 
 need post, put and delete as well; post is create*/
-/*
 app.get('/user_profile', function(req, res){
 
     res.send(user_profiles);
+})
+
+app.get('/user_profile:user_id=1237"', function(req, res){
+
+	var interests = req.params.interests;
+
+	res.send("The interests for this user is " + interests);
 })
 
 app.get('/item_profile', function(req, res){

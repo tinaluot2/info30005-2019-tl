@@ -1,58 +1,46 @@
 const express = require('express');
-var app = express();
-const users = require('./models/users')
-var router = express.Router()
+const app = express();
+//something just for terminal feedback, doesn't matter
+const morgan = require('morgan');
+//something for CORS, probably not needed
+const bodyParser = require('body-parser');
 
-app.get('/', function(req, res){
+const mongoose = require('mongoose');
 
-    res.send("Souper Noodle Lab");
-})
+const itemRoutes = require('./routes/items');
+const userRoutes = require('./routes/users');
 
-app.get('/users', function(req, res){
-
-    res.send("users page");
-})
-
-app.get('/ideas', function(req, res){
-
-    res.send("Reuse ideas page");
-})
-
-app.get('/marketplace', function(req, res){
-
-    res.send("marketplace page");
-})
-
-app.get('/search', function(req, res){
-
-    res.send("search page");
-})
-
-app.get('/about', function(req, res){
-
-    res.send("about page");
-})
-
-app.get('/recycling', function(req, res){
-
-    res.send("Recycling page");
-})
-
-app.get('/signup', function(req, res){
-
-    res.send("signup page");
-})
-
-app.get('/login', function(req, res){
-
-    res.send("login page");
-})
-
-app.get('/account', function(req, res){
-
-    res.send("account page");
-})
-
-app.listen(3000, function(){
-    console.log("Server started at 3000");
+mongoose.connect('mongodb+srv://jungew:' + process.env.MONGO_ATLAS_PW + '@cluster0-fvmyf.mongodb.net/test?retryWrites=true', {
+  useNewUrlParser: true
 });
+
+// stuff
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+
+app.use('/users', userRoutes);
+app.use('/items', itemRoutes);
+
+app.get('/', (req, res, next) => {
+  res.send("Team Souper Noodles Lab or Team Reform?");
+});
+
+//error handling
+app.use((req, res, next) => {
+  const error = new Error('Route not found');
+  error.status = 404;
+  next(error);
+})
+
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error: {
+      message: error.message
+    }
+  });
+});
+
+module.exports = app;

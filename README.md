@@ -1,5 +1,6 @@
 Reformed Lab "Reformed" - Deliverable 2 README
 
+
 =================
 Required Programs for Testing
 =================
@@ -7,70 +8,82 @@ Required Programs for Testing
 - Postman (for running the /GET, /POST, /PATCH, /DELETE requests)
 
 ==================
-Command Line Arguments
+Setup Postman
 ==================
+Homepage: GET https://wit-website-reform.herokuapp.com
  To test for the three functionalities (user signup, user profile and item profiles), here are some commands you can type under Body tab (select raw AND JSON(application/json)) terminal:
+ -Please make sure to set Header -> Content-Type ticked and set to application/json.
 
-For the first two functionalities (user signup and user profile) "localhost:3000/users" will show all users and "localhost:3000/users/userId" will search by id.
+For User Signup:
+========
+1. Sign up a new user:
+POST request with route '/userSignup/signup'.
+The format of input is 
+	{
+	"name": "Daniel Vu",
+  	"email": "dh.vu@unimelb.edu.au",
+	"password": "hello123",
+	"age": "1342534534",
+	"birthday": "14/04/2019",
+	"gender": "male"
+	}
+Note that email will be the username, so there is a validation to make sure email is unique (you can try enter same email twice). The password is hashed using bcrypt so it's safe to let it store in our database =) 
+Only email and password are required fields, others are optional and they can be input in any order.
 
-1. User signup:
-- /POST request for new user
-	Sample input for this:
+2. Delete a user:
+DELETE request with route '/userSignup/userID'.
+The userID is created when you sign up and output in the response window. If you lost it, you can use the GET request which will be explained later. replace the 'userID' with that id.
 
-	{name: "John",
-  	email: {
-    	type: "johndoe@gmail.com",
-    	required: true,
-    	unique: true
-  	}
-	password: { type: "hello12345", required: true },
-  	age: 20,
-  	birthday: "20/5/1995",
-  	gender: "male"}
 
-- /DELETE request for a specific user
-	Go to "/userSignup/delete/:userId" and request delete with userId such as 5cb068307d67803aa025ac2a
-	Sample input:
-	
-	"/userSignup/delete/5cb068307d67803aa025ac2a"
+For User Profile:
+========
+1. Show all users:
+GET '/users'
 
-2. User profile
-- /PATCH request to update a specific user profile detail e.g. name
-	Note that PATCH requests require a special input format (not an object like the others, but an array)
-	Sample input for this request:
+2. Search for a user using userId:
+GET '/users/userID'
+userId is explained above.
 
-    	[
-        { "propName": "name", "value": "Harry Potter - patch updated" }
-    	]
+3. Update an attribute in a user profile:
+PATCH '/users/userID'
+The format of input is (note the outside brackets are array not an object):
+[
+    { "propName": "name", "value": "Souper Daniel" }
+]
+*where "propName" is the name of attribute you want to change, and "value" is what you want to change it to. You can change multiple fields at once with multiple objects in the same array (there's a for loop going through the array).
 
-- /GET request for specific user ID
-	Sample input:
-	
-	"/users/userID/5cb1af07af635a35f42aa0bd"
 
-3. Item profile
+For item profile
+========
+1. View all items:
+GET '/items'
 
-- /GET request for specific item
-	Sample input:
+2. Create new item:
+POST '/items'
+The format of input is:
+{
+	"itemName": "a name",
+	"itemDescription": "some descriptions",
+	"itemCategory": "this is a category",
+	"itemHashtags": "["an array", "of hashtags"]",
+	"itemImage": "this is a link to the image"
+}
 
-	"items/itemID/5cb1a4d61c9d4400003a5bb5"
+3. Update an attribute of an item profile
+PATCH '/items/itemId'
+The format of input is similar to user profile editing
+[
+    { "propName": "itemName", "value": "don't forget the outside is square brackets" }
+]
 
-- /POST request for new item
+4. Delete an item
+DELETE '/items/itemId'
 
-	{itemName: "Terrarium Fairy Lights",
-  	itemDescription: "These are perfect for Christmas."
-	itemCategory: "glass",
-  	itemHashtags: ["glass", "batteries", "paint", "candles", "wires", "tape],
-	itemImage: "https://i.imgur.com/xOOpLe2.png"
-	}	
 
-- /DELETE request for specific item
-	Sample Input:
 
-	"items/itemID/5cb1a4d61c9d4400003a5bb5"
 
 =================================
 Extra Notes
 =================================
--When testing in Postman, don't forget to set Header -> Content-Type ticked and set to application/json.
-**We tested all these functions on Postman, and linked to MongoDB where we made our databases.
+
+**The data are stored in mongoDB

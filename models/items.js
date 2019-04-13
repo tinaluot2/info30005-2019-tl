@@ -6,7 +6,7 @@ const itemSchema = mongoose.Schema({
   itemDescription: String,
   itemCategory: String,
   itemHashtags: Array,
-  itemImage: String,
+  itemImage: String
 });
 
 module.exports = mongoose.model('Item', itemSchema);

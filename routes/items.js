@@ -35,10 +35,10 @@ router.post('/', (req, res, next) => {
   const item = new Item({
     _id: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
-    itemDescription: req.body.itemDescriptio,
+    itemDescription: req.body.itemDescription,
     itemCategory: req.body.itemCategory,
     itemHashtags: req.body.itemHashtags,
-    itemImage: req.body.itemImage,
+    itemImage: req.body.itemImage
   });
 
   //method provided by mongoose

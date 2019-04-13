@@ -9,7 +9,8 @@ const mongoose = require('mongoose');
 
 const itemRoutes = require('./routes/items');
 const userRoutes = require('./routes/users');
-const searchItemRoutes = require('./routes/searchItems');
+//const searchItemRoutes = require('./routes/searchItems');
+const userSignupRoutes = require('./routes/userSignup')
 
 // connecting to mongoDB
 mongoose.connect('mongodb+srv://jungew:' + process.env.MONGO_ATLAS_PW + '@cluster0-fvmyf.mongodb.net/test?retryWrites=true', {
@@ -21,9 +22,10 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use('/searchItems', searchItemRoutes);
+//app.use('/searchItems', searchItemRoutes);
 app.use('/users', userRoutes);
 app.use('/items', itemRoutes);
+app.use('/userSignup', userSignupRoutes);
 
 app.get('/', (req, res, next) => {
   res.send("Team Souper Noodles Lab or Team Reform?");

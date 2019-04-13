@@ -30,39 +30,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) => {
-
-  //add data to database
-  const user = new User({
-    _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    username: req.body.username,
-    password: req.body.password,
-    age: req.body.age,
-    birthday: req.body.birthday,
-    gender: req.body.gender,
-    email: req.body.email
-  });
-
-  //method provided by mongoose
-  user
-    .save()
-    .then(result => {
-      console.log(result);
-      //we want the success response inside the success condition
-      res.status(201).json({
-        message: 'Handling POST requests to /users',
-        createUser: result
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
-
-});
+// signup function is in userSignup.js
 
 router.get('/:userId', (req, res, next) => {
   //when assigning input id to a variable, need to convert string to ObejctId
@@ -118,19 +86,6 @@ router.patch('/:userId', (req, res, next) => {
 
 });
 
-router.delete('/:userId', (req, res, next) => {
-  const id = mongoose.Types.ObjectId(req.params.userId);
-  User.remove({_id: id})
-    .exec()
-    .then(result => {
-      res,status(200).json(result);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
-});
+//delete function is in userSignup.js
 
 module.exports = router;

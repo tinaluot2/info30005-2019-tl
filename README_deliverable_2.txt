@@ -72,5 +72,5 @@ For the first two functionalities (user signup and user profile) "localhost:3000
 =================================
 Extra Notes
 =================================
-
+-When testing in Postman, don't forget to set Header -> Content-Type ticked and set to application/json.
 **We tested all these functions on Postman, and linked to MongoDB where we made our databases.

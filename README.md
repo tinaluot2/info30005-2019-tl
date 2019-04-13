@@ -1,14 +1,14 @@
 Reformed Lab "Reformed" - Deliverable 2 README
 
-==============================
+=================
 Required Programs for Testing
-==============================
+=================
 
 - Postman (for running the /GET, /POST, /PATCH, /DELETE requests)
 
-============================
+==================
 Command Line Arguments
-============================
+==================
  To test for the three functionalities (user signup, user profile and item profiles), here are some commands you can type under Body tab (select raw AND JSON(application/json)) terminal:
 
 For the first two functionalities (user signup and user profile) "localhost:3000/users" will show all users and "localhost:3000/users/userId" will search by id.

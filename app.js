@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
-//const itemRoutes = require('./routes/items');
+const itemRoutes = require('./routes/items');
 const userRoutes = require('./routes/users');
-const searchItemRoutes = require('./routes/searchItems');
+//const searchItemRoutes = require('./routes/searchItems');
 
 // connecting to mongoDB
 mongoose.connect('mongodb+srv://jungew:' + process.env.MONGO_ATLAS_PW + '@cluster0-fvmyf.mongodb.net/test?retryWrites=true', {

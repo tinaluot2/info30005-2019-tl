@@ -9,4 +9,4 @@ const itemSchema = mongoose.Schema({
   itemImage: String,
 });
 
-module.exports = mongoose.model('Item', userSchema);
+module.exports = mongoose.model('Item', itemSchema);

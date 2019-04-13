@@ -84,11 +84,11 @@ router.patch('/:itemId', (req, res, next) => {
 });
 
 router.delete('/:itemId', (req, res, next) => {
-  const id = mongoose.Types.ObjectId(req.params.userId);
+  const id = mongoose.Types.ObjectId(req.params.itemId);
   Item.remove({_id: id})
     .exec()
     .then(result => {
-      res,status(200).json(result);
+      res.status(200).json(result);
     })
     .catch(err => {
       console.log(err);

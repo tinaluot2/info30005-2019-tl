@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
-const itemRoutes = require('./routes/items');
+//const itemRoutes = require('./routes/items');
 const userRoutes = require('./routes/users');
 const searchItemRoutes = require('./routes/searchItems');
 
@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use('/searchItems', searchItemRoutes);
+//app.use('/searchItems', searchItemRoutes);
 app.use('/users', userRoutes);
 app.use('/items', itemRoutes);
 

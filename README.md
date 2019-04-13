@@ -60,7 +60,7 @@ For the first two functionalities (user signup and user profile) "localhost:3000
 	{itemName: "Terrarium Fairy Lights",
   	itemDescription: "These are perfect for Christmas."
 	itemCategory: "glass",
-  	itemArray: ["glass", "batteries", "paint", "candles", "wires", "tape],
+  	itemHashtags: ["glass", "batteries", "paint", "candles", "wires", "tape],
 	itemImage: "https://i.imgur.com/xOOpLe2.png"
 	}	
 

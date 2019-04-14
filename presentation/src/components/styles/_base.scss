@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Nunito|Raleway|Source+Serif+Pro');
+@import "variables.scss";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $main-font;
+	color: #2FCBAC;
+}
+
+a {
+	color: #514841;
+}

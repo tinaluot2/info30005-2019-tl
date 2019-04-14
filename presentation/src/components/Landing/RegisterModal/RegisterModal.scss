@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Nunito|Raleway|Source+Serif+Pro');
+
+.form-header {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: lighter;
+    color: #1FCD98;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.login-container {
+    max-width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 40px;
+    border: 1px solid #dddddd
+}
+
+.form input {
+    font-family: "Nunito", sans-serif;
+    outline: 0;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: 100%;
+    margin: 3px 0 12px 0;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form input:active, .form input:focus {
+    border: 1px solid #1FCD98;
+
+}
+
+.form .login-form {
+    display: none;
+}
+
+
+.message {
+    margin: 10px 0 0;
+    font-size: 12px;
+}
+
+label {
+    font-size: 14px;}
+
+.form .register-form {
+    display: none;
+}

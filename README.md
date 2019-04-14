@@ -6,7 +6,7 @@ Required Programs for Testing
 =================
 
 - Postman (for running the /GET, /POST, /PATCH, /DELETE requests)
-- Please note: in case heroku is down, or mongodb atlas is unable to connect to heroku, please test with the localhost:3000 for now. Clone the repo and navigate to it in node.js console command, and start the server with command "nodemon server", the follow the same steps below with "localhost:3000" instead of "https://wit-website-reform.herokuapp.com"
+- Please note: in case heroku is down, or mongodb atlas is unable to connect to heroku, please test with the localhost:3000 for now. Clone the repo and navigate to it in node.js console command, and start the server with command "nodemon server", then follow the same steps below with "localhost:3000" instead of "https://wit-website-reform.herokuapp.com"
 
 ==================
 Setup Postman

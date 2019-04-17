@@ -9,7 +9,7 @@ const Register = () => {
 		<div class="login-container">
 		    <div class="form">
 		        <form class="registration-form">
-		        <div class="form-header">Join the community</div>
+		        <div class="form-header">Join the Community</div>
 		            <label>First Name</label>
 		            <input type="text" name="name" required/>
 		            <label>Email</label>
@@ -18,7 +18,7 @@ const Register = () => {
 		            <input type="password" name="password" required/>
 		            <label>Confirm Password</label>
 		            <input type="password" name="password-confirm" required/>
-		            <button>Register</button>
+		            <button class ="button-dark">Register</button>
 		            <p class="message">Already registered? <a href="#">Sign In</a></p>
 		        </form>
 		        <form class="login-form">

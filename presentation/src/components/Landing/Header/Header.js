@@ -8,9 +8,9 @@ const Header = () => {
 	return (
 		<header>
 			<div className="overlay"></div>
-				<div className="wrapper">
+				<div className="content-wrapper">
 					<div className="intro-heading">
-						Yo what's up. This is an inspirational quote.
+						Reduce, Reuse, Reform.
 					</div>
 				</div>
 		</header>

@@ -1,3 +1,5 @@
+@import "../../styles/style.scss";
+
 header {
 	width: 100%;
 	position: relative;
@@ -15,7 +17,7 @@ header {
 	    left: 0;
 	    height: 100%;
 	    width: 100%;
-	    background: linear-gradient(rgba(91,76,64,0.5), rgba(0,0,0,0));
+	    background: linear-gradient(rgba(91,76,64,0.6), rgba(0,0,0,0.1));
 	    z-index: 1;
 
 	}
@@ -25,7 +27,7 @@ header {
 		text-align: center;
 		color: white;
 		font-size: 4vw;
-		font-family: "Roboto Slab", sans-serif;
+		font-family: $header-font, sans-serif;
 		font-weight: bold;
 		z-index: 2;
 		overflow-wrap: break-word;

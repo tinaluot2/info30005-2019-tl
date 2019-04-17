@@ -5,12 +5,27 @@
     padding: 20px;
     text-transform: uppercase;
     border-top: 1px solid #eee;
+    font-size: 12px;
 
     .footer-text {
-	    margin-left: 30px;
+	    margin-left: 12px;
 	}
 
 	footer-links a{
 	    margin: 10px;
 	}
+}
+
+@media screen and (max-width: 600px) {
+	.footer {
+	    font-size: 10px;
+	}
+
+	footer-links a {
+	    float: none;
+	    margin-right:0;
+	    width:auto;
+	    border:0;
+	}
+
 }

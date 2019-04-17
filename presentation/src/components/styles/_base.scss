@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:700|Nunito|Raleway:400,700');
 
-/* Variables */
+/* VARIABLES */
+//Fonts
 $logotype-font: "Playfair Display", sans-serif;
 $header-font: "Playfair Display", sans-serif;
+$main-font: "Nunito", sans-serif;
 $title-font: "Raleway", sans-serif;
 $title-size: 28px;
-$main-font: "Nunito", sans-serif;
+$body-font-size: 16px;
+
+//Colours
 $primary-color: #3DBF74;
 $text-color: #464443;
-$text-hover-color: #21a067;
-$button-hover-color: #21a067;
+$text-hover-color: #21A067;
+$button-hover-color: #21A067;
 $button-text: white;
-$body-font-size: 16px;
 
 
 /* Base Styles */

@@ -3,7 +3,7 @@ import ReactDom from "react-dom";
 import "./Footer.scss";
 
 const Footer = () => {
-	return (	
+	return (
 		<div className="footer">
 		    <div className="wrapper">
 				<p className="footer-text">Reform Lab © 2019</p>

@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Nunito|Raleway:400,700");
+/* VARIABLES */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #464443;
+  font-size: 16px;
+}
+
+a {
+  color: #3DBF74;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+a:hover {
+  color: #21A067;
+  transition: all 700ms ease;
+}
+
+/*# sourceMappingURL=_base.css.map */

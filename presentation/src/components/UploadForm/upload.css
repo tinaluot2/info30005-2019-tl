@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Nunito|Raleway:400,700");
+/* VARIABLES */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #464443;
+  font-size: 16px;
+}
+
+a {
+  color: #3DBF74;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+a:hover {
+  color: #21A067;
+  transition: all 700ms ease;
+}
+
+h1 {
+  font-size: large;
+  font-weight: bold;
+  color: #3DBF74;
+  text-align: center;
+}
+
+h2 {
+  font-size: medium;
+  color: #464443;
+}
+
+uploadbody {
+  padding: 20px;
+  background-color: #D0D0D0;
+}
+
+.form_field {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  background-color: white;
+  border: 1px solid #D0D0D0;
+}
+
+.field {
+  padding: 50px;
+  border: 1px solid #D0D0D0;
+}
+
+/*# sourceMappingURL=upload.css.map */

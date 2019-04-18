@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Nunito|Raleway:400,700");
+/* VARIABLES */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #464443;
+  font-size: 16px;
+}
+
+a {
+  color: #3DBF74;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+a:hover {
+  color: #21A067;
+  transition: all 700ms ease;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1025px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 600ms ease;
+}
+
+.button-dark {
+  background: #3DBF74;
+  color: white;
+  border: none;
+}
+
+.button-dark:hover, .button-dark:active, .button-dark:focus {
+  background: #21A067;
+  transition: all 600ms ease;
+}
+
+.button-light {
+  background: white;
+  color: #3DBF74;
+  border-color: #3DBF74;
+}
+
+.button-light:hover, .button-light:active, .button-light:focus {
+  border-color: #21A067;
+  color: #21A067;
+  transition: all 600ms ease;
+}
+
+.form button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */

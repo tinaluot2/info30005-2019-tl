@@ -28,11 +28,74 @@ a:hover {
   transition: all 700ms ease;
 }
 
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1025px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 600ms ease;
+}
+
+.button-dark {
+  background: #3DBF74;
+  color: white;
+  border: none;
+}
+
+.button-dark:hover, .button-dark:active, .button-dark:focus {
+  background: #21A067;
+  transition: all 600ms ease;
+}
+
+.button-light {
+  background: white;
+  color: #3DBF74;
+  border-color: #3DBF74;
+}
+
+.button-light:hover, .button-light:active, .button-light:focus {
+  border-color: #21A067;
+  color: #21A067;
+  transition: all 600ms ease;
+}
+
+.form button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+}
+
 h1 {
-  font-size: large;
+  font-size: 2rem;
   font-weight: bold;
   color: #3DBF74;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -40,9 +103,9 @@ h2 {
   color: #464443;
 }
 
-uploadbody {
+.upload_body {
   padding: 20px;
-  background-color: #D0D0D0;
+  background-color: #f5f5f5;
 }
 
 .form_field {
@@ -51,12 +114,35 @@ uploadbody {
   margin-right: auto;
   padding: 50px;
   background-color: white;
-  border: 1px solid #D0D0D0;
 }
 
-.field {
-  padding: 50px;
-  border: 1px solid #D0D0D0;
+.file {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.form {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.checkboxes {
+  border: 1px solid #d0d0d0;
+  padding: 10px;
+}
+
+.checkbox {
+  padding: 10px;
+}
+
+.button {
+  width: 30%;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=upload.css.map */

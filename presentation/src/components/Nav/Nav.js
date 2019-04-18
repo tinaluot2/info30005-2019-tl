@@ -16,4 +16,5 @@ const Nav = () => {
 	);
 };
 
+<script src="Nav_script.js"></script>
 export default Nav;

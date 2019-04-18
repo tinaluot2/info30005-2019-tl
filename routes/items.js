@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 
-// import schema
+// Import schema
 const Item = require('../models/items');
 
+// GET ITEM
 router.get('/', (req, res, next) => {
   //exec to get a true promise
   Item
@@ -30,6 +31,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
+// ADD ITEM
 router.post('/', (req, res, next) => {
   //add item data to database
   const item = new Item({
@@ -60,6 +62,7 @@ router.post('/', (req, res, next) => {
     });
 });
 
+// UPDATE ITEM
 router.patch('/:itemId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.itemId);
   //to check if all the attributes need to be chanegd, or just some of them.
@@ -83,6 +86,7 @@ router.patch('/:itemId', (req, res, next) => {
     });
 });
 
+// DELETE ITEM
 router.delete('/:itemId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.itemId);
   Item.remove({_id: id})

@@ -1,0 +1,29 @@
+@import "../scss/variables";
+
+/* Base Styles */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $main-font;
+	color: $text-color;
+	font-size: $body-font-size;
+}
+
+a {
+	color: $primary-color;
+	text-decoration: none;
+	transition: all 500ms ease;
+}
+
+a:hover {
+	color: $text-hover-color;
+	transition: all 700ms ease;
+}

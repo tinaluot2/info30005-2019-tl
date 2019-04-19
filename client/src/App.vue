@@ -1,27 +1,24 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <LandingPage />
+    <SiteFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LandingPage from './pages/LandingPage.vue'
+import SiteFooter from './components/SiteFooter/SiteFooter.vue'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    LandingPage,
+    SiteFooter
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "./scss/global";
 </style>

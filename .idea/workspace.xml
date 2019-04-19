@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1e05406-cfcc-4c37-8691-354f7d60ff79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.scss" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/components/UploadForm/upload.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/components/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/components/styles/_base.scss" afterDir="false" />
-    </list>
+    <list default="true" id="f1e05406-cfcc-4c37-8691-354f7d60ff79" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/presentation/src/components/UploadForm/upload.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+            <state relative-caret-position="38">
+              <caret line="39" column="4" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -173,12 +167,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555546430594</updated>
-      <workItem from="1555546434299" duration="14562000" />
+      <workItem from="1555546434299" duration="14592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14562000" />
+    <option name="totallyTimeSpent" value="14592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -317,8 +311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/presentation/src/components/UploadForm/upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+        <state relative-caret-position="38">
+          <caret line="39" column="4" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
         </state>
       </provider>
     </entry>

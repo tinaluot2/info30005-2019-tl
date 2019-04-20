@@ -1,26 +1,24 @@
 <template>
-  <div>
-    <SiteNavTop />
-    <LandingPage />
-    <SiteFooter />
-  </div>
+	<div id="app">
+		<SiteNavUser />
+		<SiteFooter />
+	</div>
 </template>
 
 <script>
-import SiteNavTop from '@/components/SiteNavTop/SiteNavTop'
+import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
 import LandingPage from '@/pages/LandingPage'
 import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 export default {
-  name: 'app',
-  components: {
-    SiteNavTop,
-    LandingPage,
-    SiteFooter
-  }
+	name: 'app',
+	components: {
+		SiteNavUser,
+		SiteFooter
+	}
 }
 </script>
 
 <style lang="scss">
-  @import "./scss/global";
+	@import "./scss/global";
 </style>

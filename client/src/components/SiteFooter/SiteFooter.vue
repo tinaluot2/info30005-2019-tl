@@ -17,6 +17,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./SiteFooter.scss";
+@import "@/scss/_footer.scss";
 </style>
 

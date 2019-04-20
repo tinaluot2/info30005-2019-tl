@@ -1,18 +1,20 @@
 <template>
   <div>
+    <SiteNavTop />
     <LandingPage />
     <SiteFooter />
   </div>
 </template>
 
 <script>
-import LandingPage from './pages/LandingPage.vue'
-import SiteFooter from './components/SiteFooter/SiteFooter.vue'
-
+import SiteNavTop from '@/components/SiteNavTop/SiteNavTop'
+import LandingPage from '@/pages/LandingPage'
+import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 export default {
   name: 'app',
   components: {
+    SiteNavTop,
     LandingPage,
     SiteFooter
   }
@@ -20,5 +22,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./scss/global";
+  @import "./scss/global";
 </style>

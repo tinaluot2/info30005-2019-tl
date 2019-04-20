@@ -1,6 +1,5 @@
 <template>
 	<nav class="navbar" role="navigation" aria-label="main navigation">
-		<div class="container">
 		<div class="navbar-brand">
 			<div class="logotype">Reform.</div>
 			<div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
@@ -13,22 +12,23 @@
 		<div class="navbar-menu" :class="{ 'is-active': showNav }">
 			<div class="navbar-end">
 				<a class="navbar-item">Discover</a>
-				<a class="navbar-item">About</a>
-				<a class="navbar-item">Misson</a>
-				<a class="navbar-item">
-						<button class="button-light spacing-not-last-child">Log In</button>
-						<button class="button-dark">Sign Up</button>
-				</a>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link">You</a>
+					<div class="navbar-dropdown">
+						<a class="navbar-item">My Profile</a>
+						<a class="navbar-item">Account Settings</a>
+						<a class="navbar-item">Wishlist</a>
+					</div>
 				</div>
+				<a class="navbar-item"><button class="button-dark">Create</button></a>
 			</div>
-		</div>
 		</div>
 	</nav>
 </template>
 
 <script>
 export default {
-	name: 'SiteNavTop',
+	name: 'SiteNavTopUser',
 	data: function() {
 			return {
 				showNav: false
@@ -38,6 +38,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/_navbar.scss";
+@import "SiteNavTopUser.scss";
 </style>
 

@@ -1,30 +1,37 @@
 @import "../../scss/global.scss";
 
 #footer {
-    color: $text-color;
-    padding: 20px 0;
+    color: $body-color;
     text-transform: uppercase;
     border-top: 1px solid #eee;
-    font-size: 12px;
+	font-size: 12px;
+	align-self: center;
 
     .footer-text {
-	    margin-left: 12px;
+		float: left;
+		padding: 20px 0;
+	}
+
+	footer-links {
+		float: right;
+		padding: 20px 0;
 	}
 
 	footer-links a{
-	    padding: 10px;
+	    padding-left: 20px;
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 960px) {
 	#footer {
-	    font-size: 10px;
+		font-size: 11px;
+		padding: 0 20px;
 	}
 
 	footer-links a {
-	    float: none;
-	    margin-right: 0;
+	    float: left;
 	    width: auto;
 	    border: 0;
 	}
+
 }

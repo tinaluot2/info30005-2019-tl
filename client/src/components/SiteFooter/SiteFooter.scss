@@ -1,37 +1,39 @@
 @import "../../scss/global.scss";
 
 #footer {
-    color: $body-color;
-    text-transform: uppercase;
-    border-top: 1px solid #eee;
 	font-size: 12px;
-	align-self: center;
+	padding: 5px;
+	text-transform: uppercase;
 
-    .footer-text {
-		float: left;
-		padding: 20px 0;
+	.footer-text {
+		padding: 5px;
+		text-align: center;
 	}
 
-	footer-links {
-		float: right;
-		padding: 20px 0;
+	.footer-links {
+		padding: 5px;
+		display: none;
 	}
 
-	footer-links a{
-	    padding-left: 20px;
-	}
+	border-top: 1px solid #eee;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 480px) {
 	#footer {
-		font-size: 11px;
-		padding: 0 20px;
-	}
+		overflow:auto;
+		padding: 10px;
 
-	footer-links a {
-	    float: left;
-	    width: auto;
-	    border: 0;
-	}
+		.footer-text {
+			float: left;
+			align-self: center;
+		}
 
+		.footer-links {
+			position: relative;
+			display: block;
+			float: right;
+			margin-left: auto;
+			align-self: center;
+		}
+	}
 }

@@ -2,10 +2,10 @@
   <div id="footer">
 		<div class="container">
 		<p class="footer-text">Reform Lab © 2019</p>
-				<footer-links>
+				<div class="footer-links">
 					<a href="#mission">About Reform</a>
 					<a href="#faq">FAQ</a>
-				</footer-links>
+				</div>
 		</div>
 	</div>
 </template>

@@ -1,16 +1,17 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import LandingPage from '@/pages/LandingPage'
 import UserProfile from '@/pages/UserProfile'
 import UserSettings from '@/pages/UserSettings'
 import CreateItem from '@/pages/CreateItem'
 import UserSavedLists from '@/pages/UserSavedLists'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export const router = new VueRouter({
+    mode: 'history',
     routes: [
-        {
+{
             path: '/',
             name: 'Reform',
             component: LandingPage
@@ -37,4 +38,3 @@ export default new Router({
         }
     ]
 })
-

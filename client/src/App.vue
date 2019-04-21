@@ -1,13 +1,13 @@
 <template>
 	<div id="app">
 		<SiteNavUser />
+		<router-view />
 		<SiteFooter />
 	</div>
 </template>
 
 <script>
 import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
-import LandingPage from '@/pages/LandingPage'
 import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 export default {

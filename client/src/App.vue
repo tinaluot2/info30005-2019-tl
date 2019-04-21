@@ -1,24 +1,24 @@
 <template>
-  <div>
-    <LandingPage />
-    <SiteFooter />
-  </div>
+	<div id="app">
+		<SiteNavUser />
+		<router-view />
+		<SiteFooter />
+	</div>
 </template>
 
 <script>
-import LandingPage from './pages/LandingPage.vue'
-import SiteFooter from './components/SiteFooter/SiteFooter.vue'
-
+import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
+import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 export default {
-  name: 'app',
-  components: {
-    LandingPage,
-    SiteFooter
-  }
+	name: 'app',
+	components: {
+		SiteNavUser,
+		SiteFooter
+	}
 }
 </script>
 
 <style lang="scss">
-@import "./scss/global";
+	@import "./scss/global";
 </style>

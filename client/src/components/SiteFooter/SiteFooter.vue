@@ -1,11 +1,11 @@
 <template>
   <div id="footer">
-		<div class="wrapper">
+		<div class="container">
 		<p class="footer-text">Reform Lab © 2019</p>
-				<footer-links>
+				<div class="footer-links">
 					<a href="#mission">About Reform</a>
 					<a href="#faq">FAQ</a>
-				</footer-links>
+				</div>
 		</div>
 	</div>
 </template>
@@ -17,6 +17,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./SiteFooter.scss";
+@import "@/scss/_footer.scss";
 </style>
 

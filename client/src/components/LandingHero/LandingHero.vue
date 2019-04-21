@@ -16,6 +16,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./LandingHero.scss";
+@import "./_hero.scss";
 </style>
 

@@ -12,18 +12,19 @@ html, body {
 }
 
 body {
-	font-family: $main-font;
-	color: $text-color;
-	font-size: $body-font-size;
+	font-family: $body-family;
+	color: $body-color;
+	font-size: $body-size;
 }
 
 a {
 	color: $primary-color;
 	text-decoration: none;
 	transition: all 500ms ease;
+	padding: 5px;
 }
 
 a:hover {
-	color: $text-hover-color;
+	color: $link-hover;
 	transition: all 700ms ease;
 }

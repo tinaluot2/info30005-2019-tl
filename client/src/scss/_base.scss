@@ -6,15 +6,23 @@
 	padding: 0;
 }
 
-html, body {
-	margin: 0;
-	padding: 0;
-}
+html {
+	height: 100%;
+	box-sizing: border-box;
+  }
+
+*, *:before, *:after {
+	box-sizing: inherit;
+  }
 
 body {
 	font-family: $body-family;
 	color: $body-color;
-	font-size: $body-size;
+	position: relative;
+	margin: 0;
+	padding-bottom: 6rem;
+	min-height: 100%;
+	overflow: auto;
 }
 
 a {

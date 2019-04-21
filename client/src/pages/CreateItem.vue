@@ -1,10 +1,20 @@
 <template>
-	<h1>Create Item</h1>
+	<UploadItemForm />
 </template>
 
 <script>
+import UploadItemForm from '@/components/UploadItemForm/UploadItemForm.vue'
+
 export default {
-	name: 'Create Item'
+	name: 'Create Item',
+		components: {
+			UploadItemForm
+		},
+		data () {
+			return{
+				title: 'Upload a New Project'
+			}
+		}
 }
 </script>
 

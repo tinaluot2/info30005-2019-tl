@@ -1,0 +1,62 @@
+@import "../../scss/global";
+
+h1 {
+	font-size: $title-size;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: $primary-color;
+	text-align: center;
+	margin-bottom:30px;
+}
+
+form-label {
+	color: $body-color;
+	font-weight: 700;
+}
+
+.upload-page-body{
+	background-color: $bg-color;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+}
+
+.image-upload input {
+	display: block;
+	padding: 5px 0;
+}
+
+.upload-form {
+	height: 100%;
+	padding: 20px;
+	margin: 65px auto 0 auto;
+	background-color: white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.file {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+.form {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.checkboxes {
+	border: 1px solid $border-color;
+	border-radius: 3px;
+	padding: 10px;
+}
+.checkbox {
+	padding: 10px;
+}
+
+@media screen and (min-width: 480px) {
+	.upload-form {
+		padding: 50px;
+		margin: 85px 20px 20px 20px;
+	}
+}

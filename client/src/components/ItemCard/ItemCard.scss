@@ -1,0 +1,41 @@
+@import "@/scss/global.scss";
+
+.small-card {
+    margin: 30px;
+    box-shadow: $box-drop-shadow;
+    position: relative;
+    margin: 20px auto;
+    color: $body-color;
+    max-width: 400px;
+}
+
+.card-footer {
+    border-top: solid 1px $border-color;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content, .card-content a {
+    color: $body-color;
+    display: block;
+
+    .item-title, .item-title a {
+        font-weight: bold;
+    }
+
+    .item-creator, .item-creator a {
+        padding-bottom: 25px;
+    }
+
+    .item-category, .item-creator a {
+        font-size: 12px;
+    }
+}
+
+// @media screen and (min-width: 480px) {
+//     .intro-heading {
+//             font-size: 6vw;
+//         }
+// }

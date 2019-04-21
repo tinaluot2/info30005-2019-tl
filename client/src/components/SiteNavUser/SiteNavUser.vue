@@ -16,14 +16,17 @@
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">You</a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="#user">My Profile</a>
-							<a class="navbar-item" href="#settings">Account Settings</a>
-							<a class="navbar-item" href="#lists">Lists</a>
+							<router-link to="/user"
+                                 class="navbar-item">My Profile</router-link>
+							<router-link to="/settings"
+                                 class="navbar-item">Account Settings</router-link>
+							<router-link to="/lists"
+                                 class="navbar-item">Saved Lists</router-link>
 							<hr class="navbar-divider">
 							<a class="navbar-item" href="#logout">Sign Out</a>
 						</div>
 					</div>
-					<a class="navbar-item button-no-background" href="#create"><button class="button-dark">New Project</button></a>
+					<router-link to="/create" class="navbar-item"><button class="button-dark">New Project</button></router-link>
 				</div>
 			</div>
 		</div>

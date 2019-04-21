@@ -2,7 +2,7 @@
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="container">
 			<div class="navbar-brand">
-				<div class="logotype">Reform.</div>
+				<router-link to="/" class="logotype">Reform.</router-link>
 				<div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
 					<span></span>
 					<span></span>
@@ -26,7 +26,7 @@
 							<a class="navbar-item" href="#logout">Sign Out</a>
 						</div>
 					</div>
-					<router-link to="/create" class="navbar-item"><button class="button-dark">New Project</button></router-link>
+					<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
 				</div>
 			</div>
 		</div>

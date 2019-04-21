@@ -13,10 +13,11 @@ $body-size: 16px;
 
 //Colours
 $primary-color: #3DBF74;
+$primary-color-dark: #21A067;
 $body-color: #464443;
 $link: $primary-color;
 $link-hover: #555;
-$button-hover-color: #21A067;
+$button-hover-color: $primary-color-dark;
 $button-text: white;
 $hover-background-color: #f5f5f5;
 

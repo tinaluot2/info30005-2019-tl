@@ -1,45 +1,45 @@
 @import "../../scss/global.scss";
 
 #footer {
-	font-size: 12px;
-	width: 100%;
-	padding: 5px;
-	text-transform: uppercase;
-	position: absolute;
-	bottom: 0;
-	background: white;
+    font-size: 12px;
+    width: 100%;
+    padding: 5px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    background: white;
 
-	.footer-text {
-		padding: 5px;
-		text-align: center;
-	}
+    .footer-text {
+        padding: 5px;
+        text-align: center;
+    }
 
-	.footer-links {
-		padding: 5px;
-		display: none;
-	}
+    .footer-links {
+        padding: 5px;
+        display: none;
+    }
 
-	border-top: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
 
 @media screen and (min-width: 480px) {
-	#footer {
-		overflow:auto;
-		padding: 1rem;
+    #footer {
+        overflow:auto;
+        padding: 1rem;
 
-		.footer-text {
-			float: left;
-			align-self: center;
-			padding: 0 15px;
-		}
+        .footer-text {
+            float: left;
+            align-self: center;
+            padding: 0 15px;
+        }
 
-		.footer-links {
-			position: relative;
-			display: block;
-			float: right;
-			margin-left: auto;
-			align-self: center;
-			padding: 0 10px;
-		}
-	}
+        .footer-links {
+            position: relative;
+            display: block;
+            float: right;
+            margin-left: auto;
+            align-self: center;
+            padding: 0 10px;
+        }
+    }
 }

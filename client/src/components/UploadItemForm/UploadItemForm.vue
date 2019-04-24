@@ -3,17 +3,19 @@
 		<div class="container">
 			<div class="upload-form">
 				<h1>Create a New Project</h1>
-				<div class="image-upload">
-					<input type="file" name="image01" accept="image/*">
-					<input type="file" name="image02" accept="image/*">
-					<input type="file" name="image03" accept="image/*">
-					<input type="file" name="image04" accept="image/*">
-					<input type="file" name="image05" accept="image/*">
-				</div>
 				<div class="inputs">
 					<div class="form">
 						<form-label>Title</form-label>
 						<input class="input" type="text" placeholder="E.g: Denim Lunch Box">
+					</div>
+					<div class="image-upload">
+						<form-label>Images</form-label>
+						<p>Select images to showcase the transformation of your item.</p>
+						<input type="file" name="image01" accept="image/*">
+						<input type="file" name="image02" accept="image/*">
+						<input type="file" name="image03" accept="image/*">
+						<input type="file" name="image04" accept="image/*">
+						<input type="file" name="image05" accept="image/*">
 					</div>
 
 					<div class="form">

@@ -81,6 +81,46 @@ export default {
                 itemCategory: "Paper",
                 itemID: 1238,
                 likeCount: 75
+            },
+                       {
+                itemTitle: "Paper Coaster",
+                itemCreator: "Batman",
+                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
+                itemCategory: "Paper",
+                itemID: 1239,
+                likeCount: 57
+            },
+            {
+                itemTitle: "Denim Pencil Holders",
+                itemCreator: "Marin Iida",
+                itemImage: "https://i.imgur.com/iPylcyU.jpg",
+                itemCategory: "Textiles",
+                itemID: 1240,
+                likeCount: 78
+            },
+            {
+                itemTitle: "Aluminium Flower",
+                itemCreator: "Mark Wang",
+                itemImage: "https://i.imgur.com/WSQzKF3.jpg",
+                itemCategory: "Metal",
+                itemID: 1241,
+                likeCount: 89
+            },
+            {
+                itemTitle: "Plastic Bottle Pencil Case",
+                itemCreator: "Tina Luo",
+                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
+                itemCategory: "Plastic",
+                itemID: 1242,
+                likeCount: 92
+            },
+            {
+                itemTitle: "Magazine Paper Flowers",
+                itemCreator: "Giselle Leung",
+                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
+                itemCategory: "Paper",
+                itemID: 1243,
+                likeCount: 75
             }
             ]
         }

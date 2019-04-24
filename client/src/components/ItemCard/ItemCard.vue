@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="small-card" v-for="(data,ItemCard) in items">
+    <div class="small-card" v-for="(data,ItemCard) in items" v-bind:key="(data,ItemCard)">
         <div class="card-image">
             <figure class="image is-5by4">
                 <img :src="data.itemImage"/>

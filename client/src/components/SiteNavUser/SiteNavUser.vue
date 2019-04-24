@@ -12,7 +12,7 @@
 
 			<div class="navbar-menu" :class="{ 'is-active': showNav }">
 				<div class="navbar-end">
-					<a class="navbar-item">Discover</a>
+					<router-link to="/" class="navbar-item">Discover</router-link>
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">You</a>
 						<div class="navbar-dropdown">

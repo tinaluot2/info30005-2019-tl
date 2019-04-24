@@ -16,12 +16,15 @@ $primary-color: #3DBF74;
 $primary-color-dark: #21A067;
 $body-color: #464443;
 $link: $primary-color;
+$link-secondary: #777;
 $link-hover: #555;
 $button-hover-color: $primary-color-dark;
 $button-text: white;
 $hover-background-color: #f5f5f5;
-$bg-color:#f9f9f9;
-$border-color:#d0d0d0;
+$bg-color: #f9f9f9;
+$border-color: #f0f0f0;
+$card-footer-border-top: $border-color;
+$box-drop-shadow: 0 1px 3px rgba(0,0,0,0.1);
 
 //Navigation
 $navbar-item-color: $body-color;

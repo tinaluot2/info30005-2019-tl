@@ -5,6 +5,7 @@ import UserProfile from '@/pages/UserProfile'
 import UserSettings from '@/pages/UserSettings'
 import CreateItem from '@/pages/CreateItem'
 import UserSavedLists from '@/pages/UserSavedLists'
+import DiscoverPage from '@/pages/DiscoverPage'
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,7 @@ export const router = new VueRouter({
 {
             path: '/',
             name: 'Reform',
-            component: LandingPage
+            component: DiscoverPage
         },
         {
             path: '/user',

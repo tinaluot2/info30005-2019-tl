@@ -12,14 +12,15 @@ h1 {
 form-label {
 	color: $body-color;
 	font-weight: 700;
+	margin-top: 20px;
 }
 
 .upload-page-body{
-	background-color: $bg-color;
+    background-color: $bg-color;
+    padding-top: 65px;
 	width: 100%;
-	height: 100vh;
-	position: absolute;
-	top: 0;
+	height: 100%;
+    position: relative;
 }
 
 .image-upload input {
@@ -28,11 +29,10 @@ form-label {
 }
 
 .upload-form {
-	height: 100%;
 	padding: 20px;
 	margin: 0 auto;
 	background-color: white;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	box-shadow: $box-drop-shadow;
 }
 
 .file {
@@ -42,8 +42,7 @@ form-label {
 }
 
 .form {
-	margin-top: 20px;
-	margin-bottom: 10px;
+	margin: 30px 0;
 }
 
 .checkboxes {
@@ -60,7 +59,7 @@ form-label {
 @media screen and (min-width: 480px) {
 	.upload-form {
 		padding: 50px;
-		margin: 85px 20px 20px 20px;
+		margin: 20px;
 	}
 
 	.checkbox {

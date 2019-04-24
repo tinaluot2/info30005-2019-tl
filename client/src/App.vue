@@ -7,13 +7,11 @@
 
 <script>
 import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
-import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 export default {
 	name: 'app',
 	components: {
-		SiteNavUser,
-		SiteFooter
+		SiteNavUser
 	}
 }
 </script>

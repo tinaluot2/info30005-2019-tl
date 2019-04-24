@@ -2,7 +2,7 @@
     <div class="display-grid">
         <div class="container">
             <div class="grid-container">
-                <div class="small-card" v-for="(data,ItemCard) in items" v-bind:key="(data,ItemCard)">
+                <div class="small-card" v-for="(data,ItemCard) in items" v-bind:key="(ItemCard)">
                     <div class="card-image">
                         <figure class="image is-5by4">
                             <img :src="data.itemImage"/>

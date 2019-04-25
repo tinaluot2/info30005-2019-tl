@@ -27,44 +27,34 @@ export default {
         return {
             items:[
             {
-                itemTitle: "Paper Coaster",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
-                itemCategory: "Paper",
-                itemID: 1234,
-                likeCount: 57
-            },
-            {
+                itemID: 12305,
+                creatorID: 1001,
                 itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/iPylcyU.jpg",
                 itemCategory: "Textiles",
-                itemID: 1345,
-                likeCount: 76
+                likeCount: 60,
+                isLiked: false
             },
             {
-                itemTitle: "Twine Decorations",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/mj1U6se.jpg",
-                itemCategory: "Textiles",
-                itemID: 1346,
-                likeCount: 90
-			},
-			{
-                itemTitle: "Paper Coaster",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
+                itemID: 12309,
+                creatorID: 1001,
+                itemTitle: "Paper Bracelet",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/L7JMcJ2.jpg",
                 itemCategory: "Paper",
-                itemID: 1234,
-                likeCount: 57
+                likeCount: 96,
+                isLiked: false
             },
             {
-                itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
-                itemCategory: "Textiles",
-                itemID: 1345,
-                likeCount: 76
+                itemID: 12310,
+                creatorID: 1001,
+                itemTitle: "Magazine Paper Flowers",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/ExJHxfL.jpg",
+                itemCategory: "Paper",
+                likeCount: 85,
+                isLiked: false
             }
             ]
         }

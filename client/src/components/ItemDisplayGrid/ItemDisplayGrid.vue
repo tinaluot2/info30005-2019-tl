@@ -18,76 +18,84 @@ export default {
         return {
             items:[
             {
+                itemID: 12304,
+                creatorID: 1000,
                 itemTitle: "Paper Coaster",
                 itemCreator: "Batman",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
+                itemImageURL: "https://i.imgur.com/FLL5J3X.jpg",
                 itemCategory: "Paper",
-                itemID: 1234,
-                likeCount: 57
+                likeCount: 58,
+                isLiked: false
             },
             {
+                itemID: 12305,
+                creatorID: 1001,
                 itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/iPylcyU.jpg",
                 itemCategory: "Textiles",
-                itemID: 1235,
-                likeCount: 78
+                likeCount: 60,
+                isLiked: false
             },
             {
-                itemTitle: "Twine Decorations",
-                itemCreator: "Mark Wang",
-                itemImage: "https://i.imgur.com/mj1U6se.jpg",
+                itemID: 12306,
+                creatorID: 1002,
+                itemTitle: "Potplant Sweater",
+                itemCreator: "markwang",
+                itemImageURL: "https://i.imgur.com/M6eejUi.jpg",
                 itemCategory: "Textiles",
-                itemID: 1236,
-                likeCount: 89
+                likeCount: 63,
+                isLiked: false
             },
             {
-                itemTitle: "Plastic Bottle Pencil Case",
-                itemCreator: "Tina Luo",
-                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
+                itemID: 12307,
+                creatorID: 1003,
+                itemTitle: "Plastic Bottle Pencil Case With Zipper",
+                itemCreator: "tinaluo",
+                itemImageURL: "https://i.imgur.com/6MbxLyA.jpg",
                 itemCategory: "Plastic",
-                itemID: 1236,
-                likeCount: 92
+                likeCount: 96,
+                isLiked: false
             },
             {
-                itemTitle: "Magazine Paper Flowers",
-                itemCreator: "Giselle Leung",
-                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
+                itemID: 12311,
+                creatorID: 1006,
+                itemTitle: "Aluminium Lanterns",
+                itemCreator: "Tony Stark",
+                itemImageURL: "https://i.imgur.com/D8Th4YY.jpg",
+                itemCategory: "Metal",
+                likeCount: 88,
+                isLiked: false
+            },
+            {
+                itemID: 12308,
+                creatorID: 1005,
+                itemTitle: "Plastic Bottle Pencil Case With Zipper",
+                itemCreator: "gleung",
+                itemImageURL: "https://i.imgur.com/Q5GRWhI.jpg",
+                itemCategory: "Metal",
+                likeCount: 47,
+                isLiked: false
+            },
+            {
+                itemID: 12309,
+                creatorID: 1001,
+                itemTitle: "Paper Bracelet",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/L7JMcJ2.jpg",
                 itemCategory: "Paper",
-                itemID: 1238,
-                likeCount: 75
+                likeCount: 96,
+                isLiked: false
             },
             {
-                itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
-                itemCategory: "Textiles",
-                itemID: 1235,
-                likeCount: 78
-            },
-            {
-                itemTitle: "Twine Decorations",
-                itemCreator: "Mark Wang",
-                itemImage: "https://i.imgur.com/mj1U6se.jpg",
-                itemCategory: "Textiles",
-                itemID: 1236,
-                likeCount: 89
-            },
-            {
-                itemTitle: "Plastic Bottle Pencil Case",
-                itemCreator: "Tina Luo",
-                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
-                itemCategory: "Plastic",
-                itemID: 1236,
-                likeCount: 92
-            },
-            {
+                itemID: 12310,
+                creatorID: 1001,
                 itemTitle: "Magazine Paper Flowers",
-                itemCreator: "Giselle Leung",
-                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/ExJHxfL.jpg",
                 itemCategory: "Paper",
-                itemID: 1238,
-                likeCount: 75
+                likeCount: 85,
+                isLiked: false
             }
             ]
         }

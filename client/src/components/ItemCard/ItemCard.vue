@@ -1,9 +1,9 @@
 <template>
- <div class="grid-container profile-grid">
+ <div class="grid-container site-wide">
     <div class="small-card" v-for="item in items" v-bind:key="item.itemID">
         <div class="card-image">
             <figure class="image is-5by4">
-                <img :src="item.itemImage"/>
+                <img :src="item.itemImageURL"/>
             </figure>
         </div>
         <div class="card-content">
@@ -13,18 +13,19 @@
         </div>
 
         <footer class="card-footer">
-            <p class="card-footer-item">
-                <span>
-                    <i class="fas fa-star" ></i>
-                    ❤ {{item.likeCount}}
+            <div class="card-footer-item">
+                <div class="icon-button-wrapper like-button"
+                @click="item.isLiked = !item.isLiked"
+                v-bind:class="{liked:item.isLiked}">
+                    <i class="material-icons md-16">thumb_up</i>
+                </div>
+                {{item.likeCount}}
+            </div>
+            <div class="card-footer-item">
+                 <span class="icon-button-wrapper bookmark-button">
+                    <i class="material-icons md-16">bookmark</i>
                 </span>
-            </p>
-            <p class="card-footer-item">
-                <span>
-                    <i class="fas fa-book"></i>
-                    (Bookmark Count)
-                </span>
-            </p>
+            </div>
         </footer>
     </div>
 </div>
@@ -37,19 +38,25 @@ export default {
     name: 'item-card',
     props: {
         items: {
+            itemID: {type: Number},
+            creatorID: {type: Number},
             itemTitle: {type: String},
             itemCreator: {type: String},
-            itemImage: {type: String},
+            itemImageURL: {type: String},
             itemCategory: {type: String},
-            itemID: {type: Number},
-            likeCount: {type: Number}
+            likeCount: {type: Number},
+            isLiked: {type: Boolean},
+            isBookmarked: {type: Boolean}
         }
     },
-    data () {
-        return {
-
+    methods: {},
+    computed: {
+        toggleReaccs: function(){
+            return {
+                liked: this.items.isLiked
+            }
         }
-    }
+    },
 }
 </script>
 

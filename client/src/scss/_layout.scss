@@ -25,12 +25,43 @@
 	margin-right: 10px;
 }
 
+.background {
+	margin: auto;
+	background-color: $bg-color;
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+}
+
+//Two column layout for user profile page
+.two-column {
+	display: block;
+	width: 100%;
+	padding: 80px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.two-column {
+		display: flex;
+		width: 100%;
+	}
+
+	.profile-bio {
+		order: 1;
+		flex: 1;
+	}
+
+	.profile-grid {
+		order: 1;
+		flex: 3;
+	}
+}
 
 //Transition Animations
 .fade-enter-active, .fade-leave-active {
-  transition-duration: 0.5s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+	transition-duration: 0.5s;
+	transition-property: opacity;
+	transition-timing-function: ease;
 }
 
 .fade-enter, .fade-leave-active {

@@ -1,22 +1,22 @@
 <template>
-<div>
-    <div class="small-card" v-for="(data,ItemCard) in items" v-bind:key="(data,ItemCard)">
+ <div class="grid-container profile-grid">
+    <div class="small-card" v-for="item in items" v-bind:key="item.itemID">
         <div class="card-image">
             <figure class="image is-5by4">
-                <img :src="data.itemImage"/>
+                <img :src="item.itemImage"/>
             </figure>
         </div>
         <div class="card-content">
-            <a class="item-title">{{data.itemTitle}}</a>
-            <a class="item-creator">{{data.itemCreator}}</a>
-            <a class="item-category">{{data.itemCategory}}</a>
+            <a class="item-title">{{item.itemTitle}}</a>
+            <a class="item-creator">{{item.itemCreator}}</a>
+            <a class="item-category">{{item.itemCategory}}</a>
         </div>
 
         <footer class="card-footer">
             <p class="card-footer-item">
                 <span>
                     <i class="fas fa-star" ></i>
-                    ❤ {{data.likeCount}}
+                    ❤ {{item.likeCount}}
                 </span>
             </p>
             <p class="card-footer-item">
@@ -31,58 +31,29 @@
 </template>
 
 <script>
+//import ItemCardDetail from './ItemCardDetail.vue';
+
 export default {
-    name: 'ItemCard',
+    name: 'item-card',
+    props: {
+        items: {
+            itemTitle: {type: String},
+            itemCreator: {type: String},
+            itemImage: {type: String},
+            itemCategory: {type: String},
+            itemID: {type: Number},
+            likeCount: {type: Number}
+        }
+    },
     data () {
         return {
-            items:[
-            {
-                itemTitle: "Paper Coaster",
-                itemCreator: "Batman",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
-                itemCategory: "Paper",
-                itemID: 1234,
-                likeCount: 57
-            },
-            {
-                itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
-                itemCategory: "Textiles",
-                itemID: 1235,
-                likeCount: 78
-            },
-            {
-                itemTitle: "Twine Decorations",
-                itemCreator: "Mark Wang",
-                itemImage: "https://i.imgur.com/mj1U6se.jpg",
-                itemCategory: "Textiles",
-                itemID: 1236,
-                likeCount: 89
-            },
-            {
-                itemTitle: "Plastic Bottle Pencil Case",
-                itemCreator: "Tina Luo",
-                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
-                itemCategory: "Plastic",
-                itemID: 1236,
-                likeCount: 92
-            },
-            {
-                itemTitle: "Magazine Paper Flowers",
-                itemCreator: "Giselle Leung",
-                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
-                itemCategory: "Paper",
-                itemID: 1238,
-                likeCount: 75
-            }
-            ]
+
         }
     }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "./ItemCard.scss";
 </style>
 

@@ -1,0 +1,78 @@
+@import "../../scss/global.scss";
+
+.profile-box {
+    padding: 20px;
+    border: 1px $border-color;
+    text-align: center;
+    position: relative;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    padding: 10px;
+    margin-bottom: 20px;
+	}
+
+.username {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h3 {
+    color: $primary-color-dark;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.bio, .achievement {
+    padding: 20px 0;
+}
+
+.achievement {
+    border-top: solid 1px $border-color;
+    text-align: center;
+    align-self: center;
+}
+
+.icon-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.material-icons .md-18 {
+    font-size: 15px;
+    align-self: center;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+
+.description {
+    word-wrap: break-word;
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 480px) {
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .profile-box {
+		box-shadow: $box-drop-shadow;
+        background-color: white;
+        min-width: 252px;
+        min-height: 50vh;
+        margin-right: 20px;
+	}
+
+	.profile-img {
+		width: 180px;
+    	height: 180px;
+	}
+}

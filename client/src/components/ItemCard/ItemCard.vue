@@ -1,5 +1,5 @@
 <template>
- <div class="grid-container site-wide">
+ <div class="grid-container profile-grid">
     <div class="small-card" v-for="item in items" v-bind:key="item.itemID">
         <div class="card-image">
             <div class="image-overlay">

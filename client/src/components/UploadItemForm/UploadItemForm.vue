@@ -53,13 +53,12 @@
 							</label>
 						</div>
 					</div>
-				<button class="button-dark spacing-not-last-child">Post</button>
+				<router-link to="/user"><button class="button-dark spacing-not-last-child">Post</button></router-link>
 				<button class="button-light">Save Draft</button>
 			</div>
 		</div>
 	</div>
 </template>
-
 
 <script>
 	export default {

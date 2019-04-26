@@ -51,6 +51,10 @@
 
 .card-footer {
     border-top: solid 1px $border-color;
+
+    .like-count {
+        font-weight: bold;
+    }
 }
 
 .card-content {
@@ -77,7 +81,6 @@
 .card-content a:hover {
     text-decoration: underline;
 }
-
 @media screen and (min-width: 480px) {
     .grid-container {
         display: grid;

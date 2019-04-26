@@ -24,7 +24,9 @@
                 v-bind:class="{liked:item.isLiked}">
                     <i class="material-icons md-16">thumb_up</i>
                 </div>
-                {{item.likeCount}}
+                <div class="like-count">
+                    {{item.likeCount}}
+                </div>
             </div>
             <div class="card-footer-item">
                  <span class="icon-button-wrapper bookmark-button">

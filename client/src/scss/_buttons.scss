@@ -54,20 +54,20 @@ button {
 
 //Like
 .like-button {
-    color: $link-secondary;
+    color: #999;
 
     &:hover, &:focus {
-        color: red;
+        color: $primary-color;
     }
 }
 
 .liked {
-    color: red;
+    color: $primary-color;
 }
 
 //Bookmark
 .bookmark-button {
-    color: $link-secondary;
+    color: #999;
 
     &:hover, &:focus {
         color: gold;

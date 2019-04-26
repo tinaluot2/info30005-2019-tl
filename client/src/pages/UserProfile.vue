@@ -5,9 +5,10 @@
 				<div class="profile-bio">
 					<user-profile-box></user-profile-box>
 				</div>
-				<div class="profile-grid">
-					<item-card v-bind:items="items"></item-card>
-				</div>
+				<div class="grid-container profile-grid">
+                    <item-card v-for="item in items" v-bind:key="item.itemID" :item="item">
+                </item-card>
+            </div>
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,5 @@
 @import "../scss/variables";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /* Base Styles */
 * {
@@ -34,3 +35,6 @@ a:hover {
     color: $link-hover;
     transition: all 700ms ease;
 }
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-16 { font-size: 16px; }

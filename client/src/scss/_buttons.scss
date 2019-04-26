@@ -1,3 +1,4 @@
+//General buttons
 button {
     text-transform: uppercase;
     font-weight: bold;
@@ -38,4 +39,62 @@ button {
 
 .button-no-background:hover {
     background: transparent!important;
+}
+
+//ICONIC BUTTONS
+.icon-button-wrapper {
+    margin: 5px 5px -1px 5px;
+    transition: all 600ms ease;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        transition: all 300ms ease;
+    }
+}
+
+//Like
+.like-button {
+    color: $link-secondary;
+
+    &:hover, &:focus {
+        color: red;
+    }
+}
+
+.liked {
+    color: red;
+}
+
+//Bookmark
+.bookmark-button {
+    color: $link-secondary;
+
+    &:hover, &:focus {
+        color: gold;
+    }
+}
+.bookmarked {
+    color: gold;
+}
+
+//Edit
+.edit-icon-wrapper {
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    transition: all 600ms ease;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        transition: all 300ms ease;
+        color: $primary-color;
+    }
+}
+
+.edit-item-button {
+    padding: 5px;
+    top: 5px;
+    color: white;
 }

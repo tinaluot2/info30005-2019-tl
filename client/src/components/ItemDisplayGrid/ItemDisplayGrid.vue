@@ -1,35 +1,7 @@
 <template>
-    <div class="display-grid">
+    <div class="background">
         <div class="container">
-            <div class="grid-container">
-                <div class="small-card" v-for="(data,ItemCard) in items" v-bind:key="(ItemCard)">
-                    <div class="card-image">
-                        <figure class="image is-5by4">
-                            <img :src="data.itemImage"/>
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <a class="item-title">{{data.itemTitle}}</a>
-                        <a class="item-creator">{{data.itemCreator}}</a>
-                        <a class="item-category">{{data.itemCategory}}</a>
-                    </div>
-
-                    <footer class="card-footer">
-                        <p class="card-footer-item">
-                            <span>
-                                <i class="fas fa-star" ></i>
-                                ❤ {{data.likeCount}}
-                            </span>
-                        </p>
-                        <p class="card-footer-item">
-                            <span>
-                                <i class="fas fa-book"></i>
-                                (Bookmark Count)
-                            </span>
-                        </p>
-                    </footer>
-                </div>
-            </div>
+            <item-card v-bind:items="items"></item-card>
         </div>
     </div>
 </template>
@@ -38,89 +10,92 @@
 import ItemCard from '@/components/ItemCard/ItemCard'
 
 export default {
-    name: 'ItemDisplayGrid',
-    data () {
+    name: 'item-display-grid',
+    components: {
+        'item-card': ItemCard
+    },
+    data() {
         return {
             items:[
             {
+                itemID: 12304,
+                creatorID: 1000,
                 itemTitle: "Paper Coaster",
                 itemCreator: "Batman",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
+                itemImageURL: "https://i.imgur.com/FLL5J3X.jpg",
                 itemCategory: "Paper",
-                itemID: 1234,
-                likeCount: 57
+                likeCount: 58,
+                isLiked: false
             },
             {
+                itemID: 12305,
+                creatorID: 1001,
                 itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/iPylcyU.jpg",
                 itemCategory: "Textiles",
-                itemID: 1235,
-                likeCount: 78
+                likeCount: 60,
+                isLiked: false
             },
             {
-                itemTitle: "Twine Decorations",
-                itemCreator: "Mark Wang",
-                itemImage: "https://i.imgur.com/mj1U6se.jpg",
+                itemID: 12306,
+                creatorID: 1002,
+                itemTitle: "Potplant Sweater",
+                itemCreator: "markwang",
+                itemImageURL: "https://i.imgur.com/M6eejUi.jpg",
                 itemCategory: "Textiles",
-                itemID: 1236,
-                likeCount: 89
+                likeCount: 63,
+                isLiked: false
             },
             {
-                itemTitle: "Plastic Bottle Pencil Case",
-                itemCreator: "Tina Luo",
-                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
+                itemID: 12307,
+                creatorID: 1003,
+                itemTitle: "Plastic Bottle Pencil Case With Zipper",
+                itemCreator: "tinaluo",
+                itemImageURL: "https://i.imgur.com/6MbxLyA.jpg",
                 itemCategory: "Plastic",
-                itemID: 1236,
-                likeCount: 92
+                likeCount: 96,
+                isLiked: false
             },
             {
-                itemTitle: "Magazine Paper Flowers",
-                itemCreator: "Giselle Leung",
-                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
-                itemCategory: "Paper",
-                itemID: 1238,
-                likeCount: 75
-            },
-                       {
-                itemTitle: "Paper Coaster",
-                itemCreator: "Batman",
-                itemImage: "https://i.imgur.com/FLL5J3X.jpg",
-                itemCategory: "Paper",
-                itemID: 1239,
-                likeCount: 57
-            },
-            {
-                itemTitle: "Denim Pencil Holders",
-                itemCreator: "Marin Iida",
-                itemImage: "https://i.imgur.com/iPylcyU.jpg",
-                itemCategory: "Textiles",
-                itemID: 1240,
-                likeCount: 78
-            },
-            {
-                itemTitle: "Aluminium Flower",
-                itemCreator: "Mark Wang",
-                itemImage: "https://i.imgur.com/WSQzKF3.jpg",
+                itemID: 12311,
+                creatorID: 1006,
+                itemTitle: "Aluminium Lanterns",
+                itemCreator: "Tony Stark",
+                itemImageURL: "https://i.imgur.com/D8Th4YY.jpg",
                 itemCategory: "Metal",
-                itemID: 1241,
-                likeCount: 89
+                likeCount: 88,
+                isLiked: false
             },
             {
-                itemTitle: "Plastic Bottle Pencil Case",
-                itemCreator: "Tina Luo",
-                itemImage: "https://i.imgur.com/6MbxLyA.jpg",
-                itemCategory: "Plastic",
-                itemID: 1242,
-                likeCount: 92
+                itemID: 12308,
+                creatorID: 1005,
+                itemTitle: "Plastic Bottle Pencil Case With Zipper",
+                itemCreator: "gleung",
+                itemImageURL: "https://i.imgur.com/Q5GRWhI.jpg",
+                itemCategory: "Metal",
+                likeCount: 47,
+                isLiked: false
             },
             {
-                itemTitle: "Magazine Paper Flowers",
-                itemCreator: "Giselle Leung",
-                itemImage: "https://i.imgur.com/ExJHxfL.jpg",
+                itemID: 12309,
+                creatorID: 1001,
+                itemTitle: "Paper Bracelet",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/L7JMcJ2.jpg",
                 itemCategory: "Paper",
-                itemID: 1243,
-                likeCount: 75
+                likeCount: 96,
+                isLiked: false
+            },
+            {
+                itemID: 12310,
+                creatorID: 1001,
+                itemTitle: "Magazine Paper Flowers",
+                itemCreator: "mariniida",
+                itemImageURL: "https://i.imgur.com/ExJHxfL.jpg",
+                itemCategory: "Paper",
+                likeCount: 85,
+                isLiked: false
             }
             ]
         }

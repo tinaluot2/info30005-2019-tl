@@ -2,6 +2,11 @@
  <div class="grid-container site-wide">
     <div class="small-card" v-for="item in items" v-bind:key="item.itemID">
         <div class="card-image">
+            <div class="image-overlay">
+                <span class="edit-wrapper edit-item-button">
+                    <i class="material-icons md-18">edit</i>
+                </span>
+            </div>
             <figure class="image is-5by4">
                 <img :src="item.itemImageURL"/>
             </figure>
@@ -56,7 +61,7 @@ export default {
                 liked: this.items.isLiked
             }
         }
-    },
+    }
 }
 </script>
 

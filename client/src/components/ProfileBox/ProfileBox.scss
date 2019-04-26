@@ -64,13 +64,13 @@ h3 {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 960px) {
     .profile-box {
 		box-shadow: $box-drop-shadow;
         background-color: white;
         min-width: 252px;
         min-height: 50vh;
-        margin-right: 60px;
+        margin-right: $margin;
 	}
 
 	.profile-img {

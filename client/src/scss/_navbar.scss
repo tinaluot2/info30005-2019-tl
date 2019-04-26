@@ -2,7 +2,7 @@
 
 .logotype {
 	font-family: $logotype-font;
-	margin-left: 20px;
+	margin-left: 10px;
 	padding-bottom: 5px;
 	font-weight: 700;
 	letter-spacing: 0.1em;
@@ -11,12 +11,13 @@
 	text-transform: lowercase;
 	align-self: center;
 }
+
 .logotype:hover {
 	color: $primary-color-dark;
 }
 
 .navbar-item {
-	padding: 15px;
+	padding: 10px;
 	font-size: 13px;
 }
 
@@ -36,7 +37,7 @@
 }
 
 .navbar-end {
-	padding-right: 15px;
+	padding-right: 20px;
 }
 
 .navbar-burger {
@@ -50,4 +51,14 @@
 	color: white;
 	background: $primary-color;
 	transition: all 500ms ease;
+}
+
+@media screen and (min-width: 768px) {
+	.logotype {
+		margin-left: 10px;
+	}
+
+	.navbar-brand, .navbar-end {
+		padding: 8px $page-margin;
+	}
 }

@@ -1,6 +1,11 @@
 .page-container {
-	position: relative;
-	min-height: 100vh;
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .page-container {
+        padding: $margin $page-margin;
+    }
 }
 
 .content-wrapper {
@@ -30,7 +35,7 @@
 	background-color: $bg-color;
 	width: 100%;
 	min-height: 100vh;
-	position: relative;
+	position: absolute;
 }
 
 .nav-spacing {

@@ -1,5 +1,5 @@
 <template>
-	<div class="upload-page-body">
+	<div class="background nav-spacing">
 		<div class="container">
 			<div class="upload-form">
 				<h1>Create a New Project</h1>

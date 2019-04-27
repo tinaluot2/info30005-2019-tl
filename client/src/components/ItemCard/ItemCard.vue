@@ -1,6 +1,5 @@
 <template>
- <div class="grid-container profile-grid">
-    <div class="small-card" v-for="item in items" v-bind:key="item.itemID">
+    <div class="small-card">
         <div class="card-image">
             <div class="image-overlay">
                 <span class="edit-wrapper edit-item-button">
@@ -35,25 +34,16 @@
             </div>
         </footer>
     </div>
-</div>
 </template>
 
 <script>
-//import ItemCardDetail from './ItemCardDetail.vue';
 
 export default {
     name: 'item-card',
     props: {
-        items: {
-            itemID: {type: Number},
-            creatorID: {type: Number},
-            itemTitle: {type: String},
-            itemCreator: {type: String},
-            itemImageURL: {type: String},
-            itemCategory: {type: String},
-            likeCount: {type: Number},
-            isLiked: {type: Boolean},
-            isBookmarked: {type: Boolean}
+        item: {
+            type: Object,
+            required: true
         }
     },
     methods: {},

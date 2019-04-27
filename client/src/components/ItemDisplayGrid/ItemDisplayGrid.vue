@@ -1,7 +1,10 @@
 <template>
     <div class="background">
         <div class="container">
-            <item-card v-bind:items="items"></item-card>
+            <div class="grid-container site-wide">
+                <item-card v-for="item in items" v-bind:key="item.itemID" :item="item">
+                </item-card>
+            </div>
         </div>
     </div>
 </template>

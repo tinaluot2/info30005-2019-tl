@@ -6,13 +6,21 @@ h1 {
 	font-weight: bold;
 	color: $primary-color;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom:30px;
 }
 
-label {
+form-label {
 	color: $body-color;
 	font-weight: 700;
 	margin-top: 20px;
+}
+
+.upload-page-body{
+    background-color: $bg-color;
+    padding-top: 65px;
+	width: 100%;
+	height: 100%;
+    position: relative;
 }
 
 .image-upload input {
@@ -20,7 +28,7 @@ label {
 	padding: 5px 0;
 }
 
-#upload-form {
+.upload-form {
 	padding: 20px;
 	margin: 0 auto;
 	background-color: white;
@@ -48,8 +56,8 @@ label {
 	display: block;
 }
 
-@media screen and (min-width: 768px) {
-	#upload-form {
+@media screen and (min-width: 480px) {
+	.upload-form {
 		padding: 50px;
 		margin: $margin $page-margin;
 	}

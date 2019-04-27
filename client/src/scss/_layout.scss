@@ -1,6 +1,11 @@
 .page-container {
-	position: relative;
-	min-height: 100vh;
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .page-container {
+        padding: $margin $page-margin;
+    }
 }
 
 .content-wrapper {
@@ -30,7 +35,7 @@
 	background-color: $bg-color;
 	width: 100%;
 	min-height: 100vh;
-	position: relative;
+	position: absolute;
 }
 
 .nav-spacing {
@@ -71,4 +76,46 @@
 
 .fade-enter, .fade-leave-active {
 	opacity: 0
+}
+
+
+//GRIDS
+@media screen and (min-width: 420px) {
+
+    .grid-container {
+        display: grid;
+        align-content: flex-start;
+        margin: 0 auto;
+        grid-gap: 20px;
+    }
+
+    .site-wide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .site-wide {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    .site-wide {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

@@ -17,6 +17,13 @@
     margin-bottom: 10px;
 }
 
+@media screen and (min-width: 480px) {
+
+    .small-card {
+        margin: 0;
+    }
+}
+
 .image-overlay {
     position: absolute;
     top: 0;
@@ -80,44 +87,4 @@
 
 .card-content a:hover {
     text-decoration: underline;
-}
-@media screen and (min-width: 480px) {
-    .grid-container {
-        display: grid;
-        align-content: flex-start;
-        margin: 20px auto;
-        grid-gap: 20px;
-
-        .site-wide {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .profile-grid {
-            grid-template-columns: repeat(1, 1fr);
-        }
-    }
-
-    .small-card {
-        margin: 0;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .site-wide {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .profile-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .site-wide {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .profile-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }

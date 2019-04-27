@@ -11,12 +11,13 @@ button {
 .button-dark {
     background: $primary-color;
     color: $button-text;
-    border: none;
+    border: $primary-color 1px solid;
 }
 
 .button-dark:hover, .button-dark:active, .button-dark:focus {
     background: $button-hover-color;
     transition: all 600ms ease;
+    border: $button-hover-color 1px solid;
 }
 
 .button-light {

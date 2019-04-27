@@ -7,6 +7,8 @@ import CreateItem from '@/pages/CreateItem'
 import UserSavedLists from '@/pages/UserSavedLists'
 import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
+import EditItem from '@/components/EditItem/EditItem'
+
 
 Vue.use(VueRouter)
 
@@ -43,6 +45,11 @@ export const router = new VueRouter({
             path: '/item',
             name: 'Item Profile',
             component: ItemProfile
+        },
+        {
+            path: '/edit',
+            name: 'Edit Item',
+            component: EditItem
         }
     ]
 })

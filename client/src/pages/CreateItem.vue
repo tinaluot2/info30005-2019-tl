@@ -6,7 +6,7 @@
 import UploadItemForm from '@/components/UploadItemForm/UploadItemForm.vue'
 
 export default {
-	name: 'Create Item',
+	name: 'CreateItem',
 		components: {
 			UploadItemForm
 		},

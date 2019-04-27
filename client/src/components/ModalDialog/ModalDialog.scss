@@ -1,0 +1,91 @@
+@import "../../scss/global";
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: opacity .3s ease;
+    z-index: 9999;
+}
+
+.modal-container {
+    position: relative;
+    height: 30vh;
+    min-height: 25rem;
+    background-color: white;
+    margin: 120px 20px;
+    box-shadow: $box-drop-shadow;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+
+    .modal-title {
+        font-weight: 300;
+        font-size: 36px;
+        line-height: 1em;
+        margin-bottom: 20px;
+        text-align: center;
+        color: $link-secondary;
+    }
+
+    .modal-body {
+        font-size: 14px;
+        text-align: center;
+        align-self: center;
+    }
+
+    .modal-footer {
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.block {
+    display: block;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eeeeee;
+    color: #4AAE9B;
+    justify-content: space-between;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-active {
+    opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+    transition: opacity .5s ease
+}
+
+@media screen and (min-width: 480px) {
+
+    .modal-container {
+        width: 80vw;
+        margin: 120px auto;
+        height: 240px;
+
+        .modal-body {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .modal-container {
+        width: 530px;
+        min-height: 20rem;
+    }
+}

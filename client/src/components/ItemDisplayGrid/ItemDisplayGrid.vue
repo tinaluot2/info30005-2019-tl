@@ -58,7 +58,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/6MbxLyA.jpg",
                 itemCategory: "Plastic",
                 likeCount: 96,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12311,
@@ -68,17 +69,19 @@ export default {
                 itemImageURL: "https://i.imgur.com/D8Th4YY.jpg",
                 itemCategory: "Metal",
                 likeCount: 88,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12308,
                 creatorID: 1005,
-                itemTitle: "Plastic Bottle Pencil Case With Zipper",
+                itemTitle: "Tin Can Pencil Pots",
                 itemCreator: "gleung",
                 itemImageURL: "https://i.imgur.com/Q5GRWhI.jpg",
                 itemCategory: "Metal",
                 likeCount: 47,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12309,
@@ -88,7 +91,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/L7JMcJ2.jpg",
                 itemCategory: "Paper",
                 likeCount: 96,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12310,
@@ -98,7 +102,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/ExJHxfL.jpg",
                 itemCategory: "Paper",
                 likeCount: 85,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             }
             ]
         }

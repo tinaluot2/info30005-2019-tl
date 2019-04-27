@@ -2,9 +2,11 @@
     <div class="small-card">
         <div class="card-image">
             <div class="image-overlay">
-                <span class="edit-wrapper edit-item-button">
-                    <i class="material-icons md-18">edit</i>
-                </span>
+                <router-link to="/edit">
+                    <span class="edit-wrapper edit-item-button">
+                        <i class="material-icons md-18">edit</i>
+                    </span>
+                </router-link>
             </div>
             <figure class="image is-5by4">
                 <router-link to= "/item/itemID"<img :src="item.itemImageURL"/></router-link>
@@ -29,7 +31,8 @@
                 </div>
             </div>
             <div class="card-footer-item">
-                 <span class="icon-button-wrapper bookmark-button">
+                 <span class="icon-button-wrapper bookmark-button" @click="item.isBookmarked = !item.isBookmarked"
+                v-bind:class="{bookmarked:item.isBookmarked}">
                     <i class="material-icons md-16">bookmark</i>
                 </span>
             </div>
@@ -51,7 +54,8 @@ export default {
     computed: {
         toggleReaccs: function(){
             return {
-                liked: this.items.isLiked
+                liked: this.items.isLiked,
+                bookmarked: this.items.isBookmarked
             }
         }
     }

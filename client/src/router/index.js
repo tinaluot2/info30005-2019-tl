@@ -10,6 +10,7 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 
 Vue.use(VueRouter)
 
+
 export const router = new VueRouter({
     mode: 'history',
     linkActiveClass: "is-active",

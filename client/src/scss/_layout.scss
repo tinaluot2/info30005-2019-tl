@@ -49,12 +49,18 @@
 	padding: 20px;
 }
 
+
+@media screen and (min-width: 768px) {
+	.two-column {
+		padding: $margin $page-margin;
+	}
+}
+
 @media screen and (min-width: 960px) {
 
 	.two-column {
 		display: flex;
 		width: 100%;
-		padding: $margin $page-margin;
 	}
 
 	.profile-bio {
@@ -78,7 +84,6 @@
 .fade-enter, .fade-leave-active {
 	opacity: 0
 }
-
 
 //GRIDS
 @media screen and (min-width: 480px) {

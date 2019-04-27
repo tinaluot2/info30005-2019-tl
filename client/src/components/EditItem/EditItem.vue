@@ -7,6 +7,7 @@
 					<div class="form-section">
 						<div class="form-label">Title</div>
 						<input class="title-input" type="text" name="title" v-bind:value="item.itemTitle" maxlength = "60" required>
+						<div class="help-text">Click to edit the title.</div>
 					</div>
 
 					<div class="form-section">

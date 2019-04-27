@@ -28,7 +28,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/FLL5J3X.jpg",
                 itemCategory: "Paper",
                 likeCount: 58,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12305,
@@ -38,7 +39,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/iPylcyU.jpg",
                 itemCategory: "Textiles",
                 likeCount: 60,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12306,
@@ -48,7 +50,8 @@ export default {
                 itemImageURL: "https://i.imgur.com/M6eejUi.jpg",
                 itemCategory: "Textiles",
                 likeCount: 63,
-                isLiked: false
+                isLiked: false,
+                isBookmarked: false
             },
             {
                 itemID: 12307,

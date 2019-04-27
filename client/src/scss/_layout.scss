@@ -80,25 +80,21 @@
 
 
 //GRIDS
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 420px) {
 
     .grid-container {
         display: grid;
         align-content: flex-start;
         margin: 0 auto;
         grid-gap: 20px;
-
-        .site-wide {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .profile-grid {
-            grid-template-columns: repeat(1, 1fr);
-        }
     }
 
-    .small-card {
-        margin: 0;
+    .site-wide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

@@ -6,6 +6,7 @@ import UserSettings from '@/pages/UserSettings'
 import CreateItem from '@/pages/CreateItem'
 import UserSavedLists from '@/pages/UserSavedLists'
 import DiscoverPage from '@/pages/DiscoverPage'
+import ItemProfile from '@/components/ItemProfile/ItemProfile'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,11 @@ export const router = new VueRouter({
             path: '/lists',
             name: 'User Saved Lists',
             component: UserSavedLists
+        },
+        {
+            path: '/item',
+            name: 'Item Profile',
+            component: ItemProfile
         }
     ]
 })

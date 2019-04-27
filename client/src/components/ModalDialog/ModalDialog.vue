@@ -1,19 +1,19 @@
 <template>
     <transition name="modal-fade">
-            <div class="modal-backdrop">
+            <div class="modal-backdrop" @click="$emit('close')">
                 <div class="container nav-spacing">
                     <div class="modal-container">
                         <div class="modal-title">
-                            Warning
+                            Delete your Project?
                         </div>
 
                         <div class="modal-body">
-                            Are you sure you want to delete your project? You will not be able to recover it.
+                            Are you sure you would like to delete your project? Your action cannot be undone.
                         </div>
 
                         <div class="modal-footer">
-                            <button class="button-dark" @click="$emit('close')">No, I want to keep my project</button>
-                            <router-link to="/user"><button class="button-light">Yes, delete forever.</button></router-link>
+                            <button class="button-light spacing-not-last-child" @click="$emit('close')">No, I want to keep it.</button>
+                            <router-link to="/user"><button class="button-dark">Yes, delete forever.</button></router-link>
                         </div>
                     </div>
                 </div>

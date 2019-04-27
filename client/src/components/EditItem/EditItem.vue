@@ -6,7 +6,7 @@
 
 					<div class="form-section">
 						<div class="form-label">Title</div>
-						<input class="title-input" type="text" name="title" v-bind:value="item.itemTitle" maxlength = "50" required>
+						<input class="title-input" type="text" name="title" v-bind:value="item.itemTitle" maxlength = "60" required>
 					</div>
 
 					<div class="form-section">
@@ -71,7 +71,7 @@ export default {
 				itemImageURL04: "",
 				itemImageURL05: "",
                 itemCategory: [],
-                itemDescription: "I made this from old jeans. My daughter brings this to school everyday."
+                itemDescription: "I made these items from old jeans. My daughter brings one of them to school everyday. Her and her friends love it."
 			},
 			categoryOptions:[
 			{
@@ -114,6 +114,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./EditItem.scss";
+@import "@/scss/_forms.scss";
 </style>
 

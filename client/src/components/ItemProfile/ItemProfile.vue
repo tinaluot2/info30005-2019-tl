@@ -9,13 +9,11 @@
                 </figure>
             </div>
             <div class="card-header-title">
-                <div>
-                    <p class="title is-4">Denim Pencil Holders</p>
-                    <p class="subtitle is-6">@mariniida</p>
-                </div>
+                <div class="item-title">Denim Pencil Holders</div>
+                <div class="card-creator">@mariniida</div>
             </div>
-            <div class="time">
-                <time datetime="2018-4-1">27/04/19</time>
+            <div class="timestamp">
+                <time datetime="2018-4-1">12 hours ago</time>
             </div>
 
         </div>
@@ -27,24 +25,23 @@
         </div>
 
         <div class="card-content">
-            <h1 class="title is-5">Denim Pencil Holders</h1>
-            <a href="#">#Textiles</a>
+            <a class="category-tag" href="#">Textiles</a>
             <p>This was made with secondhand jeans from Salvos, in the span of 2 days. Was a super rewarding experience
             being able to reuse and recycle items into something I liked!</p>
         </div>
 
-        <div class="buttons">
-            <a class="button is-success is-outlined is-rounded">
+        <div class="button-menu">
+            <button class="button-light spacing-not-last-child">
                 <span>Like</span>
-            </a>
+            </button>
 
-            <a class="button is-success is-outlined is-rounded">
+            <button class="button-light spacing-not-last-child">
                 <span>Bookmark</span>
-            </a>
+            </button>
 
-            <a class="button is-success is-outlined is-rounded">
+            <button class="button-light">
                 <span>Share</span>
-            </a>
+            </button>
         </div>
 
 
@@ -60,7 +57,7 @@
                         <textarea class="textarea" placeholder="Add a comment..."></textarea>
                     </p>
                 </div>
-                    <button class="button is-rounded is-capitalized">Post comment</button>
+                    <button class="button-dark">Post comment</button>
             </div>
         </article>
     </div>

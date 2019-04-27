@@ -9,12 +9,12 @@
                 </router-link>
             </div>
             <figure class="image is-5by4">
-                <router-link to= "/item/itemID"<img :src="item.itemImageURL"/></router-link>
+                <img :src="item.itemImageURL"/>
                 <button class="button-light">Save Draft</button>
             </figure>
         </div>
         <div class="card-content">
-            <a class="item-title">{{item.itemTitle}}</a>
+            <router-link to="/item"><a class="item-title">{{item.itemTitle}}</a></router-link>
             <a class="item-creator">{{item.itemCreator}}</a>
             <a class="item-category">{{item.itemCategory}}</a>
         </div>

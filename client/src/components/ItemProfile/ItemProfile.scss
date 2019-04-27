@@ -1,25 +1,68 @@
 @import "@/scss/global.scss";
 
 .medium-card {
-    margin: 30px;
-    border: solid 1px $border-color;
-  }
+    background: white;
+    box-shadow: $box-drop-shadow;
+    padding: 20px;
+    font-family: $body-family;
 
-.time {
-    padding: 1rem;
+    .card-header {
+        border: none;
+        box-shadow: none;
+
+        .card-header-title {
+            padding: 0 10px;
+            display: block;
+            flex-direction: column;
+        }
+
+        .card-header-icon {
+            padding: 0px;
+        }
+    }
+
+    .card-content {
+        padding: 20px 0;
+    }
+
+    .card-image {
+        margin-top: 10px
+    }
+}
+
+.card-creator {
+    display: block;
+    font-weight: normal;
+}
+
+.timestamp {
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.category-tag {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-title {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
 }
 
 .media {
-    border-top: solid 1px $border-color;
     padding: 10px;
 }
 
-.buttons {
-    padding-left: 20px;
+.button-menu {
+    margin-left: auto;
+    padding-bottom: 25px;
 }
 
-.button {
-    background-color: $primary-color;
-    border-color: $primary-color;
-    color: white;
+@media screen and (min-width: 768px) {
+    .medium-card {
+        margin: $margin $page-margin;
+    }
 }

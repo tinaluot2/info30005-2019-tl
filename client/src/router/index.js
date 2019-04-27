@@ -12,6 +12,7 @@ import EditItem from '@/components/EditItem/EditItem'
 
 Vue.use(VueRouter)
 
+
 export const router = new VueRouter({
     mode: 'history',
     linkActiveClass: "is-active",

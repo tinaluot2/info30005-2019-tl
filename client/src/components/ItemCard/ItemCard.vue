@@ -7,7 +7,8 @@
                 </span>
             </div>
             <figure class="image is-5by4">
-                <img :src="item.itemImageURL"/>
+                <router-link to= "/item/itemID"<img :src="item.itemImageURL"/></router-link>
+                <button class="button-light">Save Draft</button>
             </figure>
         </div>
         <div class="card-content">
@@ -60,4 +61,3 @@ export default {
 <style lang="scss">
 @import "./ItemCard.scss";
 </style>
-

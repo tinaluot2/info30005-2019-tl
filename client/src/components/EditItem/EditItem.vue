@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import ModalDialog from '@/components/ModalDialog/ModalDialog'
+import ModalDialog from '@/components/ModalDialog/DeleteWarning'
 
 export default {
-	name: 'CreateItem',
+	name: 'EditItem',
 	components: {
 		'modal-dialog': ModalDialog
 		},

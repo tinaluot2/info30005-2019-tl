@@ -21,8 +21,8 @@ import ItemCard from '@/components/ItemCard/ItemCard'
 export default {
     name: 'UserProfile',
     components: {
-        "user-profile-box": ProfileBox,
-        "item-card": ItemCard
+        'user-profile-box': ProfileBox,
+        'item-card': ItemCard
 	},
     data() {
         return {

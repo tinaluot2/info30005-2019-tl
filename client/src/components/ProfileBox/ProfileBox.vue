@@ -19,9 +19,7 @@
 
 <script>
 export default {
-    name: 'ProfileBox',
-    data () {
-    }
+    name: 'ProfileBox'
 }
 </script>
 

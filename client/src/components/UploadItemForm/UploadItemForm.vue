@@ -11,7 +11,7 @@
 					</div>
 					<div class="form-section">
 						<div class="form-label">Images</div>
-						<div class="help-text">Select images that showcase your creation.</div>
+						<div class="help-text">Select up to 10 images that showcase your creation.</div>
 						<image-uploader></image-uploader>
 					</div>
 

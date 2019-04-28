@@ -6,7 +6,7 @@
 		<span class="close-button" @click="deleteImage(index)">X</span>
 		</div>
 	</div>
-	<button class="button-dark" type="button" @click="addNewImage">Add Image</button>
+	<button class="button-dark" type="button" @click="addNewImage" v-if="this.images.length < 10">Add Image</button>
 </div>
 </template>
 

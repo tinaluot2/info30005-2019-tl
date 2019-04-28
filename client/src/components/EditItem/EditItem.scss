@@ -119,15 +119,3 @@ h1 {
 	position: relative;
 	display: flex;
 }
-
-.button-red {
-	background-color: #FF5C5C;
-	border-color: #FF5C5C;
-	color: white;
-	margin-left: auto;
-
-	&:hover {
-		background-color: #FF263C;
-		border-color: #FF263C;
-	}
-}

@@ -9,17 +9,10 @@
 						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" required>
 						<div class="help-text">Enter a title for your creation.</div>
 					</div>
-
 					<div class="form-section">
 						<div class="form-label">Images</div>
-						<div class="image-upload">
-							<input type="file" name="image01" accept="image/*">
-							<input type="file" name="image02" accept="image/*">
-							<input type="file" name="image03" accept="image/*">
-							<input type="file" name="image04" accept="image/*">
-							<input type="file" name="image05" accept="image/*">
-						</div>
-						<div class="help-text">Select images that showcase your creation.</div>
+						<div class="help-text">Select up to 10 images that showcase your creation.</div>
+						<image-uploader></image-uploader>
 					</div>
 
 					<div class="form-section">
@@ -53,8 +46,12 @@
 </template>
 
 <script>
+import ImageUploader from '@/components/ImageUploader/ImageUploader'
 
 export default {
+	components: {
+		'image-uploader': ImageUploader
+	},
 	name: 'CreateItem',
 	data() {
 		return {

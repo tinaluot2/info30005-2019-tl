@@ -12,13 +12,8 @@
 
 					<div class="form-section">
 						<div class="form-label">Images</div>
-						<div class="image-upload">
-							<input type="file" name="image01" accept="image/*">
-							<input type="file" name="image02" accept="image/*">
-							<input type="file" name="image03" accept="image/*">
-							<input type="file" name="image04" accept="image/*">
-							<input type="file" name="image05" accept="image/*">
-						</div>
+						<image-uploader></image-uploader>
+						<div class="help-text">Users should be able to remove and add images but we haven't figured how to do it yet.</div>
 					</div>
 
 					<div class="form-section">
@@ -54,11 +49,14 @@
 
 <script>
 import ModalDialog from '@/components/ModalDialog/DeleteWarning'
+import ImageUploader from '@/components/ImageUploader/ImageUploader'
+
 
 export default {
 	name: 'EditItem',
 	components: {
-		'modal-dialog': ModalDialog
+		'modal-dialog': ModalDialog,
+		'image-uploader': ImageUploader
 		},
 	data() {
 		return {

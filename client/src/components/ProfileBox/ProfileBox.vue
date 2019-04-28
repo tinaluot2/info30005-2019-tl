@@ -12,7 +12,7 @@
 
         <div class="achievement">
             <h3>Achievements</h3>
-            0
+            3
         </div>
     </div>
 </template>

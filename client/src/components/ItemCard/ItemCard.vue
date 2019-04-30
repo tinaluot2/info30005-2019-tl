@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="card-footer-item">
-                 <span class="icon-button-wrapper bookmark-button" @click="item.isBookmarked = !item.isBookmarked"
+                 <span class="icon-button-wrapper bookmark-button" @click=clickEvent
                 v-bind:class="{bookmarked:item.isBookmarked}">
                     <i class="material-icons md-16">bookmark</i>
                 </span>
@@ -50,7 +50,11 @@ export default {
             required: true
         }
     },
-    methods: {},
+    methods: {
+      clickEvent (){
+        this.item.isBookmarked = !this.item.isBookmarked
+      },
+    },
     computed: {
         toggleReaccs: function(){
             return {

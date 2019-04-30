@@ -2,7 +2,7 @@
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="container">
 			<div class="navbar-brand">
-				<router-link to="/discover" class="logotype">Reform.</router-link>
+				<router-link to="/" class="logotype">Reform.</router-link>
 				<div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
 					<span></span>
 					<span></span>

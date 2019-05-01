@@ -1,7 +1,7 @@
 <template>
     <div class="small-card">
         <div class="card-image">
-            <div class="image-overlay" v-if="item.creatorID == 1004">
+            <div class="image-overlay" v-if="item.creatorID == 1003">
                 <router-link to="/edit">
                     <span class="edit-wrapper edit-item-button">
                         <i class="material-icons md-18">edit</i>
@@ -21,7 +21,7 @@
         <footer class="card-footer">
             <div class="card-footer-item">
                 <div class="icon-button-wrapper like-button"
-                @click="item.isLiked = !item.isLiked"
+                @click="likeItem()"
                 v-bind:class="{liked:item.isLiked}">
                     <i class="material-icons md-16">thumb_up</i>
                 </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="card-footer-item">
-                 <span class="icon-button-wrapper bookmark-button" @click=clickEvent
+                 <span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
                 v-bind:class="{bookmarked:item.isBookmarked}">
                     <i class="material-icons md-16">bookmark</i>
                 </span>
@@ -46,6 +46,21 @@ export default {
         item: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        likeItem() {
+            this.item.isLiked = !this.item.isLiked;
+            if (!this.item.isLiked) {
+                this.item.likeCount--;
+            }
+            else {
+                this.item.likeCount++;
+            }
+
+        },
+        bookmarkItem() {
+            this.item.isBookmarked = !this.item.isBookmarked;
         }
     }
 }

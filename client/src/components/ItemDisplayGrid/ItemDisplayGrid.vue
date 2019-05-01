@@ -80,7 +80,7 @@ export default {
                     itemTitle: "Metal Tin Cans",
                     creatorID: 1003,
                     creatorName: "mariniida",
-                    material: "Aluminium",
+                    material: "Metal",
                     createdAt: Date,
                     likeCount: 0,
                     images: ["https://i.imgur.com/Q5GRWhI.jpg"],

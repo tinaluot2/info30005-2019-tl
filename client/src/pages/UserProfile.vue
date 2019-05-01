@@ -127,7 +127,6 @@ export default {
                     isLiked: false,
                     isBookmarked: false
                 },
-                ,
                 {
                     itemID: 5,
                     itemTitle: "Metal Tin Cans",

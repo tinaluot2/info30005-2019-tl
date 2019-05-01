@@ -74,7 +74,7 @@ export default {
 	name: 'item-profile',
 	data (){
 		return{
-            id: this.$route.params.id,
+            id: this.$route.params.itemid,
             //test data
             itemsList:[
                 {
@@ -126,6 +126,19 @@ export default {
                     likeCount: 0,
                     images: ["https://i.imgur.com/iPylcyU.jpg"],
                     description: "This was made with secondhand jeans from Salvos, in the span of 2 days. Was a super rewarding experience being able to reuse and recycle items into something I liked!",
+                    isLiked: false,
+                    isBookmarked: false
+                },
+                {
+                    itemID: 5,
+                    itemTitle: "Metal Tin Cans",
+                    creatorID: 1003,
+                    creatorName: "mariniida",
+                    material: "Aluminium",
+                    createdAt: Date,
+                    likeCount: 0,
+                    images: ["https://i.imgur.com/Q5GRWhI.jpg"],
+                    description: "Lorem ipsum bah bah tin can cool patterns!",
                     isLiked: false,
                     isBookmarked: false
                 }]

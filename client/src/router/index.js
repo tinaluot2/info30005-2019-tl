@@ -38,7 +38,7 @@ export const router = new VueRouter({
             component: UserSavedLists
         },
         {
-            path: '/item/:id',
+            path: '/item/:itemid',
             component: ItemProfile
         },
         {

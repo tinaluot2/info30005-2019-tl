@@ -2,50 +2,48 @@
 <div class="background nav-spacing">
     <div v-for="item in itemsList" v-bind:key="item.itemID">
         <div v-if="id == item.itemID">
-    <div class="container">
-            <div class="medium-card">
-                <div class="card-header">
-                <div class="card-header-icon">
-                    <figure class="image is-48x48">
-                        <img src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg" alt="Smol_Dog">
+            <div class="container">
+                <div class="medium-card">
+                    <div class="card-header">
+                    <div class="card-header-icon">
+                        <figure class="image is-48x48">
+                            <img src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg" alt="Smol_Dog">
+                        </figure>
+                    </div>
+                    <div class="card-header-title">
+                        <div class="item-title">{{item.itemTitle}}</div>
+                        <div class="card-creator">{{item.creatorName}}</div>
+                    </div>
+                    <div class="timestamp">
+                        <time datetime="2018-4-1">12 hours ago</time>
+                    </div>
+
+                </div>
+
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img :src="item.images">
                     </figure>
                 </div>
-                <div class="card-header-title">
-                    <div class="item-title">{{item.itemTitle}}</div>
-                    <div class="card-creator">{{item.creatorID}}</div>
-                </div>
-                <div class="timestamp">
-                    <time datetime="2018-4-1">12 hours ago</time>
+
+                <div class="card-content">
+                    <a class="category-tag" href="#">{{item.material}}</a>
+                    <p>{{item.description}}</p>
                 </div>
 
-            </div>
+                <div class="button-menu">
+                    <button class="button-light spacing-not-last-child">
+                        <span>Like</span>
+                    </button>
 
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img :src="item.images" alt="Denim_Pencil_Holders">
-                </figure>
-            </div>
+                    <button class="button-light spacing-not-last-child">
+                        <span>Bookmark</span>
+                    </button>
 
-            <div class="card-content">
-                <a class="category-tag" href="#">{{item.material}}</a>
-                <p>This was made with secondhand jeans from Salvos, in the span of 2 days. Was a super rewarding experience
-                being able to reuse and recycle items into something I liked!</p>
-            </div>
-
-            <div class="button-menu">
-                <button class="button-light spacing-not-last-child">
-                    <span>Like</span>
-                </button>
-
-                <button class="button-light spacing-not-last-child">
-                    <span>Bookmark</span>
-                </button>
-
-                <button class="button-light">
-                    <span>Share</span>
-                </button>
-            </div>
-
+                    <button class="button-light">
+                        <span>Share</span>
+                    </button>
+                </div>
 
                 <article class="media">
                     <figure class="media-left">
@@ -83,10 +81,12 @@ export default {
                     itemID: 1,
                     itemTitle: "Paper Coasters",
                     creatorID: 1000,
-                    creatorUsername: "Paperman",
+                    creatorName: "Paperman",
                     material: "Paper",
+                    createdAt: Date,
                     likeCount: 0,
                     images: ["https://i.imgur.com/FLL5J3X.jpg"],
+                    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                     isLiked: false,
                     isBookmarked: false
                 },
@@ -94,10 +94,12 @@ export default {
                     itemID: 2,
                     itemTitle: "Sweater for Pot Plants",
                     creatorID: 1001,
-                    creatorUsername: "sheep",
+                    creatorName: "sheep",
                     material: "Textiles",
+                    createdAt: Date,
                     likeCount: 0,
                     images: ["https://i.imgur.com/M6eejUi.jpg"],
+                    description: "Lorem ipsum",
                     isLiked: false,
                     isBookmarked: false
                 },
@@ -105,10 +107,25 @@ export default {
                     itemID: 3,
                     itemTitle: "Plastic Bottle Pencil Case",
                     creatorID: 1002,
-                    creatorUsername: "Plasticman",
-                    material: "Textiles",
+                    creatorName: "Plasticman",
+                    material: "Plastic",
+                    createdAt: Date,
                     likeCount: 0,
                     images: ["https://i.imgur.com/6MbxLyA.jpg"],
+                    description: "Lorem ipsum bah bah pencil case",
+                    isLiked: false,
+                    isBookmarked: false
+                },
+                {
+                    itemID: 4,
+                    itemTitle: "Denim Pencil Bag",
+                    creatorID: 1003,
+                    creatorName: "mariniida",
+                    material: "Textiles",
+                    createdAt: Date,
+                    likeCount: 0,
+                    images: ["https://i.imgur.com/iPylcyU.jpg"],
+                    description: "This was made with secondhand jeans from Salvos, in the span of 2 days. Was a super rewarding experience being able to reuse and recycle items into something I liked!",
                     isLiked: false,
                     isBookmarked: false
                 }]

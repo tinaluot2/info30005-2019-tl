@@ -4,10 +4,12 @@ const itemSchema = mongoose.Schema({
 	itemID: mongoose.Schema.ObjectId,
 	itemTitle: String,
 	creatorID: Number,
-	creatorUsername: String,
+	creatorName: String,
 	material: String,
+	createdAt: Date,
 	likeCount: Number,
 	images: Array,
+	description: String,
 	isLiked: Boolean,
 	isBookmarked: Boolean
 });

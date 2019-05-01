@@ -1,7 +1,7 @@
 <template>
     <div class="small-card">
         <div class="card-image">
-            <div class="image-overlay">
+            <div class="image-overlay" v-if="item.creatorID == 1004">
                 <router-link to="/edit">
                     <span class="edit-wrapper edit-item-button">
                         <i class="material-icons md-18">edit</i>
@@ -13,8 +13,8 @@
             </figure>
         </div>
         <div class="card-content">
-            <router-link v-bind:to="'/items/' + item.itemID"><a class="item-title">{{item.itemTitle}}</a></router-link>
-            <a class="item-creator">{{item.creatorUsername}}</a>
+            <router-link v-bind:to="'/item/' + item.itemID"><a class="item-title">{{item.itemTitle}}</a></router-link>
+             <router-link v-bind:to="'/user/' + item.creatorName"><a class="item-creator">{{item.creatorName}}</a></router-link>
             <a class="item-category">{{item.material}}</a>
         </div>
 

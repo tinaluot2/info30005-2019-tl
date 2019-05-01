@@ -22,7 +22,7 @@ export const router = new VueRouter({
             component: DiscoverPage
         },
         {
-            path: '/user',
+            path: '/user/:username',
             component: UserProfile
         },
         {
@@ -38,7 +38,7 @@ export const router = new VueRouter({
             component: UserSavedLists
         },
         {
-            path: '/items/:id',
+            path: '/item/:id',
             component: ItemProfile
         },
         {

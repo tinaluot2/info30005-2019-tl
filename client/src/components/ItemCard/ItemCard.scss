@@ -20,7 +20,7 @@
 @media screen and (min-width: 480px) {
 
     .small-card {
-        margin: 0;
+        margin: 0!important;
     }
 }
 
@@ -80,11 +80,31 @@
         padding-bottom: 25px;
     }
 
-    .item-category {
-        color: $link-secondary;
-    }
 }
 
 .card-content a:hover {
     text-decoration: underline;
+}
+
+.material-tags {
+    display: block;
+
+    .tag, .tag a {
+        background: white;
+        color: $link-secondary;
+        padding: 2px 4px;
+        border: $light-grey 1px solid;
+        cursor: pointer;
+        border-radius: 3px;
+        display: inline-block;
+        font-size: 11px;
+        text-transform: lowercase;
+        margin-right: 4px;
+
+        &:hover {
+            text-decoration: none;
+            color: $primary-color;
+            border: $primary-color 1px solid;
+        }
+    }
 }

@@ -16,7 +16,7 @@
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">You</a>
 						<div class="navbar-dropdown">
-							<router-link to="'/user' + mariniida"
+							<router-link to="/user/mariniida"
                                  class="navbar-item">My Profile</router-link>
 							<router-link to="/settings"
                                  class="navbar-item">Account Settings</router-link>

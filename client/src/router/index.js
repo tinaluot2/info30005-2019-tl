@@ -44,6 +44,9 @@ export const router = new VueRouter({
         {
             path: '/edit',
             component: EditItem
+        },
+        {
+            path: '/search'
         }
     ]
 })

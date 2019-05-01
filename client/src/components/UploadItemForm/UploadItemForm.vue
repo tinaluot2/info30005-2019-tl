@@ -6,7 +6,7 @@
 
 					<div class="form-section">
 						<div class="form-label">Title</div>
-						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" required>
+						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" v-model="item.itemTitle" required>
 						<div class="help-text">Enter a title for your creation.</div>
 					</div>
 					<div class="form-section">
@@ -18,7 +18,7 @@
 					<div class="form-section">
 						<div class="form-label">Description</div>
 						<div class="control">
-							<textarea class="description" name="description" v-bind:value="item.itemDescription" placeholder="Describe your creation.">
+							<textarea class="description" name="description" v-model="item.description" placeholder="Describe your creation.">
 							</textarea>
 							<div class="help-text">What was the original form of your creation? What is it now?</div>
 						</div>
@@ -27,11 +27,11 @@
 					<div class="form-section">
 						<div class="form-label">Materials Used</div>
 						<div class="checkboxes">
-							<div class="checkbox" v-for="option in categoryOptions" v-bind:key="option.value">
+							<div class="checkbox" v-for="option in materialOptions" v-bind:key="option.value">
 								<input type="checkbox"
 								name="material"
 								:checked="option.checked"
-								v-model="option.checked"/>
+								v-model="item.material"/>
 								{{option.name}}
 							</div>
 						</div>
@@ -58,15 +58,11 @@ export default {
 			item:
 			{
 				itemTitle: "",
-				itemImageURL01: "",
-				itemImageURL02: "",
-				itemImageURL03: "",
-				itemImageURL04: "",
-				itemImageURL05: "",
-                itemCategory: [],
-                itemDescription: ""
+				images: [],
+                material: [],
+                description: ""
 			},
-			categoryOptions:[
+			materialOptions:[
 			{
 				name: "Paper",
 				value: "paper",

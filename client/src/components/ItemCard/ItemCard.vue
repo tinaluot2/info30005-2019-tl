@@ -1,7 +1,7 @@
 <template>
     <div class="small-card">
         <div class="card-image">
-            <div class="image-overlay" v-if="item.creatorID == 1003">
+            <div class="image-overlay" v-if="item.creatorID == currentUser">
                 <router-link to="/edit">
                     <span class="edit-wrapper edit-item-button">
                         <i class="material-icons md-18">edit</i>
@@ -42,6 +42,11 @@
 <script>
 export default {
     name: 'ItemCard',
+    data () {
+			return {
+				currentUser: 1003
+			}
+		},
     props: {
         item: {
             type: Object,

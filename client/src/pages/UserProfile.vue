@@ -16,7 +16,7 @@
                             </div>
                             <div class="achievement">
                                 <h3>Achievements</h3>
-                                {{profile.achievements}}
+                                <p>{{countAchievements}}</p>
                             </div>
                         </div>
                         <div class="grid-container profile-grid">
@@ -46,32 +46,24 @@ export default {
                     profilePic: "https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg",
                     username: "Paperman",
                     description: "I love paper",
-                    achievements: "1"
-
                 },
                 {
                     userID: 1001,
                     profilePic: "https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg",
                     username: "sheep",
                     description: "I am your wool sweater",
-                    achievements: "1"
-
                 },
                 {
                     userID: 1002,
                     profilePic: "https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg",
                     username: "Plasticman",
                     description: "Plastic hurts turtles",
-                    achievements: "1"
-
                 },
                 {
                     userID: 1003,
                     profilePic: "https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg",
                     username: "mariniida",
                     description: "Reducer. Reuser. Reformer. I love puppies",
-                    achievements: "1"
-
                 },
             ],
             itemsList:[
@@ -147,6 +139,9 @@ export default {
             return this.itemsList.filter((item) => {
                 return item.creatorName === this.username
             })
+        },
+        countAchievements() {
+            return this.itemsList.filter((item) => item.creatorName === this.username).length;
         }
     }
 

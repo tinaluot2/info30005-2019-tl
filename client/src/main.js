@@ -7,6 +7,8 @@ import VeeValidate from 'vee-validate'
 
 Vue.use(VeeValidate)
 
+export const bus = new Vue()
+
 new Vue({
 	render: h => h(App),
 	router,

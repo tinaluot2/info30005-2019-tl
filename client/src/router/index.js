@@ -19,37 +19,30 @@ export const router = new VueRouter({
     routes: [
 {
             path: '/',
-            name: 'Reform',
             component: DiscoverPage
         },
         {
             path: '/user',
-            name: 'My Profile',
             component: UserProfile
         },
         {
             path: '/settings',
-            name: 'Account Settings',
             component: UserSettings
         },
         {
             path: '/create',
-            name: 'Create a New Project',
             component: CreateItem
         },
         {
             path: '/lists',
-            name: 'User Saved Lists',
             component: UserSavedLists
         },
         {
-            path: '/item',
-            name: 'Item Profile',
+            path: '/items/:id',
             component: ItemProfile
         },
         {
             path: '/edit',
-            name: 'Edit Item',
             component: EditItem
         }
     ]

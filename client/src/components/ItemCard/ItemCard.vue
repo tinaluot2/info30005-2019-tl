@@ -9,14 +9,13 @@
                 </router-link>
             </div>
             <figure class="image is-5by4">
-                <img :src="item.itemImageURL"/>
-                <button class="button-light">Save Draft</button>
+                <img :src="item.images[0]"/>
             </figure>
         </div>
         <div class="card-content">
-            <router-link to="/item"><a class="item-title">{{item.itemTitle}}</a></router-link>
-            <a class="item-creator">{{item.itemCreator}}</a>
-            <a class="item-category">{{item.itemCategory}}</a>
+            <router-link v-bind:to="'/items/' + item.itemID"><a class="item-title">{{item.itemTitle}}</a></router-link>
+            <a class="item-creator">{{item.creatorUsername}}</a>
+            <a class="item-category">{{item.material}}</a>
         </div>
 
         <footer class="card-footer">
@@ -41,26 +40,12 @@
 </template>
 
 <script>
-
 export default {
-    name: 'item-card',
+    name: 'ItemCard',
     props: {
         item: {
             type: Object,
             required: true
-        }
-    },
-    methods: {
-      clickEvent (){
-        this.item.isBookmarked = !this.item.isBookmarked
-      },
-    },
-    computed: {
-        toggleReaccs: function(){
-            return {
-                liked: this.items.isLiked,
-                bookmarked: this.items.isBookmarked
-            }
         }
     }
 }

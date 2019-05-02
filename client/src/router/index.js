@@ -8,6 +8,7 @@ import UserSavedLists from '@/pages/UserSavedLists'
 import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
+import Error from '@/pages/ErrorPage'
 
 
 Vue.use(VueRouter);
@@ -56,6 +57,11 @@ export const router = new VueRouter({
             path: '/edit',
             name: 'Edit Item',
             component: EditItem
+        },
+        {
+            path: '/error',
+            name: 'Error',
+            component: Error
         }
     ]
 });

@@ -44,9 +44,23 @@ router.post('/', (req, res, next) => {
     itemImage: req.body.itemImage
   });
   */
+  var current_date = new Date();
   const item = new Item({
-    ...req.body
+    itemID: new mongoose.Types.ObjectId(),
+    itemTitle: req.body.itemTitle,
+  	creatorID: req.body.creatorID,
+  	creatorName: req.body.creatorName,
+  	material: req.body.material,
+  	createdAt: current_date,
+  	likeCount: req.body.likeCount,
+  	images: req.body.images,
+  	description: req.body.description,
+  	isLiked: req.body.isLiked,
+  	isBookmarked: req.body.isBookmarked
+
   });
+
+
 
   //method provided by mongoose
   item

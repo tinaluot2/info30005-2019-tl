@@ -10,105 +10,23 @@
 </template>
 
 <script>
-import ItemCard from '@/components/ItemCard/ItemCard'
+
+import ItemCard from '@/components/ItemCard/ItemCard';
+import axios from 'axios';
 
 export default {
     name: 'item-display-grid',
     components: {
         'item-card': ItemCard
     },
+    mounted() {
+      axios.get("http://localhost:3000/items").then((response) => {
+        this.items = response;
+      })
+    },
     data() {
         return {
-            items:[
-            {
-                itemID: 12304,
-                creatorID: 1000,
-                itemTitle: "Paper Coaster",
-                itemCreator: "Batman",
-                itemImageURL: "https://i.imgur.com/FLL5J3X.jpg",
-                itemCategory: "Paper",
-                likeCount: 58,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12305,
-                creatorID: 1001,
-                itemTitle: "Denim Pencil Holders",
-                itemCreator: "mariniida",
-                itemImageURL: "https://i.imgur.com/iPylcyU.jpg",
-                itemCategory: "Textiles",
-                likeCount: 60,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12306,
-                creatorID: 1002,
-                itemTitle: "Potplant Sweater",
-                itemCreator: "markwang",
-                itemImageURL: "https://i.imgur.com/M6eejUi.jpg",
-                itemCategory: "Textiles",
-                likeCount: 63,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12307,
-                creatorID: 1003,
-                itemTitle: "Plastic Bottle Pencil Case With Zipper",
-                itemCreator: "tinaluo",
-                itemImageURL: "https://i.imgur.com/6MbxLyA.jpg",
-                itemCategory: "Plastic",
-                likeCount: 96,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12311,
-                creatorID: 1006,
-                itemTitle: "Aluminium Lanterns",
-                itemCreator: "Tony Stark",
-                itemImageURL: "https://i.imgur.com/D8Th4YY.jpg",
-                itemCategory: "Metal",
-                likeCount: 88,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12308,
-                creatorID: 1005,
-                itemTitle: "Tin Can Pencil Pots",
-                itemCreator: "gleung",
-                itemImageURL: "https://i.imgur.com/Q5GRWhI.jpg",
-                itemCategory: "Metal",
-                likeCount: 47,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12309,
-                creatorID: 1001,
-                itemTitle: "Paper Bracelet",
-                itemCreator: "mariniida",
-                itemImageURL: "https://i.imgur.com/L7JMcJ2.jpg",
-                itemCategory: "Paper",
-                likeCount: 96,
-                isLiked: false,
-                isBookmarked: false
-            },
-            {
-                itemID: 12310,
-                creatorID: 1001,
-                itemTitle: "Magazine Paper Flowers",
-                itemCreator: "mariniida",
-                itemImageURL: "https://i.imgur.com/ExJHxfL.jpg",
-                itemCategory: "Paper",
-                likeCount: 85,
-                isLiked: false,
-                isBookmarked: false
-            }
-            ]
+            items: []
         }
     }
 }
@@ -117,4 +35,3 @@ export default {
 <style scoped lang="scss">
     @import "./ItemDisplayGrid.scss";
 </style>
-

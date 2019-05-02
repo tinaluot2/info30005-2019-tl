@@ -34,13 +34,18 @@ router.get('/', (req, res, next) => {
 // ADD ITEM
 router.post('/', (req, res, next) => {
   //add item data to database
+  /*
   const item = new Item({
-    _id: new mongoose.Types.ObjectId(),
+    itemID: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
     itemDescription: req.body.itemDescription,
     itemCategory: req.body.itemCategory,
     itemHashtags: req.body.itemHashtags,
     itemImage: req.body.itemImage
+  });
+  */
+  const item = new Item({
+    ...req.body
   });
 
   //method provided by mongoose

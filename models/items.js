@@ -5,7 +5,7 @@ const itemSchema = mongoose.Schema({
 	itemTitle: String,
 	creatorID: Number,
 	creatorName: String,
-	material: String,
+	material: Array,
 	createdAt: Date,
 	likeCount: Number,
 	images: Array,

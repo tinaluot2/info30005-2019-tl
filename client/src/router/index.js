@@ -10,7 +10,7 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 export const router = new VueRouter({
@@ -20,6 +20,11 @@ export const router = new VueRouter({
 {
             path: '/',
             name: 'Reform',
+            component: LandingPage
+        },
+        {
+            path: '/discover',
+            name: 'Discover',
             component: DiscoverPage
         },
         {
@@ -53,4 +58,4 @@ export const router = new VueRouter({
             component: EditItem
         }
     ]
-})
+});

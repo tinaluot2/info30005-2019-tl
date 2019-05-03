@@ -68,7 +68,7 @@ The format of input is:
 	"itemName": "a name",
 	"itemDescription": "some descriptions",
 	"itemCategory": "this is a category",
-	"itemHashtags": "["an array", "of hashtags"]",
+	"itemHashtags": ["an array", "of hashtags"],
 	"itemImage": "this is a link to the image"
 }
 

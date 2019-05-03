@@ -2,8 +2,7 @@
     <div class="background">
         <div class="container">
             <div class="grid-container site-wide">
-                <item-card v-for="item in items" v-bind:key="item.itemID" :item="item">
-                </item-card>
+                <item-card v-for="item in itemsList" v-bind:key="item._id" :item="item"></item-card>
             </div>
         </div>
     </div>
@@ -11,23 +10,22 @@
 
 <script>
 
-import ItemCard from '@/components/ItemCard/ItemCard';
-import axios from 'axios';
+import ItemCard from '@/components/ItemCard/ItemCard'
+import axios from 'axios'
 
 export default {
-    name: 'item-display-grid',
+    name: 'ItemDisplayGrid',
     components: {
         'item-card': ItemCard
     },
-    mounted() {
-      axios.get("http://localhost:3000/items").then((response) => {
-        this.items = response;
-      })
-    },
     data() {
         return {
-            items: []
+          itemsList: []
         }
+    },
+     mounted() {
+        axios.get("http://localhost:3000/items/").then((res) => {
+        this.itemsList = res.data })
     }
 }
 </script>

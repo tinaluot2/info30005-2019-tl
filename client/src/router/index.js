@@ -10,15 +10,13 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 import Error from '@/pages/ErrorPage'
 
-
 Vue.use(VueRouter);
-
 
 export const router = new VueRouter({
     mode: 'history',
     linkActiveClass: "is-active",
     routes: [
-{
+        {
             path: '/',
             name: 'Reform',
             component: LandingPage
@@ -29,39 +27,31 @@ export const router = new VueRouter({
             component: DiscoverPage
         },
         {
-            path: '/user',
-            name: 'My Profile',
+            path: '/user/:username',
             component: UserProfile
         },
         {
             path: '/settings',
-            name: 'Account Settings',
             component: UserSettings
         },
         {
             path: '/create',
-            name: 'Create a New Project',
             component: CreateItem
         },
         {
             path: '/lists',
-            name: 'User Saved Lists',
             component: UserSavedLists
         },
         {
-            path: '/item',
-            name: 'Item Profile',
+            path: '/item/:itemid',
             component: ItemProfile
         },
         {
             path: '/edit',
-            name: 'Edit Item',
             component: EditItem
         },
         {
-            path: '/error',
-            name: 'Error',
-            component: Error
+            path: '/search'
         }
     ]
 });

@@ -1,7 +1,7 @@
 <template>
     <div class="small-card">
         <div class="card-image">
-            <div class="image-overlay">
+            <div class="image-overlay" v-if="item.creatorID == currentUser">
                 <router-link to="/edit">
                     <span class="edit-wrapper edit-item-button">
                         <i class="material-icons md-18">edit</i>
@@ -9,20 +9,21 @@
                 </router-link>
             </div>
             <figure class="image is-5by4">
-                <img :src="item.itemImageURL"/>
-                <button class="button-light">Save Draft</button>
+                <img :src="item.images[0]"/>
             </figure>
         </div>
         <div class="card-content">
-            <router-link to="/item"><a class="item-title">{{item.itemTitle}}</a></router-link>
-            <a class="item-creator">{{item.itemCreator}}</a>
-            <a class="item-category">{{item.itemCategory}}</a>
+            <router-link v-bind:to="'/item/' + item._id"><a class="item-title">{{item.itemTitle}}</a></router-link>
+            <router-link v-bind:to="'/user/' + item.creatorName"><a class="item-creator">{{item.creatorName}}</a></router-link>
+            <div class="material-tags">
+                <a class="tag" v-for="(material, index) in item.material" :key="index">{{material}}</a>
+            </div>
         </div>
 
         <footer class="card-footer">
             <div class="card-footer-item">
                 <div class="icon-button-wrapper like-button"
-                @click="item.isLiked = !item.isLiked"
+                @click="likeItem()"
                 v-bind:class="{liked:item.isLiked}">
                     <i class="material-icons md-16">thumb_up</i>
                 </div>
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <div class="card-footer-item">
-                 <span class="icon-button-wrapper bookmark-button" @click=clickEvent
+                 <span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
                 v-bind:class="{bookmarked:item.isBookmarked}">
                     <i class="material-icons md-16">bookmark</i>
                 </span>
@@ -41,9 +42,13 @@
 </template>
 
 <script>
-
 export default {
-    name: 'item-card',
+    name: 'ItemCard',
+    data () {
+			return {
+				currentUser: 1003
+			}
+		},
     props: {
         item: {
             type: Object,
@@ -51,16 +56,18 @@ export default {
         }
     },
     methods: {
-      clickEvent (){
-        this.item.isBookmarked = !this.item.isBookmarked
-      },
-    },
-    computed: {
-        toggleReaccs: function(){
-            return {
-                liked: this.items.isLiked,
-                bookmarked: this.items.isBookmarked
+        likeItem() {
+            this.item.isLiked = !this.item.isLiked;
+            if (!this.item.isLiked) {
+                this.item.likeCount--;
             }
+            else {
+                this.item.likeCount++;
+            }
+
+        },
+        bookmarkItem() {
+            this.item.isBookmarked = !this.item.isBookmarked;
         }
     }
 }

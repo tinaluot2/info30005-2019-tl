@@ -8,17 +8,22 @@ import UserSavedLists from '@/pages/UserSavedLists'
 import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
+import Error from '@/pages/ErrorPage'
 
-
-Vue.use(VueRouter)
-
+Vue.use(VueRouter);
 
 export const router = new VueRouter({
     mode: 'history',
     linkActiveClass: "is-active",
     routes: [
-{
+        {
             path: '/',
+            name: 'Reform',
+            component: LandingPage
+        },
+        {
+            path: '/discover',
+            name: 'Discover',
             component: DiscoverPage
         },
         {
@@ -49,4 +54,4 @@ export const router = new VueRouter({
             path: '/search'
         }
     ]
-})
+});

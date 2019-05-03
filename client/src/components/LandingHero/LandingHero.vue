@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<header class="banner">
 		<div class="overlay"></div>
 			<div class="content-wrapper">
 				<div class="intro-heading">
@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./_hero.scss";
+	@import "@/scss/_banner.scss";
+	@import "hero.scss";
 </style>
 

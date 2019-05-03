@@ -1,16 +1,20 @@
 <template>
-	<div id="page-container">
+	<div>
 		<LandingHero />
+		<Mission />
 	</div>
+
 </template>
 
 <script>
 import LandingHero from '@/components/LandingHero/LandingHero.vue'
+import Mission from '@/components/LandingHero/mission.vue'
 
 export default {
 	name: 'LandingPage',
 		components: {
-			LandingHero
+			LandingHero,
+			Mission
 		},
 		data () {
 			return{
@@ -21,5 +25,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-</style>
 
+</style>

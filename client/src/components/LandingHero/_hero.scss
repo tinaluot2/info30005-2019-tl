@@ -1,5 +1,12 @@
 @import "../../scss/global";
 
+.content-wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
 header {
 	width: 100%;
 	position: relative;
@@ -8,7 +15,7 @@ header {
 	display: flex;
  	align-items: center;
  	justify-content:  center;
-	background: url("https://i.imgur.com/b6gmE7D.jpg");
+	background: url("https://images.unsplash.com/photo-1475174767135-6d48cae73003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
 	background-size: 100%;
  	overflow: hidden;
 

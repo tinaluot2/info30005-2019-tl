@@ -2,54 +2,58 @@
 	<div class="background nav-spacing">
 		<div class="container">
 			<div id="upload-form">
+
 				<h1>Account Settings</h1>
-						<label>Profile Picture</label>
-          <span class="edit-icon-wrapper">
-              <i class="material-icons md-18">Edit profile</i>
-          </span>
-          <img class="profile-img" src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg">
-					<div class="image-upload">
-						<p>Upload an image as your profile picture.</p>
-						<input type="file" name="image" accept="image/*">
-					</div>
 
-          <div class="inputs">
-  					<div class="form">
-  						<label>Change Username</label>
-  						<input class="input" type="text" placeholder="Please enter your new username.">
-  					</div>
-            </div>
 
-            <div class="inputs">
-              <div class="form">
-                <label>Change Email</label>
-                <input class="input" type="text" placeholder="Please enter your new email.">
-              </div>
-              </div>
+				<div class="settingbox">
+					<h2>Profile</h2>
+				<img class="profile-img" src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg">
 
-              <div class="inputs">
-                <div class="form">
-                  <label>Change Password</label>
-                  <input class="input" type="text" placeholder="Please enter your new password.">
-                </div>
-                </div>
-
-					<label>Opt-in for Email Notifications/Newsletter</label>
-						<div class="checkboxes">
-							<div v-for="option in categoryOptions" v-bind:key="option.value">
-								<input class="checkbox" type="checkbox"
-								name="preferences"
-								:checked="option.checked"
-								v-model="option.checked" v-validate="'required|minLength:1'"/>
-								{{option.name}}
-							</div>
+				<div class="field">
+					<div class="file is-centered is-boxed has-name">
+						<label class="file-label">
+							<input class="file-input" type="file" name="resume">
+							<span class="file-cta">
+								<span class="file-label">Change profile photo</span>
+						  	</span>
+							<span class="file-name">Screen Shot 2017-07-29 at 15.54.25.png</span>
+						</label>
 						</div>
-					<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Save</button></router-link>
-					<button class="button-light">Cancel</button>
+				</div>
+
+
+
+				<div class="inputs">
+					<h3>Username</h3>
+					<input class="input" type="text" placeholder="Current Username">
+
+					<h3>Email</h3>
+					<input class="input" type="text" placeholder="Current Email">
+
+					<h3>Password</h3>
+					<input class="input" type="text" placeholder="Current password">
+
+				</div>
+			</div>
+
+				<div class="checkboxes">
+					<h2>Newsletter</h2>
+					<div v-for="option in categoryOptions" v-bind:key="option.value">
+						<input class="checkbox" type="checkbox"
+						name="preferences"
+						:checked="option.checked"
+						v-model="option.checked" v-validate="'required|minLength:1'"/>
+						{{option.name}}
+					</div>
+				</div>
+
+				<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Save</button></router-link>
+				<button class="button-light">Cancel</button>
 				</div>
 			</div>
 		</div>
-	</div>
+
 </template>
 
 <script>
@@ -103,5 +107,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/components/AccountSettings/Acc-Set.scss";
+@import "Acc-Set.scss";
 </style>

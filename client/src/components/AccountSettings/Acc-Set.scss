@@ -1,23 +1,34 @@
 @import "../../scss/global";
 
 h1 {
-	font-size: $title-size;
+	 font-size: $title-size;
+	 text-transform: uppercase;
+	 font-weight: bold;
+	 color: $primary-color;
+	 text-align: center;
+	 margin-bottom: 30px;
+ }
+h2 {
+	font-size: $body-size;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: $primary-color;
-	text-align: center;
-	margin-bottom: 30px;
+	color: $primary-color-dark;
+	margin: 10px;
+}
+h3{
+	margin: 5px;
 }
 
-label {
-	color: $body-color;
-	font-weight: 700;
-	margin-top: 20px;
+.field{
+	margin-top:10px;
 }
 
-.image-upload input {
-	display: block;
-	padding: 5px 0;
+input{
+	margin-bottom:20px;
+}
+
+.inputs{
+	margin:5px;
 }
 
 #upload-form {
@@ -27,25 +38,16 @@ label {
 	box-shadow: $box-drop-shadow;
 }
 
-.file {
-	display: block;
-	margin: auto;
-	width: 50%;
-}
 
-.form {
-	margin: 30px 0;
-}
 
-.checkboxes {
+.checkboxes, .settingbox {
 	border: 1px solid $border-color;
 	border-radius: 3px;
 	padding: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 .checkbox {
 	padding: 10px;
-	display: block;
 }
 
 @media screen and (min-width: 768px) {

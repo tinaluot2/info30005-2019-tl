@@ -103,7 +103,6 @@ export default {
 	methods: {
 		showModal() {
 			this.isModalVisible = true;
-			console.log("Hello")
 		},
 		closeModal() {
 			this.isModalVisible = false;

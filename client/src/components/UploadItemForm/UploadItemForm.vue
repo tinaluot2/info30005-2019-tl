@@ -90,7 +90,10 @@ export default {
 			}]
 		}
 	},
-	methods:{
+	methods: {
+		closeModal(form) {
+			this.showSignUp = false;
+		}
 	}
 }
 </script>

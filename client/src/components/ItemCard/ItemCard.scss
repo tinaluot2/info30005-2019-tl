@@ -14,13 +14,13 @@
     color: $body-color;
     background-color: $card-color;
     box-shadow: $box-drop-shadow;
-    margin-bottom: 10px;
+    margin-bottom: 10px!important; //override bulma's default margin
 }
 
 @media screen and (min-width: 480px) {
 
     .small-card {
-        margin: 0;
+        margin: 0!important;
     }
 }
 
@@ -28,9 +28,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 60%;
+    height: 50%;
     width: 100%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.0));
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.0));
     z-index: 99;
     opacity: 0;
     visibility: hidden;
@@ -80,11 +80,31 @@
         padding-bottom: 25px;
     }
 
-    .item-category {
-        color: $link-secondary;
-    }
 }
 
 .card-content a:hover {
     text-decoration: underline;
+}
+
+.material-tags {
+    display: block;
+
+    .tag, .tag a {
+        background: white;
+        color: $link-secondary;
+        padding: 2px 4px;
+        border: $light-grey 1px solid;
+        cursor: pointer;
+        border-radius: 3px;
+        display: inline-block;
+        font-size: 11px;
+        text-transform: lowercase;
+        margin-right: 4px;
+
+        &:hover {
+            text-decoration: none;
+            color: $primary-color;
+            border: $primary-color 1px solid;
+        }
+    }
 }

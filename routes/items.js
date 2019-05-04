@@ -34,14 +34,33 @@ router.get('/', (req, res, next) => {
 // ADD ITEM
 router.post('/', (req, res, next) => {
   //add item data to database
+  /*
   const item = new Item({
-    _id: new mongoose.Types.ObjectId(),
+    itemID: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
     itemDescription: req.body.itemDescription,
     itemCategory: req.body.itemCategory,
     itemHashtags: req.body.itemHashtags,
     itemImage: req.body.itemImage
   });
+  */
+  var current_date = new Date();
+  const item = new Item({
+    itemID: new mongoose.Types.ObjectId(),
+    itemTitle: req.body.itemTitle,
+  	creatorID: req.body.creatorID,
+  	creatorName: req.body.creatorName,
+  	material: req.body.material,
+  	createdAt: current_date,
+  	likeCount: req.body.likeCount,
+  	images: req.body.images,
+  	description: req.body.description,
+  	isLiked: req.body.isLiked,
+  	isBookmarked: req.body.isBookmarked
+
+  });
+
+
 
   //method provided by mongoose
   item

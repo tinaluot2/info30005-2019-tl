@@ -7,42 +7,52 @@ import CreateItem from '@/pages/CreateItem'
 import UserSavedLists from '@/pages/UserSavedLists'
 import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
+import EditItem from '@/components/EditItem/EditItem'
+import Error from '@/pages/ErrorPage'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export const router = new VueRouter({
     mode: 'history',
     linkActiveClass: "is-active",
     routes: [
-{
+        {
             path: '/',
             name: 'Reform',
+            component: LandingPage
+        },
+        {
+            path: '/discover',
+            name: 'Discover',
             component: DiscoverPage
         },
         {
-            path: '/user',
-            name: 'My Profile',
+            path: '/user/:username',
             component: UserProfile
         },
         {
             path: '/settings',
-            name: 'Account Settings',
             component: UserSettings
         },
         {
             path: '/create',
-            name: 'Create a New Project',
             component: CreateItem
         },
         {
             path: '/lists',
-            name: 'User Saved Lists',
             component: UserSavedLists
         },
         {
-            path: '/item',
-            name: 'Item Profile',
+            path: '/item/:itemid',
             component: ItemProfile
+        },
+        {
+            path: '/edit',
+            component: EditItem
+        },
+        {
+            path: '/search'
         }
     ]
-})
+});
+

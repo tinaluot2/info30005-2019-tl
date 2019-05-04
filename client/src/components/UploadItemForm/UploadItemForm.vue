@@ -1,66 +1,68 @@
 <template>
 	<div class="background nav-spacing">
 		<div class="container">
-			<div id="upload-form">
+			<form class="upload-form">
 				<h1>Create a New Project</h1>
-				<div class="inputs">
-					<div class="form">
-						<label>Title</label>
-						<input class="input" type="text" placeholder="E.g: Denim Lunch Box" v-model="item.itemTitle" required>
+
+					<div class="form-section">
+						<div class="form-label">Title</div>
+						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" v-model="item.itemTitle" required>
+						<div class="help-text">Enter a title for your creation.</div>
 					</div>
-					<div class="image-upload">
-						<label>Images</label>
-						<p>Select images to showcase the transformation of your item.</p>
-						<input type="file" name="image01" accept="image/*">
-						<input type="file" name="image02" accept="image/*">
-						<input type="file" name="image03" accept="image/*">
-						<input type="file" name="image04" accept="image/*">
-						<input type="file" name="image05" accept="image/*">
+					<div class="form-section">
+						<div class="form-label">Images</div>
+						<div class="help-text">Select up to 10 images that showcase your creation.</div>
+						<image-uploader></image-uploader>
 					</div>
 
-					<div class="form">
-						<label>Description</label>
+					<div class="form-section">
+						<div class="form-label">Description</div>
 						<div class="control">
-							<textarea class="textarea" placeholder="Describe your creation"></textarea>
+							<textarea class="description" name="description" v-model="item.description" placeholder="Describe your creation.">
+							</textarea>
+							<div class="help-text">What was the original form of your creation? What is it now?</div>
 						</div>
 					</div>
 
-					<label>Materials Used</label>
+					<div class="form-section">
+						<div class="form-label">Materials Used</div>
 						<div class="checkboxes">
-							<div v-for="option in categoryOptions" v-bind:key="option.value">
-								<input class="checkbox" type="checkbox"
+							<div class="checkbox" v-for="option in materialOptions" v-bind:key="option.value">
+								<input type="checkbox"
 								name="material"
 								:checked="option.checked"
-								v-model="option.checked" v-validate="'required|minLength:1'"/>
+								v-model="item.material"/>
 								{{option.name}}
 							</div>
 						</div>
-					<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Post</button></router-link>
+						<div class="help-text">Select at least one material.</div>
+					</div>
+
+					<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Publish</button></router-link>
 					<button class="button-light">Save Draft</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 </template>
 
 <script>
+import ImageUploader from '@/components/ImageUploader/ImageUploader'
 
 export default {
+	components: {
+		'image-uploader': ImageUploader
+	},
 	name: 'CreateItem',
 	data() {
 		return {
 			item:
 			{
 				itemTitle: "",
-				itemImageURL01: "",
-				itemImageURL02: "",
-				itemImageURL03: "",
-				itemImageURL04: "",
-				itemImageURL05: "",
-                itemCategory: [],
-                itemDescription: ""
+				images: [],
+                material: [],
+                description: ""
 			},
-			categoryOptions:[
+			materialOptions:[
 			{
 				name: "Paper",
 				value: "paper",
@@ -94,6 +96,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/components/UploadItemForm/UploadItemForm.scss";
+@import "@/scss/_forms.scss";
 </style>
 

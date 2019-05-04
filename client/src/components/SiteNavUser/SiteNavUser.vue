@@ -12,11 +12,11 @@
 
 			<div class="navbar-menu" :class="{ 'is-active': showNav }">
 				<div class="navbar-end">
-					<router-link to="/" class="navbar-item">Discover</router-link>
+					<router-link to="/discover" class="navbar-item">Discover</router-link>
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">You</a>
 						<div class="navbar-dropdown">
-							<router-link to="/user"
+							<router-link to="/user/mariniida"
                                  class="navbar-item">My Profile</router-link>
 							<router-link to="/settings"
                                  class="navbar-item">Account Settings</router-link>
@@ -38,13 +38,14 @@ export default {
 	name: 'SiteNavUser',
 	data: function() {
 			return {
-				showNav: false
+				showNav: false,
+				currentUser: 1003
 			}
 		}
 }
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/_navbar.scss";
+@import "../../scss/_navbar.scss";
 </style>
 

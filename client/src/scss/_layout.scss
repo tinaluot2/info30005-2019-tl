@@ -44,16 +44,23 @@
 
 //Two column layout for user profile page
 .two-column {
-	display: block;
+	display: block; //single column for small screens
 	width: 100%;
 	padding: 20px;
 }
 
+
+@media screen and (min-width: 768px) {
+	.two-column {
+		padding: $margin $page-margin;
+	}
+}
+
 @media screen and (min-width: 960px) {
+
 	.two-column {
 		display: flex;
 		width: 100%;
-		padding: $margin $page-margin;
 	}
 
 	.profile-bio {
@@ -78,9 +85,8 @@
 	opacity: 0
 }
 
-
 //GRIDS
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 480px) {
 
     .grid-container {
         display: grid;

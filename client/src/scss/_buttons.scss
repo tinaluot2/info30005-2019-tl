@@ -2,33 +2,47 @@
 button {
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 3px;
-    padding: 8px 12px;
+    border-radius: 50px;
+    padding: 6px 12px;
     cursor: pointer;
-    transition: all 600ms ease;
+    transition: all 500ms ease;
 }
 
 .button-dark {
     background: $primary-color;
     color: $button-text;
-    border: none;
-}
+    border: $primary-color 1px solid;
 
-.button-dark:hover, .button-dark:active, .button-dark:focus {
-    background: $button-hover-color;
-    transition: all 600ms ease;
+    &:hover, &:active, &:focus  {
+        background: $button-hover-color;
+        transition: all 300ms ease;
+        border: $button-hover-color 1px solid;
+    }
 }
 
 .button-light {
     background: white;
     color: $primary-color;
     border-color: $primary-color;
+
+    &:hover, &:active, &:focus {
+        border-color: $button-hover-color;
+        color: $button-hover-color;
+        transition: all 300ms ease;
+    }
 }
 
-.button-light:hover, .button-light:active, .button-light:focus {
-    border-color: $button-hover-color;
-    color: $button-hover-color;
-    transition: all 600ms ease;
+.button-red {
+	background-color: #FF5C5C;
+	border-color: #FF5C5C;
+	color: white;
+	margin-left: auto;
+
+	&:hover, &:active, &:focus {
+		background-color: #FF263C;
+        border-color: #FF263C;
+        transition: all 300ms ease;
+	}
 }
 
 .form button {
@@ -44,21 +58,17 @@ button {
 //ICONIC BUTTONS
 .icon-button-wrapper {
     margin: 5px 5px -1px 5px;
-    transition: all 600ms ease;
+    transition: all 300ms ease;
 
     &:hover, &:focus {
         cursor: pointer;
-        transition: all 300ms ease;
+        transition: all 200ms ease;
     }
 }
 
 //Like
 .like-button {
     color: #999;
-
-    &:hover, &:focus {
-        color: $primary-color;
-    }
 }
 
 .liked {
@@ -97,4 +107,8 @@ button {
     padding: 5px;
     top: 5px;
     color: white;
+}
+
+.button-circle {
+  border-radius: 20%
 }

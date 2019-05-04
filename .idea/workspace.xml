@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7d7d7c17-15ea-40c2-a471-6aa8ee8e9e22" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/UserSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/UserSettings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/scss/_variables.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,29 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-825">
-              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            <state relative-caret-position="131">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/scss/_variables.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="220">
+              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -80,9 +68,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="677" />
+    <option name="x" value="617" />
     <option name="y" value="23" />
-    <option name="width" value="763" />
+    <option name="width" value="823" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -192,18 +180,18 @@
       <workItem from="1556222735594" duration="1463000" />
       <workItem from="1556762550495" duration="307000" />
       <workItem from="1556762994260" duration="3012000" />
-      <workItem from="1556961154119" duration="4207000" />
+      <workItem from="1556961154119" duration="4445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9688000" />
+    <option name="totallyTimeSpent" value="9926000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="677" y="23" width="763" height="877" extended-state="0" />
+    <frame x="617" y="23" width="823" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.33162218" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30673316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -415,17 +403,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.scss">
+    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+        <state relative-caret-position="131">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.vue">
+    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/Acc-Set.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="220">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
         </state>
       </provider>
     </entry>

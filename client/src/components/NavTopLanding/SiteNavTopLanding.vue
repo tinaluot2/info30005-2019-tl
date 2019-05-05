@@ -14,7 +14,7 @@
 				<div class="navbar-end">
 					<a class="navbar-item">Discover</a>
 					<a class="navbar-item">About</a>
-					<a class="navbar-item">Misson</a>
+					<a class="navbar-item">Mission</a>
 					<a class="navbar-item">
 							<button class="button-light spacing-not-last-child">Log In</button>
 							<button class="button-dark">Sign Up</button>

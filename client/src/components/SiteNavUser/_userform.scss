@@ -82,7 +82,6 @@
     border: 1px solid $border-color;
     border-radius: 2px;
     width: 100%;
-    margin-bottom: 15px;
     padding: 6px;
     box-sizing: border-box;
     transition: all 0.3s ease;
@@ -98,9 +97,8 @@
 	}
 }
 
-.message {
-    margin: 10px 0 0;
-    font-size: 14px;
+.form-input {
+    margin-bottom: 15px;
 }
 
 .form-label {
@@ -116,4 +114,14 @@
     padding: 8px;
     font-size: 14px;
     margin: 5px 0;
+}
+
+.error-text {
+    font-size: 11px;
+    color: $light-red;
+    padding-top: 2px;
+}
+
+.password-hints {
+    padding: 3px 0;
 }

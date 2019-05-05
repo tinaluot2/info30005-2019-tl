@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import SignUpForm from '@/components/NavTopLanding/SignUpForm'
+import SignUpForm from './SignUpForm'
 
 export default {
 	name: 'SiteNavUser',
@@ -48,12 +48,12 @@ export default {
 		'sign-up-form' : SignUpForm
 	},
 	data: function() {
-			return {
-				showNav: false,
-				currentUser: 1003,
-				showSignUp: false
-			}
-		},
+		return {
+			showNav: false,
+			currentUser: 1003,
+			showSignUp: false
+		}
+	},
 	methods: {
 		showModal() {
 			this.showSignUp = true;

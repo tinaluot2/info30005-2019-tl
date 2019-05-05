@@ -24,13 +24,13 @@
         display:block;
         margin-left:auto;
         margin-right:auto;
-        padding-top:100px;
+        padding-top:200px;
     }
     h1{
         font-weight:bold;
         font-family: $body-family;
         font-size:$body-size;
-        padding:20px;
+        padding:60px;
         text-align:center;
     }
 

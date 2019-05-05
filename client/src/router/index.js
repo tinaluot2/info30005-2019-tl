@@ -51,6 +51,10 @@ export const router = new VueRouter({
             component: EditItem
         },
         {
+            path: '/error',
+            component: Error
+        },
+        {
             path: '/search'
         }
     ]

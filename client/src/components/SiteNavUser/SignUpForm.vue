@@ -1,18 +1,13 @@
 <template>
 	<transition name="modal-fade">
-		<div class="modal-backdrop" @click="$emit('close')">
+		<div class="modal-backdrop">
 			<div class="container nav-spacing">
 						<div id="login-container" @click.stop>
-							<div class="close-dialog" @click="$emit('close')">X</div>
+							<div class="close-dialog" @click="$emit('close') + resetValues()">X</div>
 							<div class="form-header">
 									Join us today!
 							</div>
 							<form action="#" @submit.prevent="validateBeforeSubmit()">
-
-								<div class="form-input">
-									<div class="form-label">First Name <span class="req">*</span></div>
-									<input class="form" type="form" name="name" v-model="userDetails.name.firstName"/>
-								</div>
 
 								<div class="form-input">
 									<div class="form-label">Email Address <span class="req">*</span></div>
@@ -38,7 +33,16 @@
 									</p>
 								</div>
 
-								<button class="button-dark user-submit" v-if="passwordsFilled && !differentPasswords && passwordValidate.valid">Sign Up</button>
+								<div class="form-input">
+									<div class="form-label">Username <span class="req">*</span></div>
+									<input class="form" type="text" name="name" v-model="userDetails.name" :class="trimWhiteSpace"/>
+									<p class="help-text">You will be able to change this later.</p>
+									<div class="password-hints" v-show='userDetails.name !== "" && usernameValidate.errors.length > 0'>
+										<p class="help-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>
+									</div>
+								</div>
+
+								<button class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''">Sign Up</button>
 								<p class="help-text">Already have an account? Login here.</p>
 
 							</form>
@@ -55,28 +59,26 @@ export default {
 		return {
 			isPasswordHintsVisible: false,
 			userDetails: {
-				name: {
-					firstName: '',
-					lastName: ''
-				},
+				name: '',
 				email: '',
 				password: '',
 				confirmPassword: ''
 			},
 			passwordRules: [
-				{ msg:'At least one lowercase letter required.', regex:/[a-z]+/ },
-				{ msg:"At least one uppercase letter required.",  regex:/[A-Z]+/ },
-				{ msg:"At least one number required.", regex:/[0-9]+/ },
-				{ msg:"8 characters minimum.", regex:/.{8,}/ },
+				{ msg:'At least one lowercase letter required.', regex: /[a-z]+/ },
+				{ msg:'At least one uppercase letter required.',  regex: /[A-Z]+/ },
+				{ msg:'At least one number required.', regex: /[0-9]+/ },
+				{ msg:'Between 8-20 characters.', regex: /.{8,20}/ },
 			],
+			usernameRules: [
+				{ msg:'Must contain between 2 to 25 characters', regex: /.{2,25}/ },
+				{ msg:'Can only contain alphanumerical characters', regex: /^[a-zA-Z0-9]*$/ }
+			]
 		}
   },
 	methods: {
 		close(event){
 				this.$emit('close');
-		},
-		signup(){
-
 		},
 		validateBeforeSubmit(){
 			this.$validator
@@ -91,7 +93,13 @@ export default {
 		},
 		hidePasswordHints(){
 			this.isPasswordHintsVisible = false;
-		}
+		},
+		resetValues() {
+			var self = this;
+			Object.keys(this.userDetails).forEach(function(key) {
+					self.userDetails[key] = '';
+			})
+		},
 	},
 	computed: {
 		passwordsFilled(){
@@ -116,6 +124,22 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
+		},
+		usernameValidate(){
+			let errors = []
+			for (let condition of this.usernameRules) {
+				if (!condition.regex.test(this.userDetails.name)) {
+					errors.push(condition.msg)
+				}
+			}
+			if (errors.length === 0) {
+				return { valid:true, errors }
+			} else {
+				return { valid:false, errors }
+			}
+		},
+		trimWhiteSpace(){
+			return this.userDetails.name.replace(/\s/g, '').toLowerCase
 		}
 	}
 }

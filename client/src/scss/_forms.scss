@@ -1,4 +1,4 @@
-@import "../../scss/global";
+@import "./global";
 
 h1 {
 	font-size: $title-size;
@@ -46,7 +46,7 @@ h1 {
 	font-size: 11px;
 	color: $link-secondary;
 	display: block;
-	padding-top: 5px;
+	padding-top: 3px;
 }
 
 @media screen and (min-width: 480px) {
@@ -94,7 +94,7 @@ h1 {
 	min-height: 5rem;
 
 	&:hover {
-		border: 1px solid #ddd;
+		border: 1px solid #ccc;
 	}
 
 	&:focus {
@@ -110,7 +110,7 @@ h1 {
 	width: 50%;
 }
 
-.form-section {
+.section {
 	margin-bottom: 30px;
 }
 

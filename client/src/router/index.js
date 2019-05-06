@@ -9,6 +9,8 @@ import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 import Error from '@/pages/ErrorPage'
+import LoginPage from '@/pages/LoginPage'
+
 
 Vue.use(VueRouter);
 
@@ -56,6 +58,10 @@ export const router = new VueRouter({
         },
         {
             path: '/search'
+        },
+        {
+            path: '/login',
+            component: LoginPage
         }
     ]
 });

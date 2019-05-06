@@ -2,7 +2,7 @@
     <transition name="modal-fade">
             <div class="modal-backdrop" @click="$emit('close')">
                 <div class="container nav-spacing">
-                    <div class="modal-container">
+                    <div class="modal-container" @click.stop>
                         <div class="modal-title">
                             Delete your Project?
                         </div>
@@ -27,7 +27,7 @@ export default {
     methods: {
         close(event) {
             this.$emit('close');
-        },
+        }
     }
 }
 </script>

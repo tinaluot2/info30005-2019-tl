@@ -35,7 +35,7 @@
 
 								<div class="form-input">
 									<div class="form-label">Username <span class="req">*</span></div>
-									<input class="form" type="text" name="name" v-model="userDetails.name" :class="trimWhiteSpace"/>
+									<input class="form" type="text" name="name" v-model="userDetails.name" autocomplete="off"/>
 									<p class="help-text">You will be able to change this later.</p>
 									<div class="password-hints" v-show='userDetails.name !== "" && usernameValidate.errors.length > 0'>
 										<p class="help-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>
@@ -68,11 +68,12 @@ export default {
 				{ msg:'At least one lowercase letter required.', regex: /[a-z]+/ },
 				{ msg:'At least one uppercase letter required.',  regex: /[A-Z]+/ },
 				{ msg:'At least one number required.', regex: /[0-9]+/ },
-				{ msg:'Between 8-20 characters.', regex: /.{8,20}/ },
+				{ msg:'8 characters minimum.', regex: /.{8,}/ },
 			],
 			usernameRules: [
-				{ msg:'Must contain between 2 to 25 characters', regex: /.{2,25}/ },
-				{ msg:'Can only contain alphanumerical characters', regex: /^[a-zA-Z0-9]*$/ }
+				{ msg:'Username must contain at least 3 characters.', regex: /^.{3,}$/ },
+				{ msg:'Username cannont exceed 25 characters.', regex: /^.{0,25}$/ },
+				{ msg:'Only alphanumerical characters are allowed.', regex: /^[a-zA-Z0-9]*$/ }
 			]
 		}
   },

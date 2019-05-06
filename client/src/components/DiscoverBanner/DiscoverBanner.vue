@@ -16,6 +16,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/_banner.scss";
+@import "../../scss/_banner.scss";
 </style>
 

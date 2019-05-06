@@ -12,30 +12,21 @@
             <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                 <div class="dropdown-content">
                     <div class="checkboxes">
-                        <label class="checkbox">
-                            <input type="checkbox" name="paper">
-                            Paper
-                        </label>
 
-                        <label class="checkbox" name="glass">
-                            <input type="checkbox">
-                            Glass
-                        </label>
+                        <input class="checkbox" type="checkbox" id="Paper" value="Paper">
+                        <label for="Paper">Paper</label>
 
-                        <label class="checkbox" name="textiles">
-                            <input type="checkbox">
-                            Textiles
-                        </label>
+                        <input class="checkbox" type="checkbox" id="Glass" value="Glass">
+                        <label for="Glass">Glass</label>
 
-                        <label class="checkbox" name="plastic">
-                            <input type="checkbox">
-                            Plastic
-                        </label>
+                        <input class="checkbox" type="checkbox" id="Textiles" value="Textiles">
+                        <label for="Textiles">Textiles</label>
 
-                        <label class="checkbox" name="metal">
-                            <input type="checkbox">
-                            Aluminium
-                        </label>
+                        <input class="checkbox" type="checkbox" id="Plastic" value="Plastic">
+                        <label for="Plastic">Plastic</label>
+
+                        <input class="checkbox" type="checkbox" id="Aluminium" value="Aluminium">
+                        <label for="Aluminium">Aluminium</label>
                     </div>
 
                     <div class="apply">

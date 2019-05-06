@@ -1,8 +1,10 @@
 <template>
 <div>
     <DiscoverBanner />
-    <SearchBar />
-    <FilterBar />
+    <div class="bar">
+        <div><FilterBar /></div>
+        <div><SearchBar /></div>
+    </div>
     <ItemDisplayGrid />
 </div>
 </template>
@@ -30,5 +32,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+    .bar{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding-top:5px;
+        padding-bottom:5px;
+    }
+
 </style>
 

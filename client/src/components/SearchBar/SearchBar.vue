@@ -41,5 +41,6 @@ export default {
 
 <style scoped lang="scss">
     @import "../../scss/_banner.scss";
+    @import "SearchBar.scss";
 </style>
 

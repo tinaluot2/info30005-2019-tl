@@ -43,7 +43,8 @@
 								</div>
 
 								<button class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''">Sign Up</button>
-								<p class="help-text">Already have an account? Login here.</p>
+
+								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
 
 							</form>
 						</div>
@@ -138,9 +139,6 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-		},
-		trimWhiteSpace(){
-			return this.userDetails.name.replace(/\s/g, '').toLowerCase
 		}
 	}
 }

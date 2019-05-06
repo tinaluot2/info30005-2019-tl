@@ -29,26 +29,29 @@
 							<a class="navbar-item" href="#logout">Sign Out</a>
 						</div>
 					</div>
-					<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
-					<a class="navbar-item button-no-background"><button class="button-light" @click="toggleLogin()">Login</button></a>
-					<a class="navbar-item button-no-background"><button class="button-dark" @click="toggleSignUp()">Sign Up</button></a>
+					<div @click="toggleNav">
+						<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
+					</div>
+					<div @click="toggleNav">
+						<router-link to="/login" class="navbar-item button-no-background"><button class="button-light">Login</button></router-link>
+					</div>
+					<div @click="toggleNav">
+						<a class="navbar-item button-no-background"><button class="button-dark" @click="toggleSignUp()">Sign Up</button></a>
+					</div>
 				</div>
 			</div>
 			<sign-up-form v-show="showSignUp" @close="toggleSignUp"/>
-			<login-form v-show="showLogin" @close="toggleLogin"/>
 		</div>
 	</nav>
 </template>
 
 <script>
 import SignUpForm from './SignUpForm'
-import LoginForm from './LoginForm'
 
 export default {
 	name: 'SiteNavUser',
 	components: {
-		'sign-up-form' : SignUpForm,
-		'login-form' : LoginForm
+		'sign-up-form' : SignUpForm
 	},
 	data: function() {
 		return {

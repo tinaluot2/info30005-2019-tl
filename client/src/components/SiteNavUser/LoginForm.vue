@@ -12,7 +12,8 @@
 
 						<div class="form-input">
 							<div class="form-label">Email Address</div>
-							<input class="form" type="email" name="email" v-model.lazy="userDetails.email"/>
+							<input class="form" type="email" name="email" v-validate="'email'" v-model.lazy="userDetails.email"/>
+							<p class="error-text" v-show="errors.has('email')">Ensure your email is valid.</p>
 						</div>
 
 						<div class="form-input">
@@ -20,7 +21,7 @@
 							<input class="form" type="password" name="password" v-model="userDetails.password"/>
 						</div>
 
-						<button class="button-dark user-submit" :disabled="userDetails.email == ''||userDetails.password == ''">Log In</button>
+						<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''||userDetails.password == ''">Log In</button>
 
 					</form>
 				</div>

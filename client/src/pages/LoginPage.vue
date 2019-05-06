@@ -17,6 +17,7 @@
 				<div class="form-input">
 					<div class="form-label">Password</div>
 					<input class="form" type="password" name="password" v-model="userDetails.password"/>
+					<div class="error-text" v-if="error">Your email address and/or password is incorrect.</div>
 				</div>
 
 				<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''|| userDetails.password == ''">Log In</button>
@@ -45,6 +46,7 @@ export default {
 				password: ''
 			},
 			authenticated: false,
+			error: false,
 			showSignUp: false,
 			users: [
 				{
@@ -59,7 +61,7 @@ export default {
 		}
   },
 	methods: {
-		close(event){
+		close(){
 				this.$emit('close');
 		},
 		resetValues() {
@@ -70,6 +72,13 @@ export default {
 		},
 		toggleSignUp() {
 			this.showSignUp = !this.showSignUp;
+		},
+		login () {
+			axios.post('/auth', {
+				email: this.UserDetails.email,
+				password: this.UserDetails.password })
+			.then(request => this.loginSuccessful(request))
+			.catch(() => this.loginFailed())
 		}
 	}
 }

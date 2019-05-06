@@ -4,18 +4,18 @@
 			<form class="upload-form">
 				<h1>Create a New Project</h1>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Title</div>
 						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" v-model="item.itemTitle" required>
 						<div class="help-text">Enter a title for your creation.</div>
 					</div>
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Images</div>
 						<div class="help-text">Select up to 10 images that showcase your creation.</div>
 						<image-uploader></image-uploader>
 					</div>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Description</div>
 						<div class="control">
 						<textarea class="description" name="description" v-model="item.description" placeholder="Describe your creation." />
@@ -23,7 +23,7 @@
 						</div>
 					</div>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Materials Used</div>
 						<div class="checkboxes">
 							<div class="checkbox" v-for="option in materialOptions" v-bind:key="option.value">

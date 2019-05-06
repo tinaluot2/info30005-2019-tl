@@ -1,6 +1,8 @@
 <template>
 <div>
     <DiscoverBanner />
+    <SearchBar />
+    <FilterBar />
     <ItemDisplayGrid />
 </div>
 </template>
@@ -8,11 +10,16 @@
 <script>
 import DiscoverBanner from '@/components/DiscoverBanner/DiscoverBanner'
 import ItemDisplayGrid from '@/components/ItemDisplayGrid/ItemDisplayGrid'
+import FilterBar from "@/components/FilterBar/filter";
+import SearchBar from "@/components/SearchBar/SearchBar";
 
 export default {
 	name: 'DiscoverPage',
 		components: {
-			DiscoverBanner, ItemDisplayGrid
+			DiscoverBanner,
+            ItemDisplayGrid,
+            SearchBar,
+            FilterBar,
 		},
 		data () {
 			return{

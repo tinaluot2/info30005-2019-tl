@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import AccountSettings from '@/components/AccountSettings/Acc-Set.vue'
+import AccountSettings from '@/components/AccountSettings/AccountSettings.vue'
 
 export default {
   name: 'UserSettings',

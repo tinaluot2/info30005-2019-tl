@@ -4,27 +4,27 @@
 			<form class="upload-form">
 				<h1>Edit Your Project</h1>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Title</div>
 						<input class="title-input" type="text" name="title" v-bind:value="item.itemTitle" maxlength = "60" required>
 						<div class="help-text">Click to edit the title.</div>
 					</div>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Images</div>
 						<image-uploader></image-uploader>
 						<div class="help-text">Users should be able to remove and add images but we haven't figured how to do it yet.</div>
 					</div>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Description</div>
 						<div class="control">
-							<textarea class="description" name="description" v-bind:value="item.itemDescription">					{item.itemDescription}
+							<textarea class="description" name="description" v-bind:value="item.itemDescription">{item.itemDescription}
 							</textarea>
 						</div>
 					</div>
 
-					<div class="section">
+					<div class="form-section">
 						<div class="form-label">Materials Used</div>
 						<div class="checkboxes">
 							<div class="checkbox" v-for="option in categoryOptions" v-bind:key="option.value">

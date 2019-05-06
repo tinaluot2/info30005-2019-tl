@@ -7,17 +7,15 @@
 			</span>
 		</div>
 
-		<div class="filter-bar">
-			<div class="dropdown is-hoverable">
-				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-							<span>All Materials</span>
-							<span class="icon is-small">
-							<i class="fas fa-angle-down" aria-hidden="true"></i>
+		<div id="filter-container">
+			<div class="filter-button">
+					All Materials
+					<span class="dropdown">
+						<i class="material-icons">keyboard_arrow_down</i>
 					</span>
-					</button>
-				</div>
-				<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+			</div>
+		</div>
+				<!-- <div class="dropdown-menu" id="dropdown-menu4" role="menu">
 						<div class="dropdown-content">
 								<div class="checkboxes">
 
@@ -41,16 +39,44 @@
 								<button class="button-dark">Apply</button>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</div> -->
   </div>
 </template>
 
 <script>
-    export default {
-        name: 'SearchBar'
-    }
+export default {
+	name: 'SearchBar',
+	data() {
+		return {
+			materialCategories: [
+			{
+				name: "Paper",
+				value: "paper",
+				checked: false
+			},
+			{
+				name: "Glass",
+				value: "glass",
+				checked: false
+			},
+			{
+				name: "Textiles",
+				value: "textiles",
+				checked: true
+			},
+			{
+				name: "Plastic",
+				value: "plastic",
+				checked: false
+			},
+			{
+				name: "Metal",
+				value: "metal",
+				checked: false
+			}]
+		}
+	}
+}
 </script>
 
 <style scoped lang="scss">

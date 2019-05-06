@@ -36,5 +36,13 @@ a:hover {
     transition: all 700ms ease;
 }
 
+h1 {
+    font-size: $title-size;
+    text-transform: uppercase;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-16 { font-size: 16px; }

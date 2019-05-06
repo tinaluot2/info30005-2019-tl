@@ -2,7 +2,6 @@
 	<div class="background nav-spacing">
 		<div class="container">
 			<div id="settings-form">
-
 				<h1>Account Settings</h1>
 
 				<img class="profile-img" src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg">

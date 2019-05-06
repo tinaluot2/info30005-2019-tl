@@ -1,34 +1,51 @@
 <template>
-    <div class="field is-grouped">
-        <p class="control has-icons-left has-icons-right is-expanded">
-            <input class="input" type="search" placeholder="Search">
-            <span class="icon is-small is-left">
-            <i class="fas fa-search"></i>
-            </span>
-        </p>
-        <a class="button">Search</a>
+	<div class="container">
+		<div id="search-container">
+			<input class="search-bar" type="search" placeholder="Browse ideas...">
+			<span class="search-icon-wrapper">
+					<i class="material-icons">search</i>
+			</span>
+		</div>
 
-    </div>
+		<div class="filter-bar">
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+							<span>All Materials</span>
+							<span class="icon is-small">
+							<i class="fas fa-angle-down" aria-hidden="true"></i>
+					</span>
+					</button>
+				</div>
+				<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+						<div class="dropdown-content">
+								<div class="checkboxes">
 
+									<input class="checkbox" type="checkbox" id="Paper" value="Paper">
+									<label for="Paper">Paper</label>
+
+									<input class="checkbox" type="checkbox" id="Glass" value="Glass">
+									<label for="Glass">Glass</label>
+
+									<input class="checkbox" type="checkbox" id="Textiles" value="Textiles">
+									<label for="Textiles">Textiles</label>
+
+									<input class="checkbox" type="checkbox" id="Plastic" value="Plastic">
+									<label for="Plastic">Plastic</label>
+
+									<input class="checkbox" type="checkbox" id="Aluminium" value="Aluminium">
+									<label for="Aluminium">Aluminium</label>
+								</div>
+
+						<div class="apply">
+								<button class="button-dark">Apply</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
 </template>
-<!--If icon folder was in this branch, replace
-<i class="fas fa-search"></i> with
-     <icon-base icon-name="search"><icon-search /></icon-base>
-
-     and in vue
-
-     <script>
-import IconBase from './IconBase.vue'
-import IconSearch from './icons/IconSearch.vue'
-
-export default {
-  components: {
-    IconBase,
-    IconSearch,
-    }
-    }
-   </script>
-     -->
 
 <script>
     export default {
@@ -37,7 +54,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import "../../scss/_banner.scss";
     @import "SearchBar.scss";
 </style>
 

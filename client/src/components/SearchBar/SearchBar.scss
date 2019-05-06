@@ -1,7 +1,38 @@
 @import "../../scss/global";
 
 
-.field{
-  width:100%;
-  padding:10px;
+.field {
+  width: 100%;
+  padding: 10px;
+}
+
+#search-container {
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+}
+
+.search-bar {
+  width: 100%;
+	border: none;
+	border-bottom: 1px solid $border-color;
+	display: block;
+	font-size: 16px;
+	color: $link-secondary;
+  transition: all 0.2s ease;
+  padding: 5px 3px;
+
+	&:focus {
+		outline: none;
+		color: $body-color;
+		transition: all 0.2s ease;
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+.search-icon-wrapper {
+  padding: 10px 0;
+  margin-left: auto;
+  color: $link-secondary;
+  cursor: pointer;
 }

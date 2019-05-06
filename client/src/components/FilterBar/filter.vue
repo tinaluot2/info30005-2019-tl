@@ -56,6 +56,6 @@
 
 <style scoped lang="scss">
     @import "../../scss/_banner.scss";
-
+    @import "filter.scss";
 </style>
 

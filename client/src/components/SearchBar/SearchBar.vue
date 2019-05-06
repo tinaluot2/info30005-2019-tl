@@ -6,11 +6,8 @@
             <i class="fas fa-search"></i>
             </span>
         </p>
-        <p class="form">
-            <a class="button">
-                Search
-            </a>
-        </p>
+        <a class="button">Search</a>
+
     </div>
 
 </template>

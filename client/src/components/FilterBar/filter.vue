@@ -13,20 +13,20 @@
                 <div class="dropdown-content">
                     <div class="checkboxes">
 
-                        <input class="checkbox" type="checkbox" id="Paper" value="Paper">
-                        <label for="Paper">Paper</label>
+                        <div><input class="checkbox" type="checkbox" id="Paper" value="Paper">
+                        <label for="Paper">Paper</label></div>
 
-                        <input class="checkbox" type="checkbox" id="Glass" value="Glass">
-                        <label for="Glass">Glass</label>
+                        <div><input class="checkbox" type="checkbox" id="Glass" value="Glass">
+                        <label for="Glass">Glass</label></div>
 
-                        <input class="checkbox" type="checkbox" id="Textiles" value="Textiles">
-                        <label for="Textiles">Textiles</label>
+                        <div><input class="checkbox" type="checkbox" id="Textiles" value="Textiles">
+                        <label for="Textiles">Textiles</label></div>
 
-                        <input class="checkbox" type="checkbox" id="Plastic" value="Plastic">
-                        <label for="Plastic">Plastic</label>
+                        <div><input class="checkbox" type="checkbox" id="Plastic" value="Plastic">
+                        <label for="Plastic">Plastic</label></div>
 
-                        <input class="checkbox" type="checkbox" id="Aluminium" value="Aluminium">
-                        <label for="Aluminium">Aluminium</label>
+                        <div><input class="checkbox" type="checkbox" id="Aluminium" value="Aluminium">
+                        <label for="Aluminium">Aluminium</label></div>
                     </div>
 
                     <div class="apply">

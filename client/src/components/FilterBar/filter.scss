@@ -1,13 +1,13 @@
 //@import "../../scss/global";
 
 .filterbar{
-  background-color: white;
   padding:10px;
 }
 
 span{
   font-weight:normal;
 }
+
 .dropdown{
   width:80%
 }
@@ -16,7 +16,10 @@ span{
   padding:10px;
 }
 
-.checkbox, .apply{
-  margin:6px;
+.checkbox, .apply {
+  margin: 10px;
 }
 
+.checkboxes{
+  float:left;
+}

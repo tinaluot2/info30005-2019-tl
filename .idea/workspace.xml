@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7d7c17-15ea-40c2-a471-6aa8ee8e9e22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/components/FilterBar/filter.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/FilterBar/filter.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FilterBar/filter.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/FilterBar/filter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FilterBar/filter.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/DiscoverPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/DiscoverPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,32 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/pages/DiscoverPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="e#129#200#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.vue">
+        <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+            <state relative-caret-position="196">
+              <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            <state relative-caret-position="375">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -76,11 +72,11 @@
         <option value="$PROJECT_DIR$/client/src/router/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/NavTopLanding/SiteNavTopLanding.vue" />
         <option value="$PROJECT_DIR$/client/src/components/DiscoverBanner/DiscoverBanner.vue" />
+        <option value="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss" />
+        <option value="$PROJECT_DIR$/client/src/pages/DiscoverPage.vue" />
         <option value="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.vue" />
         <option value="$PROJECT_DIR$/client/src/components/FilterBar/filter.vue" />
-        <option value="$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss" />
         <option value="$PROJECT_DIR$/client/src/components/FilterBar/filter.scss" />
-        <option value="$PROJECT_DIR$/client/src/pages/DiscoverPage.vue" />
       </list>
     </option>
   </component>
@@ -89,9 +85,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="651" />
+    <option name="x" value="417" />
     <option name="y" value="23" />
-    <option name="width" value="789" />
+    <option name="width" value="1049" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -100,6 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -112,74 +109,17 @@
               <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="FilterBar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="SearchBar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="info30005-2019-tl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="info30005-2019-tl" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -226,16 +166,18 @@
       <workItem from="1556961154119" duration="4848000" />
       <workItem from="1557034227978" duration="246000" />
       <workItem from="1557122884460" duration="1152000" />
+      <workItem from="1557140532134" duration="836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14921000" />
+    <option name="totallyTimeSpent" value="15757000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="831" y="23" width="609" height="877" extended-state="0" />
+    <frame x="417" y="23" width="1049" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26020408" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25097275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -456,41 +398,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="90">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/SearchBar/SearchBar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/pages/DiscoverPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="e#129#200#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/FilterBar/filter.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

@@ -30,36 +30,40 @@
 						</div>
 					</div>
 					<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
-					<a class="navbar-item button-no-background"><button class="button-light">Login</button></a>
-					<a class="navbar-item button-no-background"><button class="button-dark" @click="showModal()">Sign Up</button></a>
+					<a class="navbar-item button-no-background"><button class="button-light" @click="toggleLogin()">Login</button></a>
+					<a class="navbar-item button-no-background"><button class="button-dark" @click="toggleSignUp()">Sign Up</button></a>
 				</div>
 			</div>
-			<sign-up-form v-show="showSignUp" @close="closeModal"/>
+			<sign-up-form v-show="showSignUp" @close="toggleSignUp"/>
+			<login-form v-show="showLogin" @close="toggleLogin"/>
 		</div>
 	</nav>
 </template>
 
 <script>
 import SignUpForm from './SignUpForm'
+import LoginForm from './LoginForm'
 
 export default {
 	name: 'SiteNavUser',
 	components: {
-		'sign-up-form' : SignUpForm
+		'sign-up-form' : SignUpForm,
+		'login-form' : LoginForm
 	},
 	data: function() {
 		return {
 			showNav: false,
 			currentUser: 1003,
-			showSignUp: false
+			showSignUp: false,
+			showLogin: false
 		}
 	},
 	methods: {
-		showModal() {
-			this.showSignUp = true;
+		toggleSignUp() {
+			this.showSignUp = !this.showSignUp;
 		},
-		closeModal() {
-			this.showSignUp = false;
+		toggleLogin() {
+			this.showLogin = !this.showLogin;
 		},
 		toggleNav() {
 			this.showNav = !this.showNav;

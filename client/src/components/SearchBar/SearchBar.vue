@@ -73,6 +73,11 @@ export default {
 				name: "Metal",
 				value: "metal",
 				checked: false
+			},
+			{
+				name: "Aluminium",
+				value: "Aluminium",
+				checked: false
 			}]
 		}
 	}

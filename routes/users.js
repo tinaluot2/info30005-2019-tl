@@ -54,7 +54,6 @@ router.get('/:userId', (req, res, next) => {
     });
 
 });
-
 router.patch('/:userId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.userId);
 

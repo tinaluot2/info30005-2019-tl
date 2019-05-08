@@ -44,7 +44,7 @@
 						</div>
 						<router-link to="/user">
 							<button class="button-dark spacing-not-last-child" value="Submit"
-									:disabled="errors.any() ||!ProjectTitleValidate ||  checkedmaterials.length === 0"> Publish </button>
+									:disabled="ProjectTitleValidate.errors.length > 0 ||  checkedmaterials.length === 0"> Publish </button>
 						</router-link>
 						<button class="button-light">Save Draft</button>
 				</form>

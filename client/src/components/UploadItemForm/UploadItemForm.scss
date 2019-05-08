@@ -23,17 +23,18 @@ label {
 	margin: 30px 0;
 }
 
-.checkboxes {
+.materials-list {
 	border: 1px solid $border-color;
 	border-radius: 3px;
 	padding: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 3px;
 }
 
 .checkbox {
 	padding: 10px;
 	display: block;
-	label{
+
+	label {
 		font-weight:normal;
 		padding:5px;
 	}

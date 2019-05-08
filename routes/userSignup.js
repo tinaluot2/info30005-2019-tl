@@ -9,37 +9,30 @@ const jwt = require("jsonwebtoken");
 const User = require('../models/user');
 
 router.post('/signup', (req, res, next) => {
-  // First we check if the email already exists.
+  // First we check if the username already exists.
   User.find({email: req.body.email})
     .exec()
     .then(user => {
-      // if email already exist (we use length >=1 because user is default null)
+      console.log(user)
+      // if user already exist (we use length >=1 because user is default null)
       if (user.length >= 1) {
+        console.log("HELLO")
         return res.status(409).json({
           message: "Email already exists"
         });
       }
-      // if email don't exist then we check the username
+      // if user don't exist then we hash the password
       else{
-        User.find({username: req.body.username})
-          .exec(user => {
-            // if username exist (we use length >=1 because user is default nu,,)
-            if (user.length >= 1) {
-              return res.status(409).json({
-                message: "Username already exists"
-              });
-            }
-            else{
-              bcrypt.hash(req.body.password, 10, (err, hash) => {
-                if (err) {
-                  return res.status(500).json({
-                    error: err
-                  });
-                }
-                else {
-                  var current_date = new Date();
-                  const user = new User({
-                    _id: new mongoose.Types.ObjectId(),
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if (err) {
+            return res.status(500).json({
+              error: err
+            });
+          }
+          else {
+            var current_date = new Date();
+            const user = new User({
+              _id: new mongoose.Types.ObjectId(),
                     // these fields are expected in input
                     email: req.body.email,
                     password: hash,
@@ -51,26 +44,23 @@ router.post('/signup', (req, res, next) => {
                     bookmarks: req.body.bookmarks,
                     likes: req.body.likes,
                     description: req.body.description
-
-                  });
-                  user
-                    .save()
-                    .then(result => {
-                      console.log(result);
-                      res.status(201).json({
-                        message: "User created"
-                      });
-                    })
-                    .catch(err => {
-                      console.log(err);
-                      res.status(500).json({
-                        error: err
-                      });
-                    });
-                }
+            });
+            user
+              .save()
+              .then(result => {
+                console.log(result);
+                res.status(201).json({
+                  message: "User created"
+                });
+              })
+              .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                  error: err
+                });
               });
-            }
-          });
+          }
+        });
       }
     });
 });

@@ -42,7 +42,7 @@
 									</div>
 								</div>
 
-								<button v-on:click="user_Signup"	 class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''">Sign Up</button>
+								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="user_Signup">Sign Up</button>
 
 								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
 
@@ -55,6 +55,7 @@
 
 <script>
 import axios from 'axios'
+
 
 export default {
   name: 'SignUpForm',
@@ -104,19 +105,23 @@ export default {
 					self.userDetails[key] = '';
 			})
 		},
-
-		user_Signup: function(event) {
-			axios.post("https://localhost:3000/userSignup/signup"),	{
-				username:userDetails.username,
-				email: userDetails.email,
-				password:userDetails.password
-			}.then(function (response) {
-				console.log(response);
-			})
-			.catch(function (error) {
-				console.log(error)
-			});
+		user_Signup() {
+			let newUser = {
+				username: this.userDetails.username,
+				email: this.userDetails.email,
+				password: this.userDetails.password
+			}
+			console.log(this.userDetails)
+			axios.post("http://localhost:3000/userSignup/signup")
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		}
+
+
 	},
 	computed: {
 		passwordsFilled(){

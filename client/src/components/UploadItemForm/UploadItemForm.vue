@@ -3,7 +3,6 @@
 		<div class="container">
 			<form class="upload-form">
 				<h1>Create a New Project</h1>
-
 					<div class="form-section">
 						<div class="form-label">Title</div>
 						<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" v-model="item.itemTitle" required>
@@ -46,6 +45,7 @@
 
 <script>
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
+import axios from 'axios'
 
 export default {
 	components: {
@@ -89,15 +89,13 @@ export default {
 			}]
 		}
 	},
+
 	methods: {
-		closeModal(form) {
-			this.showSignUp = false;
-		}
 	}
+
 }
 </script>
 
 <style scoped lang="scss">
 @import "@/scss/_forms.scss";
 </style>
-

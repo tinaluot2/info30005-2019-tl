@@ -57,7 +57,6 @@ router.post('/', (req, res, next) => {
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked
-
   });
 
 

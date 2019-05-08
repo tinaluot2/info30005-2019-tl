@@ -9,51 +9,68 @@ const jwt = require("jsonwebtoken");
 const User = require('../models/user');
 
 router.post('/signup', (req, res, next) => {
-  // First we check if the username already exists.
+  // First we check if the email already exists.
   User.find({email: req.body.email})
     .exec()
     .then(user => {
-      // if user already exist (we use length >=1 because user is default null)
+      // if email already exist (we use length >=1 because user is default null)
       if (user.length >= 1) {
         return res.status(409).json({
           message: "Email already exists"
         });
       }
-      // if user don't exist then we hash the password
+      // if email don't exist then we check the username
       else{
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          if (err) {
-            return res.status(500).json({
-              error: err
-            });
-          }
-          else {
-            const user = new User({
-              _id: new mongoose.Types.ObjectId(),
-              // these fields are expected in input
-              email: req.body.email,
-              password: hash,
-              name: req.body.name,
-              age: req.body.age,
-              birthday: req.body.birthday,
-              gender: req.body.gender
-            });
-            user
-              .save()
-              .then(result => {
-                console.log(result);
-                res.status(201).json({
-                  message: "User created"
-                });
-              })
-              .catch(err => {
-                console.log(err);
-                res.status(500).json({
-                  error: err
-                });
+        User.find({username: req.body.username})
+          .exec(user => {
+            // if username exist (we use length >=1 because user is default nu,,)
+            if (user.length >= 1) {
+              return res.status(409).json({
+                message: "Username already exists"
               });
-          }
-        });
+            }
+            else{
+              bcrypt.hash(req.body.password, 10, (err, hash) => {
+                if (err) {
+                  return res.status(500).json({
+                    error: err
+                  });
+                }
+                else {
+                  var current_date = new Date();
+                  const user = new User({
+                    _id: new mongoose.Types.ObjectId(),
+                    // these fields are expected in input
+                    email: req.body.email,
+                    password: hash,
+                    username: req.body.username,
+                    name: req.body.name,
+                    lcoation: req.body.location,
+                    dateJoined: current_date,
+                    projects: req.body.projects,
+                    bookmarks: req.body.bookmarks,
+                    likes: req.body.likes,
+                    description: req.body.description
+
+                  });
+                  user
+                    .save()
+                    .then(result => {
+                      console.log(result);
+                      res.status(201).json({
+                        message: "User created"
+                      });
+                    })
+                    .catch(err => {
+                      console.log(err);
+                      res.status(500).json({
+                        error: err
+                      });
+                    });
+                }
+              });
+            }
+          });
       }
     });
 });
@@ -107,7 +124,6 @@ router.post('/login', (req, res, next) => {
     });
 });
 
-
 router.delete('/:userId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.userId);
   User.remove({_id: id})
@@ -123,7 +139,7 @@ router.delete('/:userId', (req, res, next) => {
         error: err
       });
     });
-})
+});
 
 
 module.exports = router;

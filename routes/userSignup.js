@@ -38,7 +38,7 @@ router.post('/signup', (req, res, next) => {
                     password: hash,
                     username: req.body.username,
                     name: req.body.name,
-                    lcoation: req.body.location,
+                    location: req.body.location,
                     dateJoined: current_date,
                     projects: req.body.projects,
                     bookmarks: req.body.bookmarks,

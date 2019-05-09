@@ -42,7 +42,7 @@
 									</div>
 								</div>
 
-								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="user_Signup">Sign Up</button>
+								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit">Sign Up</button>
 
 								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
 
@@ -105,14 +105,15 @@ export default {
 					self.userDetails[key] = '';
 			})
 		},
-		user_Signup() {
-			let newUser = {
+		submit() {
+			const newUser = {
 				username: this.userDetails.username,
 				email: this.userDetails.email,
-				password: this.userDetails.password
+				password: this.userDetails.password,
+				passwordConfirm: this.userDetails.passwordConfirm
 			}
 			console.log(this.userDetails)
-			axios.post("http://localhost:3000/userSignup/signup")
+			axios.post("http://localhost:3000/userSignup/signup", newUser)
 				.then((response) => {
 					console.log(response);
 				})

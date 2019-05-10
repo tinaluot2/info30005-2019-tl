@@ -17,10 +17,10 @@
 				<div class="form-input">
 					<div class="form-label">Password</div>
 					<input class="form" type="password" name="password" v-model="userDetails.password"/>
-					<div class="error-text" v-if="error">Your email address and/or password is incorrect.</div>
+					<div class="error-text" v-show="error">Your email address and/or password is incorrect.</div>
 				</div>
 
-				<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''|| userDetails.password == ''">Log In</button>
+				<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''|| userDetails.password == ''" @click="login" >Log In</button>
 
 				<p class="help-text">Don't have an account yet? <a @click="toggleSignUp()">Sign Up</a></p>
 				<sign-up-form v-show="showSignUp" @close="toggleSignUp()"/>
@@ -33,6 +33,8 @@
 
 <script>
 import SignUpForm from '@/components/SiteNavUser/SignUpForm'
+import {bus} from '@/main'
+import axios from 'axios'
 
 export default {
 	name: 'LoginForm',
@@ -45,19 +47,9 @@ export default {
 				email: '',
 				password: ''
 			},
-			authenticated: false,
+			isLoggedIn: false,
 			error: false,
-			showSignUp: false,
-			users: [
-				{
-					email: 'gleung@student.unimelb.edu.au',
-					password: 'hello123'
-				},
-				{
-					email: 'gigiscleung@gmail.com',
-					password: 'hello789'
-				}
-			]
+			showSignUp: false
 		}
   },
 	methods: {
@@ -73,13 +65,29 @@ export default {
 		toggleSignUp() {
 			this.showSignUp = !this.showSignUp;
 		},
-		login () {
-			axios.post('/auth', {
-				email: this.UserDetails.email,
-				password: this.UserDetails.password })
-			.then(request => this.loginSuccessful(request))
-			.catch(() => this.loginFailed())
-		}
+		login() {
+			const user = {
+				email: this.userDetails.email,
+				password: this.userDetails.password
+			}
+			console.log(this.userDetails)
+			axios.post('http://localhost:3000/userSignup/login', user)
+				.then((response)=>{
+					bus.$emit('loggedIn', true);
+					this.isLoggedIn = true;
+					this.$router.push(this.$route.query.redirect || '/discover');
+					console.log(response);
+				})
+				.catch((error)=>{
+					console.log(error);
+					this.error = true;
+				})
+    }
+	},
+	created(){
+		bus.$on('loggedIn', (data)=>{
+			this.isLoggedIn = true;
+		})
 	}
 }
 </script>
@@ -89,4 +97,3 @@ export default {
 @import "@/components/ModalDialog/_modal.scss";
 @import "@/scss/_forms.scss";
 </style>
-

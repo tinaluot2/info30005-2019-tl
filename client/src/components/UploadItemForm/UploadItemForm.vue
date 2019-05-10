@@ -94,11 +94,11 @@ export default {
 		publish() {
 			const newItem = {
 				itemTitle: this.item.itemTitle,
-				images: this.item.images,
-				material: this.item.material,
-				description: this.item.description
+				description: this.item.description,
+				material: this.item.material
 			}
 			console.log(this.item);
+			console.log(this.item.material);
 
 			axios.post("http://localhost:3000/items/", newItem)
 				.then((response) => {

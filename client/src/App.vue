@@ -7,11 +7,23 @@
 
 <script>
 import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
+import {bus} from './main'
+import axios from 'axios'
 
 export default {
 	name: 'app',
 	components: {
 		SiteNavUser
+	},
+	data: function(){
+		return {
+			isLoggedIn: false
+		}
+	},
+	created(){
+		bus.$on('loggedIn', (data) => {
+			this.isLoggedIn = data;
+		})
 	}
 }
 </script>

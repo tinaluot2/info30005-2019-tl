@@ -10,9 +10,7 @@
 					<div class="file is-centered is-boxed has-name">
 						<label class="file-label">
 							<input class="file-input" type="file" name="resume">
-							<span class="file-cta">
-								<span class="file-label">Change profile photo</span>
-						  	</span>
+							<span class="file-cta"><span class="file-label">Change profile photo</span></span>
 							<span class="file-name">Screen Shot 2017-07-29 at 15.54.25.png</span>
 						</label>
 						</div>
@@ -89,6 +87,6 @@ export default {
 
 <style scoped lang="scss">
 @import "AccountSettings.scss";
-@import "@/scss/_forms.scss";
-@import "@/components/SiteNavUser/_userform.scss";
+@import "../../scss/_forms.scss";
+@import "../../components/SiteNavUser/_userform.scss";
 </style>

@@ -5,10 +5,10 @@ const itemSchema = mongoose.Schema({
 	itemTitle: String,
 	creatorID: Number,
 	creatorName: String,
-	material: Array,
+	material: [{type: String}],
 	createdAt: Date,
 	likeCount: Number,
-	images: Array,
+	images: [{type: String}],
 	description: String,
 	isLiked: Boolean,
 	isBookmarked: Boolean

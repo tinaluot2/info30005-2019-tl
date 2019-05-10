@@ -13,8 +13,10 @@ router.post('/signup', (req, res, next) => {
   User.find({email: req.body.email})
     .exec()
     .then(user => {
+      console.log(user)
       // if user already exist (we use length >=1 because user is default null)
       if (user.length >= 1) {
+        console.log("HELLO")
         return res.status(409).json({
           message: "Email already exists"
         });
@@ -28,15 +30,20 @@ router.post('/signup', (req, res, next) => {
             });
           }
           else {
+            var current_date = new Date();
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
-              // these fields are expected in input
-              email: req.body.email,
-              password: hash,
-              name: req.body.name,
-              age: req.body.age,
-              birthday: req.body.birthday,
-              gender: req.body.gender
+                    // these fields are expected in input
+                    email: req.body.email,
+                    password: hash,
+                    username: req.body.username,
+                    name: req.body.name,
+                    location: req.body.location,
+                    dateJoined: current_date,
+                    projects: req.body.projects,
+                    bookmarks: req.body.bookmarks,
+                    likes: req.body.likes,
+                    description: req.body.description
             });
             user
               .save()
@@ -107,7 +114,6 @@ router.post('/login', (req, res, next) => {
     });
 });
 
-
 router.delete('/:userId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.userId);
   User.remove({_id: id})
@@ -123,7 +129,7 @@ router.delete('/:userId', (req, res, next) => {
         error: err
       });
     });
-})
+});
 
 
 module.exports = router;

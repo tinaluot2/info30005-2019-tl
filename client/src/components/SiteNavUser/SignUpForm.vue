@@ -35,14 +35,14 @@
 
 								<div class="form-input">
 									<div class="form-label">Username <span class="req">*</span></div>
-									<input class="form" type="text" name="name" v-model="userDetails.name" autocomplete="off"/>
+									<input class="form" type="text" name="username" v-model="userDetails.username" autocomplete="off"/>
 									<p class="help-text">You will be able to change this later.</p>
-									<div class="password-hints" v-show='userDetails.name !== "" && usernameValidate.errors.length > 0'>
+									<div class="password-hints" v-show='userDetails.username !== "" && usernameValidate.errors.length > 0'>
 										<p class="help-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>
 									</div>
 								</div>
 
-								<button class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''">Sign Up</button>
+								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit(); profile();">Sign Up</button>
 
 								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
 
@@ -54,13 +54,16 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+
 export default {
   name: 'SignUpForm',
   data: function(){
 		return {
 			isPasswordHintsVisible: false,
 			userDetails: {
-				name: '',
+				username: '',
 				email: '',
 				password: '',
 				confirmPassword: ''
@@ -73,7 +76,7 @@ export default {
 			],
 			usernameRules: [
 				{ msg:'Username must contain at least 3 characters.', regex: /^.{3,}$/ },
-				{ msg:'Username cannont exceed 25 characters.', regex: /^.{0,25}$/ },
+				{ msg:'Username cannot exceed 25 characters.', regex: /^.{0,25}$/ },
 				{ msg:'Only alphanumerical characters are allowed.', regex: /^[a-zA-Z0-9]*$/ }
 			]
 		}
@@ -102,6 +105,28 @@ export default {
 					self.userDetails[key] = '';
 			})
 		},
+		submit() {
+			const newUser = {
+				username: this.userDetails.username,
+				email: this.userDetails.email,
+				password: this.userDetails.password,
+				passwordConfirm: this.userDetails.passwordConfirm
+			}
+			console.log(this.userDetails);
+
+			axios.post("http://localhost:3000/userSignup/signup", newUser)
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+
+		profile() {
+			axios.get("http://localhost:8080/users/");
+		}
+
 	},
 	computed: {
 		passwordsFilled(){
@@ -149,4 +174,3 @@ export default {
 @import "@/components/ModalDialog/_modal.scss";
 @import "@/scss/_forms.scss";
 </style>
-

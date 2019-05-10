@@ -1,6 +1,35 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
+const multer = require('multer');
+
+// defining how the file is stored
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, './images/');
+  },
+  filename: function(req, file, cb){
+    cb(null, new Date().toISOString() + file.originalname)
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+    // accept a file
+    cb(null, true)
+  }
+  else{
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
 
 // Import schema
 const Item = require('../models/items');
@@ -32,18 +61,8 @@ router.get('/', (req, res, next) => {
 });
 
 // ADD ITEM
-router.post('/', (req, res, next) => {
+router.post('/', upload.array('images', 10), (req, res, next) => {
   //add item data to database
-  /*
-  const item = new Item({
-    itemID: new mongoose.Types.ObjectId(),
-    itemName: req.body.itemName,
-    itemDescription: req.body.itemDescription,
-    itemCategory: req.body.itemCategory,
-    itemHashtags: req.body.itemHashtags,
-    itemImage: req.body.itemImage
-  });
-  */
   var current_date = new Date();
   const item = new Item({
     itemID: new mongoose.Types.ObjectId(),
@@ -53,14 +72,11 @@ router.post('/', (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: req.body.images,
+  	images: req.file.path,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked
-
   });
-
-
 
   //method provided by mongoose
   item

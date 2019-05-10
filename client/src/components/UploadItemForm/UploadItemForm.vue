@@ -112,9 +112,6 @@ export default {
 			}]
 		}
 	},
-	methods: {
-
-	},
 	computed:{
 		titleValidate(){
 			let errors = []

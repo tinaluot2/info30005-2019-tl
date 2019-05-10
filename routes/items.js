@@ -90,6 +90,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
       });
     })
     .catch(err => {
+      console.log("hello there");
       console.log(err);
       res.status(500).json({
         error: err

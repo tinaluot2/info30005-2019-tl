@@ -36,7 +36,7 @@
 						<div class="help-text">Select at least one material.</div>
 					</div>
 
-					<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Publish</button></router-link>
+					<router-link to="/user"><button type="submit" class="button-dark spacing-not-last-child" value="Submit" @click="publish">Publish</button></router-link>
 					<button class="button-light">Save Draft</button>
 			</form>
 		</div>
@@ -58,8 +58,8 @@ export default {
 			{
 				itemTitle: "",
 				images: [],
-                material: [],
-                description: ""
+        material: [],
+        description: ""
 			},
 			materialOptions:[
 			{
@@ -91,6 +91,23 @@ export default {
 	},
 
 	methods: {
+		publish() {
+			const newItem = {
+				itemTitle: this.item.itemTitle,
+				images: this.item.images,
+				material: this.item.material,
+				description: this.item.description
+			}
+			console.log(this.item);
+
+			axios.post("http://localhost:3000/items/", newItem)
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
 	}
 
 }

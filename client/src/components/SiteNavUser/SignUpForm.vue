@@ -42,7 +42,7 @@
 									</div>
 								</div>
 
-								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit">Sign Up</button>
+								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit(); profile();">Sign Up</button>
 
 								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
 
@@ -112,7 +112,8 @@ export default {
 				password: this.userDetails.password,
 				passwordConfirm: this.userDetails.passwordConfirm
 			}
-			console.log(this.userDetails)
+			console.log(this.userDetails);
+
 			axios.post("http://localhost:3000/userSignup/signup", newUser)
 				.then((response) => {
 					console.log(response);
@@ -120,8 +121,11 @@ export default {
 				.catch((error) => {
 					console.log(error);
 				});
-		}
+		},
 
+		profile() {
+			axios.get("http://localhost:8080/users/");
+		}
 
 	},
 	computed: {

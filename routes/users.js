@@ -1,4 +1,4 @@
-const express = require('express');   
+const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 
@@ -32,9 +32,10 @@ router.get('/', (req, res, next) => {
 
 // signup function is in userSignup.js
 
-router.get('/:userId', (req, res, next) => {
+router.get('/:username', (req, res, next) => {
   //when assigning input id to a variable, need to convert string to ObejctId
   const id = mongoose.Types.ObjectId(req.params.userId);
+  const username = req.params.username;
 
   User.findById(id)
     .exec()

@@ -83,11 +83,6 @@ export default {
 					this.error = true;
 				})
     }
-	},
-	created(){
-		bus.$on('loggedIn', (data)=>{
-			this.isLoggedIn = true;
-		})
 	}
 }
 </script>

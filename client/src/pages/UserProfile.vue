@@ -46,9 +46,7 @@ export default {
 	},
 	mounted() {
 		axios.get("http://localhost:3000/users/").then((res) => {
-		this.usersList = res.data;})
-		console.log(usersList)
-	}
+		this.usersList = res.data;})	}
 }
 </script>
 

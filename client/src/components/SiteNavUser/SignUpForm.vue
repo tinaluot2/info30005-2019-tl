@@ -163,11 +163,6 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-    },
-    created(){
-      bus.$on('loggedIn', (data)=>{
-        this.isLoggedIn = true;
-      })
     }
 	}
 }

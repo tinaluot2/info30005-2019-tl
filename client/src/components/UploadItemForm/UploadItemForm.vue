@@ -44,9 +44,9 @@
 						</div>
 
 						<button class="button-dark spacing-not-last-child" value="Submit"
-								:disabled="
-								!titleValidate || item.title === '' || item.title.length < 3 || item.material.length === 0">
-								Publish</button>
+							:disabled="
+							!titleValidate || item.title == '' || item.title.length < 3 || item.material.length == 0">
+							Publish</button>
 
 						<button class="button-light">Save Draft</button>
 				</form>
@@ -71,8 +71,8 @@ export default {
 			{
 				title: "",
 				images: [],
-                material: [],
-                description: ""
+					material: [],
+					description: ""
 			},
 			materialOptions:[
 			{

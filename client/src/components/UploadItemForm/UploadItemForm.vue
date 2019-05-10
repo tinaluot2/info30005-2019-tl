@@ -44,9 +44,7 @@
 						</div>
 
 						<button class="button-dark spacing-not-last-child" value="Submit"
-							:disabled="
-							!titleValidate || item.title == '' || item.title.length < 3 || item.material.length == 0">
-							Publish</button>
+							:disabled="!titleValidate || item.title == '' || item.title.length < 3 || item.material.length == 0" @click="publish">Publish</button>
 
 						<button class="button-light">Save Draft</button>
 				</form>
@@ -58,6 +56,8 @@
 
 <script>
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
+import axios from 'axios'
+import {bus} from '@/main'
 
 export default {
 	name: 'CreateItem',
@@ -113,7 +113,27 @@ export default {
 		}
 	},
 	methods: {
-
+		close(event){
+				this.$emit('close');
+		},
+		publish() {
+			const newItem = {
+				title:this.item.title,
+				description:this.item.description
+			}
+			console.log(this.item);
+			axios.post("http://localhost:3000/items", newItem)
+				.then((response) => {
+					console.log(response);
+					this.isLoggedIn = true;
+					this.$router.push(this.$route.query.redirect || '/items');
+					this.$emit('close');
+					bus.$emit('loggedIn', true);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
 	},
 	computed:{
 		titleValidate(){

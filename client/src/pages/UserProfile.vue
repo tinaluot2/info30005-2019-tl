@@ -41,22 +41,7 @@ export default {
 		return {
 			//test data
 			username: this.$route.params.username,
-			usersList: [
-				// {
-				// 	_id: 1000,
-				// 	username: "Paperman",
-				// 	description: "Bitch I love paper",
-				// 	projects: [],
-				// 	bookmarks: []
-				// },
-				// {
-				// 	_id: 1001,
-				// 	username: "Plasticman",
-				// 	description: "Bitch I love plastic",
-				// 	projects: [],
-				// 	bookmarks: []
-				// }
-			]
+			usersList: []
 		}
 	},
 	mounted() {

@@ -55,7 +55,7 @@
 
 <script>
 import axios from 'axios'
-
+import {bus} from '@/main'
 
 export default {
   name: 'SignUpForm',
@@ -67,7 +67,8 @@ export default {
 				email: '',
 				password: '',
 				confirmPassword: ''
-			},
+      },
+			isLoggedIn: false,
 			passwordRules: [
 				{ msg:'At least one lowercase letter required.', regex: /[a-z]+/ },
 				{ msg:'At least one uppercase letter required.',  regex: /[A-Z]+/ },
@@ -115,14 +116,16 @@ export default {
 			console.log(this.userDetails)
 			axios.post("http://localhost:3000/userSignup/signup", newUser)
 				.then((response) => {
-					console.log(response);
+          console.log(response);
+					this.isLoggedIn = true;
+          this.$router.push(this.$route.query.redirect || '/discover');
+          this.$emit('close');
+					bus.$emit('loggedIn', true);
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		}
-
-
 	},
 	computed: {
 		passwordsFilled(){
@@ -160,7 +163,12 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-		}
+    },
+    created(){
+      bus.$on('loggedIn', (data)=>{
+        this.isLoggedIn = true;
+      })
+    }
 	}
 }
 </script>

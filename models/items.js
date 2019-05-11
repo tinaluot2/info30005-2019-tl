@@ -7,11 +7,11 @@ const itemSchema = mongoose.Schema({
 	creatorName: String,
 	material: [],
 	createdAt: Date,
-	likeCount: Number,
-	images: { type: String },
+	likeCount: { type: Number, default: 0 },
+	images: [String],
 	description: String,
-	isLiked: Boolean,
-	isBookmarked: Boolean
+	isLiked: { type: Boolean, default: false },
+	isBookmarked: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Item', itemSchema);

@@ -38,25 +38,13 @@ const Item = require('../models/items');
 // GET ITEM
 router.get('/', (req, res, next) => {
   //exec to get a true promise
-  Item.find()
-    .select("_id images")
+  Item
+    .find()
     .exec()
     .then(docs => {
-      const response = {
-        count:docs.length,
-        products: docs.map(doc => {
-          return {
-            _id: doc._id,
-            images: doc.images,
-            request: {
-              type: "GET",
-              url: "http://localhost:3000/items/" + doc._id
-            }
-          };
-        })
-      }
+      console.log(docs);
       if (docs.length >= 0){
-        res.status(200).json(response);
+        res.status(200).json(docs);
       }
       else{
         //Empty array is not really a 404 error, but still
@@ -75,8 +63,12 @@ router.get('/', (req, res, next) => {
 
 // ADD ITEM
 router.post('/', upload.array('images', 10), (req, res, next) => {
-  //add item data to database
-  console.log(req.files)
+  var path = []
+  for(var i = 0; i < req.files.length; i++) {
+    path.push(req.files[i].path);
+  }
+
+  console.log(path)
   var current_date = new Date();
   const item = new Item({
     itemID: new mongoose.Types.ObjectId(),
@@ -86,7 +78,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: req.files.path,
+  	images: path,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked

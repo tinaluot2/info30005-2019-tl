@@ -38,7 +38,6 @@
 
 							<div class="file-list" v-for="(image, index) in newItem.images" v-bind:key="index">
 								<span class="file-title">{{image.name}}</span>
-								<img :src="image.image" />
 								<span class="delete-button" @click="deleteImage(index)">X</span>
 							</div>
 							<p v-if="newItem.images.length > maxImages" class="error-text">You may only upload a maximum of {{maxImages}} files. Please remove {{newItem.images.length-maxImages}} files. </p>
@@ -130,7 +129,7 @@ export default {
 				})
 				.then((response) => {
 					console.log(response)
-          // this.$router.push(this.$route.query.redirect || '/discover');
+          this.$router.push(this.$route.query.redirect || '/discover');
 				})
 				.catch((error) => {
 					console.log(error);

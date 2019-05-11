@@ -9,7 +9,7 @@
                 </router-link>
             </div>
             <figure class="image is-5by4">
-                <img :src="item.images[0]"/>
+                <img :src="'http://localhost:3000/' + item.images[0]"/>
             </figure>
         </div>
         <div class="card-content">

@@ -1,7 +1,7 @@
 <template>
 	<div class="background nav-spacing">
 		<div class="container">
-			<form class="upload-form">
+			<form class="upload-form" @submit.prevent="submit" enctype="multipart/form-data">
 					<h1>Create a New Project</h1>
 
 						<div class="form-section">
@@ -113,18 +113,23 @@ export default {
 		},
 		submit() {
 			const newItem = new FormData();
-
-			newItem.append('image', this.newItem.images)
+			for (var i=0; i < this.newItem.images.length; i++){
+				let file = this.newItem.images[i]
+				newItem.append('images', file)
+			}
+			console.log(this.newItem)
 			newItem.append('itemTitle', this.newItem.title)
 			newItem.append('material', this.newItem.material)
 			newItem.append('description', this.newItem.description)
 
-			console.log(this.newItem)
-
-			axios.post("http://localhost:3000/items", newItem)
+			axios.post("http://localhost:3000/items",
+				newItem,
+				{
+					headers: {'Content-Type': 'multipart/form-data'}
+				})
 				.then((response) => {
-          console.log(response);
-          // this.$router.push(this.$route.query.redirect || '/discover');
+					console.log(response)
+          this.$router.push(this.$route.query.redirect || '/discover');
 				})
 				.catch((error) => {
 					console.log(error);

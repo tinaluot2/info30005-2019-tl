@@ -6,8 +6,8 @@
                 <div class="medium-card">
                     <div class="card-header">
                     <div class="card-header-icon">
-                        <figure class="image is-48x48">
-                            <img src="https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg" alt="Smol_Dog">
+                        <figure class="image is-48x48 is-rounded">
+                            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog">
                         </figure>
                     </div>
                     <div class="card-header-title">
@@ -21,13 +21,17 @@
                 </div>
 
                 <div class="card-image">
-                    <figure class="image is-4by3">
-                        <img :src="item.images">
-                    </figure>
+                    <div v-for="(image, index) in item.images" v-bind:key="index">
+                        <figure class="image is-4by3">
+                            <img :src="'http://localhost:3000/' + image">
+                        </figure>
+                    </div>
                 </div>
 
                 <div class="card-content">
-                    <a class="category-tag" href="#">{{item.material}}</a>
+                    <div class="material-tags">
+                        <a class="tag tag-spacing" v-for="(material, index) in item.material" :key="index">{{material}}</a>
+                    </div>
                     <p>{{item.description}}</p>
                 </div>
 
@@ -87,4 +91,5 @@ export default {
 
 <style scoped lang="scss">
 @import "./ItemProfile.scss";
+@import "@/components/ItemCard/ItemCard.scss";
 </style>

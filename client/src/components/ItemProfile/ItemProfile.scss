@@ -1,7 +1,7 @@
 @import "@/scss/global.scss";
 
 .medium-card {
-    background: white;
+    background: $card-color;
     box-shadow: $box-drop-shadow;
     padding: 20px;
     font-family: $body-family;
@@ -9,6 +9,7 @@
     .card-header {
         border: none;
         box-shadow: none;
+        display: flex;
 
         .card-header-title {
             padding: 0 10px;
@@ -22,7 +23,7 @@
     }
 
     .card-content {
-        padding: 20px 0;
+        padding: 15px 0;
     }
 
     .card-image {
@@ -65,4 +66,12 @@
     .medium-card {
         margin: $margin $page-margin;
     }
+}
+
+.image {
+    margin: 10px 0;
+}
+
+.tag-spacing {
+    margin-bottom: 15px;
 }

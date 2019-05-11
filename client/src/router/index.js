@@ -21,7 +21,7 @@ export const router = new VueRouter({
         {
             path: '/',
             name: 'Reform',
-            component: LandingPage
+            component: DiscoverPage
         },
         {
             path: '/discover',
@@ -49,7 +49,7 @@ export const router = new VueRouter({
             component: ItemProfile
         },
         {
-            path: '/edit',
+            path: '/edit/:itemid',
             component: EditItem
         },
         {

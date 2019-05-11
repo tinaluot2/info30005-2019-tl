@@ -25,7 +25,7 @@ mongoose.connect('mongodb+srv://jungew:' + process.env.MONGO_ATLAS_PW + '@cluste
 app.use(cors());
 app.use(morgan('dev'));
 // make the 'images' folder public
-app.use('/images', express.static('images'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 

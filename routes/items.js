@@ -63,7 +63,12 @@ router.get('/', (req, res, next) => {
 
 // ADD ITEM
 router.post('/', upload.array('images', 10), (req, res, next) => {
-  //add item data to database
+  var path = []
+  for(var i = 0; i < req.files.length; i++) {
+    path.push(req.files[i].path);
+  }
+
+  console.log(path)
   var current_date = new Date();
   const item = new Item({
     itemID: new mongoose.Types.ObjectId(),
@@ -73,7 +78,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: req.files.path,
+  	images: path,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked

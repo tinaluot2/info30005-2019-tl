@@ -75,7 +75,7 @@ export default {
 				.then((response)=>{
 					bus.$emit('loggedIn', true);
 					this.isLoggedIn = true;
-					this.$router.push(this.$route.query.redirect || '/discover');
+					this.$router.push(this.$route.query.redirect || '/user/' + this.userDetails.username);
 					console.log(response);
 				})
 				.catch((error)=>{

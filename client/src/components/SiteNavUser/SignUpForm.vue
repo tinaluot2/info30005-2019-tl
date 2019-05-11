@@ -35,7 +35,7 @@
 
 								<div class="form-input">
 									<div class="form-label">Username <span class="req">*</span></div>
-									<input class="form" type="text" name="username" v-model.lazy="userDetails.username" autocomplete="off"/>
+									<input class="form" type="text" name="username" v-model="userDetails.username" autocomplete="off"/>
 									<p class="help-text">You will be able to change this later.</p>
 									<div class="password-hints" v-show='userDetails.username !== "" && usernameValidate.errors.length > 0'>
 									<p class="error-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>

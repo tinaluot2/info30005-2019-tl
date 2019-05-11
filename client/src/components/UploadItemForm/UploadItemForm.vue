@@ -5,7 +5,6 @@
 					<h1>Create a New Project</h1>
 
 						<div class="form-section">
-
 							<div class="form-label">Title <span class="req">*</span></div>
 							<input class="title-input" type="text" name="title" placeholder="E.g. Denim Lunch Box" maxlength = "60" v-model="newItem.title" required>
 							<div class="help-text">Enter a title for your creation. Ensure your title is at least 3 characters long.</div>
@@ -15,19 +14,32 @@
 						</div>
 
 						<div class="form-section">
-							<div class="form-label">Images</div>
+							<div class="form-label">Images <span class="req">*</span></div>
 							<div class="help-text">Select up to 10 images that showcase your creation.</div>
 
-							<div class="add-image">
-								<div class="image-upload" v-for="(image, index) in newItem.images" v-bind:key="index">
+							<div class="image-upload">
+								<input
+									multiple
+									id="image"
+									type="file"
+									accept="image/*"
+									@change="onFileChange"
+									ref="images"
+									class="hide-default"/>
 
-									<input type="file" accept="image/*" @change="onFileChange(index)" ref="image">
+									<label for="image" class="custom-uploader">
+										<span class="icon-wrap">
+											<i class="material-icons">cloud_upload</i>
+										</span>
+										<span class="button-text">Browse files...</span>
+									</label>
 
-									<span class="close-button" v-if="newItem.images.length > 1" @click="deleteImage(index)">X</span>
-								</div>
 							</div>
-							<button class="button-dark" type="button" @click="addNewImage" v-if="this.newItem.images.length < maxImages">Add Image</button>
 
+							<div class="file-list" v-for="(image, index) in newItem.images" v-bind:key="index">
+								<span class="file-title">{{image.name}}</span>
+								<span class="delete-button" @click="deleteImage(index)">X</span>
+							</div>
 						</div>
 
 						<div class="form-section">
@@ -44,7 +56,7 @@
 							<div class="materials-list">
 								<div class="checkbox" v-for="option in materialOptions" :key="option.value">
 									<input type="checkbox" v-model=newItem.material :value="option">
-									<label>{{option.name}}</label>
+									<label class="checkbox-label">{{option.name}}</label>
 								</div>
 							</div>
 
@@ -54,7 +66,7 @@
 						</div>
 
 						<button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
-							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0">
+							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || checkImages">
 							Publish</button>
 
 						<button class="button-light">Save Draft</button>
@@ -77,7 +89,7 @@ export default {
 			newItem:
 			{
 				title: "",
-				images: [{}],
+				images: [],
 				material: [],
 				description: ""
 			},
@@ -94,22 +106,23 @@ export default {
 	},
 	methods: {
 		addNewImage(){
-			this.newItem.images.push('')
+			this.newItem.images.push({})
 		},
 		deleteImage(index){
 			this.newItem.images.splice(index, 1)
 		},
-		onFileChange(index){
-			let uploadedImg = this.$refs.image[index]
-			var n = this.maxImages || -1
+		onFileChange(){
+			const newImg = this.$refs.images.files
+			this.newItem.images = [...this.newItem.images, ...newImg]
+			// var n = this.maxImages || -1
 
 			// if (isEmpty(this.newItem.images[0])) {
 			// 	this.newItem.images = []
 			// }
 
-			if (n && this.newItem.images.length < n) {
-				this.newItem.images.push(uploadedImg)
-			}
+			// if (n && this.newItem.images.length < n) {
+			// 	this.newItem.images.push(uploadedImg)
+			// }
 		},
 		submit() {
 			const newItem = {
@@ -142,12 +155,19 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
+		},
+		checkImages() {
+			for (var i in this.newItem.images) {
+				if (this.newItem.images[i] !== null && this.newItem.images[i] != "")
+					return false
+			}
+			return true;
 		}
 	}
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../scss/_forms.scss";
 @import "../SiteNavUser/_userform.scss";
 @import "/UploadItemForm.scss";

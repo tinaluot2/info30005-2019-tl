@@ -15,7 +15,7 @@
 
 						<div class="form-section">
 							<div class="form-label">Images <span class="req">*</span></div>
-							<div class="help-text">Select up to 10 images that showcase your creation.</div>
+							<div class="help-text">Select up to {{maxImages}} images that showcase your creation.</div>
 
 							<div class="image-upload">
 								<input
@@ -27,7 +27,7 @@
 									ref="images"
 									class="hide-default"/>
 
-									<label for="image" class="custom-uploader">
+									<label v-if="newItem.images.length < maxImages" for="image" class="custom-uploader">
 										<span class="icon-wrap">
 											<i class="material-icons">cloud_upload</i>
 										</span>
@@ -40,6 +40,7 @@
 								<span class="file-title">{{image.name}}</span>
 								<span class="delete-button" @click="deleteImage(index)">X</span>
 							</div>
+							<p v-if="newItem.images.length > maxImages" class="error-text">You may only upload a maximum of {{maxImages}} files. Please remove {{newItem.images.length-maxImages}} files. </p>
 						</div>
 
 						<div class="form-section">
@@ -54,9 +55,9 @@
 							<div class="form-label">Materials Used <span class="req">*</span></div>
 
 							<div class="materials-list">
-								<div class="checkbox" v-for="option in materialOptions" :key="option.value">
+								<div class="checkbox" v-for="option in materialOptions" :key="option">
 									<input type="checkbox" v-model=newItem.material :value="option">
-									<label class="checkbox-label">{{option.name}}</label>
+									<label class="checkbox-label">{{option}}</label>
 								</div>
 							</div>
 
@@ -65,11 +66,9 @@
 							</div>
 						</div>
 
-
-						<router-link to="/discover"><button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
-							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || checkImages">
-              Publish</button></router-link>
-
+						<button @click="submit" type="button" class="button-dark spacing-not-last-child" value="Submit"
+							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || newItem.images.length >= maxImages">
+							Publish</button>
 
 						<button class="button-light">Save Draft</button>
 				</form>
@@ -80,10 +79,7 @@
 </template>
 
 <script>
-
-import ImageUploader from '@/components/ImageUploader/ImageUploader'
 import axios from 'axios'
-import {bus} from '@/main'
 
 export default {
 	name: 'CreateItem',
@@ -100,19 +96,11 @@ export default {
 				material: [],
 				description: ""
 			},
-			maxImages: 10,
-			materialOptions:[
-			{ name: "Paper", value: "paper", checked: false },
-			{ name: "Card", value: "card", checked: false },
-			{ name: "Glass", value: "glass", checked: false },
-			{ name: "Textiles", value: "textiles", checked: false },
-			{ name: "Plastic", value: "plastic", checked: false },
-			{ name: "Metal", value: "metal", checked: false },
-			{ name: "Aluminium", value: "Aluminium", checked: false }]
+			maxImages: 5,
+			materialOptions:["Paper", "Cardboard", "Plastic", "Metal", "Aluminium", "Textiles", "Glass"]
 		}
 	},
 	methods: {
-
 		addNewImage(){
 			this.newItem.images.push({})
 		},
@@ -122,35 +110,26 @@ export default {
 		onFileChange(){
 			const newImg = this.$refs.images.files
 			this.newItem.images = [...this.newItem.images, ...newImg]
-			// var n = this.maxImages || -1
-
-			// if (isEmpty(this.newItem.images[0])) {
-			// 	this.newItem.images = []
-			// }
-
-			// if (n && this.newItem.images.length < n) {
-			// 	this.newItem.images.push(uploadedImg)
-			// }
 		},
 		submit() {
-			const newItem = {
-				itemTitle: this.newItem.title,
-				images: this.newItem.images,
-				material: this.newItem.material,
-				description: this.newItem.description
-			}
+			const newItem = new FormData();
+
+			newItem.append('image', this.newItem.images)
+			newItem.append('itemTitle', this.newItem.title)
+			newItem.append('material', this.newItem.material)
+			newItem.append('description', this.newItem.description)
+
+			console.log(this.newItem)
+
 			axios.post("http://localhost:3000/items", newItem)
 				.then((response) => {
           console.log(response);
           // this.$router.push(this.$route.query.redirect || '/discover');
-
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		}
-
-
 	},
 	computed:{
 		titleValidate(){
@@ -165,19 +144,12 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-		},
-		checkImages() {
-			for (var i in this.newItem.images) {
-				if (this.newItem.images[i] !== null && this.newItem.images[i] != "")
-					return false
-			}
-			return true;
 		}
 	}
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../scss/_forms.scss";
 @import "../SiteNavUser/_userform.scss";
 @import "/UploadItemForm.scss";

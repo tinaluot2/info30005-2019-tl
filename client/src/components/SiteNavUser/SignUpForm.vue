@@ -76,7 +76,7 @@ export default {
 				{ msg:'8 characters minimum.', regex: /.{8,}/ },
 			],
 			usernameRules: [
-				{ msg:'Username must contain at least 3 characters.', regex: /^.{3,}$/ },
+				{ msg:'Username must contain at least 3 characters.', regex: /^.{3,}$/},
 				{ msg:'Username cannot exceed 25 characters.', regex: /^.{0,25}$/ },
 				{ msg:'Only alphanumerical characters are allowed.', regex: /^[a-zA-Z0-9]*$/ }
 			]

@@ -1,7 +1,7 @@
 <template>
 	<div class="background nav-spacing">
 		<div class="container">
-			<form class="upload-form">
+			<form class="upload-form" @submit.prevent="submit" enctype="multipart/form-data">
 					<h1>Create a New Project</h1>
 
 						<div class="form-section">
@@ -38,6 +38,7 @@
 
 							<div class="file-list" v-for="(image, index) in newItem.images" v-bind:key="index">
 								<span class="file-title">{{image.name}}</span>
+								<img :src="image.image" />
 								<span class="delete-button" @click="deleteImage(index)">X</span>
 							</div>
 							<p v-if="newItem.images.length > maxImages" class="error-text">You may only upload a maximum of {{maxImages}} files. Please remove {{newItem.images.length-maxImages}} files. </p>
@@ -113,17 +114,22 @@ export default {
 		},
 		submit() {
 			const newItem = new FormData();
-
-			newItem.append('image', this.newItem.images)
+			for (var i=0; i < this.newItem.images.length; i++){
+				let file = this.newItem.images[i]
+				newItem.append('images', file)
+			}
+			console.log(this.newItem)
 			newItem.append('itemTitle', this.newItem.title)
 			newItem.append('material', this.newItem.material)
 			newItem.append('description', this.newItem.description)
 
-			console.log(this.newItem)
-
-			axios.post("http://localhost:3000/items", newItem)
+			axios.post("http://localhost:3000/items",
+				newItem,
+				{
+					headers: {'Content-Type': 'multipart/form-data'}
+				})
 				.then((response) => {
-          console.log(response);
+					console.log(response)
           // this.$router.push(this.$route.query.redirect || '/discover');
 				})
 				.catch((error) => {

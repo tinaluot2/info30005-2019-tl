@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+  if (file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
     // accept a file
     cb(null, true)
   }
@@ -29,7 +29,7 @@ const upload = multer({
     fileSize: 1024 * 1024 * 5
   },
   fileFilter: fileFilter,
-  dest: 'uploads/'
+  dest: './uploads/'
 });
 
 // Import schema
@@ -73,7 +73,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: req.files.path,
+  	images: req.files,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked

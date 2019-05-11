@@ -43,8 +43,8 @@
 							</div>
 						</div>
 
-						<button class="button-dark spacing-not-last-child" value="Submit"
-							:disabled="!titleValidate || item.title == '' || item.title.length < 3 || item.material.length == 0" @click="publish">Publish</button>
+						<router-link to="/discover"><button class="button-dark spacing-not-last-child" value="Submit"
+							:disabled="!titleValidate || item.title == '' || item.title.length < 3 || item.material.length == 0" @click="publish">Publish</button></router-link>
 
 						<button class="button-light">Save Draft</button>
 				</form>
@@ -119,16 +119,15 @@ export default {
 		publish() {
 			const newItem = {
 				title:this.item.title,
-				description:this.item.description
+				images:this.item.images,
+				description:this.item.description,
+				material:this.item.material
 			}
 			console.log(this.item);
 			axios.post("http://localhost:3000/items", newItem)
 				.then((response) => {
 					console.log(response);
-					this.isLoggedIn = true;
-					this.$router.push(this.$route.query.redirect || '/items');
 					this.$emit('close');
-					bus.$emit('loggedIn', true);
 				})
 				.catch((error) => {
 					console.log(error);

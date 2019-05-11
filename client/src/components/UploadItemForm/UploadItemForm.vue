@@ -15,7 +15,7 @@
 
 						<div class="form-section">
 							<div class="form-label">Images <span class="req">*</span></div>
-							<div class="help-text">Select up to 10 images that showcase your creation.</div>
+							<div class="help-text">Select up to {{maxImages}} images that showcase your creation.</div>
 
 							<div class="image-upload">
 								<input
@@ -27,7 +27,7 @@
 									ref="images"
 									class="hide-default"/>
 
-									<label for="image" class="custom-uploader">
+									<label v-if="newItem.images.length < maxImages" for="image" class="custom-uploader">
 										<span class="icon-wrap">
 											<i class="material-icons">cloud_upload</i>
 										</span>
@@ -40,6 +40,7 @@
 								<span class="file-title">{{image.name}}</span>
 								<span class="delete-button" @click="deleteImage(index)">X</span>
 							</div>
+							<p v-if="newItem.images.length > maxImages" class="error-text">You may only upload a maximum of {{maxImages}} files. Please remove {{newItem.images.length-maxImages}} files. </p>
 						</div>
 
 						<div class="form-section">
@@ -66,7 +67,7 @@
 						</div>
 
 						<button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
-							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || checkImages">
+							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || newItem.images.length >= maxImages">
 							Publish</button>
 
 						<button class="button-light">Save Draft</button>
@@ -93,7 +94,7 @@ export default {
 				material: [],
 				description: ""
 			},
-			maxImages: 10,
+			maxImages: 5,
 			materialOptions:[
 			{ name: "Paper", value: "paper", checked: false },
 			{ name: "Card", value: "card", checked: false },
@@ -114,15 +115,6 @@ export default {
 		onFileChange(){
 			const newImg = this.$refs.images.files
 			this.newItem.images = [...this.newItem.images, ...newImg]
-			// var n = this.maxImages || -1
-
-			// if (isEmpty(this.newItem.images[0])) {
-			// 	this.newItem.images = []
-			// }
-
-			// if (n && this.newItem.images.length < n) {
-			// 	this.newItem.images.push(uploadedImg)
-			// }
 		},
 		submit() {
 			const newItem = {
@@ -140,7 +132,6 @@ export default {
 					console.log(error);
 				});
 		}
-
 	},
 	computed:{
 		titleValidate(){
@@ -155,13 +146,6 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-		},
-		checkImages() {
-			for (var i in this.newItem.images) {
-				if (this.newItem.images[i] !== null && this.newItem.images[i] != "")
-					return false
-			}
-			return true;
 		}
 	}
 }

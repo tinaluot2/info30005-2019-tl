@@ -55,9 +55,9 @@
 							<div class="form-label">Materials Used <span class="req">*</span></div>
 
 							<div class="materials-list">
-								<div class="checkbox" v-for="option in materialOptions" :key="option.value">
+								<div class="checkbox" v-for="option in materialOptions" :key="option">
 									<input type="checkbox" v-model=newItem.material :value="option">
-									<label class="checkbox-label">{{option.name}}</label>
+									<label class="checkbox-label">{{option}}</label>
 								</div>
 							</div>
 
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 
-						<button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
+						<button @click="submit" type="button" class="button-dark spacing-not-last-child" value="Submit"
 							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || newItem.images.length >= maxImages">
 							Publish</button>
 
@@ -79,6 +79,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
 	name: 'CreateItem',
 	data() {
@@ -95,14 +97,7 @@ export default {
 				description: ""
 			},
 			maxImages: 5,
-			materialOptions:[
-			{ name: "Paper", value: "paper", checked: false },
-			{ name: "Card", value: "card", checked: false },
-			{ name: "Glass", value: "glass", checked: false },
-			{ name: "Textiles", value: "textiles", checked: false },
-			{ name: "Plastic", value: "plastic", checked: false },
-			{ name: "Metal", value: "metal", checked: false },
-			{ name: "Aluminium", value: "Aluminium", checked: false }]
+			materialOptions:["Paper", "Cardboard", "Plastic", "Metal", "Aluminium", "Textiles", "Glass"]
 		}
 	},
 	methods: {
@@ -117,16 +112,19 @@ export default {
 			this.newItem.images = [...this.newItem.images, ...newImg]
 		},
 		submit() {
-			const newItem = {
-				title: this.newItem.title,
-				images: this.newItem.images,
-				material: this.newItem.material,
-				description: this.newItem.description
-			}
+			const newItem = new FormData();
+
+			newItem.append('image', this.newItem.images)
+			newItem.append('itemTitle', this.newItem.title)
+			newItem.append('material', this.newItem.material)
+			newItem.append('description', this.newItem.description)
+
+			console.log(this.newItem)
+
 			axios.post("http://localhost:3000/items", newItem)
 				.then((response) => {
           console.log(response);
-          this.$router.push(this.$route.query.redirect || '/discover');
+          // this.$router.push(this.$route.query.redirect || '/discover');
 				})
 				.catch((error) => {
 					console.log(error);
@@ -151,7 +149,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../scss/_forms.scss";
 @import "../SiteNavUser/_userform.scss";
 @import "/UploadItemForm.scss";

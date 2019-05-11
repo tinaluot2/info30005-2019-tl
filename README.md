@@ -29,7 +29,7 @@ Models:user.js (schema), userSignup.js (Schema)
 
 2. Create a Project/Upload an item
 
-This is for the user to upload a new project to Reform. The information that is inputted will be sent as a POST request and stored on our MongoDB under "user" database. The password they input will be hashed and stored.
+This is for the user to upload a new project to Reform. The information that is inputted will be sent as a POST request and stored on our MongoDB under "items" database. 
 
 The url for this can be accessed through the homepage by pressing 'New Project' button. or clicking New Project once a user is logged in: "https://wit-website-reform.herokuapp.com/create"
 

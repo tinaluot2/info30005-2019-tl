@@ -65,9 +65,11 @@
 							</div>
 						</div>
 
-						<button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
+
+						<router-link to="/discover"><button @click="submit" class="button-dark spacing-not-last-child" value="Submit"
 							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || checkImages">
-							Publish</button>
+              Publish</button></router-link>
+
 
 						<button class="button-light">Save Draft</button>
 				</form>
@@ -78,6 +80,11 @@
 </template>
 
 <script>
+
+import ImageUploader from '@/components/ImageUploader/ImageUploader'
+import axios from 'axios'
+import {bus} from '@/main'
+
 export default {
 	name: 'CreateItem',
 	data() {
@@ -105,6 +112,7 @@ export default {
 		}
 	},
 	methods: {
+
 		addNewImage(){
 			this.newItem.images.push({})
 		},
@@ -134,12 +142,14 @@ export default {
 			axios.post("http://localhost:3000/items", newItem)
 				.then((response) => {
           console.log(response);
-          this.$router.push(this.$route.query.redirect || '/discover');
+          // this.$router.push(this.$route.query.redirect || '/discover');
+
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		}
+
 
 	},
 	computed:{

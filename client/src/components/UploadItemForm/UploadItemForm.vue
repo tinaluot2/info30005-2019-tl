@@ -134,7 +134,7 @@ export default {
 		},
 		submit() {
 			const newItem = {
-				title: this.newItem.title,
+				itemTitle: this.newItem.title,
 				images: this.newItem.images,
 				material: this.newItem.material,
 				description: this.newItem.description

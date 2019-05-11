@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
     // accept a file
     cb(null, true)
   }
@@ -29,7 +29,7 @@ const upload = multer({
     fileSize: 1024 * 1024 * 5
   },
   fileFilter: fileFilter,
-  dest: './uploads/'
+  dest: 'uploads/'
 });
 
 // Import schema
@@ -38,13 +38,25 @@ const Item = require('../models/items');
 // GET ITEM
 router.get('/', (req, res, next) => {
   //exec to get a true promise
-  Item
-    .find()
+  Item.find()
+    .select("_id images")
     .exec()
     .then(docs => {
-      console.log(docs);
+      const response = {
+        count:docs.length,
+        products: docs.map(doc => {
+          return {
+            _id: doc._id,
+            images: doc.images,
+            request: {
+              type: "GET",
+              url: "http://localhost:3000/items/" + doc._id
+            }
+          };
+        })
+      }
       if (docs.length >= 0){
-        res.status(200).json(docs);
+        res.status(200).json(response);
       }
       else{
         //Empty array is not really a 404 error, but still
@@ -64,6 +76,7 @@ router.get('/', (req, res, next) => {
 // ADD ITEM
 router.post('/', upload.array('images', 10), (req, res, next) => {
   //add item data to database
+  console.log(req.files)
   var current_date = new Date();
   const item = new Item({
     itemID: new mongoose.Types.ObjectId(),
@@ -73,7 +86,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: req.files,
+  	images: req.files.path,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked

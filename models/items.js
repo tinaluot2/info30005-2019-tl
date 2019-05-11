@@ -8,7 +8,7 @@ const itemSchema = mongoose.Schema({
 	material: [],
 	createdAt: Date,
 	likeCount: Number,
-	images: {data: Buffer, contenType: String},
+	images: { type: String },
 	description: String,
 	isLiked: Boolean,
 	isBookmarked: Boolean

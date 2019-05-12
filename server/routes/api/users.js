@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 
 // inport schema
-const User = require('../../models/user');
+const User = require('../../../models/user');
 
 router.get('/', (req, res, next) => {
   //exec to get a true promise

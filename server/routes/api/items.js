@@ -37,7 +37,7 @@ const upload = multer({
 });
 
 // Import schema
-const Item = require('../../models/items');
+const Item = require('../../../models/items');
 
 // GET ITEM
 router.get('/', (req, res, next) => {
@@ -69,7 +69,7 @@ router.get('/', (req, res, next) => {
 router.get("/:fileName", (req, res) =>
 {
   const options = {
-    root: __dirname + "../../../uploads/"
+    root: __dirname + "../../../../uploads/"
   };
 
   res.sendFile(req.params.fileName, options);

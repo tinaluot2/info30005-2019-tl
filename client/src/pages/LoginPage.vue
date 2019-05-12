@@ -34,7 +34,7 @@
 <script>
 import SignUpForm from '@/components/SiteNavUser/SignUpForm'
 import {bus} from '@/main'
-import axios from 'axios'
+import apiService from '@/apiService'
 
 export default {
 	name: 'LoginForm',
@@ -70,12 +70,11 @@ export default {
 				email: this.userDetails.email,
 				password: this.userDetails.password
 			}
-			console.log(this.userDetails)
-			axios.post('http://localhost:3000/userSignup/login', user)
+			apiService.loginUser(user)
 				.then((response)=>{
 					bus.$emit('loggedIn', true);
 					this.isLoggedIn = true;
-					this.$router.push(this.$route.query.redirect || '/user/' + this.userDetails.username);
+					this.$router.push(this.$route.query.redirect || '/discover');
 					console.log(response);
 				})
 				.catch((error)=>{

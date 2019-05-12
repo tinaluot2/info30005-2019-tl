@@ -29,8 +29,7 @@
 
 <script>
 import ItemCard from '@/components/ItemCard/ItemCard'
-import axios from 'axios'
-
+import apiService from '@/apiService'
 
 export default {
 	name: 'UserProfile',
@@ -45,8 +44,10 @@ export default {
 		}
 	},
 	mounted() {
-		axios.get("http://localhost:3000/users/").then((res) => {
-		this.usersList = res.data;})	}
+		apiService.getUser().then((data) => {
+			this.usersList = data
+		})
+	}
 }
 </script>
 

@@ -33,7 +33,7 @@ const upload = multer({
 });
 
 // Import schema
-const Item = require('../models/items');
+const Item = require('../../models/items');
 
 // GET ITEM
 router.get('/', (req, res, next) => {

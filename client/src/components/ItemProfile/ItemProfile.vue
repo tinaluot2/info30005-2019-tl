@@ -72,20 +72,21 @@
 </template>
 
 <script>
-import axios from 'axios'
+import apiService from '@/apiService'
 
 export default {
 	name: 'item-profile',
 	data (){
 		return {
-            itemid: this.$route.params.itemid,
-            itemsList:[]
-            }
-        },
-        mounted() {
-            axios.get("http://localhost:3000/items/").then((res) => {
-            this.itemsList = res.data;})
-    }
+			itemid: this.$route.params.itemid,
+			itemsList:[]
+			}
+	},
+	mounted() {
+		apiService.getItems().then((data) => {
+			this.itemsList = data
+		})
+	}
 }
 </script>
 

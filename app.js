@@ -7,10 +7,10 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
-const itemRoutes = require('./routes/items');
-const userRoutes = require('./routes/users');
+const itemRoutes = require('./routes/api/items');
+const userRoutes = require('./routes/api/users');
 //const searchItemRoutes = require('./routes/searchItems');
-const userSignupRoutes = require('./routes/userSignup');
+const userSignupRoutes = require('./routes/api/userSignup');
 
 const cors = require('cors');
 // for file uploading
@@ -30,9 +30,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //app.use('/searchItems', searchItemRoutes);
-app.use('/users', userRoutes);
-app.use('/items', itemRoutes);
-app.use('/userSignup', userSignupRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/items', itemRoutes);
+app.use('/api/userSignup', userSignupRoutes);
 
 app.get('/', (req, res, next) => {
   res.send("Team Souper Noodles Lab");
@@ -53,5 +53,14 @@ app.use((error, req, res, next) => {
     }
   });
 });
+
+//Handle production
+if(process.env.NODE_ENV ==='production') {
+  //static folder
+  app.use(express.static(__dirname + '/public'));
+
+  //SPA
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + 'public/index.html'));
+}
 
 module.exports = app;

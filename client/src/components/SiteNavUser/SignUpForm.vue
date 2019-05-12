@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import apiService from '@/apiService'
 import {bus} from '@/main'
 
 export default {
@@ -113,7 +113,7 @@ export default {
 				password: this.userDetails.password,
 				passwordConfirm: this.userDetails.passwordConfirm
 			}
-			axios.post("http://localhost:3000/userSignup/signup", newUser)
+			apiService.createUser(newUser)
 				.then((response) => {
           console.log(response);
 					this.isLoggedIn = true;

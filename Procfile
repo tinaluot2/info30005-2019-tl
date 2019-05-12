@@ -1,2 +1,2 @@
-web: cd client && npm i && npm run serve
-server: npm i && nodemon server
+web: cd client && npm i && npm start
+server: npm i && npm start

@@ -21,7 +21,7 @@ We are testing the two core functionalities for deliverable four, incorporating 
 
 This is for the user to sign up to Reform and create basic user profile. The information that is inputted will be sent as a POST request and stored on our MongoDB under "user" database. The password they input will be hashed and stored.
 
-The url for this sign up page is on the homepage and is a modal (pop up when sign up button is clicked): "https://wit-website-reform.herokuapp.com/"
+The url for this sign up page is on the homepage and is a modal (pop up when sign up button is clicked): "https://reform-lab.herokuapp.com/"
 
 Views:SignUpForm.vue, _userform.scss, SiteNavUser.vue, ItemDisplayGrid.scss, ItemDisplayGrid.vue
 Routes:userSignup.js, users.js
@@ -32,7 +32,7 @@ Models:user.js (schema), userSignup.js (Schema)
 
 This is for the user to upload a new project to Reform. The information that is inputted will be sent as a POST request and stored on our MongoDB under "items" database. 
 
-The url for this can be accessed through the homepage by pressing 'New Project' button. or clicking New Project once a user is logged in: "https://wit-website-reform.herokuapp.com/create"
+The url for this can be accessed through the homepage by pressing 'New Project' button. or clicking New Project once a user is logged in: "https://reform-lab.herokuapp.com/create"
 
 Views:UploadItemForm.vue, UploadItemForm.scss, SiteNavUser.vue, ImageUploader.vue, ImageUploader.scss, ItemDisplayGrid.scss, ItemDisplayGrid.vue
 Routes:users.js. item.js

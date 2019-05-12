@@ -47,6 +47,7 @@ export default {
 				email: '',
 				password: ''
 			},
+			user: '',
 			isLoggedIn: false,
 			error: false,
 			showSignUp: false
@@ -75,7 +76,6 @@ export default {
 					bus.$emit('loggedIn', true);
 					this.isLoggedIn = true;
 					this.$router.push(this.$route.query.redirect || '/discover');
-					console.log(response);
 				})
 				.catch((error)=>{
 					console.log(error);

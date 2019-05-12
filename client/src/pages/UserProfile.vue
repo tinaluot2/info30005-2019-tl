@@ -44,7 +44,7 @@ export default {
 		}
 	},
 	mounted() {
-		apiService.getUser().then((data) => {
+		apiService.getUserProfile().then((data) => {
 			this.usersList = data
 		})
 	}

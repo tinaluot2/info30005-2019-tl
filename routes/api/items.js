@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 const multer = require('multer');
+const fs = require("fs");
 
 // defining how the file is stored
 const storage = multer.diskStorage({
@@ -9,7 +10,10 @@ const storage = multer.diskStorage({
     cb(null, './uploads/');
   },
   filename: function(req, file, cb){
-    cb(null, new Date().toISOString() + file.originalname)
+    //clean file name
+    var fileName = (new Date().toISOString() + file.originalname)
+    var cleanName = fileName.replace(/[^0-9a-zA-Z_.]/g, "")
+    cb(null, cleanName)
   }
 });
 
@@ -61,12 +65,25 @@ router.get('/', (req, res, next) => {
     });
 });
 
+//GET ITEM IMAGE
+router.get("/:fileName", (req, res) =>
+{
+  const options = {
+    root: __dirname + "../../../uploads/"
+  };
+
+  res.sendFile(req.params.fileName, options);
+}
+);
+
 // ADD ITEM
 router.post('/', upload.array('images', 10), (req, res, next) => {
-  var path = []
+  var filename = []
   for(var i = 0; i < req.files.length; i++) {
-    path.push(req.files[i].path);
+    filename.push(req.files[i].filename);
   }
+
+  console.log(req.files)
 
   var current_date = new Date();
   const item = new Item({
@@ -77,7 +94,7 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	material: req.body.material,
   	createdAt: current_date,
   	likeCount: req.body.likeCount,
-  	images: path,
+  	images: filename,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
   	isBookmarked: req.body.isBookmarked

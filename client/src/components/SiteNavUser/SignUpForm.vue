@@ -115,7 +115,6 @@ export default {
 			}
 			apiService.createUser(newUser)
 				.then((response) => {
-          console.log(response);
 					this.isLoggedIn = true;
           this.$router.push(this.$route.query.redirect || '/discover');
           this.$emit('close');

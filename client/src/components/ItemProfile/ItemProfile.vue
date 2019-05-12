@@ -23,7 +23,7 @@
                 <div class="card-image">
                     <div v-for="(image, index) in item.images" v-bind:key="index">
                         <figure class="image is-4by3">
-                            <img :src="'http://localhost:3000/' + image">
+                            <img :src="'/api' + '/items/' + image">
                         </figure>
                     </div>
                 </div>
@@ -83,8 +83,8 @@ export default {
 			}
 	},
 	mounted() {
-		apiService.getItems().then((data) => {
-			this.itemsList = data
+		apiService.getItemProfile().then((data) => {
+            this.itemsList = data
 		})
 	}
 }

@@ -9,6 +9,11 @@ class apiService {
       .then(res => res.data);
   }
 
+  static getItemProfile(){
+    return axios.get('../' + url + 'items')
+    .then(res => res.data);
+  }
+
   static postItems(newItem, headers){
     return axios.post(url + 'items', newItem, headers);
   }
@@ -21,8 +26,14 @@ class apiService {
     return axios.post(url + 'userSignup/login', user);
   }
 
+  static getUserProfile(){
+    return axios.get('../' + url + 'users')
+    .then(res => res.data);
+  }
+
   static getUser(){
-    return axios.get(url + 'users');
+    return axios.get(url + 'users')
+    .then(res => res.data);
   }
  }
 

@@ -68,7 +68,6 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
     path.push(req.files[i].path);
   }
 
-  console.log(path)
   var current_date = new Date();
   const item = new Item({
     itemID: new mongoose.Types.ObjectId(),

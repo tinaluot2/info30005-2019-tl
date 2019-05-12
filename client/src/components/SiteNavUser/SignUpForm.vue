@@ -113,7 +113,6 @@ export default {
 				password: this.userDetails.password,
 				passwordConfirm: this.userDetails.passwordConfirm
 			}
-			console.log(this.userDetails)
 			axios.post("http://localhost:3000/userSignup/signup", newUser)
 				.then((response) => {
           console.log(response);

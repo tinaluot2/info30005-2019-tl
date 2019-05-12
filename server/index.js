@@ -7,14 +7,13 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
-const itemRoutes = require('./server/routes/api/items');
-const userRoutes = require('./server/routes/api/users');
+const itemRoutes = require('./routes/api/items');
+const userRoutes = require('.routes/api/users');
 //const searchItemRoutes = require('./routes/searchItems');
-const userSignupRoutes = require('./server/routes/api/userSignup');
+const userSignupRoutes = require('./routes/api/userSignup');
 
 const cors = require('cors');
 // for file uploading
-const multer = require('multer');
 
 // connecting to mongoDB
 mongoose.connect('mongodb+srv://jungew:' + process.env.MONGO_ATLAS_PW + '@cluster0-fvmyf.mongodb.net/test?retryWrites=true', {

@@ -7,10 +7,10 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
-const itemRoutes = require('./routes/api/items');
-const userRoutes = require('./routes/api/users');
+const itemRoutes = require('./server/routes/api/items');
+const userRoutes = require('./server/routes/api/users');
 //const searchItemRoutes = require('./routes/searchItems');
-const userSignupRoutes = require('./routes/api/userSignup');
+const userSignupRoutes = require('./server/routes/api/userSignup');
 
 const cors = require('cors');
 // for file uploading
@@ -29,7 +29,6 @@ app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//app.use('/searchItems', searchItemRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/userSignup', userSignupRoutes);
@@ -57,7 +56,7 @@ app.use((error, req, res, next) => {
 //Handle production
 if(process.env.NODE_ENV ==='production') {
   //static folder
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/public/'));
 
   //SPA
   app.get(/.*/, (req, res) => res.sendFile(__dirname + 'public/index.html'));

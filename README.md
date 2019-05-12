@@ -1,4 +1,5 @@
 - Please note: in case heroku is down, or mongodb atlas is unable to connect to heroku, please test with the localhost:3000 for now. Clone the repo and navigate to it in node.js console command, and start the server with command "nodemon server", then follow the same steps below with "localhost:3000" instead of "https://wit-website-reform.herokuapp.com"
+- BIG URGENT NOTE: we can't seem to get heroku to deploy both frontend and backend at the same time even with Hobby Dyno. So, if you are testing and we haven't got our Heroku working yet then please open backend with localhost:3000 and front end with localhost:8080. Thank you!
 
 Reformed Lab "Reformed" - Deliverable 4 README
 

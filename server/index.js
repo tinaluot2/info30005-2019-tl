@@ -8,8 +8,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const itemRoutes = require('./routes/api/items');
-const userRoutes = require('.routes/api/users');
-//const searchItemRoutes = require('./routes/searchItems');
+const userRoutes = require('./routes/api/users');
 const userSignupRoutes = require('./routes/api/userSignup');
 
 const cors = require('cors');
@@ -32,9 +31,9 @@ app.use('/api/users', userRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/userSignup', userSignupRoutes);
 
-app.get('/', (req, res, next) => {
-  res.send("Team Souper Noodles Lab");
-});
+// app.get('/', (req, res, next) => {
+//   res.send("Team Souper Noodles Lab");
+// });
 
 //error handling
 app.use((req, res, next) => {

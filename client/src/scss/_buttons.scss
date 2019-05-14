@@ -1,0 +1,123 @@
+//General buttons
+button {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+button:disabled,
+button[disabled],
+button:disabled:hover {
+  background-color: $border-color;
+  color: white;
+  border: $border-color solid 1px;
+  cursor: auto;
+}
+
+.button-dark {
+    background: $primary-color;
+    color: $button-text;
+    border: $primary-color 1px solid;
+
+    &:hover, &:active, &:focus  {
+        background: $button-hover-color;
+        transition: all 300ms ease;
+        border: $button-hover-color 1px solid;
+    }
+}
+
+.button-light {
+    background: white;
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover, &:active, &:focus {
+        border-color: $button-hover-color;
+        color: $button-hover-color;
+        transition: all 300ms ease;
+    }
+}
+
+.button-red {
+	background-color: $light-red;
+	border-color: $light-red;
+	color: white;
+	margin-left: auto;
+
+	&:hover, &:active, &:focus {
+		background-color: #FF263C;
+        border-color: #FF263C;
+        transition: all 300ms ease;
+	}
+}
+
+.form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.button-no-background:hover {
+    background: transparent!important;
+}
+
+//ICONIC BUTTONS
+.icon-button-wrapper {
+    margin: 5px 5px -1px 5px;
+    transition: all 300ms ease;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        transition: all 200ms ease;
+    }
+}
+
+//Like
+.like-button {
+    color: #999;
+}
+
+.liked {
+    color: $primary-color;
+}
+
+//Bookmark
+.bookmark-button {
+    color: #999;
+
+    &:hover, &:focus {
+        color: gold;
+    }
+}
+.bookmarked {
+    color: gold;
+}
+
+//Edit
+.edit-icon-wrapper {
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    transition: all 600ms ease;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        transition: all 300ms ease;
+        color: $primary-color;
+    }
+}
+
+.edit-item-button {
+    padding: 5px;
+    top: 5px;
+    color: white;
+}
+
+.button-circle {
+  border-radius: 20%
+}

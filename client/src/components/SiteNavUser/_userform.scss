@@ -1,0 +1,129 @@
+@import "../../scss/global";
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  transition: opacity .3s ease;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 480px) {
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: opacity .3s ease;
+    z-index: 9999;
+  }
+}
+
+#login-container, #signup-container {
+
+  position: relative;
+  min-height: 20rem;
+  background-color: white;
+  margin: 20px auto;
+  width: 90%;
+  padding: 20px;
+  border-radius: 3px;
+  text-transform: none;
+
+  .close-dialog {
+    cursor: pointer;
+    transition: all 600ms ease;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 18px;
+
+    &:hover, &:active, &:focus  {
+        transition: all 300ms ease;
+        color: $primary-color;
+    }
+  }
+
+  .form-header {
+    margin: 0 auto;
+    font-family: $title-font;
+    text-align: center;
+    font-size: $title-size;
+    font-weight: 300;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+}
+
+#login-container {
+  box-shadow: $box-drop-shadow;
+}
+
+@media screen and (min-width: 480px) {
+
+  #login-container, #signup-container {
+    width: 380px;
+    padding: 25px;
+    margin: $page-margin auto;
+  }
+}
+
+.login-container {
+  max-width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.form {
+  font-family: $body-family, sans-serif;
+  font-size: 14px;
+  color: $body-color;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border: 1px solid #ccc;
+	}
+
+	&:focus {
+		outline: none;
+		transition: all 0.2s ease;
+		border: 1px solid $primary-color;
+	}
+}
+
+.form-label {
+  font-size: 12px;
+  padding-bottom: 2px;
+
+  .req {
+      color: $light-red;
+  }
+}
+
+.user-submit {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.error-text {
+  font-size: 11px;
+  color: $light-red;
+  padding-top: 3px;
+}
+
+.password-hints {
+  padding: 3px 0;
+}

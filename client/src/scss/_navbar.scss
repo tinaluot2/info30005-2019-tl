@@ -1,0 +1,64 @@
+@import "../../scss/global";
+
+.logotype {
+	font-family: $logotype-font;
+	margin-left: 10px;
+	padding-bottom: 5px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	font-size: 26px;
+	color: $primary-color;
+	text-transform: lowercase;
+	align-self: center;
+}
+
+.logotype:hover {
+	color: $primary-color-dark;
+}
+
+.navbar-item {
+	padding: 5px;
+	font-size: 13px;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	text-transform: uppercase;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	z-index: 9999;
+}
+
+.navbar-brand {
+	padding: 8px 10px;
+	align-self: center;
+}
+
+.navbar-end {
+	padding-right: 20px;
+}
+
+.navbar-burger {
+	color: $primary-color;
+	margin-left: auto;
+	align-self: center;
+	transition: all 1000ms ease;
+}
+
+.navbar-burger:hover {
+	color: white;
+	background: $primary-color;
+	transition: all 500ms ease;
+}
+
+@media screen and (min-width: 768px) {
+	.logotype {
+		margin-left: 10px;
+	}
+
+	.navbar-brand, .navbar-end {
+		padding: 8px $page-margin;
+	}
+}

@@ -1,0 +1,56 @@
+@import "../../scss/global";
+
+#search-container {
+  background: white;
+  padding: 5px 20px;
+  display: flex;
+
+  .search-bar {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $border-color;
+    display: block;
+    font-size: 18px;
+    color: $link-secondary;
+    transition: all 0.2s ease;
+    padding: 5px 3px;
+
+    &:focus {
+      outline: none;
+      color: $link-hover;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .search-icon-wrapper {
+    padding: 5px 0;
+    margin-left: auto;
+    color: $link-secondary;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #search-container, #filter-container {
+    margin: 5px $margin;
+  }
+}
+
+#filter-container {
+  padding: 5px 20px;
+  background: white;
+  display: flex;
+
+  .filter-button {
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .dropdown {
+    color: $link-secondary;
+  }
+}

@@ -1,0 +1,110 @@
+@import "@/scss/global.scss";
+
+.display-grid {
+    margin: 0 auto;
+    background-color: $bg-color;
+	width: 100%;
+	height: 100%;
+    position: relative;
+}
+
+.small-card {
+    border-bottom: solid 1px $border-color;
+    position: relative;
+    color: $body-color;
+    background-color: $card-color;
+    box-shadow: $box-drop-shadow;
+    margin-bottom: 10px!important; //override bulma's default margin
+}
+
+@media screen and (min-width: 480px) {
+
+    .small-card {
+        margin: 0!important;
+    }
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.0));
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 0.3s, opacity 0.3s linear;
+    border-radius: 2px 2px 0 0;
+}
+
+.edit-wrapper {
+    position: absolute;
+    padding: 10px;
+    top: 3px;
+    right: 3px;
+    z-index: 200;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.card-image:hover > .image-overlay {
+    opacity: 1;
+    transition: opacity 0.2s linear;
+    visibility: visible;
+}
+
+.card-footer {
+    border-top: solid 1px $border-color;
+
+    .like-count {
+        font-weight: bold;
+    }
+}
+
+.card-content {
+    padding: 10px!important;
+}
+
+.card-content, .card-content a {
+    color: $body-color;
+    display: block;
+
+    .item-title {
+        font-weight: bold;
+    }
+
+    .item-creator {
+        padding-bottom: 25px;
+    }
+
+}
+
+.card-content a:hover {
+    text-decoration: underline;
+}
+
+.material-tags {
+    display: block;
+
+    .tag, .tag a {
+        background: $card-color;
+        color: $link-secondary;
+        padding: 2px 4px;
+        border: $light-grey 1px solid;
+        cursor: pointer;
+        border-radius: 3px;
+        display: inline-block;
+        font-size: 11px;
+        text-transform: lowercase;
+        margin-right: 4px;
+
+        &:hover {
+            text-decoration: none;
+            color: $primary-color;
+            border: $primary-color 1px solid;
+        }
+    }
+}

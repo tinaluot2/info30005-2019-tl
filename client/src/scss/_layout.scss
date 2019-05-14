@@ -1,0 +1,127 @@
+.page-container {
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .page-container {
+        padding: $margin $page-margin;
+    }
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	overflow: hidden;
+	margin: 0 auto;
+	max-width: 1025px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.spacing-not-last-child {
+	margin-right: 10px;
+}
+
+.background {
+	margin: auto;
+	background-color: $bg-color;
+	width: 100%;
+	min-height: 100vh;
+	position: absolute;
+}
+
+.nav-spacing {
+	padding-top: 60px;
+}
+
+//Two column layout for user profile page
+.two-column {
+	display: block; //single column for small screens
+	width: 100%;
+	padding: 20px;
+}
+
+
+@media screen and (min-width: 768px) {
+	.two-column {
+		padding: $margin $page-margin;
+	}
+}
+
+@media screen and (min-width: 960px) {
+
+	.two-column {
+		display: flex;
+		width: 100%;
+	}
+
+	.profile-bio {
+		order: 1;
+		flex: 1;
+	}
+
+	.profile-grid {
+		order: 1;
+		flex: 3;
+	}
+}
+
+//Transition Animations
+.fade-enter-active, .fade-leave-active {
+	transition-duration: 0.5s;
+	transition-property: opacity;
+	transition-timing-function: ease;
+}
+
+.fade-enter, .fade-leave-active {
+	opacity: 0
+}
+
+//GRIDS
+@media screen and (min-width: 480px) {
+
+    .grid-container {
+        display: grid;
+        align-content: flex-start;
+        margin: 0 auto;
+        grid-gap: 20px;
+    }
+
+    .site-wide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .site-wide {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    .site-wide {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -1,0 +1,39 @@
+@import "../../scss/global";
+
+.field {
+	margin-top: 10px;
+}
+
+#settings-form {
+	padding: 20px;
+	margin: 0 auto;
+	background-color: white;
+	box-shadow: $box-drop-shadow;
+
+	h1 {
+    font-size: $title-size;
+    text-transform: uppercase;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 30px;
+	}
+}
+
+.profile-img {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+@media screen and (min-width: 768px) {
+	#settings-form {
+		padding: $margin;
+		margin: $margin $page-margin;
+	}
+}
+
+.edit-button,
+.edit-button a {
+	font-size: 11px!important;
+	cursor: pointer;
+}

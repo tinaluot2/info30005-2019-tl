@@ -1,0 +1,64 @@
+@import "../../scss/global";
+
+.content-wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+header {
+	width: 100%;
+	position: relative;
+	height: 20vh;
+	min-height: 20rem;
+	display: flex;
+ 	align-items: center;
+ 	justify-content:  center;
+	background: url("https://images.unsplash.com/photo-1475174767135-6d48cae73003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+	background-size: 100%;
+ 	overflow: hidden;
+
+ 	.overlay {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    height: 100%;
+	    width: 100%;
+	    background: linear-gradient(rgba(91,76,64,0.6), rgba(0,0,0,0.1));
+	    z-index: 1;
+	}
+
+	.intro-heading {
+		position: relative;
+		text-align: center;
+		margin-top: 15px;
+		color: white;
+		font-size: 1.7rem;
+		font-family: $hero-font, sans-serif;
+		font-weight: bold;
+		z-index: 2;
+		overflow-wrap: break-word;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	header {
+		height: 40vh;
+
+		.intro-heading {
+				font-size: 5.5vw;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	header {
+		height: 50vh;
+		background-size: auto;
+
+		.intro-heading {
+				font-size: 50px;
+		}
+	}
+}

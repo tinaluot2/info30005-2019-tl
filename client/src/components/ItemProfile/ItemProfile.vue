@@ -23,7 +23,7 @@
                 <div class="card-image">
                     <div v-for="(image, index) in item.images" v-bind:key="index">
                         <figure class="image is-4by3">
-                            <img :src="'http://localhost:3000/' + image">
+                            <img :src="'/api' + '/items/' + image">
                         </figure>
                     </div>
                 </div>
@@ -72,20 +72,21 @@
 </template>
 
 <script>
-import axios from 'axios'
+import apiService from '@/apiService'
 
 export default {
 	name: 'item-profile',
 	data (){
 		return {
-            itemid: this.$route.params.itemid,
-            itemsList:[]
-            }
-        },
-        mounted() {
-            axios.get("http://localhost:3000/items/").then((res) => {
-            this.itemsList = res.data;})
-    }
+			itemid: this.$route.params.itemid,
+			itemsList:[]
+			}
+	},
+	mounted() {
+		apiService.getItemProfile().then((data) => {
+            this.itemsList = data
+		})
+	}
 }
 </script>
 

@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import apiService from '@/apiService'
 
 export default {
 	name: 'CreateItem',
@@ -105,7 +105,7 @@ export default {
 			this.newItem.images.push({})
 		},
 		deleteImage(index){
-			this.newItem.images.splice(index, 1)
+			this.newItem.images.splice(index, s1)
 		},
 		onFileChange(){
 			const newImg = this.$refs.images.files
@@ -117,23 +117,17 @@ export default {
 				let file = this.newItem.images[i]
 				newItem.append('images', file)
 			}
-			console.log(this.newItem)
 			newItem.append('itemTitle', this.newItem.title)
 			newItem.append('material', this.newItem.material)
 			newItem.append('description', this.newItem.description)
 
-			axios.post("http://localhost:3000/items",
-				newItem,
-				{
-					headers: {'Content-Type': 'multipart/form-data'}
-				})
-				.then((response) => {
-					console.log(response)
-          this.$router.push(this.$route.query.redirect || '/discover');
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+			apiService.postItems(newItem, {headers: {'Content-Type': 'multipart/form-data'}})
+			.then((response) => {
+				this.$router.push(this.$route.query.redirect || '/discover');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 		}
 	},
 	computed:{

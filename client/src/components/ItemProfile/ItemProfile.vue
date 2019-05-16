@@ -46,6 +46,7 @@
 
                     <button class="button-light">
                         <span>Share</span>
+                        <Share />
                     </button>
                 </div>
 
@@ -73,9 +74,12 @@
 
 <script>
 import apiService from '@/apiService'
+import Share from './Share.vue'
 
 export default {
 	name: 'item-profile',
+    components: {Share
+    },
 	data (){
 		return {
 			itemid: this.$route.params.itemid,

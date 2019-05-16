@@ -70,7 +70,6 @@
 							:disabled=" !titleValidate || newItem.title == '' || newItem.title.length < 3 || newItem.material.length == 0 || newItem.images.length == 0 || newItem.images.length >= maxImages">
 							Publish</button>
 
-						<button class="button-light">Save Draft</button>
 				</form>
 
 		</div>

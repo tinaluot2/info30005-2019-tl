@@ -52,8 +52,30 @@ router.get('/:userId', (req, res, next) => {
       console.log(err);
       res.status(500).json({error: err});
     });
-
 });
+
+
+router.get('/:userId/bookmarks', (req, res, next) => {
+    const id = mongoose.Types.ObjectId(req.params.userId);
+
+    User.findById(id)
+        .exec()
+        .then(doc => {
+            console.log("From user", doc);
+            if (doc) {
+              res.status(200).json(doc.bookmarks);
+            }
+            else {
+              res.status(404).json({message: 'No valid entry found for provided ID'});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        });
+});
+
+
 router.patch('/:userId', (req, res, next) => {
   const id = mongoose.Types.ObjectId(req.params.userId);
 

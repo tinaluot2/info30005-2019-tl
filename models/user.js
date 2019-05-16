@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
   location: String,
   dateJoined: Date,
   projects: Array,
-  bookmarks: Array,
+  bookmarks: [Array],
   likes: Array,
   description: String
 });

@@ -36,10 +36,10 @@
             this.fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
 
             //twitter
-            var txt = 'Reform lab';
+            const txt = "Reform lab";
             //var txt = encodeURIComponent(document.querySelector("meta[name='description']").getAttribute('content'));;
             var hashtags ='reformlab, upcycle';
-            this.twUrl = 'https://twitter.com/intent/tweet?txt=' + txt + '&hashtags=' + hashtags + '&url=' + url;
+            this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + hashtags + '&url=' + url;
         }
     }
  }

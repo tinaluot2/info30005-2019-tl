@@ -15,7 +15,8 @@
                         <div class="card-creator">{{item.creatorName}}</div>
                     </div>
                     <div class="timestamp">
-                        <time datetime="2018-4-1">{{item.createdAt}}</time>
+                        <time datetime="2018-4-1">
+                            {{item.createdAt}}</time>
                     </div>
 
                 </div>
@@ -44,10 +45,7 @@
                         <span>Bookmark</span>
                     </button>
 
-                    <button class="button-light">
-                        <span>Share</span>
-                        <Share />
-                    </button>
+                    <Share />
                 </div>
 
                 <article class="media">
@@ -78,7 +76,8 @@ import Share from './Share.vue'
 
 export default {
 	name: 'item-profile',
-    components: {Share
+    components: {
+	    Share
     },
 	data (){
 		return {

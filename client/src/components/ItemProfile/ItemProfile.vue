@@ -44,7 +44,6 @@
                     <button class="button-light spacing-not-last-child">
                         <span>Bookmark</span>
                     </button>
-
                     <Share />
                 </div>
 
@@ -76,8 +75,7 @@ import Share from './Share.vue'
 
 export default {
 	name: 'item-profile',
-    components: {
-	    Share
+    components: {Share
     },
 	data (){
 		return {

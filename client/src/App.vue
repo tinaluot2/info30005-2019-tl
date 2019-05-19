@@ -16,7 +16,7 @@ export default {
 	},
 	data: function(){
 		return {
-			isLoggedIn: false
+			isLoggedIn: false,
 		}
 	},
 	created(){

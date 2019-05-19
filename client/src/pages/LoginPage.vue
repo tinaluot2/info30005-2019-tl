@@ -47,7 +47,6 @@ export default {
 				email: '',
 				password: ''
 			},
-			user: '',
 			isLoggedIn: false,
 			error: false,
 			showSignUp: false
@@ -67,12 +66,12 @@ export default {
 			this.showSignUp = !this.showSignUp;
 		},
 		login() {
-			const user = {
+			const credentials = {
 				email: this.userDetails.email,
 				password: this.userDetails.password
 			}
-			apiService.loginUser(user)
-				.then((response)=>{
+			this.$store.dispatch('retrieveToken', credentials)
+				.then((res)=>{
 					bus.$emit('loggedIn', true);
 					this.isLoggedIn = true;
 					this.$router.push(this.$route.query.redirect || '/discover');

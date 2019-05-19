@@ -18,7 +18,7 @@
 
 					<router-link to="/login" v-if="!isLoggedIn" class="navbar-item button-no-background"><button class="button-light" @click="toggleNav">Login</button></router-link>
 
-					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp()">Sign Up</button></a>
+					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp() + toggleNav()">Sign Up</button></a>
 
 					<div v-if="isLoggedIn" class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">You</a>
@@ -34,7 +34,9 @@
 								<router-link to="/lists" class="navbar-item">Saved Lists</router-link>
 							</span>
 							<hr class="navbar-divider">
-							<a class="navbar-item" @click="logout">Sign Out</a>
+							<span @click="toggleNav">
+								<a class="navbar-item" @click="logout">Sign Out</a>
+							</span>
 						</div>
 
 						<div @click="toggleNav">
@@ -63,7 +65,6 @@ export default {
 			currentUser: 1003,
 			showSignUp: false,
 			showLogIn: false,
-			isLoggedIn: false
 		}
 	},
 	methods: {
@@ -77,14 +78,17 @@ export default {
 			this.showNav = !this.showNav;
 		},
 		logout() {
-			this.isLoggedIn = false;
 			this.$router.push(this.$route.query.redirect || '/discover');
+			this.$store.dispatch('logoutUser')
+				.then(response => {
+					this.$router.push(this.$route.query.redirect || '/discover')
+				})
 		}
 	},
-	created(){
-		bus.$on('loggedIn', (data)=> {
-			this.isLoggedIn = data;
-		})
+	computed: {
+		isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		}
 	}
 }
 </script>

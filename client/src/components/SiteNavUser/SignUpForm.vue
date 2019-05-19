@@ -55,13 +55,13 @@
 
 <script>
 import apiService from '@/apiService'
-import {bus} from '@/main'
 
 export default {
   name: 'SignUpForm',
   data: function(){
 		return {
 			isPasswordHintsVisible: false,
+			error: false,
 			userDetails: {
 				username: '',
 				email: '',
@@ -113,15 +113,15 @@ export default {
 				password: this.userDetails.password,
 				passwordConfirm: this.userDetails.passwordConfirm
 			}
+			this.$store.dispatch('register', newUser)
 			apiService.createUser(newUser)
 				.then((response) => {
-					this.isLoggedIn = true;
-          this.$router.push(this.$route.query.redirect || '/discover');
+          this.$router.push(this.$route.query.redirect || '/login');
           this.$emit('close');
-					bus.$emit('loggedIn', true);
 				})
 				.catch((error) => {
 					console.log(error);
+					this.error = true;
 				});
 		}
 	},

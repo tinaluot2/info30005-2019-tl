@@ -8,7 +8,7 @@
 
 							<div class="form-section">
 								<div class="form-label">Title</div>
-								<input class="title-input" type="text" name="title" v-:value="item.itemTitle" maxlength = "60" required>
+								<input class="title-input" type="text" name="title" :value="item.itemTitle" maxlength = "60" required>
 								<div class="help-text">Click to edit the title.</div>
 							</div>
 
@@ -16,7 +16,7 @@
 								<div class="form-label">Images</div>
 									<div v-for="(image, index) in item.images" v-bind:key="index">
 											<figure class="image is-4by3 preview-images">
-													<img :src="'http://localhost:3000/' + image">
+													<img :src="'/api' + '/items/' + image">
 											</figure>
 									</div>
 								<div class="help-text">Users should be able to remove and add images but we haven't figured how to do it yet.</div>
@@ -38,7 +38,7 @@
 							</div>
 
 							<div class="button-menu">
-								<router-link to="/user"><button class="button-dark spacing-not-last-child" value="Submit">Update</button></router-link>
+								<button class="button-dark spacing-not-last-child" value="Submit">Update</button>
 								<button class="button-light spacing-not-last-child">Hide Project</button>
 								<button class="button-red" @click="showModal" type="button">Delete</button>
 							</div>
@@ -52,25 +52,24 @@
 
 <script>
 import ModalDialog from '@/components/ModalDialog/DeleteWarning'
-import ImageUploader from '@/components/ImageUploader/ImageUploader'
-import axios from 'axios'
+import apiService from '@/apiService'
 
 export default {
 	name: 'EditItem',
 	components: {
 		'modal-dialog': ModalDialog,
-		'image-uploader': ImageUploader
 		},
 		data (){
 		return {
-            itemid: this.$route.params.itemid,
-            itemsList:[]
-            }
-        },
-        mounted() {
-            axios.get("http://localhost:3000/items/").then((res) => {
-            this.itemsList = res.data;})
-    },
+			itemid: this.$route.params.itemid,
+			itemsList:[]
+			}
+		},
+		mounted() {
+			apiService.getItemProfile().then((data) => {
+				this.itemsList = data
+			})
+		},
 		methods: {
 			showModal() {
 				this.isModalVisible = true;

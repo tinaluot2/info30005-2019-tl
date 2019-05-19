@@ -30,6 +30,10 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/projects'), (req, res, next) => {
+  User
+  .find()
+}
 // signup function is in userSignup.js
 
 router.get('/:userId', (req, res, next) => {

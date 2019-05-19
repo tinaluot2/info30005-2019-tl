@@ -18,14 +18,14 @@
 
 					<router-link to="/login" v-if="!isLoggedIn" class="navbar-item button-no-background"><button class="button-light" @click="toggleNav">Login</button></router-link>
 
-					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp()">Sign Up</button></a>
+					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp() + toggleNav()">Sign Up</button></a>
 
 					<div v-if="isLoggedIn" class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">You</a>
+						<a class="navbar-link">{{currentUser.username}}</a>
 
 						<div class="navbar-dropdown">
 							<span @click="toggleNav">
-								<router-link to="/user/mariniida" class="navbar-item">My Profile</router-link>
+								<router-link :to="'/user/' + currentUser.username" class="navbar-item">My Profile</router-link>
 							</span>
 							<span @click="toggleNav">
 								<router-link to="/settings" class="navbar-item" >Account Settings</router-link>
@@ -34,7 +34,9 @@
 								<router-link to="/lists" class="navbar-item">Saved Lists</router-link>
 							</span>
 							<hr class="navbar-divider">
-							<a class="navbar-item" @click="logout">Sign Out</a>
+							<span @click="toggleNav">
+								<a class="navbar-item" @click="logout">Sign Out</a>
+							</span>
 						</div>
 
 						<div @click="toggleNav">
@@ -52,6 +54,8 @@
 <script>
 import SignUpForm from './SignUpForm'
 import {bus} from '@/main'
+import { mapState } from 'vuex'
+
 export default {
 	name: 'SiteNavUser',
 	components: {
@@ -60,10 +64,8 @@ export default {
 	data: function() {
 		return {
 			showNav: false,
-			currentUser: 1003,
 			showSignUp: false,
 			showLogIn: false,
-			isLoggedIn: false
 		}
 	},
 	methods: {
@@ -77,14 +79,20 @@ export default {
 			this.showNav = !this.showNav;
 		},
 		logout() {
-			this.isLoggedIn = false;
 			this.$router.push(this.$route.query.redirect || '/discover');
+			this.$store.dispatch('logoutUser')
+				.then(response => {
+					this.$router.push(this.$route.query.redirect || '/discover')
+				})
 		}
 	},
-	created(){
-		bus.$on('loggedIn', (data)=> {
-			this.isLoggedIn = data;
-		})
+	computed: {
+		isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		},
+		currentUser() {
+      return this.$store.state.currentUser
+    }
 	}
 }
 </script>

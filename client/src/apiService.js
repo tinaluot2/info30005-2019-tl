@@ -22,8 +22,8 @@ class apiService {
     return axios.post(url + 'userSignup/signup', newUser);
   }
 
-  static loginUser(user){
-    return axios.post(url + 'userSignup/login', user);
+  static loginUser(credentials){
+    return axios.post(url + 'userSignup/login', credentials);
   }
 
   static getUserProfile(){

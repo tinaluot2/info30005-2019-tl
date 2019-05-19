@@ -119,10 +119,11 @@ export default {
 			newItem.append('itemTitle', this.newItem.title)
 			newItem.append('material', this.newItem.material)
 			newItem.append('description', this.newItem.description)
+			newItem.append('creatorName', this.currentUser.username)
 
 			apiService.postItems(newItem, {headers: {'Content-Type': 'multipart/form-data'}})
 			.then((response) => {
-				this.$router.push(this.$route.query.redirect || '/discover');
+				this.$router.push(this.$route.query.redirect || '/user/' + this.currentUser.username);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -130,6 +131,9 @@ export default {
 		}
 	},
 	computed:{
+		currentUser() {
+      return this.$store.state.currentUser
+    },
 		titleValidate(){
 			let errors = []
 			for (let condition of this.titleRule) {

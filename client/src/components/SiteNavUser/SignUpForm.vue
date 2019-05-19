@@ -2,66 +2,64 @@
 	<transition name="modal-fade">
 		<div class="modal-backdrop">
 			<div class="container nav-spacing">
-						<div id="login-container" @click.stop>
-							<div class="close-dialog" @click="$emit('close') + resetValues()">X</div>
-							<div class="form-header">
-									Join us today!
-							</div>
-							<form action="#" @submit.prevent="validateBeforeSubmit()">
+				<div class="signup-container" @click.stop>
+					<div class="close-dialog" @click="$emit('close') + resetValues()">X</div>
+					<div class="form-header">
+							Join us today!
+					</div>
+					<form action="#" @submit.prevent="validateBeforeSubmit()">
 
-								<div class="form-input">
-									<div class="form-label">Email Address <span class="req">*</span></div>
-									<input class="form" type="email" name="email" v-validate="'email'" v-model.lazy="userDetails.email"/>
-									<p class="error-text" v-show="errors.has('email')">Please enter a valid email.</p>
-								</div>
-
-								<div class="form-input">
-									<div class="form-label">Password <span class="req">*</span></div>
-									<input class="form" type="password" name="password" v-model="userDetails.password" ref="password" @focus="showPasswordHints"/>
-
-									<div class="password-hints" v-show='userDetails.password !== "" && passwordValidate.errors.length > 0 && isPasswordHintsVisible'>
-										<p class="help-text" v-for='error in passwordValidate.errors' v-bind:key="error">{{error}}</p>
-									</div>
-								</div>
-
-								<div class="form-input">
-									<div class="form-label">Confirm Password <span class="req">*</span></div>
-									<input class="form" type="password"
-									v-model="userDetails.confirmPassword" name="password-confirm" data-vv-as="password"/>
-									<p class="error-text" v-show="differentPasswords">
-										Passwords do not match yet.
-									</p>
-								</div>
-
-								<div class="form-input">
-									<div class="form-label">Username <span class="req">*</span></div>
-									<input class="form" type="text" name="username" v-model="userDetails.username" autocomplete="off"/>
-									<p class="help-text">You will be able to change this later.</p>
-									<div class="password-hints" v-show='userDetails.username !== "" && usernameValidate.errors.length > 0'>
-									<p class="error-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>
-									</div>
-								</div>
-
-								<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit">Sign Up</button>
-
-								<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
-
-							</form>
+						<div class="form-input">
+							<div class="form-label">Email Address <span class="req">*</span></div>
+							<input class="form" type="email" name="email" v-validate="'email'" v-model.lazy="userDetails.email"/>
+							<p class="error-text" v-show="errors.has('email')">Please enter a valid email.</p>
 						</div>
+
+						<div class="form-input">
+							<div class="form-label">Password <span class="req">*</span></div>
+							<input class="form" type="password" name="password" v-model="userDetails.password" ref="password" @focus="showPasswordHints"/>
+
+							<div class="password-hints" v-show='userDetails.password !== "" && passwordValidate.errors.length > 0 && isPasswordHintsVisible'>
+								<p class="help-text" v-for='error in passwordValidate.errors' v-bind:key="error">{{error}}</p>
+							</div>
+						</div>
+
+						<div class="form-input">
+							<div class="form-label">Confirm Password <span class="req">*</span></div>
+							<input class="form" type="password"
+							v-model="userDetails.confirmPassword" name="password-confirm" data-vv-as="password"/>
+							<p class="error-text" v-show="differentPasswords">
+								Passwords do not match yet.
+							</p>
+						</div>
+
+						<div class="form-input">
+							<div class="form-label">Username <span class="req">*</span></div>
+							<input class="form" type="text" name="username" v-model="userDetails.username" autocomplete="off"/>
+							<p class="help-text">You will be able to change this later.</p>
+							<div class="password-hints" v-show='userDetails.username !== "" && usernameValidate.errors.length > 0'>
+							<p class="error-text" v-for='error in usernameValidate.errors' v-bind:key="error">{{error}}</p>
+							</div>
+						</div>
+
+						<button type="submit" class="button-dark user-submit" :disabled="errors.any() ||!passwordsFilled || differentPasswords || !passwordValidate.valid || !usernameValidate.valid || userDetails.name == '' || userDetails.email == ''" @click="submit">Sign Up</button>
+
+						<p class="help-text">Already have an account? <router-link to="/login"><span @click="$emit('close')">Log In</span></router-link></p>
+
+					</form>
+				</div>
 			</div>
 		</div>
 	</transition>
 </template>
 
 <script>
-import apiService from '@/apiService'
-import {bus} from '@/main'
-
 export default {
   name: 'SignUpForm',
   data: function(){
 		return {
 			isPasswordHintsVisible: false,
+			error: false,
 			userDetails: {
 				username: '',
 				email: '',
@@ -113,15 +111,14 @@ export default {
 				password: this.userDetails.password,
 				passwordConfirm: this.userDetails.passwordConfirm
 			}
-			apiService.createUser(newUser)
+			this.$store.dispatch('register', newUser)
 				.then((response) => {
-					this.isLoggedIn = true;
-          this.$router.push(this.$route.query.redirect || '/discover');
+          this.$router.push(this.$route.query.redirect || '/login');
           this.$emit('close');
-					bus.$emit('loggedIn', true);
 				})
 				.catch((error) => {
 					console.log(error);
+					this.error = true;
 				});
 		}
 	},

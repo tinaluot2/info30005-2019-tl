@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-// for password hashing
-const bcrypt = require('bcrypt');
-// for login token
-const jwt = require("jsonwebtoken");
-
+const bcrypt = require('bcrypt'); // for password hashing
+const jwt = require("jsonwebtoken"); // for login token
 const User = require('../../../models/user');
 
 router.post('/signup', (req, res, next) => {
-  // First we check if the username already exists.
+  // First we check if the email already exists.
   User.find({email: req.body.email})
     .exec()
     .then(user => {
@@ -33,17 +30,17 @@ router.post('/signup', (req, res, next) => {
             var current_date = new Date();
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
-                    // these fields are expected in input
-                    email: req.body.email,
-                    password: hash,
-                    username: req.body.username,
-                    name: req.body.name,
-                    location: req.body.location,
-                    dateJoined: current_date,
-                    projects: req.body.projects,
-                    bookmarks: req.body.bookmarks,
-                    likes: req.body.likes,
-                    description: req.body.description
+                // these fields are expected in input
+                email: req.body.email,
+                password: hash,
+                username: req.body.username,
+                name: req.body.name,
+                location: req.body.location,
+                dateJoined: current_date,
+                projects: req.body.projects,
+                bookmarks: req.body.bookmarks,
+                likes: req.body.likes,
+                description: req.body.description
             });
             user
               .save()
@@ -65,9 +62,9 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
-
 router.post('/login', (req, res, next) => {
-  User.find({ email: req.body.email })
+  User.find({
+    email: req.body.email })
     .exec()
     //get the user array but should have only one item in it
     .then(user => {
@@ -92,12 +89,23 @@ router.post('/login', (req, res, next) => {
           //private key
             process.env.JWT_KEY,
             {
-              expiresIn: "1h"
+              expiresIn: 86400
             }
           );
+            //don't return password!!!
+          const {
+            _id, email, username, location,
+            dateJoined, projects, bookmarks,
+            likes, description
+          } = user[0]
           return res.status(200).json({
             message: "Authentication successful",
-            token: token
+            token,
+            user: {
+              _id, email, username, location,
+              dateJoined, projects, bookmarks,
+              likes, description
+            }
           });
         }
         res.status(401).json({

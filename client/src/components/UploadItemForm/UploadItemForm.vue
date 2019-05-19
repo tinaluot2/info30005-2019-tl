@@ -93,7 +93,7 @@ export default {
 				title: "",
 				images: [],
 				material: [],
-				description: ""
+				description: "",
 			},
 			maxImages: 5,
 			materialOptions:["Paper", "Cardboard", "Plastic", "Metal", "Aluminium", "Textiles", "Glass"]
@@ -122,7 +122,7 @@ export default {
 
 			apiService.postItems(newItem, {headers: {'Content-Type': 'multipart/form-data'}})
 			.then((response) => {
-				this.$router.push(this.$route.query.redirect || '/discover');
+				this.$router.push(this.$route.query.redirect || '/user/' + this.currentUser.username);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -130,6 +130,9 @@ export default {
 		}
 	},
 	computed:{
+		currentUser() {
+      return this.$store.state.currentUser
+    },
 		titleValidate(){
 			let errors = []
 			for (let condition of this.titleRule) {

@@ -30,7 +30,7 @@ export default new Vuex.Store({
   },
   actions: {
     //signup
-    register(newUser){
+    register(context, newUser){
       return new Promise((resolve, reject) => {
         axios.post(url + 'userSignup/signup', newUser)
         .then(response => {
@@ -49,7 +49,7 @@ export default new Vuex.Store({
         .then(response => {
           //retrieve token upon successful login
           const token = response.data.token
-          const user = response.data
+          const user = response.data.user
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
           context.commit('retrieveToken', token)
@@ -64,7 +64,7 @@ export default new Vuex.Store({
     },
     //logout
     logoutUser(context){
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         localStorage.removeItem('token')
         delete axios.defaults.headers.common['Authorization']
         context.commit('destroyToken')

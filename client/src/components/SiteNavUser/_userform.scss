@@ -25,7 +25,7 @@
   }
 }
 
-#login-container, #signup-container {
+.login-container, .signup-container {
 
   position: relative;
   min-height: 20rem;
@@ -61,23 +61,17 @@
   }
 }
 
-#login-container {
+.login-container {
   box-shadow: $box-drop-shadow;
 }
 
 @media screen and (min-width: 480px) {
 
-  #login-container, #signup-container {
+  .login-container, .signup-container {
     width: 380px;
     padding: 25px;
     margin: $page-margin auto;
   }
-}
-
-.login-container {
-  max-width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
 }
 
 .form {

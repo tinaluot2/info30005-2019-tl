@@ -21,11 +21,11 @@
 					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp() + toggleNav()">Sign Up</button></a>
 
 					<div v-if="isLoggedIn" class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">You</a>
+						<a class="navbar-link">{{currentUser.username}}</a>
 
 						<div class="navbar-dropdown">
 							<span @click="toggleNav">
-								<router-link to="/user/mariniida" class="navbar-item">My Profile</router-link>
+								<router-link :to="'/user/' + currentUser.username" class="navbar-item">My Profile</router-link>
 							</span>
 							<span @click="toggleNav">
 								<router-link to="/settings" class="navbar-item" >Account Settings</router-link>
@@ -54,6 +54,8 @@
 <script>
 import SignUpForm from './SignUpForm'
 import {bus} from '@/main'
+import { mapState } from 'vuex'
+
 export default {
 	name: 'SiteNavUser',
 	components: {
@@ -62,7 +64,6 @@ export default {
 	data: function() {
 		return {
 			showNav: false,
-			currentUser: 1003,
 			showSignUp: false,
 			showLogIn: false,
 		}
@@ -88,7 +89,10 @@ export default {
 	computed: {
 		isLoggedIn(){
 			return this.$store.getters.isLoggedIn
-		}
+		},
+		currentUser() {
+      return this.$store.state.currentUser
+    }
 	}
 }
 </script>

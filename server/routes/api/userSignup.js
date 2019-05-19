@@ -92,9 +92,32 @@ router.post('/login', (req, res, next) => {
               expiresIn: 86400
             }
           );
+            //don't return password!!!
+          const {
+            _id,
+            email,
+            username,
+            location,
+            dateJoined,
+            projects,
+            bookmarks,
+            likes,
+            description
+          } = user[0]
           return res.status(200).json({
             message: "Authentication successful",
-            token: token
+            token,
+            user: {
+              _id,
+              email,
+              username,
+              location,
+              dateJoined,
+              projects,
+              bookmarks,
+              likes,
+              description
+            }
           });
         }
         res.status(401).json({

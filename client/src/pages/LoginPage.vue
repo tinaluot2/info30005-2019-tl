@@ -1,7 +1,7 @@
 <template>
 <div class="background">
 	<div class="container nav-spacing">
-		<div id="login-container" @click.stop>
+		<div class="login-container" @click.stop>
 			<div class="form-header">
 					Welcome back!
 			</div>
@@ -47,7 +47,6 @@ export default {
 				email: '',
 				password: ''
 			},
-			isLoggedIn: false,
 			error: false,
 			showSignUp: false
 		}
@@ -73,13 +72,17 @@ export default {
 			this.$store.dispatch('retrieveToken', credentials)
 				.then((res)=>{
 					bus.$emit('loggedIn', true);
-					this.isLoggedIn = true;
-					this.$router.push(this.$route.query.redirect || '/discover');
+					this.$router.push(this.$route.query.redirect || '/user/' + this.currentUser.username);
 				})
 				.catch((error)=>{
 					console.log(error);
 					this.error = true;
 				})
+    }
+	},
+	computed: {
+		currentUser() {
+      return this.$store.state.currentUser
     }
 	}
 }

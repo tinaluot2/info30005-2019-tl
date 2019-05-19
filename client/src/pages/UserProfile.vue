@@ -5,8 +5,8 @@
 				<div class="container">
 					<div class="two-column">
 						<div class="profile-box">
-								<span class="edit-icon-wrapper">
-										<i class="material-icons md-18">edit</i>
+								<span v-if="user.username == currentUser.username" class ="edit-icon-wrapper">
+										<i class ="material-icons md-18">edit</i>
 								</span>
 								<img class="profile-img" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
 								<h1 class="username">{{user.username}}</h1>
@@ -18,7 +18,7 @@
 								</div>
 						</div>
 						<div class="grid-container profile-grid">
-								<item-card v-for="(item, index) in user.bookmarks" v-bind:key="index" :item="item"></item-card>
+								<item-card v-for="(item, index) in user.projects" v-bind:key="index" :item="item"></item-card>
 						</div>
 					</div>
 				</div>
@@ -47,6 +47,11 @@ export default {
 		apiService.getUserProfile().then((data) => {
 			this.usersList = data
 		})
+	},
+	computed: {
+		currentUser() {
+			return this.$store.state.currentUser
+	}
 	}
 }
 </script>

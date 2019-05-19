@@ -1,8 +1,8 @@
 <template>
 	<div class="small-card">
 		<div class="card-image">
-			<div class="image-overlay" v-if="item.creatorID == currentUser._id">
-				<router-link to="/edit">
+			<div class="image-overlay" v-if="item.creatorName == currentUser.username">
+				<router-link :to="'/edit/' + item._id">
 					<span class="edit-wrapper edit-item-button">
 						<i class="material-icons md-18">edit</i>
 					</span>

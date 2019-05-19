@@ -94,29 +94,17 @@ router.post('/login', (req, res, next) => {
           );
             //don't return password!!!
           const {
-            _id,
-            email,
-            username,
-            location,
-            dateJoined,
-            projects,
-            bookmarks,
-            likes,
-            description
+            _id, email, username, location,
+            dateJoined, projects, bookmarks,
+            likes, description
           } = user[0]
           return res.status(200).json({
             message: "Authentication successful",
             token,
             user: {
-              _id,
-              email,
-              username,
-              location,
-              dateJoined,
-              projects,
-              bookmarks,
-              likes,
-              description
+              _id, email, username, location,
+              dateJoined, projects, bookmarks,
+              likes, description
             }
           });
         }

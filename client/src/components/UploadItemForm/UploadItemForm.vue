@@ -93,7 +93,7 @@ export default {
 				title: "",
 				images: [],
 				material: [],
-				description: "",
+				description: ""
 			},
 			maxImages: 5,
 			materialOptions:["Paper", "Cardboard", "Plastic", "Metal", "Aluminium", "Textiles", "Glass"]
@@ -119,6 +119,7 @@ export default {
 			newItem.append('itemTitle', this.newItem.title)
 			newItem.append('material', this.newItem.material)
 			newItem.append('description', this.newItem.description)
+			newItem.append('creatorName', this.currentUser.username)
 
 			apiService.postItems(newItem, {headers: {'Content-Type': 'multipart/form-data'}})
 			.then((response) => {

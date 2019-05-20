@@ -1,9 +1,6 @@
 <template>
 	<div class="background">
-		<div class="page-container">
-			<div class="animation-wrapper">
-				<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-			</div>
+		<div class="container">
 			<div class="grid-container site-wide">
 				<item-card v-for="item in itemsList" v-bind:key="item._id" :item="item"></item-card>
 			</div>
@@ -15,7 +12,7 @@
 
 import ItemCard from '@/components/ItemCard/ItemCard'
 import apiService from '@/apiService'
-import {bus} from '@/main'
+import { bus } from '@/main'
 
 export default {
 	name: 'ItemDisplayGrid',
@@ -24,18 +21,20 @@ export default {
 	},
 	data() {
 		return {
-			itemsList: [],
+			itemsList: []
 		}
 	},
 	mounted() {
-		apiService.getItems().then((data) => {
+		apiService.getItems()
+		.then((data) => {
 			this.itemsList = data
-			bus.$emit('loaded')
+			this.$emit('loaded')
 		})
 	}
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+	@import "./ItemDisplayGrid.scss";
 	@import "@/scss/_animation.scss";
 </style>

@@ -18,7 +18,6 @@
 }
 
 @media screen and (min-width: 480px) {
-
   .small-card {
     margin: 0!important;
   }
@@ -50,10 +49,14 @@
   }
 }
 
-.card-image:hover > .image-overlay {
+.thumbnail:hover > .image-overlay {
   opacity: 1;
   transition: opacity 0.2s linear;
   visibility: visible;
+}
+
+.image {
+  margin: 0;
 }
 
 .card-footer {
@@ -72,7 +75,7 @@
   color: $body-color;
   display: block;
 
-  .item-title {
+  .card-title {
       font-weight: bold;
   }
 

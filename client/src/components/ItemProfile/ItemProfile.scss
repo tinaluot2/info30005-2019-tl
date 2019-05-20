@@ -1,5 +1,16 @@
 @import "@/scss/global.scss";
 
+.fab {
+	font-size: 24px;
+	color: $primary-color;
+	transition: all 0.3s ease;
+
+	&:hover, &:focus {
+		color: $primary-color-dark;
+		transition: all 0.3s ease;
+	}
+}
+
 .medium-card {
 	background: $card-color;
 	box-shadow: $box-drop-shadow;
@@ -60,6 +71,7 @@
 .button-menu {
 	margin-left: auto;
 	padding-bottom: 25px;
+
 }
 
 @media screen and (min-width: 768px) {

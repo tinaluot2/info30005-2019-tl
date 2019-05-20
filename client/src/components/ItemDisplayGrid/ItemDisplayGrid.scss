@@ -1,0 +1,11 @@
+@import "@/scss/global.scss";
+
+.container {
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: $margin $page-margin;
+    }
+}

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import SignUpForm from '@/components/SiteNavUser/SignUpForm'
+import SignUpForm from '@/components/SiteNav/SignUpForm'
 
 export default {
 	name: 'LoginForm',
@@ -99,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/components/SiteNavUser/_userform.scss";
+@import "@/components/SiteNav/_userform.scss";
 @import "@/components/ModalDialog/_modal.scss";
 @import "@/scss/_forms.scss";
 </style>

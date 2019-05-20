@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Nav from '@/components/SiteNavUser/SiteNavUser'
+import Nav from '@/components/SiteNav/SiteNav.vue'
 import {bus} from './main'
 import axios from 'axios'
 export default {

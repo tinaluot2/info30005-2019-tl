@@ -31,7 +31,7 @@
 								<router-link to="/settings" class="navbar-item" >Account Settings</router-link>
 							</span>
 							<span @click="toggleNav">
-								<router-link to="/lists" class="navbar-item">Saved Lists</router-link>
+								<router-link to="/bookmarks" class="navbar-item">Bookmarks</router-link>
 							</span>
 							<hr class="navbar-divider">
 							<span @click="toggleNav">
@@ -57,7 +57,6 @@ import {bus} from '@/main'
 import { mapState } from 'vuex'
 
 export default {
-	name: 'SiteNavUser',
 	components: {
 		'sign-up-form' : SignUpForm
 	},

@@ -90,5 +90,5 @@ export default {
 <style scoped lang="scss">
 @import "AccountSettings.scss";
 @import "@/scss/_forms.scss";
-@import "@/components/SiteNavUser/_userform.scss";
+@import "@/components/SiteNav/_userform.scss";
 </style>

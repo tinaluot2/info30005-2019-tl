@@ -4,7 +4,7 @@
 			<div v-if="itemid == item._id">
 				<div class="container">
 					<form class="upload-form">
-						<h1>Edit Your Project</h1>
+						<h1 class="page-header">Edit Your Project</h1>
 
 							<div class="form-section">
 								<div class="form-label">Title</div>

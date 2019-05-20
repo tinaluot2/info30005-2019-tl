@@ -4,7 +4,7 @@ import LandingPage from '@/pages/LandingPage'
 import UserProfile from '@/pages/UserProfile'
 import UserSettings from '@/pages/UserSettings'
 import CreateItem from '@/pages/CreateItem'
-import UserSavedLists from '@/pages/UserSavedLists'
+import UserBookmarks from '@/pages/UserBookmarks'
 import DiscoverPage from '@/pages/DiscoverPage'
 import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
@@ -48,8 +48,8 @@ export const router = new VueRouter({
 			}
 		},
 		{
-			path: '/lists',
-			component: UserSavedLists,
+			path: '/bookmarks',
+			component: UserBookmarks,
 			meta: {
 				requiresAuth: true
 			}

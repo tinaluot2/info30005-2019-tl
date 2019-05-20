@@ -1,9 +1,7 @@
+
 <template>
 	<div class="background">
 		<div class="container">
-			<div class="animation-wrapper">
-				<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-			</div>
 			<div class="grid-container site-wide">
 				<item-card v-for="item in itemsList" v-bind:key="item._id" :item="item"></item-card>
 			</div>
@@ -12,11 +10,9 @@
 </template>
 
 <script>
-
 import ItemCard from '@/components/ItemCard/ItemCard'
 import apiService from '@/apiService'
-import {bus} from '@/main'
-
+import { bus } from '@/main'
 export default {
 	name: 'ItemDisplayGrid',
 	components: {
@@ -24,13 +20,14 @@ export default {
 	},
 	data() {
 		return {
-			itemsList: [],
+			itemsList: []
 		}
 	},
 	mounted() {
-		apiService.getItems().then((data) => {
+		apiService.getItems()
+		.then((data) => {
 			this.itemsList = data
-			bus.$emit('loaded')
+			this.$emit('loaded')
 		})
 	}
 }

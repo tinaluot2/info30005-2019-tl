@@ -62,7 +62,8 @@ export const router = new VueRouter({
 			path: '/edit/:itemid',
 			component: EditItem,
 			meta: {
-					requiresAuth: true
+				requiresAuth: true,
+				userOnly: true
 			}
 		},
 		{
@@ -86,6 +87,7 @@ export const router = new VueRouter({
 //https://scotch.io/tutorials/vue-authentication-and-route-handling-using-vue-router
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)) {
+		//if loggedin, OK
     if (store.getters.isLoggedIn) {
       next()
       return
@@ -94,6 +96,7 @@ router.beforeEach((to, from, next) => {
     next('/login')
 	}
 	else if (to.matched.some(record => record.meta.guest)) {
+		//if a guest, OK
 		if (!store.getters.isLoggedIn) {
       next()
       return

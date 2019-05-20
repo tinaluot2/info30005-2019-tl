@@ -62,7 +62,8 @@ export default {
 		data (){
 		return {
 			itemid: this.$route.params.itemid,
-			itemsList:[]
+			itemsList:[],
+			isModalVisible: false
 			}
 		},
 		mounted() {

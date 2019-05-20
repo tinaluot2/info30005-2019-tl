@@ -1,6 +1,6 @@
 <template>
 	<div class="background">
-		<div class="page-container">
+		<div class="container">
 			<div class="animation-wrapper">
 				<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 			</div>
@@ -36,6 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+	@import "./ItemDisplayGrid.scss";
 	@import "@/scss/_animation.scss";
 </style>

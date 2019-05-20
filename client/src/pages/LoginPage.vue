@@ -34,7 +34,6 @@
 <script>
 import SignUpForm from '@/components/SiteNavUser/SignUpForm'
 import {bus} from '@/main'
-import apiService from '@/apiService'
 
 export default {
 	name: 'LoginForm',
@@ -70,12 +69,11 @@ export default {
 				password: this.userDetails.password
 			}
 			this.$store.dispatch('retrieveToken', credentials)
-				.then((res)=>{
+				.then(()=>{
 					bus.$emit('loggedIn', true);
 					this.$router.push(this.$route.query.redirect || '/user/' + this.currentUser.username);
 				})
 				.catch((error)=>{
-					console.log(error);
 					this.error = true;
 				})
     }

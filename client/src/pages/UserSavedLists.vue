@@ -21,17 +21,10 @@
 		},
 		data() {
 			return {
-				usersList: [],
-				itemsList: [],
-				user: {
-					username:''
-				},
+				itemsList: []
 			}
 		},
 		mounted() {
-			apiService.getUserProfile().then((data) => {
-				this.usersList = data
-			});
 			apiService.getItems().then((data) => {
 				this.itemsList = data
 				bus.$emit('loaded')
@@ -49,4 +42,5 @@
 <style scoped lang="scss">
 	@import "@/components/ItemDisplayGrid/ItemDisplayGrid.scss";
 </style>
+
 

@@ -1,8 +1,8 @@
 <template>
 <div>
-    <DiscoverBanner />
-    <SearchBar />
-    <ItemDisplayGrid />
+	<DiscoverBanner />
+	<SearchBar />
+	<ItemDisplayGrid />
 </div>
 </template>
 
@@ -15,12 +15,11 @@ export default {
 	name: 'DiscoverPage',
 		components: {
 			DiscoverBanner,
-            ItemDisplayGrid,
-            SearchBar,
+				ItemDisplayGrid,
+				SearchBar,
 		},
 		data () {
 			return{
-				title: 'Discover Ideas'
 			}
 		}
 }

@@ -79,10 +79,11 @@ export default {
 			this.showNav = !this.showNav;
 		},
 		logout() {
-			this.$router.push(this.$route.query.redirect || '/discover');
+			bus.$emit('loggingOut')
 			this.$store.dispatch('logoutUser')
-				.then(response => {
-					this.$router.push(this.$route.query.redirect || '/discover')
+				.then(() => {
+					bus.$emit('loggedOut')
+					this.$router.push(this.$route.query.redirect || '/')
 				})
 		}
 	},

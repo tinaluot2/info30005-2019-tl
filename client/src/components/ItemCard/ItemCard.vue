@@ -9,7 +9,7 @@
 				</router-link>
 			</div>
 			<figure class="image is-5by4">
-					<img :src="'/api' + '/items/' + item.images[0]"/>
+				<router-link v-bind:to="'/item/' + item._id"><img :src="'/api' + '/items/' + item.images[0]"/></router-link>
 			</figure>
 		</div>
 		<div class="card-content">

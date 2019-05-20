@@ -1,32 +1,38 @@
 <template>
 	<div id="app">
-		<SiteNavUser />
-		<transition name="fade" mode="out-in"><router-view /></transition>
+		<Nav />
+		<transition name="fade" mode="out-in">
+			<router-view :key="$route.fullPath"></router-view>
+		</transition>
 	</div>
 </template>
 
 <script>
-import SiteNavUser from '@/components/SiteNavUser/SiteNavUser'
+import Nav from '@/components/SiteNavUser/SiteNavUser'
 import {bus} from './main'
 import axios from 'axios'
 export default {
 	name: 'app',
 	components: {
-		SiteNavUser
+		Nav
 	},
 	data: function(){
 		return {
-			isLoggedIn: false,
+			loggingOut: false,
 		}
 	},
 	created(){
-		bus.$on('loggedIn', (data) => {
-			this.isLoggedIn = data;
+		bus.$on('loggingOut', () => {
+			this.loggingOut = true;
+		})
+		bus.$on('loggedOut', () => {
+			this.loggingOut = false;
 		})
 	}
 }
 </script>
 
 <style lang="scss">
-	@import "./scss/global";
+@import "./scss/global";
+@import "@/scss/_animation.scss";
 </style>

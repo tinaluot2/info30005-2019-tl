@@ -1,5 +1,8 @@
 <template>
 	<div class="background nav-spacing">
+		<div class="animation-wrapper" v-if="loading">
+			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		</div>
 		<div v-for="user in usersList" v-bind:key="user._id">
 			<div v-if="username == user.username">
 				<div class="container">
@@ -13,8 +16,8 @@
 							<h3 class="info-title">About</h3>
 							<p class="about-description">{{user.description}}</p>
 							<div class="achievement">
-									<h3 class="info-title">Achievements</h3>
-									<p>{{user.projects.length}}</p>
+									<h3 class="info-title">Reformer Level</h3>
+									<p>{{userPosts.length}}</p>
 							</div>
 						</div>
 						<div class="grid-container profile-grid">
@@ -41,14 +44,17 @@ export default {
 			//test data
 			username: this.$route.params.username,
 			usersList: [],
-			itemsList: []
+			itemsList: [],
+			loading: true
 		}
 	},
 	mounted() {
 		apiService.getUserProfile().then((data) => {
+			this.loading = false
 			this.usersList = data
 		}),
 		apiService.getItemProfile().then((data) => {
+			this.loading = false
 			this.itemsList = data
 		})
 	},
@@ -68,4 +74,5 @@ export default {
 
 <style lang="scss">
 @import "@/components/ProfileBox/ProfileBox.scss";
+@import "@/scss/_animation.scss";
 </style>

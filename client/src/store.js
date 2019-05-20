@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('token') || null,
-    currentUser: []
+    currentUser: localStorage.getItem('currentUser') || {}
     },
   mutations: {
     retrieveToken(state, token){
@@ -47,10 +47,11 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios.post(url + 'userSignup/login', credentials)
         .then(response => {
-          //retrieve token upon successful login
+          //retrieve token & user detaila upon successful login
           const token = response.data.token
           const user = response.data.user
           localStorage.setItem('token', token)
+          localStorage.setItem('currentUser', JSON.stringify(user))
           axios.defaults.headers.common['Authorization'] = token
           context.commit('retrieveToken', token)
           context.commit('setUser', user)

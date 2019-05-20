@@ -23,6 +23,7 @@
 				<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''|| userDetails.password == ''" @click="login" >Log In</button>
 
 				<p class="help-text">Don't have an account yet? <a @click="toggleSignUp()">Sign Up</a></p>
+				<p class="help-text"><a @click="quickLogin">Gigi's quick login.</a></p>
 				<sign-up-form v-show="showSignUp" @close="toggleSignUp()"/>
 
 			</form>
@@ -33,7 +34,6 @@
 
 <script>
 import SignUpForm from '@/components/SiteNavUser/SignUpForm'
-import {bus} from '@/main'
 
 export default {
 	name: 'LoginForm',
@@ -70,13 +70,25 @@ export default {
 			}
 			this.$store.dispatch('retrieveToken', credentials)
 				.then(()=>{
-					bus.$emit('loggedIn', true);
 					this.$router.push(this.$route.query.redirect || '/user/' + this.currentUser.username);
 				})
 				.catch((error)=>{
 					this.error = true;
 				})
-    }
+		},
+		quickLogin(){
+			const credentials = {
+				email: 'gleung@student.unimelb.edu.au',
+				password: 'Hello123'
+			}
+			this.$store.dispatch('retrieveToken', credentials)
+				.then(()=>{
+					this.$router.push(this.$route.query.redirect || '/user/' + 'gigi');
+				})
+				.catch((error)=>{
+					this.error = true;
+				})
+		}
 	},
 	computed: {
 		currentUser() {

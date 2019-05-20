@@ -1,9 +1,9 @@
 <template>
 	<div class="background nav-spacing">
-		<div class="animation-wrapper" v-if="loading">
+		<div class="animation-wrapper" v-if="!loaded">
 			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		</div>
-		<div v-if="!loading">
+		<div v-if="loaded">
 			<div v-for="user in usersList" v-bind:key="user._id">
 				<div v-if="username == user.username">
 					<div class="container">
@@ -47,16 +47,16 @@ export default {
 			username: this.$route.params.username,
 			usersList: [],
 			itemsList: [],
-			loading: true
+			loaded: false
 		}
 	},
 	mounted() {
 		apiService.getUserProfile().then((data) => {
-			this.loading = false
+			this.loaded= true
 			this.usersList = data
 		}),
 		apiService.getItemProfile().then((data) => {
-			this.loading = false
+			this.loaded = true
 			this.itemsList = data
 		})
 	},

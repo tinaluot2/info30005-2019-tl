@@ -2,7 +2,7 @@
 	<div class="background nav-spacing">
 		<div class="container">
 			<form class="upload-form" @submit.prevent="submit" enctype="multipart/form-data">
-					<h1>Create a New Project</h1>
+					<h1 class="page-title">Create a New Project</h1>
 
 						<div class="form-section">
 							<div class="form-label">Title <span class="req">*</span></div>

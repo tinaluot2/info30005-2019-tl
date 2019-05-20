@@ -14,12 +14,13 @@
 							</figure>
 						</div>
 						<div class="card-header-title">
-							<header class="item-title">{{item.itemTitle}}</header>
+							<div class="item-title">{{item.itemTitle}}</div>
 							<div class="card-creator">{{item.creatorName}}</div>
 						</div>
 						<div class="timestamp">
 							<time>{{formatDate(item.createdAt)}}</time>
 						</div>
+
 					</div>
 
 					<div class="card-image">
@@ -45,15 +46,7 @@
 						<button class="button-light spacing-not-last-child">
 							<span>Bookmark</span>
 						</button>
-						<a class="icon-button-wrapper" :href="fbUrl"
-							target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
-							<i class="fab fa-facebook-square"></i>
-						</a>
-
-						<a class="icon-button-wrapper" :href="twUrl"
-							target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
-							<i class="fab fa-twitter-square"></i>
-						</a>
+							<Share />
 					</div>
 
 					<article class="media">
@@ -80,19 +73,20 @@
 
 <script>
 import apiService from '@/apiService'
+import {bus} from '@/main'
 import moment from 'moment'
+import Share from './Share.vue'
 
 export default {
 	name: 'item-profile',
 	components:{
+		Share
 	},
 	data (){
 		return {
 			itemid: this.$route.params.itemid,
 			itemsList:[],
-			loaded: false,
-			fbUrl: '',
-			twUrl:'',
+			loaded: false
 			}
 	},
 	mounted() {
@@ -105,22 +99,12 @@ export default {
 	methods: {
 		formatDate(date) {
 			return moment(date).startOf('day').fromNow()
-		},
-		share(itemTitle) {
-			var url = encodeURIComponent(location.href)
-			//facebook
-			this.fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=#' + url
-
-			//twitter
-			const txt = itemTitle
-			var hashtags ='reformlab, upcycle'
-			this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + hashtags + '&url=' + url
 		}
 	}
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "./ItemProfile.scss";
 @import "@/components/ItemCard/ItemCard.scss";
 </style>

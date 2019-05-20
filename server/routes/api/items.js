@@ -159,4 +159,25 @@ router.delete('/:itemId', (req, res, next) => {
     });
 });
 
+
+router.get('/:itemId', (req, res, next) => {
+    const id = mongoose.Types.ObjectId(req.params.itemId);
+
+    Item.findById(id)
+        .exec()
+        .then(doc => {
+            console.log("From Item", doc);
+            if (doc) {
+              res.status(200).json(doc);
+            }
+            else {
+              res.status(404).json({message: 'No valid entry found for provided ID'});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        });
+});
+
 module.exports = router;

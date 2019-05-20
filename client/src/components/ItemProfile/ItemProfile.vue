@@ -80,7 +80,6 @@
 
 <script>
 import apiService from '@/apiService'
-import {bus} from '@/main'
 import moment from 'moment'
 
 export default {

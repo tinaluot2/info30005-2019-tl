@@ -1,17 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
-import createPersistedState from 'vuex-persistedstate'
+import axios from 'axios';
 
 const url = 'api/';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  plugins: [createPersistedState()],
   state: {
     token: localStorage.getItem('token') || null,
-    currentUser: {}
+    currentUser: localStorage.getItem('currentUser') || {}
     },
   mutations: {
     retrieveToken(state, token){

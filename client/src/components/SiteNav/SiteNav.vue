@@ -38,10 +38,10 @@
 								<a class="navbar-item" @click="logout">Sign Out</a>
 							</span>
 						</div>
+					</div>
 
-						<div @click="toggleNav">
-							<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
-						</div>
+					<div @click="toggleNav" v-if="isLoggedIn">
+						<router-link to="/create" class="navbar-item button-no-background"><button class="button-dark">New Project</button></router-link>
 					</div>
 
 				</div>

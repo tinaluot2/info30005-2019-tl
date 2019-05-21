@@ -8,9 +8,7 @@
 				<div class="container">
 					<div class="two-column">
 						<div class="profile-box">
-							<span v-if="user.username == currentUser.username" class ="edit-icon-wrapper">
-									<i class ="material-icons md-18">edit</i>
-							</span>
+
 							<img class="profile-img" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
 							<h1 class="username">{{user.username}}</h1>
 							<h3 class="info-title">About</h3>

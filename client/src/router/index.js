@@ -67,7 +67,7 @@ export const router = new VueRouter({
 			}
 		},
 		{
-			path: '/error',
+			path: '/*',
 			component: Error
 		},
 		{

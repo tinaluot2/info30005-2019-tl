@@ -47,7 +47,7 @@
 							<div class="form-label">Description</div>
 							<div class="control">
 							<textarea class="description" name="description" placeholder="Describe your creation." v-model="newItem.description"></textarea>
-							<div class="help-text">What was the original form of your creation? What is it now?</div>
+							<div class="help-text">What was the original form of your creation? What is it now? What was your creation process? </div>
 							</div>
 						</div>
 

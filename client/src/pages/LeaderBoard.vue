@@ -17,7 +17,7 @@
                                     </router-link>
                                 </div>
 
-                                <label class="contents">{{user.projects.length}} posts</label>
+                                <label class="contents">{{userPosts.length}} posts</label>
                             </div>
                         </li>
                     </ol>
@@ -30,8 +30,7 @@
     import apiService from '@/apiService'
 
     export default {
-        name: 'LeaderBoard'
-        ,
+        name: 'LeaderBoard',
         data() {
             return {
                 usersList: [],
@@ -50,9 +49,17 @@
             //highlight if the current user is in the leaderboard?
             currentUser() {
                 return this.$store.state.currentUser
+            },
+            userPosts() {
+                return this.itemsList.filter(item => {
+                    return item.creatorName === this.username
+                    }
+
+                )}
+
             }
 
-        }
+
     }
 </script>
 

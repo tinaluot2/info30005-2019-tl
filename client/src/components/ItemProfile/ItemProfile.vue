@@ -9,13 +9,17 @@
 				<div class="medium-card">
 					<div class="card-header">
 						<div class="card-header-icon">
-							<figure class="image is-48x48 is-rounded">
+							<router-link :to="'/user/' + item.creatorName">
+								<figure class="image is-48x48 is-rounded">
 								<img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog">
-							</figure>
+								</figure>
+							</router-link>
 						</div>
 						<div class="card-header-title">
 							<header class="item-title">{{item.itemTitle}}</header>
-							<div class="card-creator">{{item.creatorName}}</div>
+							<router-link :to="'/user/' + item.creatorName">
+								<div class="card-creator">{{item.creatorName}}</div>
+							</router-link>
 						</div>
 						<div class="timestamp">
 							<time>{{formatDate(item.createdAt)}}</time>

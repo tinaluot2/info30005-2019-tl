@@ -4,20 +4,19 @@
             <h1>Leaderboard</h1>
 
             <div class="leaderboard">
-                <h2> <i class="fab fa-pagelines"></i>Users with the most number of projects</h2>
-                    <ol class="userbox" >
+                <h2><i class="fab fa-pagelines"></i>Users with the most number of projects</h2>
+                <label class="contents">{{itemsList.length}} posts </label>
+
+                    <ol class="userbox">
                         <li v-for="user in usersList" v-bind:key="user._id">
                             <div class="userinfo">
                                 <div class="contents">
                                    <router-link :to="'/user/' + user.username">
-                                       <figure class="image is-48x48 is-rounded ">
-                                           <img class=" is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog">
-                                       </figure>
+                                       <figure class="image is-48x48 is-rounded "><img class=" is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog"></figure>
                                        <label >{{user.username}}</label>
                                     </router-link>
                                 </div>
-
-                                <label class="contents">{{userPosts.length}} posts</label>
+                                <label class="contents" >{{postscount(user.username)}} posts 2</label><label class="contents" >{{postscount2()}} posts 3</label>
                             </div>
                         </li>
                     </ol>
@@ -35,31 +34,53 @@
             return {
                 usersList: [],
                 itemsList: [],
+                loading: true
             }
         },
         mounted() {
             apiService.getUserProfile().then((data) => {
+                this.loading = false
                 this.usersList = data
-            }),
-                apiService.getItemProfile().then((data) => {
-                    this.itemsList = data
-                })
+            })
+            apiService.getItemProfile().then((data) => {
+                this.loading = false
+                this.itemsList = data
+            })
         },
+        methods:{
+            postscount(user) {
+                let count = 0;
+                var i;
+                for (i = 0; i < this.itemsList.length; i++) {
+                    if (this.item.creatorName === user) {
+                        count++;
+
+                    }
+                    return count;
+                }
+            }},
         computed: {
-            //highlight if the current user is in the leaderboard?
+            //highlight if the current user is in the leaderboard ?
             currentUser() {
                 return this.$store.state.currentUser
             },
             userPosts() {
                 return this.itemsList.filter(item => {
-                    return item.creatorName === this.username
+                    return item.creatorName === this.user.username
                     }
-
-                )}
-
+                )
             }
+        }, postscount2() {
+            let count = 0;
+            var i;
+            for (i = 0; i < this.itemsList.length; i++) {
+                if (this.item[i].creatorName === this.user.username) {
+                    count++;
+                }
+            }
+            return count;
 
-
+        }
     }
 </script>
 

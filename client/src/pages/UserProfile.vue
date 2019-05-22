@@ -62,7 +62,7 @@ export default {
 		},
 		userPosts() {
 			return this.itemsList.filter(item => {
-				return item.creatorName == this.username
+				return item.creatorName === this.username
 			})
 
 		}

@@ -160,8 +160,9 @@ router.delete('/:itemId', (req, res, next) => {
 });
 
 
-router.get('/:itemId', (req, res, next) => {
-    const id = mongoose.Types.ObjectId(req.params.itemId);
+// search item with itemId
+router.get('/search/:itemID', (req, res, next) => {
+    const id = mongoose.Types.ObjectId(req.params.itemID);
 
     Item.findById(id)
         .exec()

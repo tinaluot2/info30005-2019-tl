@@ -1,12 +1,19 @@
 @import "../../scss/global";
 
+#leaderboard {
+  width: 100%;
+}
 #leaderboard th {
-  padding: 5px 25px 5px 0;
+  padding: 5px;
 }
 
 #leaderboard td {
-  padding: 10px 25px 10px 0;
+  padding: 10px;
   vertical-align: middle;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: $bg-color;
 }
 
 .fab {

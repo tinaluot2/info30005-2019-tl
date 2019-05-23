@@ -1,0 +1,54 @@
+@import "../../scss/global";
+
+#leaderboard th {
+  padding: 5px 25px 5px 0;
+}
+
+#leaderboard td {
+  padding: 10px 25px 10px 0;
+  vertical-align: middle;
+}
+
+.fab {
+  padding: 10px;
+}
+
+.user-info {
+  flex-direction: column;
+  display: inline-block;
+  vertical-align:  middle;
+}
+
+.contents {
+  display: inline-block;
+  vertical-align:  middle;
+  padding:10px;
+}
+
+ol {
+  counter-reset: number;
+  list-style-type: none!important;
+  margin:0;
+  padding:0;
+}
+ol li {
+  line-height: 1.5em;
+  padding: 10px;
+}
+
+ol li:before {
+  counter-increment: number;
+  content: counter(number);
+  display: inline-block;
+  background: $primary-color-dark;
+  color: $body-background-color;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 50%;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  top: 50%;
+}

@@ -10,7 +10,7 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 import Error from '@/pages/ErrorPage'
 import LoginPage from '@/pages/LoginPage'
-import LeaderBoard from '@/pages/LeaderBoard'
+import LeaderBoard from '@/pages/LeaderBoard/LeaderBoard'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -28,11 +28,6 @@ export const router = new VueRouter({
 			path: '/discover',
 			name: 'Discover',
 			component: DiscoverPage
-		},
-		{
-			path: '/leaderboard',
-			name: 'LeaderBoard',
-			component: LeaderBoard
 		},
 		{
 			path: '/user/:username',
@@ -73,18 +68,15 @@ export const router = new VueRouter({
 			}
 		},
 		{
-			path: '/*',
-			component: Error
-		},
-		{
-			path: '/search'
-		},
-		{
 			path: '/login',
 			component: LoginPage,
 			meta: {
 					guest: true
 			}
+		},
+		{
+			path: '/leaderboard',
+			component: LeaderBoard
 		}
 	]
 })
@@ -114,4 +106,3 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-

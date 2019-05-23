@@ -80,33 +80,27 @@ router.get('/:userId/bookmarks', (req, res, next) => {
 });
 
 
-router.patch('/:userId', (req, res, next) => {
-  const id = mongoose.Types.ObjectId(req.params.userId);
+router.post('/bookmarks/:username', (req, res, next) => {
+  const username = req.params.username;
 
-  //to check if all the attributes need to be chanegd, or just some of them.
-  const updateOperations = {};
-  //dynamic patch request
-  for (const operations of req.body){
-    updateOperations[operations.propName] = operations.value;
-  }
+  User.update({"username": username}, {$push: {"bookmarks": req.body.itemId}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
 
-  User.update({_id: id}, { $set: updateOperations })
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json(result)
-    }).
-    catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
 
 /* sample input for this request:
-    [
-    	{ "propName": "name", "value": "Harry Potter - patch updated" }
-    ]
+    
+    	{ "itemId": "123"}
+    
 */
 
 });

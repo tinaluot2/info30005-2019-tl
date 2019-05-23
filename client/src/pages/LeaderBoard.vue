@@ -16,7 +16,7 @@
                                        <label >{{user.username}}</label>
                                     </router-link>
                                 </div>
-                                <label class="contents" >{{postscount(user.username)}} posts 2</label><label class="contents" >{{postscount2()}} posts 3</label>
+                                <label class="contents" >{{userPosts(itemsList,user.username).length}} posts</label>
                             </div>
                         </li>
                     </ol>
@@ -34,7 +34,8 @@
             return {
                 usersList: [],
                 itemsList: [],
-                loading: true
+                loading: true,
+                rankList:[],
             }
         },
         mounted() {
@@ -48,38 +49,11 @@
             })
         },
         methods:{
-            postscount(user) {
-                let count = 0;
-                var i;
-                for (i = 0; i < this.itemsList.length; i++) {
-                    if (this.item.creatorName === user) {
-                        count++;
-
-                    }
-                    return count;
-                }
-            }},
-        computed: {
-            //highlight if the current user is in the leaderboard ?
-            currentUser() {
-                return this.$store.state.currentUser
-            },
-            userPosts() {
-                return this.itemsList.filter(item => {
-                    return item.creatorName === this.user.username
-                    }
-                )
+            userPosts(itemsList, user){
+                return itemsList.filter(function(item){
+                    return item.creatorName === user
+                })
             }
-        }, postscount2() {
-            let count = 0;
-            var i;
-            for (i = 0; i < this.itemsList.length; i++) {
-                if (this.item[i].creatorName === this.user.username) {
-                    count++;
-                }
-            }
-            return count;
-
         }
     }
 </script>

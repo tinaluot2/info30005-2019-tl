@@ -64,7 +64,6 @@ export default {
 			return this.itemsList.filter(item => {
 				return item.creatorName === this.username
 			})
-
 		}
 	}
 }

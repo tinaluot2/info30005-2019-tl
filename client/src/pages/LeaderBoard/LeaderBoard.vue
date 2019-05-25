@@ -3,23 +3,22 @@
 		<div class="container">
 			<div class="white-card-bg">
 				<h1 class="page-header">Leaderboard</h1>
-				<h2 class="form-label"><i class="fab fa-pagelines"></i>Users with the most number of projects</h2>
+				<h2 class="form-label"><i class="fab fa-pagelines"></i>Most passionate reformers.</h2>
 				<table id="leaderboard">
 					<tr>
 						<th>Rank</th>
 						<th>Reformer</th>
-						<th># of Projects</th>
+						<th># of Creations</th>
 					</tr>
 
-					<tr v-for="(rank, index) in usersList.slice(0, 5)" v-bind:key="index">
-						<td>{{index+1}}</td>
+					<tr v-for="(rank, index) in ranking.slice(0, 5)" v-bind:key="index">
+						<td>{{index + 1}}</td>
 						<td>
-							<router-link :to="'/user/' + rank.rankedUser">
-								<figure class="image is-48x48 is-rounded "><img class=" is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog"></figure>
-								{{rank.rankedUser}}
+							<router-link :to="'/user/' + rank[0].creatorName">
+								{{rank[0].creatorName}}
 							</router-link>
 						</td>
-						<td>{{rank.postCount}} projects</td>
+						<td>{{rank.length}}</td>
 					</tr>
 
 				</table>
@@ -38,11 +37,8 @@
 				return {
 					usersList: [],
 					itemsList: [],
+					ranking: [],
 					loading: true,
-					// rankingList:{
-					// 	rankedUser:'',
-					// 	postCount:''
-					// }
 				}
 			},
 			mounted() {
@@ -53,7 +49,8 @@
 				apiService.getItemProfile().then((data) => {
 					this.loading = false
 					this.itemsList = data
-					this.displayLeaderboard()
+					this.ranking = this.sortByProjects
+					console.log(this.ranking)
 				});
 				// this.userPosts();
 			},
@@ -73,15 +70,14 @@
 							}
 						}
 					return result;
-				},
-				displayLeaderboard(){
-					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
-					groupedByCreator.sort((a, b) => a.length - b.length);
-					console.log();
 				}
 			},
 			computed: {
-
+				sortByProjects(){
+					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
+					groupedByCreator.sort((a, b) => b.length - a.length);
+					return(groupedByCreator);
+				}
 			}
     }
 </script>

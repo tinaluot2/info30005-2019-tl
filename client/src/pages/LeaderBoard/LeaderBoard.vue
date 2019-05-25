@@ -11,7 +11,7 @@
 						<th># of Projects</th>
 					</tr>
 
-					<tr v-for="(rank, index) in rankingList.slice(0, 10)" v-bind:key="index">
+					<tr v-for="(rank, index) in usersList.slice(0, 5)" v-bind:key="index">
 						<td>{{index+1}}</td>
 						<td>
 							<router-link :to="'/user/' + rank.rankedUser">
@@ -39,10 +39,10 @@
 					usersList: [],
 					itemsList: [],
 					loading: true,
-					rankingList:{
-						rankedUser:'',
-						postCount:''
-					}
+					// rankingList:{
+					// 	rankedUser:'',
+					// 	postCount:''
+					// }
 				}
 			},
 			mounted() {
@@ -53,21 +53,35 @@
 				apiService.getItemProfile().then((data) => {
 					this.loading = false
 					this.itemsList = data
+					this.displayLeaderboard()
 				});
-				this.userPosts();
-
+				// this.userPosts();
 			},
 			methods:{
-				userPosts(usersList, itemsList){
-					let i=0;
-
-					for(i=0; i < usersList; i++) {
-						this.rankingList[i].rankedUser=usersList[i].username
-						this.rankingList[i].postCount=itemsList.filter(function (item) {
-							return item.creatorName === usersList[i].username}).length
-
-					}
+				//sourced from https://stackoverflow.com/questions/21776389/javascript-object-grouping
+				groupBy(collection, property) {
+					let i = 0, val, index,
+					values = [], result = [];
+						for (; i < collection.length; i++) {
+							val = collection[i][property];
+							index = values.indexOf(val);
+							if (index > -1)
+									result[index].push(collection[i]);
+							else {
+									values.push(val);
+									result.push([collection[i]]);
+							}
+						}
+					return result;
+				},
+				displayLeaderboard(){
+					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
+					groupedByCreator.sort((a, b) => a.length - b.length);
+					console.log();
 				}
+			},
+			computed: {
+
 			}
     }
 </script>

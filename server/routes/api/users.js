@@ -96,13 +96,6 @@ router.post('/bookmarks/:username', (req, res, next) => {
 		res.sendStatus(500);
 	});
 
-
-/* sample input for this request:
-    
-    	{ "itemId": "123"}
-    
-*/
-
 });
 
 //delete function is in userSignup.js

@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import apiService from '@/apiService'
+
 export default {
 	name: 'ItemCard',
 	data () {
@@ -66,12 +68,14 @@ export default {
 		},
 		bookmarkItem() {
 			this.item.isBookmarked = !this.item.isBookmarked
+			apiService.postBookmark(this.item._id, this.currentUser.username)
+
 		}
 	},
 	computed: {
 		currentUser() {
 			return this.$store.state.currentUser
-	}
+		}
 	}
 }
 </script>

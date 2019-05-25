@@ -17,6 +17,14 @@ class apiService {
   static postItems(newItem, headers){
     return axios.post(url + 'items', newItem, headers);
   }
+
+  static postBookmark(id, user){
+    const requestUrl = `${url}users/bookmarks/${user}`;
+    return axios.post(requestUrl, {itemId: id, test:'hello'}).then(res=>{
+      console.log(res.data);
+
+    });
+  }
   //Users
   static createUser(newUser){
     return axios.post(url + 'userSignup/signup', newUser);

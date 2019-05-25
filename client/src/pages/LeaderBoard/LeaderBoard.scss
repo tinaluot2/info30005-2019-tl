@@ -3,9 +3,9 @@
 #leaderboard {
   width: 100%;
 }
+
 #leaderboard th {
   padding: 5px;
-  //color:$primary-color;
 }
 
 #leaderboard td {
@@ -13,8 +13,6 @@
   vertical-align: middle;
   border-bottom:1px dashed $border-color;
 }
-
-
 
 .fab {
   padding: 10px;

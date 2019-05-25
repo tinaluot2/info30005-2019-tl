@@ -1,9 +1,12 @@
 <template>
 	<div class="background nav-spacing">
+		<div class="animation-wrapper" v-if="loading">
+			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		</div>
 		<div class="container">
 			<div class="white-card-bg">
-				<h1 class="page-header">Leaderboard</h1>
-				<h2 class="form-label"><i class="fab fa-pagelines"></i>Most passionate reformers.</h2>
+				<h1 class="page-header"><span class="logotype">Reform </span>Leaderboard</h1>
+				<h2><i class="fab fa-pagelines"></i>Most passionate reformers.</h2>
 				<table id="leaderboard">
 					<tr>
 						<th>Rank</th>
@@ -11,7 +14,7 @@
 						<th># of Creations</th>
 					</tr>
 
-					<tr v-for="(rank, index) in ranking.slice(0, 5)" v-bind:key="index">
+					<tr v-for="(rank, index) in sortByProjects.slice(0, 5)" v-bind:key="index">
 						<td>{{index + 1}}</td>
 						<td>
 							<router-link :to="'/user/' + rank[0].creatorName">
@@ -37,7 +40,6 @@
 				return {
 					usersList: [],
 					itemsList: [],
-					ranking: [],
 					loading: true,
 				}
 			},
@@ -49,10 +51,7 @@
 				apiService.getItemProfile().then((data) => {
 					this.loading = false
 					this.itemsList = data
-					this.ranking = this.sortByProjects
-					console.log(this.ranking)
 				});
-				// this.userPosts();
 			},
 			methods:{
 				//sourced from https://stackoverflow.com/questions/21776389/javascript-object-grouping
@@ -63,10 +62,10 @@
 							val = collection[i][property];
 							index = values.indexOf(val);
 							if (index > -1)
-									result[index].push(collection[i]);
+								result[index].push(collection[i]);
 							else {
-									values.push(val);
-									result.push([collection[i]]);
+								values.push(val);
+								result.push([collection[i]]);
 							}
 						}
 					return result;
@@ -74,6 +73,7 @@
 			},
 			computed: {
 				sortByProjects(){
+					//sort in descending order by grouping by number of projects by a user
 					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
 					groupedByCreator.sort((a, b) => b.length - a.length);
 					return(groupedByCreator);

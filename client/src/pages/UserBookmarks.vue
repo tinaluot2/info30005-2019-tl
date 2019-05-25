@@ -3,7 +3,7 @@
 		<div class="container">
 			<h1 class="page-header">Bookmarks</h1>
 			<div class="grid-container site-wide">
-				<item-card v-for="item in itemsList" v-bind:key="item._id" :item="item"></item-card>
+				<item-card v-for="item in userBookmarks" v-bind:key="item._id" :item="item"></item-card>
 			</div>
 		</div>
 	</div>
@@ -21,13 +21,18 @@
 		},
 		data() {
 			return {
-				itemsList: []
+				itemsList: [],
+				userBookmarks: []
 			}
 		},
 		mounted() {
 			apiService.getItems().then((data) => {
 				this.itemsList = data
-				bus.$emit('loaded')
+				apiService.getBookmarks(this.currentUser._id).then(res=>{
+					console.log(res.data)
+					this.userBookmarks = this.itemsList.filter(item => res.data.includes(item._id));
+					bus.$emit('loaded')
+				});
 			})
 		},
 		computed: {

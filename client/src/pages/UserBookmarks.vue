@@ -1,18 +1,23 @@
 <template>
 	<div class="background nav-spacing">
+		<div class="animation-wrapper" v-if="!loaded">
+			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		</div>
 		<div class="container">
-			<h1 class="page-header">Bookmarks</h1>
-			<div class="grid-container site-wide">
-				<item-card v-for="item in userBookmarks" v-bind:key="item._id" :item="item"></item-card>
+			<div v-show="loaded">
+				<h1 class="page-header">Bookmarks</h1>
+				<div class="grid-container site-wide">
+					<item-card v-for="item in userBookmarks" v-bind:key="item._id" :item="item"></item-card>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </template>
 
 <script>
-
-	import ItemCard from '../components/ItemCard/ItemCard'
-	import apiService from '@/apiService'
+import ItemCard from '../components/ItemCard/ItemCard'
+import apiService from '@/apiService'
 
 	export default {
 		name: 'UserSavedLists',
@@ -22,16 +27,16 @@
 		data() {
 			return {
 				itemsList: [],
-				userBookmarks: []
+				userBookmarks: [],
+				loaded: false
 			}
 		},
 		mounted() {
 			apiService.getItems().then((data) => {
 				this.itemsList = data
 				apiService.getBookmarks(this.currentUser._id).then(res=>{
-					console.log(res.data)
 					this.userBookmarks = this.itemsList.filter(item => res.data.includes(item._id));
-					bus.$emit('loaded')
+					this.loaded = true;
 				});
 			})
 		},

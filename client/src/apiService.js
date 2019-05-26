@@ -11,7 +11,7 @@ class apiService {
 
   static getItemProfile(){
     return axios.get('../' + url + 'items')
-    .then(res => res.data);
+      .then(res => res.data);
   }
 
   static postItems(newItem, headers){
@@ -28,7 +28,7 @@ class apiService {
 
   static getBookmarks(userId){
     const requestUrl = `${url}users/${userId}/bookmarks`;
-    return axios.get(requestUrl);
+    return axios.get(requestUrl)
   }
   //Users
   static createUser(newUser){
@@ -41,12 +41,12 @@ class apiService {
 
   static getUserProfile(){
     return axios.get('../' + url + 'users')
-    .then(res => res.data);
+      .then(res => res.data);
   }
 
   static getUser(){
     return axios.get(url + 'users')
-    .then(res => res.data);
+      .then(res => res.data);
   }
  }
 

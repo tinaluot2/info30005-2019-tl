@@ -28,12 +28,12 @@
 						<i class="material-icons md-16">thumb_up</i>
 				</div>
 				<div class="like-count">
-						{{item.likeCount}}
+					{{item.likeCount}}
 				</div>
 			</div>
 			<div class="card-footer-item">
 				<span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
-			v-bind:class="{bookmarked:item.isBookmarked}">
+			v-bind:class="{bookmarked:isBookmarked}">
 					<i class="material-icons md-16">bookmark</i>
 				</span>
 			</div>
@@ -48,33 +48,55 @@ export default {
 	name: 'ItemCard',
 	data () {
 		return {
+			bookmarks:[]
 		}
 	},
 	props: {
 			item: {
 					type: Object,
 					required: true
-			}
+			},
 	},
 	methods: {
 		likeItem() {
-			this.item.isLiked = !this.item.isLiked;
-			if (!this.item.isLiked) {
-					this.item.likeCount--;
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
 			}
 			else {
-					this.item.likeCount++;
+				this.item.isLiked = !this.item.isLiked;
+				if (!this.item.isLiked) {
+						this.item.likeCount--;
+				}
+				else {
+						this.item.likeCount++;
+				}
 			}
 		},
 		bookmarkItem() {
-			this.item.isBookmarked = !this.item.isBookmarked
-			apiService.postBookmark(this.item._id, this.currentUser.username)
-
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
+			}
+			else {
+				this.item.isBookmarked = !this.item.isBookmarked
+				apiService.postBookmark(this.item._id, this.currentUser.username)
+			}
 		}
 	},
+	mounted() {
+		apiService.getBookmarks(this.currentUser._id)
+			.then((data) => {
+				this.bookmarks = data.data
+			})
+	},
 	computed: {
+		isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		},
 		currentUser() {
 			return this.$store.state.currentUser
+		},
+		isBookmarked(){
+			return this.bookmarks.includes(this.item._id)
 		}
 	}
 }

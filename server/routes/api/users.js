@@ -95,7 +95,50 @@ router.post('/bookmarks/:username', (req, res, next) => {
 	.catch(err => {
 		res.sendStatus(500);
 	});
+/* sample input for this request:
+    	{ "itemId": "123"}
+*/
+});
 
+router.post('/addproject/:username', (req, res, next) => {
+  const username = req.params.username;
+
+  User.update({"username": username}, {$push: {"projects": req.body.itemId}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
+/* sample input for this request:
+    	{ "itemId": "123"}
+*/
+});
+
+// Remove bookmark
+router.post('/removebookmark/:username', (req, res, next) => {
+  const username = req.params.username;
+
+  User.update({"username": username}, {$pull: {"bookmarks": req.body.itemId}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
+/* sample input for this request:
+    	{ "itemId": "123"}
+*/
 });
 
 //delete function is in userSignup.js

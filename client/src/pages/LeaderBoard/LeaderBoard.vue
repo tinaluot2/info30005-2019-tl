@@ -6,6 +6,7 @@
 		<div class="container">
 			<div class="white-card-bg">
 				<h1 class="page-header"><span class="logotype">Reform </span>Leaderboard</h1>
+
 				<h2><i class="fab fa-pagelines"></i>Most passionate reformers.</h2>
 				<table id="leaderboard">
 					<tr>
@@ -22,6 +23,32 @@
 							</router-link>
 						</td>
 						<td>{{rank.length}}</td>
+					</tr>
+
+				</table>
+
+				<h2><i class="fab fa-pagelines"></i>Popular reform projects.</h2>
+				<table id="leaderboard">
+					<tr>
+						<th>Rank</th>
+						<th>Reform Project</th>
+						<th>Reformer</th>
+						<th># of Likes</th>
+					</tr>
+
+					<tr v-for= " (items, index) in sortByLikes.slice(0, 5)" v-bind:key="index">
+						<td>{{index + 1}}</td>
+						<td>
+							<router-link :to="'/item/' + items._id">
+								{{items.itemTitle}}
+							</router-link>
+						</td>
+						<td>
+							<router-link :to="'/user/' + items.creatorName">
+								{{items.creatorName}}
+							</router-link>
+						</td>
+						<td>{{items.likeCount}}</td>
 					</tr>
 
 				</table>
@@ -77,6 +104,12 @@
 					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
 					groupedByCreator.sort((a, b) => b.length - a.length);
 					return(groupedByCreator);
+				},
+				sortByLikes(){
+					let items = this.itemsList
+					items.sort((a, b) => b.likeCount - a.likeCount);
+					return(items);
+
 				}
 			}
     }

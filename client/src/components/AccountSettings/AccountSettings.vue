@@ -7,13 +7,13 @@
 					<div id="settings-form">
 						<h1 >Account Settings</h1>
 						<div class="form-input">
-							<div class="form-label">Username<span>*</span></div>
+							<div class="form-label">Username<span class="red">*</span></div>
 							<input class="form" type="text" v-model="user.username" v-validate="required"/>
 						</div>
 
 
 						<div class="form-input">
-							<div class="form-label">Email<span>*</span></div>
+							<div class="form-label">Email<span class="red">*</span></div>
 							<input class="form" type="text" v-model="user.email" v-validate="required"/>
 						</div>
 
@@ -28,12 +28,12 @@
 						</div>
 
 						<div class="form-input">
-							<div class="form-label">Password<span>*</span></div>
+							<div class="form-label">Password<span class="red">*</span></div>
 							<input class="form" type="password" v-model="user.password" v-validate="required"/>
 						</div>
 
 						<div class="form-input">
-							<div class="form-label">Confirm Password<span>*</span></div>
+							<div class="form-label">Confirm Password<span class="red">*</span></div>
 							<input class="form" type="password" v-model="user.passwordConfirm"/>
 						</div>
 

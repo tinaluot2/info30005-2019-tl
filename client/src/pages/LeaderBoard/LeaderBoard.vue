@@ -6,7 +6,8 @@
 		<div class="container">
 			<div class="white-card-bg">
 				<h1 class="page-header"><span class="logotype">Reform </span>Leaderboard</h1>
-
+<div class="columns">
+	<div class="column">
 				<h2><i class="fab fa-pagelines"></i>Most passionate reformers.</h2>
 				<table id="leaderboard">
 					<tr>
@@ -26,7 +27,8 @@
 					</tr>
 
 				</table>
-
+	</div>
+	<div class="column">
 				<h2><i class="fab fa-pagelines"></i>Popular reform projects.</h2>
 				<table id="leaderboard">
 					<tr>
@@ -51,8 +53,8 @@
 						<td>{{items.likeCount}}</td>
 					</tr>
 
-				</table>
-
+				</table></div>
+</div>
 			</div>
 		</div>
 	</div>

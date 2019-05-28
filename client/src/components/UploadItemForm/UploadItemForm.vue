@@ -1,7 +1,7 @@
 <template>
 	<div class="background nav-spacing">
 		<div class="container">
-			<form class="upload-form" @submit.prevent="submit" enctype="multipart/form-data">
+			<form class="white-card-bg" id="upload-form" @submit.prevent="submit" enctype="multipart/form-data">
 					<h1 class="page-header">Create a New Project</h1>
 
 						<div class="form-section">

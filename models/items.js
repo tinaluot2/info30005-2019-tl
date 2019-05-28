@@ -11,7 +11,8 @@ const itemSchema = mongoose.Schema({
 	images: [String],
 	description: String,
 	isLiked: { type: Boolean, default: false },
-	isBookmarked: { type: Boolean, default: false }
+	isBookmarked: { type: Boolean, default: false },
+	comments: []
 });
 
 module.exports = mongoose.model('Item', itemSchema);

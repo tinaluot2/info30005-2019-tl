@@ -181,4 +181,31 @@ router.get('/search/:itemID', (req, res, next) => {
         });
 });
 
+
+// add a comment to a item
+router.post('/comments/:itemId', (req, res, next) => {
+  const id = req.params.itemId;
+
+  Item.update({"itemID": id}, {$push: {"comments": {
+      "user": req.body.comments.user,
+        "datePosted": req.body.comments.datePosted,
+        "text": req.body.comments.text}}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
+/* sample input for this request:
+{
+"comments": {"user": "abc", "datePosted": "This should in Date format", "text": "this is a comment"}
+}
+*/
+});
+
 module.exports = router;

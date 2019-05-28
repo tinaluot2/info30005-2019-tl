@@ -58,7 +58,7 @@ router.get('/:userId', (req, res, next) => {
     });
 });
 
-
+// Get bookmarks of a user
 router.get('/:userId/bookmarks', (req, res, next) => {
     const id = mongoose.Types.ObjectId(req.params.userId);
 
@@ -79,7 +79,7 @@ router.get('/:userId/bookmarks', (req, res, next) => {
         });
 });
 
-
+// add a bookmark to a user
 router.post('/bookmarks/:username', (req, res, next) => {
   const username = req.params.username;
 
@@ -100,6 +100,29 @@ router.post('/bookmarks/:username', (req, res, next) => {
 */
 });
 
+// Get projects of a user
+router.get('/:userId/projects', (req, res, next) => {
+    const id = mongoose.Types.ObjectId(req.params.userId);
+
+    User.findById(id)
+        .exec()
+        .then(doc => {
+            console.log("From user", doc);
+            if (doc) {
+              res.status(200).json(doc.projects);
+            }
+            else {
+              res.status(404).json({message: 'No valid entry found for provided ID'});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        });
+});
+
+
+// add a project to a user
 router.post('/addproject/:username', (req, res, next) => {
   const username = req.params.username;
 
@@ -120,11 +143,32 @@ router.post('/addproject/:username', (req, res, next) => {
 */
 });
 
-// Remove bookmark
+// Remove bookmark from a user
 router.post('/removebookmark/:username', (req, res, next) => {
   const username = req.params.username;
 
   User.update({"username": username}, {$pull: {"bookmarks": req.body.itemId}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
+/* sample input for this request:
+    	{ "itemId": "123"}
+*/
+});
+
+// Remove project from a user
+router.post('/removeproject/:username', (req, res, next) => {
+  const username = req.params.username;
+
+  User.update({"username": username}, {$pull: {"projects": req.body.itemId}})
 	.then(doc => {
 		if (doc) {
 			res.sendStatus(200);

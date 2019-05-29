@@ -5,7 +5,7 @@ button {
     border-radius: 50px;
     padding: 6px 12px;
     cursor: pointer;
-    transition: all 500ms ease;
+    transition: all 0.5s ease;
 }
 
 button:disabled,
@@ -24,20 +24,20 @@ button:disabled:hover {
 
     &:hover, &:active, &:focus  {
         background: $button-hover-color;
-        transition: all 300ms ease;
+        transition: all 0.3s ease;
         border: $button-hover-color 1px solid;
     }
 }
 
 .button-light {
-    background: white;
+    background: none;
     color: $primary-color;
-    border-color: $primary-color;
+    border-color: $primary-color-lighter;
 
     &:hover, &:active, &:focus {
-        border-color: $button-hover-color;
-        color: $button-hover-color;
-        transition: all 300ms ease;
+        border-color: $primary-color-light;
+        background: $primary-color-light;
+        transition: all 0.3s ease;
     }
 }
 
@@ -50,7 +50,7 @@ button:disabled:hover {
 	&:hover, &:active, &:focus {
 		background-color: #FF263C;
         border-color: #FF263C;
-        transition: all 300ms ease;
+        transition: all 0.3s ease;
 	}
 }
 
@@ -116,8 +116,4 @@ button:disabled:hover {
     padding: 5px;
     top: 5px;
     color: white;
-}
-
-.button-circle {
-  border-radius: 20%
 }

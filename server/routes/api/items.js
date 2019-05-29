@@ -97,7 +97,8 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	images: filename,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
-  	isBookmarked: req.body.isBookmarked
+    isBookmarked: req.body.isBookmarked,
+    comments: req.body.comments
   });
 
   //method provided by mongoose

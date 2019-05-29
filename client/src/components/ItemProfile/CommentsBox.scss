@@ -1,0 +1,25 @@
+@import "@/scss/global.scss";
+
+.comment-container {
+  margin-bottom: 40px;
+  list-style: none;
+  display: flex;
+}
+
+.comment-avatar {
+  float: left;
+}
+
+.comment-details {
+  padding-left: 20px;
+}
+
+.comment-date {
+  color: $light-grey;
+  font-size: 11px;
+  padding-left: 10px;
+}
+
+.comment-username {
+  color: $body-color;
+}

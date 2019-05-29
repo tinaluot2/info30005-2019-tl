@@ -152,7 +152,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../scss/_forms.scss";
+@import "@/scss/_forms.scss";
 @import "../SiteNav/_userform.scss";
 @import "/UploadItemForm.scss";
 </style>

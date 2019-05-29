@@ -11,6 +11,12 @@
 	}
 }
 
+.comment-box {
+	border: 1px #eee solid;
+	padding: 30px 40px 0 40px;
+	border-radius: 3px;
+}
+
 .medium-card {
 	background: $card-color;
 	box-shadow: $box-drop-shadow;
@@ -38,18 +44,21 @@
     }
 
     .card-image {
-			margin-top: 10px
+			margin-top: 20px
     }
 }
 
 .card-creator {
 	display: block;
+	color: $link-secondary;
 	font-weight: normal;
 }
 
 .timestamp {
 	padding: 0;
 	text-transform: uppercase;
+	font-size: 11px;
+	color: $light-grey;
 }
 
 .category-tag {
@@ -59,13 +68,13 @@
 }
 
 .item-title {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 	display: block;
 }
 
 .media {
-	padding: 10px;
+	padding-bottom: 20px;
 }
 
 .button-menu {
@@ -77,6 +86,7 @@
 @media screen and (min-width: 768px) {
 	.medium-card {
 		margin: $margin $page-margin;
+		padding: 30px $margin $margin $margin;
 	}
 }
 
@@ -86,4 +96,12 @@
 
 .tag-spacing {
 	margin-bottom: 15px;
+}
+
+.button-circle {
+	padding: 5px;
+  border-radius: 50%;
+  width: 48px;
+	height: 48px;
+	color: $light-grey;
 }

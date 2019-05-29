@@ -42,39 +42,45 @@
 					</div>
 
 					<div class="button-menu">
-						<button class="button-light spacing-not-last-child">
-							<span>Like</span>
+						<button class="button-light button-circle spacing-not-last-child">
+							<i class="material-icons md-18">thumb_up</i>
 						</button>
 
-						<button class="button-light spacing-not-last-child">
-							<span>Bookmark</span>
+						<button class="button-light button-circle spacing-not-last-child">
+							<i class="material-icons md-18">bookmark</i>
 						</button>
-						<a class="icon-button-wrapper" :href="fbUrl"
+						<button class="button-light button-circle spacing-not-last-child">
+							<a :href="fbUrl"
 							target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
-							<i class="fab fa-facebook-square"></i>
-						</a>
+								<i class="fab fa-facebook-square"></i>
+							</a>
+						</button>
 
-						<a class="icon-button-wrapper" :href="twUrl"
+						<button class="button-light button-circle spacing-not-last-child">
+							<a :href="twUrl"
 							target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
-							<i class="fab fa-twitter-square"></i>
-						</a>
+								<i class="fab fa-twitter-square"></i>
+							</a>
+						</button>
 					</div>
+					<div class="comment-box">
+						<article class="media">
+							<figure class="media-left">
+								<p class="image is-48x48">
+									<img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
+								</p>
+							</figure>
 
-					<article class="media">
-						<figure class="media-left">
-							<p class="image is-64x64">
-								<img class="is-rounded" src="https://cdn0.iconfinder.com/data/icons/celebration-and-party-2-1/97/68-512.png">
-							</p>
-						</figure>
-						<div class="media-content">
-							<div class="field">
-									<p class="control">
-										<textarea class="textarea" placeholder="Add a comment..."></textarea>
-									</p>
+							<div class="media-content">
+								<div class="field">
+									<textarea class="description" placeholder="What do you think of this creation?"></textarea>
+								</div>
+								<button class="button-light">Post a Comment</button>
 							</div>
-							<button class="button-dark">Post comment</button>
-						</div>
-					</article>
+
+						</article>
+						<comment></comment>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -84,10 +90,12 @@
 
 <script>
 import apiService from '@/apiService'
+import CommentsBox from './CommentsBox'
 import moment from 'moment'
 export default {
 	name: 'item-profile',
-	components:{
+	components: {
+		comment: CommentsBox
 	},
 	data (){
 		return {
@@ -125,4 +133,5 @@ export default {
 <style lang="scss">
 @import "./ItemProfile.scss";
 @import "@/components/ItemCard/ItemCard.scss";
+@import "@/scss/_forms.scss";
 </style>

@@ -20,16 +20,19 @@ class apiService {
 
   static postBookmark(id, user){
     const requestUrl = `${url}users/bookmarks/${user}`;
-    return axios.post(requestUrl, {itemId: id}).then(res=>{
-      console.log(res.data);
-
-    });
+    return axios.post(requestUrl, {itemId: id});
   }
 
   static getBookmarks(userId){
     const requestUrl = `${url}users/${userId}/bookmarks`;
     return axios.get(requestUrl)
   }
+
+  static deleteBookmark(user, id){
+    const requestUrl = `${url}users/removebookmark/${user}`;
+    return axios.post(requestUrl, {itemId: id}).then();
+  }
+
   //Users
   static createUser(newUser){
     return axios.post(url + 'userSignup/signup', newUser);

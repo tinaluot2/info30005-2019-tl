@@ -83,7 +83,7 @@ router.get('/:userId/bookmarks', (req, res, next) => {
 router.post('/bookmarks/:username', (req, res, next) => {
   const username = req.params.username;
 
-  User.update({"username": username}, {$push: {"bookmarks": req.body.itemId}})
+  User.update({"username": username}, {$addToSet: {"bookmarks": req.body.itemId}})
 	.then(doc => {
 		if (doc) {
 			res.sendStatus(200);

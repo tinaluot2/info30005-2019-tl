@@ -11,12 +11,28 @@ class apiService {
 
   static getItemProfile(){
     return axios.get('../' + url + 'items')
-    .then(res => res.data);
+      .then(res => res.data);
   }
 
   static postItems(newItem, headers){
     return axios.post(url + 'items', newItem, headers);
   }
+
+  static postBookmark(id, user){
+    const requestUrl = `${url}users/bookmarks/${user}`;
+    return axios.post(requestUrl, {itemId: id});
+  }
+
+  static getBookmarks(userId){
+    const requestUrl = `${url}users/${userId}/bookmarks`;
+    return axios.get(requestUrl)
+  }
+
+  static deleteBookmark(user, id){
+    const requestUrl = `${url}users/removebookmark/${user}`;
+    return axios.post(requestUrl, {itemId: id}).then();
+  }
+
   //Users
   static createUser(newUser){
     return axios.post(url + 'userSignup/signup', newUser);
@@ -28,12 +44,12 @@ class apiService {
 
   static getUserProfile(){
     return axios.get('../' + url + 'users')
-    .then(res => res.data);
+      .then(res => res.data);
   }
 
   static getUser(){
     return axios.get(url + 'users')
-    .then(res => res.data);
+      .then(res => res.data);
   }
  }
 

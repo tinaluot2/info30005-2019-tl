@@ -9,7 +9,27 @@
 					<div class="two-column">
 						<div class="profile-box">
 
-							<img class="profile-img" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
+							<div v-if="userPosts.length <=10">
+								<span class="fa-stack fa-4x">
+									<i class="fas fa-circle fa-stack-2x icon-background"></i>
+									<i class="fas fa-seedling fa-stack-1x icon"></i>
+								</span>
+							</div>
+
+							<div v-else-if="11 <= userPosts.length <=20">
+								<span class="fa-stack fa-4x">
+									<i class="fas fa-circle fa-stack-2x icon-background"></i>
+									<i class="fas fa-pagelines fa-stack-1x icon"></i>
+								</span>
+							</div>
+
+							<div v-else-if="30 <=userPosts.length">
+								<span class="fa-stack fa-4x">
+									<i class="fas fa-circle fa-stack-2x icon-background"></i>
+									<i class="fas fa-tree fa-stack-1x icon"></i>
+								</span>
+							</div>
+
 							<h1 class="username">{{user.username}}</h1>
 							<h3 class="info-title">About</h3>
 							<p class="about-description">{{user.description}}</p>

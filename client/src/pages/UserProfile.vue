@@ -19,11 +19,11 @@
 							<div v-else-if="11 <= userPosts.length <=20">
 								<span class="fa-stack fa-4x">
 									<i class="fas fa-circle fa-stack-2x icon-background"></i>
-									<i class="fas fa-pagelines fa-stack-1x icon"></i>
+									<i class="fas fa-leaf fa-stack-1x icon"></i>
 								</span>
 							</div>
 
-							<div v-else-if="30 <=userPosts.length">
+							<div v-else-if="21 <=userPosts.length">
 								<span class="fa-stack fa-4x">
 									<i class="fas fa-circle fa-stack-2x icon-background"></i>
 									<i class="fas fa-tree fa-stack-1x icon"></i>

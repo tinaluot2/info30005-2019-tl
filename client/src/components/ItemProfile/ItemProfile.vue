@@ -10,9 +10,6 @@
 					<div class="card-header">
 						<div class="card-header-icon">
 							<router-link :to="'/user/' + item.creatorName">
-								<figure class="image is-48x48 is-rounded">
-								<img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog">
-								</figure>
 							</router-link>
 						</div>
 						<div class="card-header-title">
@@ -61,11 +58,6 @@
 					</div>
 
 					<article class="media">
-						<figure class="media-left">
-							<p class="image is-64x64">
-								<img class="is-rounded" src="https://cdn0.iconfinder.com/data/icons/celebration-and-party-2-1/97/68-512.png">
-							</p>
-						</figure>
 						<div class="media-content">
 							<div class="field">
 									<p class="control">

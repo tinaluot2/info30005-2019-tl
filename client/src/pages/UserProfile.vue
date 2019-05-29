@@ -8,28 +8,41 @@
 				<div class="container">
 					<div class="two-column">
 						<div class="profile-box">
+								<div class="badge">
+									<div v-if="userPosts.length <=10">
+										<span class="fa-stack fa-4x">
+											<i class="fas fa-circle fa-stack-2x icon-background"></i>
+											<i class="fas fa-seedling fa-stack-1x badgeicon"></i>
+										</span>
+									</div>
 
-							<div v-if="userPosts.length <=10">
-								<span class="fa-stack fa-4x">
-									<i class="fas fa-circle fa-stack-2x icon-background"></i>
-									<i class="fas fa-seedling fa-stack-1x icon"></i>
-								</span>
-							</div>
+									<div v-else-if="11 <= userPosts.length <=20" >
+										<span class="fa-stack fa-4x">
+											<i class="fas fa-circle fa-stack-2x icon-background"></i>
+											<i class="fas fa-leaf fa-stack-1x badgeicon"></i>
+										</span>
+									</div>
 
-							<div v-else-if="11 <= userPosts.length <=20">
-								<span class="fa-stack fa-4x">
-									<i class="fas fa-circle fa-stack-2x icon-background"></i>
-									<i class="fas fa-leaf fa-stack-1x icon"></i>
-								</span>
-							</div>
+									<div v-else-if="21 <=userPosts.length" >
+										<span class="fa-stack fa-4x">
+											<i class="fas fa-circle fa-stack-2x icon-background"></i>
+											<i class="fas fa-tree fa-stack-1x badgeicon"></i>
+										</span>
+									</div>
 
-							<div v-else-if="21 <=userPosts.length">
-								<span class="fa-stack fa-4x">
-									<i class="fas fa-circle fa-stack-2x icon-background"></i>
-									<i class="fas fa-tree fa-stack-1x icon"></i>
-								</span>
-							</div>
+									<div class="tip">
+										<div class="tipicon">
+											<i class="far fa-question-circle tipicon"></i>
+											<span class="tiptext">
+												This badge changes according to your reformer level.
+												<br>Less than 10 : <i class="fas fa-seedling"></i>
+												<br>11 to 20 : <i class="fas fa-leaf"></i>
+												<br>21 and above : <i class="fas fa-tree"></i>
+											</span>
+										</div>
 
+									</div>
+								</div>
 							<h1 class="username">{{user.username}}</h1>
 							<h3 class="info-title">About</h3>
 							<p class="about-description">{{user.description}}</p>
@@ -37,9 +50,10 @@
 									<h3 class="info-title">Reformer Level</h3>
 									<p>{{userPosts.length}}</p>
 							</div>
-						</div>
+
 						<div class="grid-container profile-grid">
 								<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item"></item-card>
+						</div>
 						</div>
 					</div>
 				</div>
@@ -63,7 +77,7 @@ export default {
 			username: this.$route.params.username,
 			usersList: [],
 			itemsList: [],
-			loading: true
+			loading: true,
 		}
 	},
 	mounted() {

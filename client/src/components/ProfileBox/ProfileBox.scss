@@ -7,7 +7,7 @@
 	position: relative;
 }
 
-.profile-img {
+.badge {
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
@@ -16,31 +16,6 @@
 	margin-bottom: 20px;
 }
 
-.username {
-	font-size: 2em;
-	font-weight: bold;
-}
-
-h3 {
-	color: $primary-color-dark;
-	font-size: 13px;
-	font-weight: bold;
-}
-
-.bio, .achievement {
-	padding: 20px 0;
-}
-
-.achievement {
-	border-top: solid 1px $border-color;
-	text-align: center;
-	align-self: center;
-}
-
-.description {
-	word-wrap: break-word;
-	padding-bottom: 20px;
-}
 
 .badgeicon {
 	color: $primary-color;
@@ -87,6 +62,31 @@ h3 {
 	visibility: visible;
 }
 
+.username {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+h3 {
+	color: $primary-color-dark;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.bio, .achievement {
+	padding: 20px 0;
+}
+
+.achievement {
+	border-top: solid 1px $border-color;
+	text-align: center;
+	align-self: center;
+}
+
+.description {
+	word-wrap: break-word;
+	padding-bottom: 20px;
+}
 
 @media screen and (min-width: 480px) {
 	.profile-img {

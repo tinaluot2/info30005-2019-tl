@@ -8,23 +8,23 @@
 				<div class="container">
 					<div class="two-column">
 						<div class="profile-box">
-								<div class="badge">
+								<div>
 									<div v-if="userPosts.length <=10">
-										<span class="fa-stack fa-4x">
+										<span class="fa-stack fa-4x badge">
 											<i class="fas fa-circle fa-stack-2x icon-background"></i>
 											<i class="fas fa-seedling fa-stack-1x badgeicon"></i>
 										</span>
 									</div>
 
 									<div v-else-if="11 <= userPosts.length <=20" >
-										<span class="fa-stack fa-4x">
+										<span class="fa-stack fa-4x badge">
 											<i class="fas fa-circle fa-stack-2x icon-background"></i>
 											<i class="fas fa-leaf fa-stack-1x badgeicon"></i>
 										</span>
 									</div>
 
 									<div v-else-if="21 <=userPosts.length" >
-										<span class="fa-stack fa-4x">
+										<span class="fa-stack fa-4x badge">
 											<i class="fas fa-circle fa-stack-2x icon-background"></i>
 											<i class="fas fa-tree fa-stack-1x badgeicon"></i>
 										</span>
@@ -50,11 +50,12 @@
 									<h3 class="info-title">Reformer Level</h3>
 									<p>{{userPosts.length}}</p>
 							</div>
+						</div>
 
-						<div class="grid-container profile-grid">
-								<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item"></item-card>
-						</div>
-						</div>
+							<div class="grid-container profile-grid">
+									<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item"></item-card>
+							</div>
+
 					</div>
 				</div>
 			</div>

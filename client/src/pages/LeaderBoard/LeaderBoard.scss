@@ -1,13 +1,14 @@
 @import "../../scss/global";
 
-
-
 #leaderboard {
   width: 100%;
 }
 
 #leaderboard th {
   padding: 5px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 10px;
 }
 
 #leaderboard td {
@@ -18,44 +19,24 @@
 
 .fab {
   padding: 10px;
+  color: $primary-color;
 }
 
-.user-info {
-  flex-direction: column;
-  display: inline-block;
-  vertical-align:  middle;
+.two-column.leaderboard {
+  padding: 0px;
 }
 
-.contents {
-  display: inline-block;
-  vertical-align:  middle;
-  padding:10px;
-}
-
-ol {
-  counter-reset: number;
-  list-style-type: none!important;
-  margin:0;
-  padding:0;
-}
-ol li {
-  line-height: 1.5em;
+.column#most-projects, .column#most-likes {
+  margin-bottom: $margin;
   padding: 10px;
 }
 
-ol li:before {
-  counter-increment: number;
-  content: counter(number);
-  display: inline-block;
-  background: $primary-color-dark;
-  color: $body-background-color;
+@media screen and (min-width: 960px) {
+  .column#most-projects {
+    margin-right: $margin;
+  }
+}
+
+h2.leaderboard-title {
   font-weight: bold;
-  font-size: 15px;
-  border-radius: 50%;
-  left: 0;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  top: 50%;
 }

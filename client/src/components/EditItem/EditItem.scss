@@ -47,25 +47,6 @@
 	padding: 5px 0;
 }
 
-.description {
-	border: 1px solid $border-color;
-	padding: 10px;
-	border-radius: 2px;
-	box-shadow: none;
-	transition: all 0.2s ease;
-	color: $body-color;
-	font-size: 16px;
-	width: 100%;
-	height: 15vh;
-	min-height: 5rem;
-
-	&:focus {
-		outline: none;
-		transition: all 0.2s ease;
-		border: 1px solid $primary-color;
-	}
-}
-
 .file {
 	display: block;
 	margin: auto;

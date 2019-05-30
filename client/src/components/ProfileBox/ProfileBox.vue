@@ -7,7 +7,7 @@
         <h1 class="username">{{profile.username}}</h1>
         <div class="bio">
             <h3>About</h3>
-            <p class="description">{{profile.description}}</p>
+            <p class="bio-description">{{profile.description}}</p>
         </div>
         <div class="achievement">
             <h3>Achievements</h3>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "./ProfileBox.scss";
 </style>
 

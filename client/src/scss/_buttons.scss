@@ -6,6 +6,12 @@ button {
     padding: 6px 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+
+    &:hover, &:active, &:focus  {
+        transition: all 0.3s ease;
+    }
 }
 
 button:disabled,
@@ -30,14 +36,13 @@ button:disabled:hover {
 }
 
 .button-light {
-    background: white;
+    background: none;
     color: $primary-color;
-    border-color: $primary-color;
+    border-color: $primary-color-lighter;
 
     &:hover, &:active, &:focus {
-        border-color: $button-hover-color;
-        color: $button-hover-color;
-        transition: all 0.3ms ease;
+        border-color: $primary-color-light;
+        background: $primary-color-light;
     }
 }
 
@@ -50,7 +55,7 @@ button:disabled:hover {
 	&:hover, &:active, &:focus {
 		background-color: #FF263C;
         border-color: #FF263C;
-        transition: all 300ms ease;
+        transition: all 0.3s ease;
 	}
 }
 
@@ -116,8 +121,4 @@ button:disabled:hover {
     padding: 5px;
     top: 5px;
     color: white;
-}
-
-.button-circle {
-  border-radius: 20%
 }

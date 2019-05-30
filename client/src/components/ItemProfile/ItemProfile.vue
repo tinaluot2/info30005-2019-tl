@@ -38,43 +38,37 @@
 						<div class="material-tags">
 							<a class="tag tag-spacing" v-for="(material, index) in item.material" :key="index">{{material}}</a>
 						</div>
-						<p>{{item.description}}</p>
+						<p class="item-description">{{item.description}}</p>
 					</div>
 
 					<div class="button-menu">
 						<button class="button-light spacing-not-last-child">
-							<span>Like</span>
+							<span class="material-icons md-18 button-icon">thumb_up</span>
+							Like
 						</button>
 
 						<button class="button-light spacing-not-last-child">
-							<span>Bookmark</span>
+							<span class="material-icons md-18 button-icon">bookmark</span>
+							Bookmark
 						</button>
-						<a class="icon-button-wrapper" :href="fbUrl"
-							target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
-							<i class="fab fa-facebook-square"></i>
-						</a>
 
-						<a class="icon-button-wrapper" :href="twUrl"
-							target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
-							<i class="fab fa-twitter-square"></i>
-						</a>
-					</div>
+						<div id="social-share" class="right-align">
+							<button class="button-light spacing-not-last-child button-circle social">
+								<a :href="fbUrl"
+								target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</button>
 
-					<article class="media">
-						<figure class="media-left">
-							<p class="image is-64x64">
-								<img class="is-rounded" src="https://cdn0.iconfinder.com/data/icons/celebration-and-party-2-1/97/68-512.png">
-							</p>
-						</figure>
-						<div class="media-content">
-							<div class="field">
-									<p class="control">
-										<textarea class="textarea" placeholder="Add a comment..."></textarea>
-									</p>
-							</div>
-							<button class="button-dark">Post comment</button>
+							<button class="button-light button-circle social">
+								<a :href="twUrl"
+								target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
+									<span class="fab fa-twitter"></span>
+								</a>
+							</button>
 						</div>
-					</article>
+					</div>
+						<comment :currentItemId="item._id"></comment>
 				</div>
 			</div>
 		</div>
@@ -84,15 +78,19 @@
 
 <script>
 import apiService from '@/apiService'
-import moment from 'moment'
+import CommentsBox from './CommentsBox'
+import moment from 'moment-timezone'
+
 export default {
 	name: 'item-profile',
-	components:{
+	components: {
+		comment: CommentsBox
 	},
 	data (){
 		return {
 			itemid: this.$route.params.itemid,
 			itemsList:[],
+			comments:[],
 			loaded: false,
 			fbUrl: '',
 			twUrl:'',
@@ -107,7 +105,7 @@ export default {
 	},
 	methods: {
 		formatDate(date) {
-			return moment(date).startOf('day').fromNow()
+			return moment(date).tz("Australia/Melbourne").fromNow()
 		},
 		share(itemTitle) {
 			var url = encodeURIComponent(location.href)
@@ -118,6 +116,11 @@ export default {
 			var hashtags ='reformlab, upcycle'
 			this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + hashtags + '&url=' + url
 		}
+	},
+	computed: {
+		curentUser() {
+      return this.$store.state.currentUser
+    }
 	}
 }
 </script>
@@ -125,4 +128,5 @@ export default {
 <style lang="scss">
 @import "./ItemProfile.scss";
 @import "@/components/ItemCard/ItemCard.scss";
+@import "@/scss/_forms.scss";
 </style>

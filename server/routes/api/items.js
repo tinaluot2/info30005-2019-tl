@@ -87,7 +87,6 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
 
   var current_date = new Date();
   const item = new Item({
-    itemID: new mongoose.Types.ObjectId(),
     itemTitle: req.body.itemTitle,
   	creatorID: req.body.creatorID,
   	creatorName: req.body.creatorName,
@@ -97,7 +96,8 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
   	images: filename,
   	description: req.body.description,
   	isLiked: req.body.isLiked,
-  	isBookmarked: req.body.isBookmarked
+    isBookmarked: req.body.isBookmarked,
+    comments: req.body.comments
   });
 
   //method provided by mongoose
@@ -161,8 +161,8 @@ router.delete('/:itemId', (req, res, next) => {
 
 
 // search item with itemId
-router.get('/search/:itemID', (req, res, next) => {
-    const id = mongoose.Types.ObjectId(req.params.itemID);
+router.get('/search/:itemId', (req, res, next) => {
+    const id = mongoose.Types.ObjectId(req.params.itemId);
 
     Item.findById(id)
         .exec()
@@ -179,6 +179,54 @@ router.get('/search/:itemID', (req, res, next) => {
             console.log(err);
             res.status(500).json({error: err});
         });
+});
+
+
+// add a comment to a item
+router.post('/comments/:itemId', (req, res, next) => {
+  const id = req.params.itemId;
+
+  Item.update({_id: id}, {$push: {"comments": {
+    "user": req.body.comments.user,
+    "datePosted": req.body.comments.datePosted,
+    "text": req.body.comments.text}}})
+	.then(doc => {
+		if (doc) {
+			res.sendStatus(200);
+		}
+		else {
+			res.sendStatus(404);
+		}
+	})
+	.catch(err => {
+		res.sendStatus(500);
+	});
+/* sample input for this request:
+{
+"comments": {"user": "abc", "datePosted": "This should be in Date format", "text": "this is a comment"}
+}
+*/
+});
+
+//get comments for an item
+router.get('/:itemId/comments', (req, res, next) => {
+  const id = mongoose.Types.ObjectId(req.params.itemId);
+
+  Item.findById(id)
+    .exec()
+    .then(doc => {
+        console.log("From item", doc);
+        if (doc) {
+          res.status(200).json(doc.comments);
+        }
+        else {
+          res.status(404).json({message: 'No valid entry found for provided ID'});
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({error: err});
+    });
 });
 
 module.exports = router;

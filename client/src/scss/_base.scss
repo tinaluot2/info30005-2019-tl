@@ -26,7 +26,7 @@ body {
   }
 
 a {
-    color: $primary-color;
+    color: $body-color;
     text-decoration: none;
     transition: all 500ms ease;
 }
@@ -58,6 +58,10 @@ a:hover {
 
 .logotype:hover {
 	color: $primary-color-dark;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .material-icons.md-18 { font-size: 18px; }

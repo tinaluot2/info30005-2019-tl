@@ -14,9 +14,9 @@
 		</div>
 		<div class="card-content">
 			<router-link v-bind:to="'/item/' + item._id"><a class="card-title">{{item.itemTitle}}</a></router-link>
-			<router-link v-bind:to="'/user/' + item.creatorName"><a class="item-creator">{{item.creatorName}}</a></router-link>
+			<router-link v-bind:to="'/user/' + item.creatorName"><a class="username-link">{{item.creatorName}}</a></router-link>
 			<div class="material-tags">
-					<a class="tag" v-for="(material, index) in item.material" :key="index">{{material}}</a>
+				<a class="tag" v-for="(material, index) in item.material" :key="index">{{material}}</a>
 			</div>
 		</div>
 
@@ -54,10 +54,10 @@ export default {
 		}
 	},
 	props: {
-			item: {
-					type: Object,
-					required: true
-			},
+		item: {
+				type: Object,
+				required: true
+		},
 	},
 	methods: {
 		getBookmarks(){

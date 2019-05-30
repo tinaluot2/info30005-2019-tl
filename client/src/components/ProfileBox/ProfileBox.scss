@@ -37,7 +37,7 @@ h3 {
 	align-self: center;
 }
 
-.description {
+.bio-description {
 	word-wrap: break-word;
 	padding-bottom: 20px;
 }
@@ -66,12 +66,12 @@ h3 {
 
 @media screen and (min-width: 960px) {
 	.profile-box {
-box-shadow: $box-drop-shadow;
-background-color: $card-color;
-min-width: 252px;
-min-height: 50vh;
-margin-right: $margin;
-	}
+		box-shadow: $box-drop-shadow;
+		background-color: $card-color;
+		min-width: 252px;
+		min-height: 50vh;
+		margin-right: $margin;
+		}
 
 	.profile-img {
 		width: 180px;

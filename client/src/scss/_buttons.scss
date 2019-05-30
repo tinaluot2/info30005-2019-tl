@@ -5,7 +5,13 @@ button {
     border-radius: 50px;
     padding: 6px 12px;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+
+    &:hover, &:active, &:focus  {
+        transition: all 0.3s ease;
+    }
 }
 
 button:disabled,
@@ -24,7 +30,6 @@ button:disabled:hover {
 
     &:hover, &:active, &:focus  {
         background: $button-hover-color;
-        transition: all 0.3s ease;
         border: $button-hover-color 1px solid;
     }
 }
@@ -37,7 +42,6 @@ button:disabled:hover {
     &:hover, &:active, &:focus {
         border-color: $primary-color-light;
         background: $primary-color-light;
-        transition: all 0.3s ease;
     }
 }
 

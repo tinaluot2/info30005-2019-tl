@@ -162,7 +162,7 @@ router.delete('/:itemId', (req, res, next) => {
 
 
 // search item with itemId
-router.get('/search/:itemID', (req, res, next) => {
+router.get('/search/:itemId', (req, res, next) => {
     const id = mongoose.Types.ObjectId(req.params.itemID);
 
     Item.findById(id)
@@ -187,10 +187,10 @@ router.get('/search/:itemID', (req, res, next) => {
 router.post('/comments/:itemId', (req, res, next) => {
   const id = req.params.itemId;
 
-  Item.update({"itemID": id}, {$push: {"comments": {
-      "user": req.body.comments.user,
-        "datePosted": req.body.comments.datePosted,
-        "text": req.body.comments.text}}})
+  Item.update({"itemId": id}, {$push: {"comments": {
+    "user": req.body.comments.user,
+    "datePosted": req.body.comments.datePosted,
+    "text": req.body.comments.text}}})
 	.then(doc => {
 		if (doc) {
 			res.sendStatus(200);
@@ -204,9 +204,31 @@ router.post('/comments/:itemId', (req, res, next) => {
 	});
 /* sample input for this request:
 {
-"comments": {"user": "abc", "datePosted": "This should in Date format", "text": "this is a comment"}
+"comments": {"user": "abc", "datePosted": "This should be in Date format", "text": "this is a comment"}
 }
 */
 });
+
+//get comments for an item
+router.get('/:itemId/comments', (req, res, next) => {
+  const id = mongoose.Types.ObjectId(req.params.itemId);
+
+  Item.findById(id)
+    .exec()
+    .then(doc => {
+        console.log("From item", doc);
+        if (doc) {
+          res.status(200).json(doc.comments);
+        }
+        else {
+          res.status(404).json({message: 'No valid entry found for provided ID'});
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({error: err});
+    });
+});
+
 
 module.exports = router;

@@ -94,7 +94,7 @@ h1 {
 	min-height: 5rem;
 
 	&:hover {
-		border: 1px solid #ccc;
+		border: 1px solid$primary-color-lighter;
 	}
 
 	&:focus {

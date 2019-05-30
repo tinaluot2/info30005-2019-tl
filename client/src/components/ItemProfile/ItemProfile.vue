@@ -38,49 +38,37 @@
 						<div class="material-tags">
 							<a class="tag tag-spacing" v-for="(material, index) in item.material" :key="index">{{material}}</a>
 						</div>
-						<p>{{item.description}}</p>
+						<p class="item-description">{{item.description}}</p>
 					</div>
 
 					<div class="button-menu">
-						<button class="button-light button-circle spacing-not-last-child">
-							<i class="material-icons md-18">thumb_up</i>
+						<button class="button-light spacing-not-last-child">
+							<span class="material-icons md-18 button-icon">thumb_up</span>
+							Like
 						</button>
 
-						<button class="button-light button-circle spacing-not-last-child">
-							<i class="material-icons md-18">bookmark</i>
-						</button>
-						<button class="button-light button-circle spacing-not-last-child">
-							<a :href="fbUrl"
-							target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
-								<i class="fab fa-facebook-square"></i>
-							</a>
+						<button class="button-light spacing-not-last-child">
+							<span class="material-icons md-18 button-icon">bookmark</span>
+							Bookmark
 						</button>
 
-						<button class="button-light button-circle spacing-not-last-child">
-							<a :href="twUrl"
-							target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
-								<i class="fab fa-twitter-square"></i>
-							</a>
-						</button>
+						<div id="social-share" class="right-align">
+							<button class="button-light spacing-not-last-child button-circle social">
+								<a :href="fbUrl"
+								target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</button>
+
+							<button class="button-light button-circle social">
+								<a :href="twUrl"
+								target="_blank" title="Share on Twitter" @click="share(item.itemTitle)">
+									<span class="fab fa-twitter"></span>
+								</a>
+							</button>
+						</div>
 					</div>
-					<div class="comment-box">
-						<article class="media">
-							<figure class="media-left">
-								<p class="image is-48x48">
-									<img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-								</p>
-							</figure>
-
-							<div class="media-content">
-								<div class="field">
-									<textarea class="description" placeholder="What do you think of this creation?"></textarea>
-								</div>
-								<button class="button-light">Post a Comment</button>
-							</div>
-
-						</article>
-						<comment></comment>
-					</div>
+						<comment :currentItemId="item._id"></comment>
 				</div>
 			</div>
 		</div>
@@ -101,6 +89,7 @@ export default {
 		return {
 			itemid: this.$route.params.itemid,
 			itemsList:[],
+			comments:[],
 			loaded: false,
 			fbUrl: '',
 			twUrl:'',
@@ -126,6 +115,11 @@ export default {
 			var hashtags ='reformlab, upcycle'
 			this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + hashtags + '&url=' + url
 		}
+	},
+	computed: {
+		curentUser() {
+      return this.$store.state.currentUser
+    }
 	}
 }
 </script>

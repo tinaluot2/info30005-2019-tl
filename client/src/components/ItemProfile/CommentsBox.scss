@@ -1,5 +1,11 @@
 @import "@/scss/global.scss";
 
+.comment-box {
+	border: 1px #eee solid;
+	padding: 30px 40px 0 40px;
+	border-radius: 3px;
+}
+
 .comment-container {
   margin-bottom: 40px;
   list-style: none;
@@ -22,4 +28,8 @@
 
 .comment-username {
   color: $body-color;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
 }

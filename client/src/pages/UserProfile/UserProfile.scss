@@ -45,10 +45,10 @@ p.status {
 .tip-text {
 	font-weight: normal;
 	position: absolute;
-	font-size: 11px;
+	font-size: 12px;
 	text-transform: none;
-	min-width: 100px;
-	width: 15vw;
+	min-width: 160px;
+	width: 5vw;
 	background-color: $body-color;
 	opacity: 0;
 	color: white;
@@ -62,7 +62,7 @@ p.status {
 
 .tip-icon:hover > .tip-text {
 	visibility: visible;
-	transition: opacity 0.2s linear;
+	transition: opacity 0.3s linear;
 	opacity: 0.9;
 }
 

@@ -1,0 +1,125 @@
+@import "../../scss/global.scss";
+
+.profile-box {
+	padding: 20px;
+	border: 1px $border-color;
+	text-align: center;
+	position: relative;
+}
+
+.profile-badge {
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 20px;
+}
+
+
+.badge-icon {
+	color: $primary-color;
+	font-size: 48px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 10px;
+	display: block;
+}
+
+p.status {
+	font-size: 11px;
+	font-weight: bold;
+	color: $primary-color;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.icon-background {
+	color: white;
+}
+
+.tip-icon {
+	margin-left: 1px;
+	font-size: 7px;
+	transform: translateY(-1px);
+	color: $light-grey;
+}
+
+.tip-text {
+	font-weight: normal;
+	position: absolute;
+	font-size: 11px;
+	text-transform: none;
+	min-width: 100px;
+	width: 15vw;
+	background-color: $body-color;
+	opacity: 0;
+	color: white;
+	border-radius: 3px;
+	padding: 7px;
+	margin: 0 5px;
+	z-index: 99;
+	visibility: hidden;
+	transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
+.tip-icon:hover > .tip-text {
+	visibility: visible;
+	transition: opacity 0.2s linear;
+	opacity: 0.9;
+}
+
+h1.profile-name {
+	font-size: 18px;
+	font-weight: bold;
+	color: $body-color;
+	margin-bottom: 10px;
+}
+
+h3#about {
+	color: $primary-color;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.about-description {
+	word-wrap: break-word;
+	margin-bottom: 10px;
+}
+
+//Edit
+.edit-icon-wrapper {
+	position: absolute;
+	padding: 10px;
+	top: 10px;
+	right: 10px;
+	transition: all 0.3ms ease;
+
+	&:hover, &:focus {
+		cursor: pointer;
+		transition: all 0.3ms ease;
+		color: $primary-color;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.profile-img {
+		width: 150px;
+		height: 150px;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.profile-box {
+		box-shadow: $box-drop-shadow;
+		padding: $margin 20px;
+		background-color: $card-color;
+		min-width: 252px;
+		min-height: 252px;
+		max-height: 500px;
+		margin-right: $margin;
+	}
+
+	.profile-img {
+		width: 180px;
+    height: 180px;
+	}
+}

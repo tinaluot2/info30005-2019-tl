@@ -24,7 +24,7 @@
 			<div class="card-footer-item">
 				<div class="icon-button-wrapper like-button"
 				@click="likeItem()"
-				v-bind:class="{liked:item.isLiked}">
+				v-bind:class="{}">
 						<i class="material-icons md-16">thumb_up</i>
 				</div>
 				<div class="like-count">
@@ -33,7 +33,7 @@
 			</div>
 			<div class="card-footer-item">
 				<span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
-			v-bind:class="{bookmarked:item.isBookmarked || isBookmarked}">
+			v-bind:class="{bookmarked:isBookmarked}">
 					<div v-if="loadingBookmarks" class="lds-ring"><div></div><div></div><div></div><div></div></div>
 					<i v-if="!loadingBookmarks" class="material-icons md-16">bookmark</i>
 				</span>

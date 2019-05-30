@@ -9,7 +9,7 @@
 
       <div class="media-content">
         <div class="field">
-          <textarea v-model="newComment" class="description" placeholder="What do you think of this creation?"></textarea>
+          <textarea v-model="newComment" class="description" placeholder="Share your thoughts!"></textarea>
         </div>
         <button :disabled="newComment==''" class="button-light" @click="postComment">Post a Comment</button>
       </div>
@@ -34,7 +34,7 @@
 
 <script>
 import apiService from '@/apiService'
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 export default {
   name: 'comment',
@@ -52,12 +52,12 @@ export default {
 	},
 	methods: {
 		formatDate(date) {
-			return moment(date).startOf('day').fromNow()
+			return moment(date).tz("Australia/Melbourne").fromNow()
     },
     getComments(){
       apiService.getItemComments(this.currentItemId)
         .then((data) => {
-          this.comments = data;
+          this.comments = data.reverse();
       })
     },
     postComment(){
@@ -66,14 +66,18 @@ export default {
         "datePosted": new Date(),
         "text": this.newComment
       }
-			apiService.postComment(this.currentItemId, newComment)
-		}
+      apiService.postComment(this.currentItemId, newComment)
+        .then(
+          this.getComments(),
+          this.newComment = "" //reset comments box
+        )
+    }
   },
   computed: {
 		currentUser() {
       return this.$store.state.currentUser
     }
-	}
+  }
 }
 </script>
 

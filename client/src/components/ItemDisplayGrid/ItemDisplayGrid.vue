@@ -26,7 +26,7 @@ export default {
 	mounted() {
 		apiService.getItems()
 		.then((data) => {
-			this.itemsList = data
+			this.itemsList = data.reverse()
 			this.$emit('loaded')
 		})
 	}

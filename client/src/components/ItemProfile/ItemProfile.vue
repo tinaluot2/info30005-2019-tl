@@ -79,7 +79,8 @@
 <script>
 import apiService from '@/apiService'
 import CommentsBox from './CommentsBox'
-import moment from 'moment'
+import moment from 'moment-timezone'
+
 export default {
 	name: 'item-profile',
 	components: {
@@ -104,7 +105,7 @@ export default {
 	},
 	methods: {
 		formatDate(date) {
-			return moment(date).startOf('day').fromNow()
+			return moment(date).tz("Australia/Melbourne").fromNow()
 		},
 		share(itemTitle) {
 			var url = encodeURIComponent(location.href)

@@ -87,7 +87,6 @@ router.post('/', upload.array('images', 10), (req, res, next) => {
 
   var current_date = new Date();
   const item = new Item({
-    itemID: new mongoose.Types.ObjectId(),
     itemTitle: req.body.itemTitle,
   	creatorID: req.body.creatorID,
   	creatorName: req.body.creatorName,
@@ -163,7 +162,7 @@ router.delete('/:itemId', (req, res, next) => {
 
 // search item with itemId
 router.get('/search/:itemId', (req, res, next) => {
-    const id = mongoose.Types.ObjectId(req.params.itemID);
+    const id = mongoose.Types.ObjectId(req.params.itemId);
 
     Item.findById(id)
         .exec()
@@ -187,7 +186,7 @@ router.get('/search/:itemId', (req, res, next) => {
 router.post('/comments/:itemId', (req, res, next) => {
   const id = req.params.itemId;
 
-  Item.update({"itemId": id}, {$push: {"comments": {
+  Item.update({_id: id}, {$push: {"comments": {
     "user": req.body.comments.user,
     "datePosted": req.body.comments.datePosted,
     "text": req.body.comments.text}}})
@@ -229,6 +228,5 @@ router.get('/:itemId/comments', (req, res, next) => {
         res.status(500).json({error: err});
     });
 });
-
 
 module.exports = router;

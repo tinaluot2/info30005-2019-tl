@@ -1,8 +1,6 @@
 <template>
 <div>
-	<div class="animation-wrapper" v-if="!loaded">
-		<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-	</div>
+	<loader v-if="!loaded"/>
 	<div v-show="loaded">
 		<DiscoverBanner />
 		<SearchBar />
@@ -16,12 +14,15 @@ import DiscoverBanner from '@/components/DiscoverBanner/DiscoverBanner'
 import ItemDisplayGrid from '@/components/ItemDisplayGrid/ItemDisplayGrid'
 import SearchBar from "@/components/SearchBar/SearchBar";
 import { bus } from '@/main'
+import PageLoader from '@/components/AnimatedLoaders/PageLoader'
+
 export default {
 	name: 'DiscoverPage',
 		components: {
 			DiscoverBanner,
 			ItemDisplayGrid,
 			SearchBar,
+			'loader': PageLoader
 		},
 		data() {
 			return {

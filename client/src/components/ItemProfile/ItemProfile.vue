@@ -1,8 +1,6 @@
 <template>
 <div class="background nav-spacing">
-	<div class="animation-wrapper" v-if="!loaded">
-		<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-	</div>
+	<loader v-if="!loaded"/>
 	<div v-for="item in itemsList" v-bind:key="item._id">
 		<div v-if="itemid == item._id">
 			<div class="container">
@@ -80,11 +78,13 @@
 import apiService from '@/apiService'
 import CommentsBox from './CommentsBox'
 import moment from 'moment-timezone'
+import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
 export default {
 	name: 'item-profile',
 	components: {
-		comment: CommentsBox
+		comment: CommentsBox,
+		loader: PageLoader
 	},
 	data (){
 		return {

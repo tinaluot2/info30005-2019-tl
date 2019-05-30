@@ -1,10 +1,8 @@
 <template>
 	<div class="background nav-spacing">
-		<div class="animation-wrapper" v-if="loading">
-			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-		</div>
+		<loader v-if="loading"></loader>
 		<div class="container">
-			<div class="white-card-bg">
+			<div class="white-card-bg" v-if="!loading">
 				<h1 class="page-header"><span class="logotype">Reform </span>Leaderboard</h1>
 			<div class="two-column leaderboard">
 				<div id="most-projects" class="column">
@@ -61,61 +59,65 @@
 </template>
 
 <script>
-    import apiService from '@/apiService'
+	import apiService from '@/apiService'
+	import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
-    export default {
-			name: 'LeaderBoard',
-			data() {
-				return {
-					usersList: [],
-					itemsList: [],
-					loading: true,
-				}
-			},
-			mounted() {
-				apiService.getUserProfile().then((data) => {
-					this.loading = false
-					this.usersList = data
-				});
-				apiService.getItemProfile().then((data) => {
-					this.loading = false
-					this.itemsList = data
-				});
-			},
-			methods:{
-				//sourced from https://stackoverflow.com/questions/21776389/javascript-object-grouping
-				groupBy(collection, property) {
-					let i = 0, val, index,
-					values = [], result = [];
-						for (; i < collection.length; i++) {
-							val = collection[i][property];
-							index = values.indexOf(val);
-							if (index > -1)
-								result[index].push(collection[i]);
-							else {
-								values.push(val);
-								result.push([collection[i]]);
-							}
-						}
-					return result;
-				}
-			},
-			computed: {
-				sortByProjects(){
-					//sort in descending order by grouping by number of projects by a user
-					const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
-					groupedByCreator.sort((a, b) => b.length - a.length);
-					return(groupedByCreator);
-				},
-				sortByLikes(){
-					const items = this.itemsList
-					items.sort((a, b) => b.likeCount - a.likeCount);
-					return(items);
-				}
+	export default {
+		name: 'LeaderBoard',
+		components: {
+			'loader': PageLoader
+		},
+		data() {
+			return {
+				usersList: [],
+				itemsList: [],
+				loading: true,
 			}
-    }
+		},
+		mounted() {
+			apiService.getUserProfile().then((data) => {
+				this.loading = false
+				this.usersList = data
+			});
+			apiService.getItemProfile().then((data) => {
+				this.loading = false
+				this.itemsList = data
+			});
+		},
+		methods:{
+			//sourced from https://stackoverflow.com/questions/21776389/javascript-object-grouping
+			groupBy(collection, property) {
+				let i = 0, val, index,
+				values = [], result = [];
+					for (; i < collection.length; i++) {
+						val = collection[i][property];
+						index = values.indexOf(val);
+						if (index > -1)
+							result[index].push(collection[i]);
+						else {
+							values.push(val);
+							result.push([collection[i]]);
+						}
+					}
+				return result;
+			}
+		},
+		computed: {
+			sortByProjects(){
+				//sort in descending order by grouping by number of projects by a user
+				const groupedByCreator = this.groupBy(this.itemsList, "creatorName");
+				groupedByCreator.sort((a, b) => b.length - a.length);
+				return(groupedByCreator);
+			},
+			sortByLikes(){
+				const items = this.itemsList
+				items.sort((a, b) => b.likeCount - a.likeCount);
+				return(items);
+			}
+		}
+	}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 	@import "./LeaderBoard.scss";
 </style>

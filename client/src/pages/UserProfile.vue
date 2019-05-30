@@ -1,8 +1,6 @@
 <template>
 	<div class="background nav-spacing">
-		<div class="animation-wrapper" v-if="loading">
-			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-		</div>
+		<loader v-if="!loaded"/>
 		<div v-for="user in usersList" v-bind:key="user._id">
 			<div v-if="username == user.username">
 				<div class="container">
@@ -31,11 +29,13 @@
 <script>
 import ItemCard from '@/components/ItemCard/ItemCard'
 import apiService from '@/apiService'
+import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
 export default {
 	name: 'UserProfile',
 	components: {
-			'item-card': ItemCard
+			'item-card': ItemCard,
+			loader: PageLoader
 	},
 	data() {
 		return {

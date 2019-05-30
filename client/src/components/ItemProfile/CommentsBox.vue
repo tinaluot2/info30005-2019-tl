@@ -1,50 +1,58 @@
 <template>
   <div class="comment-box">
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-48x48">
-          <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-        </p>
-      </figure>
+    <loader v-if="!loaded"/>
+    <div v-if="loaded">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-48x48">
+            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
+          </p>
+        </figure>
 
-      <div class="media-content">
-        <div class="field">
-          <textarea v-model="newComment" class="description" placeholder="Share your thoughts!"></textarea>
+        <div class="media-content">
+          <div class="field">
+            <textarea v-model="newComment" class="description" placeholder="Share your thoughts!"></textarea>
+          </div>
+          <button :disabled="newComment==''" class="button-light" @click="postComment">Post a Comment</button>
         </div>
-        <button :disabled="newComment==''" class="button-light" @click="postComment">Post a Comment</button>
-      </div>
+      </article>
 
-    </article>
-    <li class="comment-container" v-for="(comment, index) in comments" :key="index">
-      <div class="comment-avatar">
-        <p class="image is-48x48">
-          <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-        </p>
-      </div>
-      <div class="comment-details">
-        <router-link v-bind:to="`/user/${comment.user}`"><a class="comment-username bold">{{comment.user}}</a></router-link>
-        <span class="comment-date">{{formatDate(comment.datePosted)}}</span>
-        <div class="comment-text">
-          {{comment.text}}
+      <li class="comment-container" v-for="(comment, index) in comments" :key="index">
+        <div class="comment-avatar">
+          <p class="image is-48x48">
+            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
+          </p>
         </div>
-      </div>
-    </li>
+        <div class="comment-details">
+          <router-link v-bind:to="`/user/${comment.user}`"><a class="comment-username bold">{{comment.user}}</a></router-link>
+          <span class="comment-date">{{formatDate(comment.datePosted)}}</span>
+          <div class="comment-text">
+            {{comment.text}}
+          </div>
+        </div>
+      </li>
+    </div>
   </div>
 </template>
 
 <script>
 import apiService from '@/apiService'
 import moment from 'moment-timezone'
+import DivLoader from '@/components/AnimatedLoaders/DivLoader'
 
 export default {
   name: 'comment',
+  components: {
+    loader: DivLoader
+  },
   props: {
     currentItemId: String
   },
 	data (){
 		return {
       newComment: "",
-      comments: []
+      comments: [],
+      loaded: true
 		}
 	},
 	mounted() {
@@ -55,9 +63,11 @@ export default {
 			return moment(date).tz("Australia/Melbourne").fromNow()
     },
     getComments(){
+      this.loaded = false
       apiService.getItemComments(this.currentItemId)
         .then((data) => {
           this.comments = data.reverse();
+          this.loaded = true
       })
     },
     postComment(){

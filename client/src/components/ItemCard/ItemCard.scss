@@ -67,6 +67,10 @@
   }
 }
 
+.card-footer-item {
+  padding-top: 3px!important;
+}
+
 .card-content {
   padding: 12px!important;
 }
@@ -101,6 +105,7 @@
     display: inline-block;
     font-size: 11px;
     text-transform: lowercase;
+    margin-top: 15px;
     margin-right: 4px;
 
     &:hover {

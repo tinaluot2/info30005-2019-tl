@@ -9,24 +9,21 @@
 					<div class="two-column">
 						<div class="profile-box">
 								<div>
-									<div v-if="userPosts.length <=10">
-										<span class="fa-stack fa-4x badge">
-											<i class="fas fa-circle fa-stack-2x icon-background"></i>
-											<i class="fas fa-seedling fa-stack-1x badgeicon"></i>
+									<div v-if="userPosts.length < 5">
+										<span class="fa-stack fa-4x profile-badge">
+											<i class="fas fa-seedling fa-stack-1x badge-icon"></i>
 										</span>
 									</div>
 
-									<div v-else-if="11 <= userPosts.length <=20" >
-										<span class="fa-stack fa-4x badge">
-											<i class="fas fa-circle fa-stack-2x icon-background"></i>
-											<i class="fas fa-leaf fa-stack-1x badgeicon"></i>
+									<div v-else-if="5 < userPosts.length < 10">
+										<span class="fa-stack fa-4x profile-badge">
+											<i class="fas fa-leaf fa-stack-1x badge-icon"></i>
 										</span>
 									</div>
 
-									<div v-else-if="21 <=userPosts.length" >
-										<span class="fa-stack fa-4x badge">
-											<i class="fas fa-circle fa-stack-2x icon-background"></i>
-											<i class="fas fa-tree fa-stack-1x badgeicon"></i>
+									<div v-else-if="11 < userPosts.length">
+										<span class="fa-stack fa-4x profile-badge">
+											<i class="fas fa-tree fa-stack-1x badge-icon"></i>
 										</span>
 									</div>
 

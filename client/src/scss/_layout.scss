@@ -2,10 +2,22 @@
     padding: 20px;
 }
 
+.white-card-bg {
+	padding: 20px;
+	margin: 0 auto;
+	background-color: white;
+	box-shadow: $box-drop-shadow;
+}
+
 @media screen and (min-width: 768px) {
     .page-container {
         padding: $margin $page-margin;
-    }
+	}
+
+	.white-card-bg {
+		padding: 50px;
+		margin: $margin $page-margin;
+	}
 }
 
 .content-wrapper {

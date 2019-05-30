@@ -10,6 +10,7 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 import Error from '@/pages/ErrorPage'
 import LoginPage from '@/pages/LoginPage'
+import LeaderBoard from '@/pages/LeaderBoard/LeaderBoard'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -72,6 +73,10 @@ export const router = new VueRouter({
 			meta: {
 					guest: true
 			}
+		},
+		{
+			path: '/leaderboard',
+			component: LeaderBoard
 		}
 	]
 })
@@ -101,4 +106,3 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-

@@ -28,7 +28,11 @@ class apiService {
     const requestUrl = `${url}users/${userId}/bookmarks`;
     return axios.get(requestUrl)
   }
-
+  static deleteBookmark(user, id){
+    const requestUrl = `${url}users/removebookmark/${user}`;
+    return axios.post(requestUrl, {itemId: id}).then();
+  }
+  
   //Users
   static createUser(newUser){
     return axios.post(url + 'userSignup/signup', newUser);

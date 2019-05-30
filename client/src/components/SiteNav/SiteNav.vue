@@ -16,6 +16,9 @@
 
 					<router-link to="/discover" class="navbar-item">Discover</router-link>
 
+					<router-link to="/leaderboard" class="navbar-item">Leaderboard</router-link>
+
+
 					<router-link to="/login" v-if="!isLoggedIn" class="navbar-item button-no-background"><button class="button-light" @click="toggleNav">Login</button></router-link>
 
 					<a class="navbar-item button-no-background" v-if="!isLoggedIn" ><button class="button-dark" @click="toggleSignUp() + toggleNav()">Sign Up</button></a>

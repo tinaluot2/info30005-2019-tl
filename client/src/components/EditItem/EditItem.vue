@@ -3,7 +3,7 @@
 		<div v-for="item in itemsList" v-bind:key="item._id">
 			<div v-if="itemid == item._id">
 				<div class="container">
-					<form class="upload-form">
+					<form class="white-card-bg" id="edit-form">
 						<h1 class="page-header">Edit Your Project</h1>
 
 							<div class="form-section">

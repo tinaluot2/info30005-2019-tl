@@ -4,55 +4,56 @@
 		<div class="container">
 			<div class="white-card-bg" v-if="!loading">
 				<h1 class="page-header"><span class="logotype">Reform </span>Leaderboard</h1>
-			<div class="two-column leaderboard">
-				<div id="most-projects" class="column">
-					<h2 class="leaderboard-title"><i class="fab fa-pagelines"></i>Most Passionate Reformers</h2>
-					<table id="leaderboard">
-						<tr>
-							<th>Rank</th>
-							<th>Reformer</th>
-							<th># of Creations</th>
-						</tr>
+				<div class="two-column leaderboard">
+					<div id="most-projects" class="column">
+						<h2 class="leaderboard-title"><i class="fab fa-pagelines"></i>Most Passionate Reformers</h2>
+						<table id="leaderboard">
+							<tr>
+								<th>Rank</th>
+								<th>Reformer</th>
+								<th># of Creations</th>
+							</tr>
 
-						<tr v-for="(rank, index) in sortByProjects.slice(0, 5)" v-bind:key="index">
-							<td>{{index + 1}}</td>
-							<td>
-								<router-link :to="'/user/' + rank[0].creatorName">
-									{{rank[0].creatorName}}
-								</router-link>
-							</td>
-							<td>{{rank.length}}</td>
-						</tr>
+							<tr v-for="(rank, index) in sortByProjects.slice(0, 5)" v-bind:key="index">
+								<td>{{index + 1}}</td>
+								<td>
+									<router-link :to="'/user/' + rank[0].creatorName">
+										{{rank[0].creatorName}}
+									</router-link>
+								</td>
+								<td>{{rank.length}}</td>
+							</tr>
 
-					</table>
+						</table>
+					</div>
+					<div id="most-likes" class="column">
+						<h2 class="leaderboard-title"><i class="fab fa-pagelines"></i>Most Popular Projects</h2>
+						<table id="leaderboard">
+							<tr>
+								<th>Rank</th>
+								<th>Project</th>
+								<th>Reformer</th>
+								<th># of Likes</th>
+							</tr>
+
+							<tr v-for= " (items, index) in sortByLikes.slice(0, 5)" v-bind:key="index">
+								<td>{{index + 1}}</td>
+								<td>
+									<router-link :to="'/item/' + items._id">
+										{{items.itemTitle}}
+									</router-link>
+								</td>
+								<td>
+									<router-link :to="'/user/' + items.creatorName">
+										{{items.creatorName}}
+									</router-link>
+								</td>
+								<td>{{items.likeCount}}</td>
+							</tr>
+
+						</table>
+					</div>
 				</div>
-				<div id="most-likes" class="column">
-							<h2 class="leaderboard-title"><i class="fab fa-pagelines"></i>Most Popular Projects</h2>
-							<table id="leaderboard">
-								<tr>
-									<th>Rank</th>
-									<th>Project</th>
-									<th>Reformer</th>
-									<th># of Likes</th>
-								</tr>
-
-								<tr v-for= " (items, index) in sortByLikes.slice(0, 5)" v-bind:key="index">
-									<td>{{index + 1}}</td>
-									<td>
-										<router-link :to="'/item/' + items._id">
-											{{items.itemTitle}}
-										</router-link>
-									</td>
-									<td>
-										<router-link :to="'/user/' + items.creatorName">
-											{{items.creatorName}}
-										</router-link>
-									</td>
-									<td>{{items.likeCount}}</td>
-								</tr>
-
-							</table></div>
-			</div>
 			</div>
 		</div>
 	</div>

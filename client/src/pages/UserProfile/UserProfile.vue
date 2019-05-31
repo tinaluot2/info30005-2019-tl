@@ -1,12 +1,10 @@
 <template>
 	<div class="background nav-spacing">
-		<div class="animation-wrapper" v-if="loading">
-			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-		</div>
+		<loader v-if="!loaded"/>
 		<div v-for="user in usersList" v-bind:key="user._id">
 			<div v-if="username == user.username">
 				<div class="container">
-					<div class="two-column">
+					<div class="two-column" v-if="loaded">
 						<div class="profile-box">
 							<span class="edit-icon-wrapper" v-if="currentUser._id == user._id">
 								<router-link to="/settings"><i class="material-icons md-18">edit</i></router-link>
@@ -33,16 +31,15 @@
 								</span>
 							</p>
 
-							<h3 id="about">Location</h3>
+							<h3 v-if="!isEmpty(user.location)" id="about">Location</h3>
 							<p class="about-description">{{user.location}}</p>
 
-							<h3 id="about">About</h3>
+							<h3 v-if="!isEmpty(user.description)" id="about">About</h3>
 							<p class="about-description">{{user.description}}</p>
 						</div>
 
 						<div class="grid-container profile-grid">
 							<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item"></item-card>
-						</div>
 						</div>
 					</div>
 				</div>
@@ -54,19 +51,20 @@
 <script>
 import ItemCard from '@/components/ItemCard/ItemCard'
 import apiService from '@/apiService'
+import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
 export default {
 	name: 'UserProfile',
 	components: {
-			'item-card': ItemCard
+			'item-card': ItemCard,
+			'loader': PageLoader
 	},
 	data() {
 		return {
-			//test data
+			loaded: false,
 			username: this.$route.params.username,
 			usersList: [],
 			itemsList: [],
-			loading: true,
 			sprout: 0,
 			status: {
 				sprout: { title: "Sprout", count: 0},
@@ -77,13 +75,19 @@ export default {
 	},
 	mounted() {
 		apiService.getUserProfile().then((data) => {
-			this.loading = false
+			this.loaded = true
 			this.usersList = data
 		}),
 		apiService.getItemProfile().then((data) => {
-			this.loading = false
+			this.loaded = true
 			this.itemsList = data
 		})
+	},
+	methods: {
+		//sourced from https://stackoverflow.com/questions/154059/how-to-check-empty-undefined-null-string-in-javascript
+		isEmpty(str) {
+			return (!str || 0 === str.toString().length)
+		}
 	},
 	computed: {
 		currentUser() {
@@ -117,5 +121,4 @@ export default {
 
 <style lang="scss">
 @import "./UserProfile.scss";
-@import "@/scss/_animation.scss";
 </style>

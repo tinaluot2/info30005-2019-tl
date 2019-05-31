@@ -76,16 +76,26 @@ export default {
         "datePosted": new Date(),
         "text": this.newComment
       }
+      this.loaded = false
       apiService.postComment(this.currentItemId, newComment)
-        .then(
-          this.getComments(),
-          this.newComment = "" //reset comments box
+          .then(
+            setTimeout(() => {
+              this.getComments(),
+              //reset comments box
+              this.newComment = ""
+            }, 1000
+            )
         )
     }
   },
   computed: {
 		currentUser() {
       return this.$store.state.currentUser
+    },
+    //referenced from
+    //https://stackoverflow.com/questions/38956121/how-to-add-delay-to-promise-inside-then
+    sleeper(ms) {
+      return (x) => new Promise(resolve => setTimeout(() => resolve(x), ms))
     }
   }
 }

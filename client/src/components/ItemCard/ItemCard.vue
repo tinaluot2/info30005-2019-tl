@@ -22,18 +22,20 @@
 
 		<footer class="card-footer">
 			<div class="card-footer-item">
-				<div class="icon-button-wrapper like-button"
+				<span class="icon-button-wrapper like-button"
 				@click="likeItem()"
-				v-bind:class="{liked:item.isLiked}">
-						<i class="material-icons md-16">thumb_up</i>
-				</div>
+				v-bind:class="{liked:isLiked}">
+					<div v-if="loadingLikes" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+					<i v-if="!loadingLikes" class="material-icons md-16">thumb_up</i>
+				</span>
 				<div class="like-count">
 					{{item.likeCount}}
 				</div>
 			</div>
+
 			<div class="card-footer-item">
 				<span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
-			v-bind:class="{bookmarked:item.isBookmarked || isBookmarked}">
+			v-bind:class="{bookmarked:isBookmarked}">
 					<div v-if="loadingBookmarks" class="lds-ring"><div></div><div></div><div></div><div></div></div>
 					<i v-if="!loadingBookmarks" class="material-icons md-16">bookmark</i>
 				</span>
@@ -50,7 +52,9 @@ export default {
 	data () {
 		return {
 			bookmarks:[],
-			loadingBookmarks: false
+			likes: [],
+			loadingBookmarks: false,
+			loadingLikes : false
 		}
 	},
 	props: {
@@ -67,21 +71,14 @@ export default {
 				this.loadingBookmarks = false
 			})
 		},
-		likeItem() {
-			if (!this.isLoggedIn){
-				this.$router.push(this.$route.query.redirect || '/login')
-			}
-			else {
-				this.item.isLiked = !this.item.isLiked;
-				if (!this.item.isLiked) {
-						this.item.likeCount--;
-				}
-				else {
-						this.item.likeCount++;
-				}
-			}
+		getLikes(){
+			apiService.getLikes(this.currentUser._id)
+			.then((data) => {
+				this.likes = data.data
+				this.loadingLikes = false
+			})
 		},
-		bookmarkItem() {
+		bookmarkItem(){
 			if (!this.isLoggedIn){
 				this.$router.push(this.$route.query.redirect || '/login')
 			}
@@ -101,10 +98,32 @@ export default {
 						})
 				}
 			}
+		},
+		likeItem(){
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
+			}
+			else {
+				if (!this.isLiked) {
+					this.loadingLikes = true
+					apiService.postLike(this.item._id, this.currentUser.username)
+						.then(() => {
+							this.getLikes()
+						})
+				}
+				else if (this.isLiked) {
+					this.loadingLikes = true
+					apiService.deleteLike(this.currentUser.username, this.item._id)
+						.then(()=>{
+							this.getLikes()
+						})
+				}
+			}
 		}
 	},
 	mounted() {
-		this.getBookmarks()
+		this.getBookmarks(),
+		this.getLikes()
 	},
 	computed: {
 		isLoggedIn(){
@@ -115,6 +134,9 @@ export default {
 		},
 		isBookmarked(){
 			return this.bookmarks.includes(this.item._id)
+		},
+		isLiked() {
+			return this.likes.includes(this.item._id)
 		}
 	}
 }

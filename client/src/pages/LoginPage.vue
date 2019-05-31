@@ -56,7 +56,7 @@ export default {
 		},
 		resetValues() {
 			var self = this;
-			Object.keys(this.userDetails).forEach(function(key) {
+			Object.keys(this.userDetails).forEach(key => {
 					self.userDetails[key] = '';
 			})
 		},

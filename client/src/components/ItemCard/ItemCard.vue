@@ -28,8 +28,8 @@
 					<div v-if="loadingLikes" class="lds-ring"><div></div><div></div><div></div><div></div></div>
 					<i v-if="!loadingLikes" class="material-icons md-16">thumb_up</i>
 				</span>
-				<div class="like-count">
-					{{item.likeCount}}
+				<div v-if="!loadingLikes" class="like-count">
+					{{countLikes()}}
 				</div>
 			</div>
 
@@ -59,9 +59,10 @@ export default {
 	},
 	props: {
 		item: {
-				type: Object,
-				required: true
+			type: Object,
+			required: true
 		},
+		users: { type: Array }
 	},
 	methods: {
 		getBookmarks(){
@@ -86,16 +87,16 @@ export default {
 				if (!this.isBookmarked) {
 					this.loadingBookmarks = true
 					apiService.postBookmark(this.item._id, this.currentUser.username)
-						.then(() => {
-							this.getBookmarks()
-						})
+					.then(() => {
+						this.getBookmarks()
+					})
 				}
 				else if (this.isBookmarked) {
 					this.loadingBookmarks = true
 					apiService.deleteBookmark(this.currentUser.username, this.item._id)
-						.then(()=>{
-							this.getBookmarks()
-						})
+					.then(()=>{
+						this.getBookmarks()
+					})
 				}
 			}
 		},
@@ -107,18 +108,27 @@ export default {
 				if (!this.isLiked) {
 					this.loadingLikes = true
 					apiService.postLike(this.item._id, this.currentUser.username)
-						.then(() => {
-							this.getLikes()
-						})
+					.then(() => {
+						this.getLikes()
+					})
 				}
 				else if (this.isLiked) {
 					this.loadingLikes = true
 					apiService.deleteLike(this.currentUser.username, this.item._id)
-						.then(()=>{
-							this.getLikes()
-						})
+					.then(()=>{
+						this.getLikes()
+					})
 				}
 			}
+		},
+		countLikes() {
+			var likeCount = 0;
+			this.users.forEach(user => {
+				if (user.likes.includes(this.item._id)) {
+					likeCount++
+				}
+			})
+			return likeCount;
 		}
 	},
 	mounted() {

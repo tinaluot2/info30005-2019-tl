@@ -32,16 +32,13 @@ class apiService {
 
   static deleteBookmark(user, id){
     const requestUrl = `${url}users/removebookmark/${user}`;
-    return axios.post(requestUrl, {itemId: id}).then(
-    console.log('deleted'));
+    return axios.post(requestUrl, {itemId: id}).then();
   }
 
 //-------------------- LIKES --------------------//
   static postLike(id, user){
     const requestUrl = `${url}users/likes/${user}`;
-    return axios.post(requestUrl, {itemId: id}).then(res=>{
-      console.log(res.data)
-    });
+    return axios.post(requestUrl, {itemId: id}).then();
   }
 
   static getLikes(userId){

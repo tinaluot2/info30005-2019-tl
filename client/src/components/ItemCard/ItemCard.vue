@@ -29,7 +29,7 @@
 					<i v-if="!loadingLikes" class="material-icons md-16">thumb_up</i>
 				</span>
 				<div v-if="!loadingLikes" class="like-count">
-					{{countLikes()}}
+					{{countLikes() + likesClient}}
 				</div>
 			</div>
 
@@ -54,7 +54,8 @@ export default {
 			bookmarks:[],
 			likes: [],
 			loadingBookmarks: false,
-			loadingLikes : false
+			loadingLikes : false,
+			likesClient: 0
 		}
 	},
 	props: {
@@ -77,6 +78,7 @@ export default {
 			.then((data) => {
 				this.likes = data.data
 				this.loadingLikes = false
+				this.countLikes
 			})
 		},
 		bookmarkItem(){
@@ -106,6 +108,7 @@ export default {
 			}
 			else {
 				if (!this.isLiked) {
+					this.likesClient++
 					this.loadingLikes = true
 					apiService.postLike(this.item._id, this.currentUser.username)
 					.then(() => {
@@ -113,6 +116,7 @@ export default {
 					})
 				}
 				else if (this.isLiked) {
+					this.likesClient--
 					this.loadingLikes = true
 					apiService.deleteLike(this.currentUser.username, this.item._id)
 					.then(()=>{
@@ -122,18 +126,19 @@ export default {
 			}
 		},
 		countLikes() {
-			var likeCount = 0;
+			let likesCount = 0;
 			this.users.forEach(user => {
 				if (user.likes.includes(this.item._id)) {
-					likeCount++
+					likesCount++
 				}
 			})
-			return likeCount;
+			return likesCount
 		}
 	},
 	mounted() {
 		this.getBookmarks(),
-		this.getLikes()
+		this.getLikes(),
+		this.likesClient = this.item.likeCount
 	},
 	computed: {
 		isLoggedIn(){

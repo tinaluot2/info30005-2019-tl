@@ -108,7 +108,7 @@ export default {
 				return status
 			}
 			else if (status.postCount < this.status.tree.count) {
-				status.title = this.status.length.title
+				status.title = this.status.leaf.title
 				return status
 			}
 			else

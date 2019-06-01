@@ -3,11 +3,7 @@
     <loader v-if="!loaded"/>
     <div v-if="loaded">
       <article class="media">
-        <figure class="media-left">
-          <p class="image is-48x48">
-            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-          </p>
-        </figure>
+
         <div class="media-content">
           <div class="field">
              <textarea v-if="!isLoggedIn" :disabled="!isLoggedIn" v-model="newComment" class="description" placeholder="Login to share your thoughts!"></textarea>

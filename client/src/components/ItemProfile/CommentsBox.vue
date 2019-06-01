@@ -15,17 +15,25 @@
       </article>
 
       <li class="comment-container" v-for="(comment, index) in comments" :key="index">
-        <div class="comment-avatar">
-            <!-- Sprout -->
+        <!--<div class="comment-avatar">
+            &lt;!&ndash; Sprout &ndash;&gt;
             <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
-            <!-- Leaf -->
+            &lt;!&ndash; Leaf &ndash;&gt;
             <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
-            <!-- Tree -->
+            &lt;!&ndash; Tree &ndash;&gt;
             <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
 
-        </div>
+        </div>-->
         <div class="comment-details">
           <router-link v-bind:to="`/user/${comment.user}`"><a class="comment-username bold">{{comment.user}}</a></router-link>
+
+          <!-- Sprout -->
+          <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
+          <!-- Leaf -->
+          <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
+          <!-- Tree -->
+          <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
+
           <span class="comment-date">{{formatDate(comment.datePosted)}}</span>
           <div class="comment-text">
             {{comment.text}}

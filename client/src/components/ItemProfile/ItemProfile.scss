@@ -114,10 +114,8 @@ button.clicked {
 	}
 }
 
-.badge-icon {
+.badge-icon{
 	color: $primary-color;
-	font-size: 20px;
-	border-radius: 50%;
-	object-fit: cover;
-	display: block;
+	font-size: 12px;
+	padding-left: 4px;
 }

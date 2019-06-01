@@ -19,9 +19,10 @@
   flex-direction: column;
 }
 
- .badge-icon {
+ .badge-icon{
    color: $primary-color;
-   font-size: 20px;
+   font-size: 12px;
+   padding-left: 4px;
  }
 
 .comment-details {

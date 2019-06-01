@@ -25,7 +25,7 @@
 									<!-- Leaf -->
 									<div v-else-if="getStatus(item.creatorName).postCount < status.tree.count" class="fas fa-leaf badge-icon"></div>
 									<!-- Tree -->
-									<div v-else-if="getStatus(item.creatorName).postCount > status.tree.count" class="fas fa-tree badge-icon"></div>
+									<div v-else-if="getStatus(item.creatorName).postCount >= status.tree.count" class="fas fa-tree badge-icon"></div>
 								</div>
 							</router-link>
 						</div>

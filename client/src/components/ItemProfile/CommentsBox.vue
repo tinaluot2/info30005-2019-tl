@@ -32,7 +32,7 @@
           <!-- Leaf -->
           <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
           <!-- Tree -->
-          <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
+          <span v-else-if="getStatus(comment.user).postCount >= status.tree.count" class="fas fa-tree badge-icon"></span>
 
           <span class="comment-date">{{formatDate(comment.datePosted)}}</span>
           <div class="comment-text">

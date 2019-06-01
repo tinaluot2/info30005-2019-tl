@@ -71,14 +71,14 @@ class apiService {
   }
 
   static updateDetails(userId, details){
-    const requestUrl = `${url}users/${userId}`;
-    return axios.post(requestUrl, details).then(res => console.log(res))
+    const requestUrl = `../${url}users/${userId}`;
+    return axios.post(requestUrl, details).then(res => console.log(res.data))
   }
 
 //-------------------- COMMENTS --------------------//
   static postComment(id, comment){
     const requestUrl = `../${url}items/comments/${id}`;
-    return axios.post(requestUrl, {comments: comment}).then(res => 
+    return axios.post(requestUrl, {comments: comment}).then(res =>
       console.log(res.data));
   }
 

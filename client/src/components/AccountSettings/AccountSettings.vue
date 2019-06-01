@@ -1,31 +1,25 @@
 <template>
 	<div class="background nav-spacing">
-		<div v-for="user in usersList" v-bind:key="user._id">
-			<div v-if="user.username === currentUser.username">
-
-				<div class="container">
-					<div id="settings-form">
-						<h1 >Profile Settings</h1>
-						<div class="form-input">
-							<div class="form-label">Location</div>
-							<input class="form" type="text" v-model="user.location"/>
-						</div>
-
-						<div class="form-input">
-							<div class="form-label">About you</div>
-							<textarea class="description" name="description" v-model="user.description" ></textarea>
-						</div>
-
-						<button @click="update" class="button-dark spacing-not-last-child">Save</button>
-
-						<router-link to="/user">
-							<button class="button-light">Cancel</button>
-						</router-link>
-
-					</div>
+		<div class="container">
+			<div id="settings-form">
+				<h1 >Profile Settings</h1>
+				<div class="form-input">
+					<div class="form-label">Location</div>
+					<input class="form" type="text" v-model="location"/>
 				</div>
-			</div>
 
+				<div class="form-input">
+					<div class="form-label">About you</div>
+					<textarea class="description" name="description" v-model="about"></textarea>
+				</div>
+
+				<button @click="update" class="button-dark spacing-not-last-child">Save</button>
+
+				<router-link to="/user">
+					<button class="button-light">Cancel</button>
+				</router-link>
+
+			</div>
 		</div>
 	</div>
 
@@ -38,15 +32,13 @@
 		name: 'AccountSettings',
 		data() {
 			return {
-				usersList: [],
 				location: '',
 				about: ''
 			}
 		},
 		mounted() {
-			apiService.getUserProfile().then((data) => {
-				this.usersList = data
-			})
+			this.location = this.currentUser.location
+			this.about = this.currentUser.description
 		},
 		methods: {
 			update(){
@@ -54,7 +46,11 @@
 					location: this.location,
 					description: this.about
 				}
-				apiService.updateDetails(this.currentUser._id, details)
+				apiService.updateDetails(this.currentUser._id, details).then(
+					this.currentUser.location = this.location,
+					this.currentUser.description = this.about,
+					this.$router.push(this.$route.query.redirect || `/user/${this.currentUser.username}`)
+				)
 			}
 		},
 		computed: {

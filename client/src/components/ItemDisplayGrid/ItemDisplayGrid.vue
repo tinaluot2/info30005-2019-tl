@@ -29,14 +29,11 @@ export default {
 		.then((data) => {
 			this.itemsList = data.reverse()
 			this.$emit('loaded')
-			this.splitString()
 		}),
 		apiService.getUser()
 		.then((data) => {
 			this.usersList = data
 		})
-	},
-	methods: {
 	}
 }
 </script>

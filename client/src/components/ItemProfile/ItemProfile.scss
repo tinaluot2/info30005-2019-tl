@@ -94,10 +94,14 @@ span.button-icon {
 	margin-top: -10px;
 }
 
-span.clicked {
+button.clicked {
 	background: $primary-color;
 	color: $button-text;
 	border: $primary-color 1px solid;
+
+	&:hover, &:focus {
+		background-color: none;
+	}
 }
 
 .fab {

@@ -42,16 +42,18 @@
 					<div class="button-menu">
 						<button @click="likeItem" class="button-light spacing-not-last-child" v-bind:class="{clicked:isLiked}">
 							<span class="material-icons md-18 button-icon">thumb_up</span>
-							Like
+							<span v-if="!isLiked">Like</span>
+							<span v-else-if="isLiked">Liked</span>
 						</button>
 
-						<button class="button-light spacing-not-last-child">
+						<button @click="bookmarkItem" class="button-light spacing-not-last-child" v-bind:class="{clicked:isBookmarked}">
 							<span class="material-icons md-18 button-icon">bookmark</span>
-							Bookmark
+							<span v-if="!isBookmarked">Bookmark</span>
+							<span v-else-if="isBookmarked">Bookmarked</span>
 						</button>
 
 						<div id="social-share" class="right-align">
-							<button @click="likeItem" class="button-light spacing-not-last-child button-circle social">
+							<button class="button-light spacing-not-last-child button-circle social">
 								<a :href="fbUrl"
 								target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
 									<span class="fab fa-facebook-f"></span>
@@ -93,9 +95,11 @@ export default {
 			comments:[],
 			loaded: false,
 			loadingLikes: false,
+			loadingBookmarks: false,
 			fbUrl: '',
 			twUrl:'',
 			likes: [],
+			bookmarks: [],
 			likesClient: 0
 			}
 	},
@@ -105,6 +109,7 @@ export default {
 				this.loaded = true
 				this.itemsList = data
 				this.getLikes()
+				this.getBookmarks()
 
 		})
 	},
@@ -138,7 +143,6 @@ export default {
 					this.loadingLikes = true
 					apiService.postLike(this.itemid, this.currentUser.username).then(() => {
 						this.getLikes()
-						console.log('liked')
 					})
 				}
 				else if (this.isLiked) {
@@ -149,11 +153,40 @@ export default {
 					})
 				}
 			}
+		},
+		getBookmarks(){
+			apiService.getBookmarks(this.currentUser._id)
+			.then((data) => {
+				this.bookmarks = data.data
+				this.loadingBookmarks = false
+			})
+		},
+		bookmarkItem(){
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
+			}
+			else {
+				if (!this.isBookmarked) {
+					this.loadingBookmarks = true
+					apiService.postBookmark(this.itemid, this.currentUser.username).then(() => {
+						this.getBookmarks()
+					})
+				}
+				else if (this.isBookmarked) {
+					this.loadingBookmarks = true
+					apiService.deleteBookmark(this.currentUser.username, this.itemid).then(()=>{
+						this.getBookmarks()
+					})
+				}
+			}
 		}
 	},
 	computed: {
 		currentUser() {
       return this.$store.state.currentUser
+		},
+		isBookmarked(){
+			return this.bookmarks.includes(this.itemid)
 		},
 		isLiked() {
 			return this.likes.includes(this.itemid)

@@ -39,7 +39,7 @@
 						</div>
 
 						<div class="grid-container profile-grid">
-							<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item"></item-card>
+							<item-card v-for="item in userPosts" v-bind:key="item._id" :item="item" :users="usersList"></item-card>
 						</div>
 					</div>
 				</div>

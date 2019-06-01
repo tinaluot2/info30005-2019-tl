@@ -1,8 +1,17 @@
 @import "../../scss/global";
 
 .navbar-item {
-	padding: 5px;
+	padding: 3px 10px;
 	font-size: 13px;
+	text-transform: none;
+}
+
+.navbar-link {
+	color: $primary-color;
+}
+
+.navbar-link::after {
+	border-color: $light-grey!important;
 }
 
 .navbar {

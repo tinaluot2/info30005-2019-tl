@@ -20,34 +20,34 @@ class apiService {
 
 //-------------------- BOOKMARKS --------------------//
   static postBookmark(id, user){
-    const requestUrl = `${url}users/bookmarks/${user}`;
+    const requestUrl = `../${url}users/bookmarks/${user}`;
     return axios.post(requestUrl, {itemId: id}).then(res=>{
     });
   }
 
   static getBookmarks(userId){
-    const requestUrl = `${url}users/${userId}/bookmarks`;
+    const requestUrl = `../${url}users/${userId}/bookmarks`;
     return axios.get(requestUrl)
   }
 
   static deleteBookmark(user, id){
-    const requestUrl = `${url}users/removebookmark/${user}`;
+    const requestUrl = `../${url}users/removebookmark/${user}`;
     return axios.post(requestUrl, {itemId: id}).then();
   }
 
 //-------------------- LIKES --------------------//
   static postLike(id, user){
-    const requestUrl = `${url}users/likes/${user}`;
+    const requestUrl = `../${url}users/likes/${user}`;
     return axios.post(requestUrl, {itemId: id}).then();
   }
 
   static getLikes(userId){
-    const requestUrl = `${url}users/${userId}/likes`;
+    const requestUrl = `../${url}users/${userId}/likes`;
     return axios.get(requestUrl)
   }
 
   static deleteLike(user, id){
-    const requestUrl = `${url}users/removelike/${user}`;
+    const requestUrl = `../${url}users/removelike/${user}`;
     return axios.post(requestUrl, {itemId: id}).then();
   }
 

@@ -7,7 +7,7 @@
 			<div v-show="loaded">
 				<h1 class="page-header">Bookmarks</h1>
 				<div class="grid-container site-wide">
-					<item-card v-for="item in userBookmarks" v-bind:key="item._id" :item="item"></item-card>
+					<item-card v-for="item in userBookmarks" v-bind:key="item._id" :item="item" :users="usersList"></item-card>
 				</div>
 			</div>
 
@@ -27,6 +27,7 @@ import apiService from '@/apiService'
 		data() {
 			return {
 				itemsList: [],
+				usersList: [],
 				userBookmarks: [],
 				loaded: false
 			}
@@ -38,6 +39,9 @@ import apiService from '@/apiService'
 					this.userBookmarks = this.itemsList.filter(item => res.data.includes(item._id));
 					this.loaded = true;
 				});
+			}),
+			apiService.getUser().then((data) => {
+				this.usersList = data
 			})
 		},
 		computed: {

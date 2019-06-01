@@ -13,9 +13,9 @@
 							<!-- Sprout -->
 							<div v-if="getStatus.postCount < status.leaf.count" class="fas fa-seedling badge-icon"></div>
 							<!-- Leaf -->
-							<div v-else-if="getStatus.postCount < status.tree.count" class="fas fa-seedling badge-icon"></div>
+							<div v-else-if="getStatus.postCount < status.tree.count" class="fas fa-leaf badge-icon"></div>
 							<!-- Tree -->
-							<div v-else-if="getStatus.postCount > status.tree.count" class="fas fa-seedling badge-icon"></div>
+							<div v-else-if="getStatus.postCount > status.tree.count" class="fas fa-tree badge-icon"></div>
 
 							<h1 class="profile-name">{{user.username}}</h1>
 							<p class="status">

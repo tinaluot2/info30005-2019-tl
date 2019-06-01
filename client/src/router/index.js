@@ -99,8 +99,8 @@ router.beforeEach((to, from, next) => {
       next()
       return
 		}
-		//redirect to user profile
-    next('/user/' + store.state.currentUser.username)
+		// //redirect to user profile
+    // next('/user/' + store.state.currentUser.username)
 	}
 	else {
     next()

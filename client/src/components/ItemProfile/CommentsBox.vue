@@ -11,9 +11,11 @@
 
         <div class="media-content">
           <div class="field">
-            <textarea v-model="newComment" class="description" placeholder="Share your thoughts!"></textarea>
+             <textarea v-if="!isLoggedIn" :disabled="!isLoggedIn" v-model="newComment" class="description" placeholder="Login to share your thoughts!"></textarea>
+            <textarea v-else-if="isLoggedIn" v-model="newComment" class="description" placeholder="Share your thoughts!"></textarea>
           </div>
-          <button :disabled="newComment==''" class="button-light" @click="postComment">Post a Comment</button>
+          <button v-if="isLoggedIn" :disabled="newComment==''" class="button-light" @click="postComment">Post a Comment</button>
+          <router-link to="/login" v-if="!isLoggedIn"><button class="button-light">Login to share your thoughts</button></router-link>
         </div>
       </article>
 
@@ -71,27 +73,28 @@ export default {
       })
     },
     postComment(){
-			const newComment = {
+      const newComment = {
         "user": this.currentUser.username,
         "datePosted": new Date(),
         "text": this.newComment
       }
       this.loaded = false
-      apiService.postComment(this.currentItemId, newComment)
-          .then(
-            setTimeout(() => {
-              this.getComments(),
-              //reset comments box
-              this.newComment = ""
-            }, 1000
-            )
-        )
+      apiService.postComment(this.currentItemId, newComment).then(
+        setTimeout(() => {
+          this.getComments(),
+          //reset comments box
+          this.newComment = ""
+        }, 1000)
+      )
     }
   },
   computed: {
 		currentUser() {
       return this.$store.state.currentUser
-    }
+    },
+    isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		}
   }
 }
 </script>

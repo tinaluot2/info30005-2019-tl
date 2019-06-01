@@ -79,11 +79,11 @@ export default {
 		apiService.getUserProfile().then((data) => {
 			this.loading = false
 			this.usersList = data
-		})
-		apiService.getItemProfile().then((data) => {
-			this.loading = false
-			this.itemsList = data
-			this.addLikes()
+			apiService.getItemProfile().then((data) => {
+				this.loading = false
+				this.itemsList = data
+				this.addLikes()
+			})
 		})
 		;
 	},

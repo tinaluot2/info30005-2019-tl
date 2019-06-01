@@ -5,13 +5,6 @@
 	border: 1px $border-color;
 	text-align: center;
 	position: relative;
-	background-color: $card-color;
-}
-
-.profile-badge {
-	border-radius: 50%;
-	object-fit: cover;
-	margin-bottom: 20px;
 }
 
 .profile-badge {
@@ -20,6 +13,9 @@
 	border-radius: 50%;
 	object-fit: cover;
 	display: block;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 20px;
 }
 
 p.status {
@@ -77,13 +73,12 @@ h3.about {
 	font-size: 11px;
 	font-weight: bold;
 	text-transform: uppercase;
-	line-height: 10px;
+	line-height: 12px;
 }
 
 h3#date-joined {
 	margin-top: 40px;
-	font-size: 10px;
-	line-height: 11px;
+	line-height: 12px;
 }
 
 p#date-stamp {
@@ -94,7 +89,8 @@ p#date-stamp {
 
 .about-description {
 	word-wrap: break-word;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	line-height: 1.3em;
 }
 
 //Edit
@@ -122,9 +118,9 @@ p#date-stamp {
 @media screen and (min-width: 960px) {
 	.profile-box {
 		box-shadow: $box-drop-shadow;
-		padding: $margin 20px;
+		padding: $margin;
 		background-color: $card-color;
-		min-width: 252px;
+		width: 240px;
 		min-height: 252px;
 		max-height: 500px;
 		margin-right: $margin;

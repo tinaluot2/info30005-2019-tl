@@ -23,7 +23,6 @@
 				<button class="button-dark user-submit" :disabled="errors.any() || userDetails.email == ''|| userDetails.password == ''" @click="login" >Log In</button>
 
 				<p class="help-text">Don't have an account yet? <a @click="toggleSignUp()">Sign Up</a></p>
-				<p class="help-text"><a @click="quickLogin">Gigi's quick login.</a></p>
 				<sign-up-form v-show="showSignUp" @close="toggleSignUp()"/>
 
 			</form>
@@ -43,8 +42,8 @@ export default {
   data: function(){
 		return {
 			userDetails: {
-				email: '',
-				password: ''
+				email: 'daniel-is-awesome@unimelb.edu.au',
+				password: 'Daniel123'
 			},
 			error: false,
 			showSignUp: false

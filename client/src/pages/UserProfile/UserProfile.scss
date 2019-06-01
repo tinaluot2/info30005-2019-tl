@@ -5,6 +5,7 @@
 	border: 1px $border-color;
 	text-align: center;
 	position: relative;
+	background-color: $card-color;
 }
 
 .profile-badge {
@@ -72,29 +73,42 @@ h1.profile-name {
 	margin-bottom: 10px;
 }
 
-h3#about {
+h3.about {
 	color: $primary-color;
 	font-size: 11px;
 	font-weight: bold;
 	text-transform: uppercase;
+	line-height: 10px;
+}
+
+h3#date-joined {
+	margin-top: 40px;
+	font-size: 10px;
+	line-height: 11px;
+}
+
+p#date-stamp {
+	text-transform: uppercase;
+	font-size: 11px;
+	color: $light-grey;
 }
 
 .about-description {
 	word-wrap: break-word;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 //Edit
 .edit-icon-wrapper {
 	position: absolute;
 	padding: 10px;
-	top: 10px;
-	right: 10px;
-	transition: all 0.3ms ease;
+	top: 8px;
+	right: 8px;
+	transition: all 0.2ms ease;
 
 	&:hover, &:focus {
 		cursor: pointer;
-		transition: all 0.3ms ease;
+		transition: all 0.2ms ease;
 		color: $primary-color;
 	}
 }

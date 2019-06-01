@@ -2,7 +2,7 @@
 
 .comment-box {
 	border: 1px #eee solid;
-	padding: 30px 40px 0 40px;
+	padding: 30px 30px 0 30px;
 	border-radius: 3px;
 }
 
@@ -13,12 +13,17 @@
 }
 
 .comment-avatar {
-  float: left;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
 }
 
-.comment-details {
-  padding-left: 20px;
-}
+.badge-icon{
+   color: $primary-color;
+   font-size: 12px;
+   padding-left: 4px;
+ }
 
 .comment-date {
   color: $light-grey;

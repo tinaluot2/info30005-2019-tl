@@ -3,11 +3,6 @@
     <loader v-if="!loaded"/>
     <div v-if="loaded">
       <article class="media">
-        <figure class="media-left">
-          <p class="image is-48x48">
-            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-          </p>
-        </figure>
 
         <div class="media-content">
           <div class="field">
@@ -20,13 +15,25 @@
       </article>
 
       <li class="comment-container" v-for="(comment, index) in comments" :key="index">
-        <div class="comment-avatar">
-          <p class="image is-48x48">
-            <img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=">
-          </p>
-        </div>
+        <!--<div class="comment-avatar">
+            &lt;!&ndash; Sprout &ndash;&gt;
+            <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
+            &lt;!&ndash; Leaf &ndash;&gt;
+            <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
+            &lt;!&ndash; Tree &ndash;&gt;
+            <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
+
+        </div>-->
         <div class="comment-details">
           <router-link v-bind:to="`/user/${comment.user}`"><a class="comment-username bold">{{comment.user}}</a></router-link>
+
+          <!-- Sprout -->
+          <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
+          <!-- Leaf -->
+          <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
+          <!-- Tree -->
+          <span v-else-if="getStatus(comment.user).postCount >= status.tree.count" class="fas fa-tree badge-icon"></span>
+
           <span class="comment-date">{{formatDate(comment.datePosted)}}</span>
           <div class="comment-text">
             {{comment.text}}
@@ -50,57 +57,90 @@ export default {
   props: {
     currentItemId: String
   },
-	data (){
-		return {
-      newComment: "",
-      comments: [],
-      loaded: true
-		}
-	},
-	mounted() {
-    this.getComments()
-	},
-	methods: {
-		formatDate(date) {
-			return moment(date).tz("Australia/Melbourne").fromNow()
-    },
-    getComments(){
-      this.loaded = false
-      apiService.getItemComments(this.currentItemId)
-        .then((data) => {
-          this.comments = data.reverse();
-          this.loaded = true
+  data (){
+      return {
+        newComment: "",
+        comments: [],
+        itemsList: [],
+    loaded: true,
+        sprout: 0,
+        status: {
+          sprout: { title: "Sprout", count: 0},
+          leaf: { title: "Leaf", count: 5},
+          tree: { title: "Tree", count: 10}
+        }
+      }
+  },
+  mounted() {
+      apiService.getItemProfile().then((data) => {
+        this.loaded = true
+        this.itemsList = data
+      }), this.getComments()
+  },
+  methods: {
+      formatDate(date) {
+          return moment(date).tz("Australia/Melbourne").fromNow()
+      },
+      getComments(){
+        this.loaded = false
+        apiService.getItemComments(this.currentItemId).then((data) => {
+            this.comments = data.reverse();
+            this.loaded = true
+        })
+      },
+      postComment(){
+        const newComment = {
+          "user": this.currentUser.username,
+          "datePosted": new Date(),
+          "text": this.newComment
+        }
+        this.loaded = false
+        apiService.postComment(this.currentItemId, newComment)
+                .then(setTimeout(() => {
+            this.getComments(),
+            //reset comments box
+            this.newComment = ""
+          }, 1000)
+        )
+      },
+    userPosts(user) {
+      return this.itemsList.filter(item => {
+        return item.creatorName === user
       })
     },
-    postComment(){
-      const newComment = {
-        "user": this.currentUser.username,
-        "datePosted": new Date(),
-        "text": this.newComment
+    getStatus(user) {
+      let status = {
+        postCount: this.userPosts(user).length,
+        title: ''
       }
-      this.loaded = false
-      apiService.postComment(this.currentItemId, newComment).then(
-        setTimeout(() => {
-          this.getComments(),
-          //reset comments box
-          this.newComment = ""
-        }, 1000)
-      )
+      if (status.postCount < this.status.leaf.count) {
+        status.title = this.status.sprout.title
+        return status
+      }
+      else if (status.postCount < this.status.tree.count) {
+        status.title = this.status.leaf.title
+        return status
+      }
+      else
+        status.title = this.status.tree.title
+      return status
     }
   },
   computed: {
-		currentUser() {
+    currentUser() {
       return this.$store.state.currentUser
     },
     isLoggedIn(){
-			return this.$store.getters.isLoggedIn
-		}
+      return this.$store.getters.isLoggedIn
+    }
+
   }
 }
 </script>
 
 <style lang="scss">
-@import "@/scss/_forms.scss";
-@import "@/components/ItemCard/ItemCard.scss";
+@import "../../scss/_forms.scss";
+@import "../../scss/base.scss";
+@import "../../components/ItemCard/ItemCard.scss";
 @import "./CommentsBox.scss";
 </style>

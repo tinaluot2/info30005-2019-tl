@@ -69,7 +69,7 @@
 @media screen and (min-width: 768px) {
 	.medium-card {
 		margin: $margin $page-margin;
-		padding: 30px $margin $margin $margin;
+		padding: 30px;
 	}
 }
 
@@ -112,4 +112,10 @@ button.clicked {
 	&:hover, &:focus {
 		color: $primary-color;
 	}
+}
+
+.badge-icon{
+	color: $primary-color;
+	font-size: 12px;
+	padding-left: 4px;
 }

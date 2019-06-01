@@ -2,7 +2,7 @@
 	<div class="background nav-spacing">
 		<loader v-if="!loaded"/>
 		<div v-for="user in usersList" v-bind:key="user._id">
-			<div v-if="username == user.username">
+			<div v-if="username === user.username">
 				<div class="container">
 					<div class="two-column" v-if="loaded">
 						<div class="profile-box">

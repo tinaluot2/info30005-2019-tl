@@ -113,3 +113,12 @@ button.clicked {
 		color: $primary-color;
 	}
 }
+
+.badge-icon {
+	color: $primary-color;
+	font-size: 20px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 10px;
+	display: block;
+}

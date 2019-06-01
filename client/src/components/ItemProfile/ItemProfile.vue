@@ -2,16 +2,19 @@
 <div class="background nav-spacing">
 	<loader v-if="!loaded"/>
 	<div v-for="item in itemsList" v-bind:key="item._id">
-		<div v-if="itemid == item._id">
+		<div v-if="itemid === item._id">
 			<div class="container">
 				<div class="medium-card">
 					<div class="card-header">
 						<div class="card-header-icon">
-							<router-link :to="'/user/' + item.creatorName">
-								<figure class="image is-48x48 is-rounded">
-								<img class="is-rounded" src="https://i2.wp.com/fosteredmedia.com/wp-content/uploads/2018/07/female-placeholder.jpg?fit=1024%2C1024&ssl=" alt="Smol_Dog">
-								</figure>
-							</router-link>
+
+							<!-- Sprout -->
+							<div v-if="getStatus(item.creatorName).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></div>
+							<!-- Leaf -->
+							<div v-else-if="getStatus(item.creatorName).postCount < status.tree.count" class="fas fa-leaf badge-icon"></div>
+							<!-- Tree -->
+							<div v-else-if="getStatus(item.creatorName).postCount > status.tree.count" class="fas fa-tree badge-icon"></div>
+
 						</div>
 						<div class="card-header-title">
 							<header class="item-title">{{item.itemTitle}}</header>
@@ -88,20 +91,26 @@ export default {
 		comment: CommentsBox,
 		loader: PageLoader
 	},
-	data (){
+	data () {
 		return {
 			itemid: this.$route.params.itemid,
-			itemsList:[],
-			comments:[],
+			itemsList: [],
+			comments: [],
 			loaded: false,
 			loadingLikes: false,
 			loadingBookmarks: false,
 			fbUrl: '',
-			twUrl:'',
+			twUrl: '',
 			likes: [],
 			bookmarks: [],
-			likesClient: 0
+			likesClient: 0,
+			sprout: 0,
+			status: {
+				sprout: {title: "Sprout", count: 0},
+				leaf: {title: "Leaf", count: 5},
+				tree: {title: "Tree", count: 10}
 			}
+		}
 	},
 	mounted() {
 		apiService.getItemProfile()
@@ -179,6 +188,28 @@ export default {
 					})
 				}
 			}
+		},
+		userPosts(user) {
+			return this.itemsList.filter(item => {
+				return item.creatorName === user
+			})
+		},
+		getStatus(user) {
+			let status = {
+				postCount: this.userPosts(user).length,
+				title: ''
+			}
+			if (status.postCount < this.status.leaf.count) {
+				status.title = this.status.sprout.title
+				return status
+			}
+			else if (status.postCount < this.status.tree.count) {
+				status.title = this.status.leaf.title
+				return status
+			}
+			else
+				status.title = this.status.tree.title
+			return status
 		}
 	},
 	computed: {

@@ -28,7 +28,7 @@ button:disabled:hover {
 	color: $button-text;
 	border: $primary-color 1px solid;
 
-	&:hover, &:active, &:focus  {
+	&:hover, &:active {
 			background: $button-hover-color;
 			transition: all 0.3ms ease;
 			border: $button-hover-color 1px solid;
@@ -40,7 +40,7 @@ button:disabled:hover {
 	color: $primary-color;
 	border-color: $primary-color-lighter;
 
-	&:hover, &:active, &:focus {
+	&:hover, &:active {
 		border-color: $primary-color-light;
 		background: $primary-color-light;
 	}

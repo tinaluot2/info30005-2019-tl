@@ -139,7 +139,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/_forms.scss";
-@import "@/components/ItemCard/ItemCard.scss";
+@import "../../scss/_forms.scss";
+@import "../../scss/base.scss";
+@import "../../components/ItemCard/ItemCard.scss";
 @import "./CommentsBox.scss";
 </style>

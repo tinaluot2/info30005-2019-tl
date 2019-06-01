@@ -15,7 +15,7 @@
 							<!-- Leaf -->
 							<div v-else-if="getStatus.postCount < status.tree.count" class="fas fa-leaf profile-badge"></div>
 							<!-- Tree -->
-							<div v-else-if="getStatus.postCount > status.tree.count" class="fas fa-tree profile-badge"></div>
+							<div v-else-if="getStatus.postCount >= status.tree.count" class="fas fa-tree profile-badge"></div>
 
 							<h1 class="profile-name">{{user.username}}</h1>
 							<p class="status">

@@ -238,6 +238,7 @@ export default {
 
 <style lang="scss">
 @import "./ItemProfile.scss";
+@import "../../scss/base.scss";
 @import "@/components/ItemCard/ItemCard.scss";
 @import "@/scss/_forms.scss";
 </style>

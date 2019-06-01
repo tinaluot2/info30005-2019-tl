@@ -7,23 +7,13 @@
 }
 
 .comment-container {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   list-style: none;
-  display: flex;
 }
 
-.comment-avatar {
-  justify-content: center;
-  align-items: center;
-  display:flex;
-  flex-direction: column;
+.comment-text {
+  padding-left: 1px;
 }
-
-.badge-icon{
-   color: $primary-color;
-   font-size: 12px;
-   padding-left: 4px;
- }
 
 .comment-date {
   color: $light-grey;
@@ -33,6 +23,7 @@
 
 .comment-username {
   color: $body-color;
+  padding-left: 1px;
 
   &:hover, &:focus {
     text-decoration: underline;

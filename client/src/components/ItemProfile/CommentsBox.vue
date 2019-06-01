@@ -15,15 +15,6 @@
       </article>
 
       <li class="comment-container" v-for="(comment, index) in comments" :key="index">
-        <!--<div class="comment-avatar">
-            &lt;!&ndash; Sprout &ndash;&gt;
-            <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
-            &lt;!&ndash; Leaf &ndash;&gt;
-            <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
-            &lt;!&ndash; Tree &ndash;&gt;
-            <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
-
-        </div>-->
         <div class="comment-details">
           <router-link v-bind:to="`/user/${comment.user}`"><a class="comment-username bold">{{comment.user}}</a></router-link>
 

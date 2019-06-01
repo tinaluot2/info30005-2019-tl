@@ -16,15 +16,12 @@
 
       <li class="comment-container" v-for="(comment, index) in comments" :key="index">
         <div class="comment-avatar">
-
-          <figure class="media-left">
             <!-- Sprout -->
-            <div v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></div>
+            <span v-if="getStatus(comment.user).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
             <!-- Leaf -->
-            <div v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></div>
+            <span v-else-if="getStatus(comment.user).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
             <!-- Tree -->
-            <div v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></div>
-          </figure>
+            <span v-else-if="getStatus(comment.user).postCount > status.tree.count" class="fas fa-tree badge-icon"></span>
 
         </div>
         <div class="comment-details">

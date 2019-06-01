@@ -13,11 +13,19 @@
 }
 
 .comment-avatar {
-  float: left;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
 }
 
+ .badge-icon {
+   color: $primary-color;
+   font-size: 20px;
+ }
+
 .comment-details {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .comment-date {

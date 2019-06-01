@@ -35,6 +35,10 @@
 	display: block;
 	color: $link-secondary;
 	font-weight: normal;
+
+	&:hover, &:focus {
+		text-decoration: underline;
+	}
 }
 
 .timestamp {
@@ -116,6 +120,6 @@ button.clicked {
 
 .badge-icon{
 	color: $primary-color;
-	font-size: 12px;
-	padding-left: 4px;
+	font-size: 13px;
+	padding-left: 5px;
 }

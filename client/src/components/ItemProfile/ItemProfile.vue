@@ -6,16 +6,6 @@
 			<div class="container">
 				<div class="medium-card">
 					<div class="card-header">
-						<!--<div class="card-header-icon">
-
-							&lt;!&ndash; Sprout &ndash;&gt;
-							<div v-if="getStatus(item.creatorName).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></div>
-							&lt;!&ndash; Leaf &ndash;&gt;
-							<div v-else-if="getStatus(item.creatorName).postCount < status.tree.count" class="fas fa-leaf badge-icon"></div>
-							&lt;!&ndash; Tree &ndash;&gt;
-							<div v-else-if="getStatus(item.creatorName).postCount > status.tree.count" class="fas fa-tree badge-icon"></div>
-
-						</div>-->
 						<div class="card-header-title">
 							<header class="item-title">{{item.itemTitle}}</header>
 							<router-link :to="'/user/' + item.creatorName">

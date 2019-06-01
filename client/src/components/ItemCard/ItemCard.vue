@@ -127,7 +127,7 @@ export default {
 		},
 		countLikes() {
 			let likesCount = 0;
-			this.users.forEach(user => {
+			this.usersWithLikes.forEach(user => {
 				if (user.likes.includes(this.item._id)) {
 					likesCount++
 				}
@@ -152,6 +152,11 @@ export default {
 		},
 		isLiked() {
 			return this.likes.includes(this.item._id)
+		},
+		usersWithLikes(){
+			return this.users.filter(user => {
+				return user.likes.length > 0
+			})
 		}
 	}
 }

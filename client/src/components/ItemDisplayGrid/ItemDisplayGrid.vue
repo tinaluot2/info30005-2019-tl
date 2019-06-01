@@ -3,7 +3,7 @@
 	<div class="background">
 		<div class="container">
 			<div class="grid-container site-wide">
-				<item-card v-for="item in itemsList" v-bind:key="item._id" :item="item"></item-card>
+				<item-card v-for="item in itemsList" v-bind:key="item._id" :item="item" :users="usersList"></item-card>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,8 @@ export default {
 	},
 	data() {
 		return {
-			itemsList: []
+			itemsList: [],
+			usersList: []
 		}
 	},
 	mounted() {
@@ -28,6 +29,10 @@ export default {
 		.then((data) => {
 			this.itemsList = data.reverse()
 			this.$emit('loaded')
+		}),
+		apiService.getUser()
+		.then((data) => {
+			this.usersList = data
 		})
 	}
 }

@@ -31,10 +31,10 @@
 								<router-link :to="'/user/' + currentUser.username" class="navbar-item">My Profile</router-link>
 							</span>
 							<span @click="toggleNav">
-								<router-link to="/settings" class="navbar-item" >Account Settings</router-link>
+								<router-link to="/bookmarks" class="navbar-item">Bookmarks</router-link>
 							</span>
 							<span @click="toggleNav">
-								<router-link to="/bookmarks" class="navbar-item">Bookmarks</router-link>
+								<router-link to="/settings" class="navbar-item" >Settings</router-link>
 							</span>
 							<hr class="navbar-divider">
 							<span @click="toggleNav">

@@ -3,7 +3,7 @@ import axios from 'axios';
 const url = 'api/';
 
 class apiService {
-  //Items
+//-------------------- ITEMS --------------------//
   static getItems(){
     return axios.get(url + 'items')
       .then(res => res.data);
@@ -18,22 +18,40 @@ class apiService {
     return axios.post(url + 'items', newItem, headers);
   }
 
+//-------------------- BOOKMARKS --------------------//
   static postBookmark(id, user){
-    const requestUrl = `${url}users/bookmarks/${user}`;
+    const requestUrl = `../${url}users/bookmarks/${user}`;
     return axios.post(requestUrl, {itemId: id}).then(res=>{
     });
   }
 
   static getBookmarks(userId){
-    const requestUrl = `${url}users/${userId}/bookmarks`;
+    const requestUrl = `../${url}users/${userId}/bookmarks`;
     return axios.get(requestUrl)
   }
+
   static deleteBookmark(user, id){
-    const requestUrl = `${url}users/removebookmark/${user}`;
+    const requestUrl = `../${url}users/removebookmark/${user}`;
     return axios.post(requestUrl, {itemId: id}).then();
   }
 
-  //Users
+//-------------------- LIKES --------------------//
+  static postLike(id, user){
+    const requestUrl = `../${url}users/likes/${user}`;
+    return axios.post(requestUrl, {itemId: id}).then();
+  }
+
+  static getLikes(userId){
+    const requestUrl = `../${url}users/${userId}/likes`;
+    return axios.get(requestUrl)
+  }
+
+  static deleteLike(user, id){
+    const requestUrl = `../${url}users/removelike/${user}`;
+    return axios.post(requestUrl, {itemId: id}).then();
+  }
+
+//-------------------- USERS --------------------//
   static createUser(newUser){
     return axios.post(url + 'userSignup/signup', newUser);
   }
@@ -52,7 +70,7 @@ class apiService {
       .then(res => res.data);
   }
 
-   //Comments
+//-------------------- COMMENTS --------------------//
   static postComment(id, comment){
     const requestUrl = `../${url}items/comments/${id}`;
     return axios.post(requestUrl, {comments: comment})

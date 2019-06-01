@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="button-menu">
-						<button class="button-light spacing-not-last-child">
+						<button @click="likeItem" class="button-light spacing-not-last-child" v-bind:class="{clicked:isLiked}">
 							<span class="material-icons md-18 button-icon">thumb_up</span>
 							Like
 						</button>
@@ -51,7 +51,7 @@
 						</button>
 
 						<div id="social-share" class="right-align">
-							<button class="button-light spacing-not-last-child button-circle social">
+							<button @click="likeItem" class="button-light spacing-not-last-child button-circle social">
 								<a :href="fbUrl"
 								target="_blank" title="Share on Facebook" @click="share(item.itemTitle)">
 									<span class="fab fa-facebook-f"></span>
@@ -92,8 +92,11 @@ export default {
 			itemsList:[],
 			comments:[],
 			loaded: false,
+			loadingLikes: false,
 			fbUrl: '',
 			twUrl:'',
+			likes: [],
+			likesClient: 0
 			}
 	},
 	mounted() {
@@ -101,6 +104,8 @@ export default {
 			.then((data) => {
 				this.loaded = true
 				this.itemsList = data
+				this.getLikes()
+
 		})
 	},
 	methods: {
@@ -115,12 +120,47 @@ export default {
 			const txt = itemTitle
 			var hashtags ='reformlab, upcycle'
 			this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + hashtags + '&url=' + url
+		},
+		getLikes(){
+			apiService.getLikes(this.currentUser._id).then((res) => {
+				this.likes = res.data
+				this.loadingLikes = false
+				this.countLikes
+			})
+		},
+		likeItem(){
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
+			}
+			else {
+				if (!this.isLiked) {
+					this.likesClient++
+					this.loadingLikes = true
+					apiService.postLike(this.itemid, this.currentUser.username).then(() => {
+						this.getLikes()
+						console.log('liked')
+					})
+				}
+				else if (this.isLiked) {
+					this.likesClient--
+					this.loadingLikes = true
+					apiService.deleteLike(this.currentUser.username, this.itemid).then(()=>{
+						this.getLikes()
+					})
+				}
+			}
 		}
 	},
 	computed: {
-		curentUser() {
+		currentUser() {
       return this.$store.state.currentUser
-    }
+		},
+		isLiked() {
+			return this.likes.includes(this.itemid)
+		},
+		isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		}
 	}
 }
 </script>

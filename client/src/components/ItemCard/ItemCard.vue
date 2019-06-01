@@ -22,18 +22,20 @@
 
 		<footer class="card-footer">
 			<div class="card-footer-item">
-				<div class="icon-button-wrapper like-button"
+				<span class="icon-button-wrapper like-button"
 				@click="likeItem()"
-				v-bind:class="{liked:item.isLiked}">
-						<i class="material-icons md-16">thumb_up</i>
-				</div>
-				<div class="like-count">
-					{{item.likeCount}}
+				v-bind:class="{liked:isLiked}">
+					<div v-if="loadingLikes" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+					<i v-if="!loadingLikes" class="material-icons md-16">thumb_up</i>
+				</span>
+				<div v-if="!loadingLikes" class="like-count">
+					{{countLikes() + likesClient}}
 				</div>
 			</div>
+
 			<div class="card-footer-item">
 				<span class="icon-button-wrapper bookmark-button" @click="bookmarkItem()"
-			v-bind:class="{bookmarked:item.isBookmarked || isBookmarked}">
+			v-bind:class="{bookmarked:isBookmarked}">
 					<div v-if="loadingBookmarks" class="lds-ring"><div></div><div></div><div></div><div></div></div>
 					<i v-if="!loadingBookmarks" class="material-icons md-16">bookmark</i>
 				</span>
@@ -50,14 +52,18 @@ export default {
 	data () {
 		return {
 			bookmarks:[],
-			loadingBookmarks: false
+			likes: [],
+			loadingBookmarks: false,
+			loadingLikes : false,
+			likesClient: 0
 		}
 	},
 	props: {
 		item: {
-				type: Object,
-				required: true
+			type: Object,
+			required: true
 		},
+		users: { type: Array }
 	},
 	methods: {
 		getBookmarks(){
@@ -67,21 +73,15 @@ export default {
 				this.loadingBookmarks = false
 			})
 		},
-		likeItem() {
-			if (!this.isLoggedIn){
-				this.$router.push(this.$route.query.redirect || '/login')
-			}
-			else {
-				this.item.isLiked = !this.item.isLiked;
-				if (!this.item.isLiked) {
-						this.item.likeCount--;
-				}
-				else {
-						this.item.likeCount++;
-				}
-			}
+		getLikes(){
+			apiService.getLikes(this.currentUser._id)
+			.then((data) => {
+				this.likes = data.data
+				this.loadingLikes = false
+				this.countLikes
+			})
 		},
-		bookmarkItem() {
+		bookmarkItem(){
 			if (!this.isLoggedIn){
 				this.$router.push(this.$route.query.redirect || '/login')
 			}
@@ -89,22 +89,56 @@ export default {
 				if (!this.isBookmarked) {
 					this.loadingBookmarks = true
 					apiService.postBookmark(this.item._id, this.currentUser.username)
-						.then(() => {
-							this.getBookmarks()
-						})
+					.then(() => {
+						this.getBookmarks()
+					})
 				}
 				else if (this.isBookmarked) {
 					this.loadingBookmarks = true
 					apiService.deleteBookmark(this.currentUser.username, this.item._id)
-						.then(()=>{
-							this.getBookmarks()
-						})
+					.then(()=>{
+						this.getBookmarks()
+					})
 				}
 			}
+		},
+		likeItem(){
+			if (!this.isLoggedIn){
+				this.$router.push(this.$route.query.redirect || '/login')
+			}
+			else {
+				if (!this.isLiked) {
+					this.likesClient++
+					this.loadingLikes = true
+					apiService.postLike(this.item._id, this.currentUser.username)
+					.then(() => {
+						this.getLikes()
+					})
+				}
+				else if (this.isLiked) {
+					this.likesClient--
+					this.loadingLikes = true
+					apiService.deleteLike(this.currentUser.username, this.item._id)
+					.then(()=>{
+						this.getLikes()
+					})
+				}
+			}
+		},
+		countLikes() {
+			let likesCount = 0;
+			this.usersWithLikes.forEach(user => {
+				if (user.likes.includes(this.item._id)) {
+					likesCount++
+				}
+			})
+			return likesCount
 		}
 	},
 	mounted() {
-		this.getBookmarks()
+		this.getBookmarks(),
+		this.getLikes(),
+		this.likesClient = this.item.likeCount
 	},
 	computed: {
 		isLoggedIn(){
@@ -115,6 +149,14 @@ export default {
 		},
 		isBookmarked(){
 			return this.bookmarks.includes(this.item._id)
+		},
+		isLiked() {
+			return this.likes.includes(this.item._id)
+		},
+		usersWithLikes(){
+			return this.users.filter(user => {
+				return user.likes.length > 0
+			})
 		}
 	}
 }

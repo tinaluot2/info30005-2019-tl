@@ -59,6 +59,25 @@ router.get('/:userId', (req, res, next) => {
     });
 });
 
+router.post('/:userId', (req, res, next) =>{
+  const id = mongoose.Types.ObjectId(req.params.userId);
+
+  User.update({_id: id}, {$set: {
+    "location": req.body.location,
+    "description": req.body.description}})
+    .then(doc => {
+        if (doc){
+            res.sendStatus(200);
+        }
+        else{
+            res.sendStatus(404);
+        }
+    })
+    .catch(err => {
+    res.sendStatus(500);
+  });
+});
+
 // Get bookmarks of a user
 router.get('/:userId/bookmarks', (req, res, next) => {
     const id = mongoose.Types.ObjectId(req.params.userId);

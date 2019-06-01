@@ -31,11 +31,14 @@
 								</span>
 							</p>
 
-							<h3 v-if="!isEmpty(user.location)" id="about">Location</h3>
+							<h3 v-if="!isEmpty(user.location)" class="about">Location</h3>
 							<p class="about-description">{{user.location}}</p>
 
-							<h3 v-if="!isEmpty(user.description)" id="about">About</h3>
+							<h3 v-if="!isEmpty(user.description)" class="about">About</h3>
 							<p class="about-description">{{user.description}}</p>
+
+							<h3 class="about" id="date-joined">Reformer Since</h3>
+							<p class="about-description" id="date-stamp">{{formatDate(user.dateJoined)}}</p>
 						</div>
 
 						<div class="grid-container profile-grid">
@@ -51,6 +54,7 @@
 <script>
 import ItemCard from '@/components/ItemCard/ItemCard'
 import apiService from '@/apiService'
+import moment from 'moment'
 import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
 export default {
@@ -87,9 +91,15 @@ export default {
 		//sourced from https://stackoverflow.com/questions/154059/how-to-check-empty-undefined-null-string-in-javascript
 		isEmpty(str) {
 			return (!str || 0 === str.toString().length)
-		}
+		},
+		formatDate(date) {
+			return moment(date).format('LL')
+    }
 	},
 	computed: {
+		isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		},
 		currentUser() {
 			return this.$store.state.currentUser
 		},

@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     required: true
   },
   name: String,
-  location: String,
+  location: {type: String, default: 'Earth'},
   dateJoined: Date,
   projects: [String],
   bookmarks: [String],

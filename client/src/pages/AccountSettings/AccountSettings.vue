@@ -15,7 +15,7 @@
 
 				<button @click="update" class="button-dark spacing-not-last-child">Save</button>
 
-				<router-link to="/user">
+				<router-link v-bind:to="`/user/${currentUser.username}`">
 					<button class="button-light">Cancel</button>
 				</router-link>
 

@@ -9,6 +9,7 @@ import ItemProfile from '@/components/ItemProfile/ItemProfile'
 import EditItem from '@/components/EditItem/EditItem'
 import LoginPage from '@/pages/LoginPage'
 import LeaderBoard from '@/pages/LeaderBoard/LeaderBoard'
+import LandingPage from '@/pages/LandingPage'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -18,9 +19,14 @@ export const router = new VueRouter({
 	linkActiveClass: "is-active",
 	routes: [
 		{
+			path: '/mission',
+			name: 'Reform',
+			component: LandingPage
+		},
+		{
 			path: '/',
 			name: 'Reform',
-			component: DiscoverPage
+			component: LandingPage
 		},
 		{
 			path: '/discover',

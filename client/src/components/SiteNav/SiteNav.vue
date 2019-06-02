@@ -18,6 +18,7 @@
 
 					<router-link to="/leaderboard" class="navbar-item">Leaderboard</router-link>
 
+					<router-link v-if="isLoggedIn" to="/mission" class="navbar-item">Mission</router-link>
 
 					<router-link to="/login" v-if="!isLoggedIn" class="navbar-item button-no-background"><button class="button-light" @click="toggleNav">Login</button></router-link>
 
@@ -85,7 +86,7 @@ export default {
 			this.$store.dispatch('logoutUser')
 				.then(() => {
 					bus.$emit('loggedOut')
-					this.$router.push(this.$route.query.redirect || '/')
+					this.$router.push(this.$route.query.redirect || '/discover')
 				})
 		}
 	},

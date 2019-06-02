@@ -20,6 +20,12 @@
 									<router-link :to="'/user/' + rank[0].creatorName">
 										{{rank[0].creatorName}}
 									</router-link>
+									<!-- Sprout -->
+									<span v-if="getStatus(rank[0].creatorName).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
+									<!-- Leaf -->
+									<span v-else-if="getStatus(rank[0].creatorName).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
+									<!-- Tree -->
+									<span v-else-if="getStatus(rank[0].creatorName).postCount >= status.tree.count" class="fas fa-tree badge-icon"></span>
 								</td>
 								<td>{{rank.length}}</td>
 							</tr>
@@ -47,6 +53,12 @@
 									<router-link :to="'/user/' + items.creatorName">
 										{{items.creatorName}}
 									</router-link>
+									<!-- Sprout -->
+									<span v-if="getStatus(items.creatorName).postCount < status.leaf.count" class="fas fa-seedling badge-icon"></span>
+									<!-- Leaf -->
+									<span v-else-if="getStatus(items.creatorName).postCount < status.tree.count" class="fas fa-leaf badge-icon"></span>
+									<!-- Tree -->
+									<span v-else-if="getStatus(items.creatorName).postCount >= status.tree.count" class="fas fa-tree badge-icon"></span>
 								</td>
 								<td>{{items.likeCount}}</td>
 							</tr>
@@ -72,7 +84,13 @@ export default {
 		return {
 			usersList: [],
 			itemsList: [],
-			loading: true
+			loading: true,
+			sprout: 0,
+			status: {
+				sprout: { title: "Sprout", count: 0},
+				leaf: { title: "Leaf", count: 5},
+				tree: { title: "Tree", count: 10}
+			}
 		}
 	},
 	mounted() {
@@ -117,6 +135,28 @@ export default {
 					}
 				}
 			}
+		},
+		userPosts(user) {
+			return this.itemsList.filter(item => {
+				return item.creatorName === user
+			})
+		},
+		getStatus(user) {
+			let status = {
+				postCount: this.userPosts(user).length,
+				title: ''
+			}
+			if (status.postCount < this.status.leaf.count) {
+				status.title = this.status.sprout.title
+				return status
+			}
+			else if (status.postCount < this.status.tree.count) {
+				status.title = this.status.leaf.title
+				return status
+			}
+			else
+				status.title = this.status.tree.title
+			return status
 		}
 	},
 	computed: {

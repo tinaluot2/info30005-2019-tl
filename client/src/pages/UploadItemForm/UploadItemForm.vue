@@ -104,7 +104,7 @@ export default {
 			this.newItem.images.push({})
 		},
 		deleteImage(index){
-			this.newItem.images.splice(index, s1)
+			this.newItem.images.splice(index, 1)
 		},
 		onFileChange(){
 			const newImg = this.$refs.images.files

@@ -144,7 +144,7 @@ export default {
 			let status = {
 				postCount: this.userPosts(user).length,
 				title: ''
-			}
+			};
 			if (status.postCount < this.status.leaf.count) {
 				status.title = this.status.sprout.title
 				return status

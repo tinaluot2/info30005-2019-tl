@@ -153,6 +153,6 @@ export default {
 
 <style scoped lang="scss">
 @import "@/scss/_forms.scss";
-@import "../SiteNav/_userform.scss";
+@import "@/components/SiteNav/_userform.scss";
 @import "/UploadItemForm.scss";
 </style>

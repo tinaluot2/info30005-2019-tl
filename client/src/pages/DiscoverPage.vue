@@ -3,7 +3,6 @@
 	<loader v-if="!loaded"/>
 	<div v-show="loaded">
 		<DiscoverBanner />
-		<SearchBar />
 		<ItemDisplayGrid @loaded="toggleLoaded"/>
 	</div>
 </div>
@@ -12,7 +11,6 @@
 <script>
 import DiscoverBanner from '@/components/DiscoverBanner/DiscoverBanner'
 import ItemDisplayGrid from '@/components/ItemDisplayGrid/ItemDisplayGrid'
-import SearchBar from "@/components/SearchBar/SearchBar";
 import { bus } from '@/main'
 import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
@@ -21,7 +19,6 @@ export default {
 		components: {
 			DiscoverBanner,
 			ItemDisplayGrid,
-			SearchBar,
 			'loader': PageLoader
 		},
 		data() {

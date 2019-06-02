@@ -13,11 +13,10 @@ Views: Multiple components
 Models: user
 
 
-Functionality 2 - Reuse Ideas!
+Functionality 2 - Reuse Items!
 ----------
 This core functionality includes several parts:
  - New Project: create your new idea of reuse! Once logged in, you can see the "NEW PROJECT" button on the top right. This is on all pages.
- - Edit Project: edit you old projects. You can click the edit button on user profile item section or use the link https://reform-lab.herokuapp.com/user/daniel
  - Bookmarks: save the project you like to your bookmark, so you can easily find it in the sea of ideas. Mouse over the downward arrow on top right of page and click "bookmarks", or use the link https://reform-lab.herokuapp.com/bookmarks
  - Likes: give a thumb up for the ideas you like! click the thumb-up button when you see a item card, for example in homepage or in bookmark page.
  

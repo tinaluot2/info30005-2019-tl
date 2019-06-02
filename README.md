@@ -1,39 +1,37 @@
-- Please note: in case heroku is down, or mongodb atlas is unable to connect to heroku, please test with the localhost:3000 for now. Clone the repo and navigate to it in node.js console command, and start the server with command "nodemon server", then follow the same steps below with "localhost:3000" instead of "https://wit-website-reform.herokuapp.com"
-
-Reformed Lab "Reformed" - Deliverable 4 README
-
-
+Reformed Lab "Reformed" - Deliverable 6 Report and System README
 =================
-Required Programs for Testing
-=================
+Functionality 1 - User Profile
+----------
+This core functionality includes several small functions:
+ - Sign up: Creates an account in the database and use it for later login. Simply click the "SIGN UP" button on homepage (https://reform-lab.herokuapp.com/) Security: password stored in hash.
+ - Login: Authenticate your access to other functionalities. "LOGIN" button on homepage. (You are welcome to use a pre-prepared account with existing user profile and projects, try click the login button =)
+ - Sign out: Log out from your account if you are accessing from a public computer. Mouse over the downward arrow on the top right corner of the page, and click "Sign Out". This is available in any page.
+ - Profile Settings: Edit your profile location and description. Click the edit button on left block of profile page or use the link https://reform-lab.herokuapp.com/settings
+ 
+Routes: userSignup, users
+Views: Multiple components
+Models: user
 
-- Postman (for running the /GET, /POST, /PATCH, /DELETE requests)
-- OR localhost 8080 for front end and localhost 3000 for backend
 
-
-==================
-Functionalities
-==================
-We are testing the two core functionalities for deliverable four, incorporating Axios to connect our front end and back end.
-
-1. Sign up/login
-
-This is for the user to sign up to Reform and create basic user profile. The information that is inputted will be sent as a POST request and stored on our MongoDB under "user" database. The password they input will be hashed and stored.
-
-The url for this sign up page is on the homepage and is a modal (pop up when sign up button is clicked): "https://wit-website-reform.herokuapp.com/"
-
-Views:SignUpForm.vue, _userform.scss, SiteNavUser.vue, ItemDisplayGrid.scss, ItemDisplayGrid.vue
-Routes:userSignup.js, users.js
-Controllers:
-Models:user.js (schema), userSignup.js (Schema)
-
-2. Create a Project/Upload an item
-
-This is for the user to upload a new project to Reform. The information that is inputted will be sent as a POST request and stored on our MongoDB under "items" database. 
-
-The url for this can be accessed through the homepage by pressing 'New Project' button. or clicking New Project once a user is logged in: "https://wit-website-reform.herokuapp.com/create"
-
-Views:UploadItemForm.vue, UploadItemForm.scss, SiteNavUser.vue, ImageUploader.vue, ImageUploader.scss, ItemDisplayGrid.scss, ItemDisplayGrid.vue
-Routes:users.js. item.js
-Controllers:
-Models:user.js (schema), item.js (schema)
+Functionality 2 - Reuse Ideas!
+----------
+This core functionality includes several parts:
+ - New Project: create your new idea of reuse! Once logged in, you can see the "NEW PROJECT" button on the top right. This is on all pages.
+ - Edit Project: edit you old projects. You can click the edit button on user profile item section or use the link https://reform-lab.herokuapp.com/user/daniel
+ - Bookmarks: save the project you like to your bookmark, so you can easily find it in the sea of ideas. Mouse over the downward arrow on top right of page and click "bookmarks", or use the link https://reform-lab.herokuapp.com/bookmarks
+ - Likes: give a thumb up for the ideas you like! click the thumb-up button when you see a item card, for example in homepage or in bookmark page.
+ 
+ Route: items
+ Views: Multiple components
+ Model: item
+ 
+ 
+ Functionality 3 - Leaderboard
+ ----------
+ This core functionality includes two parts:
+  - Most Passionate Reformers: a ranking of users to create competition. Click the "Leaderboard" button on the top navigatopn bar. 
+  - Most Popular Projects: a ranking of ideas to inspire good quality. https://reform-lab.herokuapp.com/leaderboard
+  
+  Routes: users, items
+  Views: Multiple components
+  Model: user, item

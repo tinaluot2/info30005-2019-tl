@@ -1,25 +1,32 @@
 <template>
-	<div>
+<div>
+	<loader v-if="!loaded"/>
+	<div v-show="loaded">
 		<LandingHero />
-		<Mission />
+		<Mission @loaded="toggleLoaded"/>
 	</div>
-
+</div>
 </template>
 
 <script>
 import LandingHero from '@/components/LandingHero/LandingHero.vue'
 import Mission from '@/components/LandingHero/mission.vue'
+import PageLoader from '@/components/AnimatedLoaders/PageLoader'
 
 export default {
 	name: 'LandingPage',
 		components: {
 			LandingHero,
-			Mission
+			Mission,
+			'loader': PageLoader
 		},
 		data () {
 			return{
-				title: 'Welcome to Reform'
+				loaded: false
 			}
+		},
+		methods: {
+			toggleLoaded(){this.loaded = true}
 		}
 }
 </script>

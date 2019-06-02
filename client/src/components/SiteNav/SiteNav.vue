@@ -2,8 +2,7 @@
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="container">
 			<div class="navbar-brand">
-				<router-link v-if="!isLoggedIn" to="/" class="logotype">Reform.</router-link>
-				<router-link v-if="isLoggedIn" to="/discover" class="logotype">Reform.</router-link>
+				<router-link to="/" class="logotype">Reform.</router-link>
 				<div class="navbar-burger" @click="toggleNav" :class="{'is-active': showNav }">
 					<span></span>
 					<span></span>
@@ -58,7 +57,6 @@
 <script>
 import SignUpForm from './SignUpForm'
 import {bus} from '@/main'
-import { mapState } from 'vuex'
 
 export default {
 	components: {
@@ -86,7 +84,12 @@ export default {
 			this.$store.dispatch('logoutUser')
 				.then(() => {
 					bus.$emit('loggedOut')
-					this.$router.push(this.$route.query.redirect || '/discover')
+					if (this.$route.query == "/"){
+						window.location.reload()
+					}
+					else {
+						this.$router.push(this.$route.query.redirect || '/')
+					}
 				})
 		}
 	},

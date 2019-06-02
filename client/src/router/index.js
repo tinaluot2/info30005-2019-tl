@@ -25,8 +25,10 @@ export const router = new VueRouter({
 		},
 		{
 			path: '/',
-			name: 'Reform',
-			component: LandingPage
+			name: 'Home',
+			component: LandingPage,
+			meta: { guest: true
+			}
 		},
 		{
 			path: '/discover',
@@ -68,7 +70,6 @@ export const router = new VueRouter({
 			component: EditItem,
 			meta: {
 				requiresAuth: true,
-				userOnly: true
 			}
 		},
 		{
@@ -103,8 +104,8 @@ router.beforeEach((to, from, next) => {
       next()
       return
 		}
-		// //redirect to user profile
-    // next('/user/' + store.state.currentUser.username)
+		//redirect to discover
+    next('/discover')
 	}
 	else {
     next()

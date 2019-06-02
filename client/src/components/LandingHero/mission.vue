@@ -1,12 +1,20 @@
 <template>
 	<div class="background">
+    <div v-if="!isLoggedIn" class="container">
+      <h2 class="title">
+      Discover Creative Reuse Ideas Today!
+      </h2>
+      <div class="grid-container four-col">
+        <item-card v-for="item in itemsList.slice(0, 4)" v-bind:key="item._id" :item="item" :users="usersList"></item-card>
+      </div>
+    </div>
     <div class="section" id="about">
       <div class="container">
       <h2 class="title">
         About
       </h2>
       <p class="statement">
-        Reform is a social platform that aims to change the way we perceive reusing and recycling. We aspire to create a positive impact on our community and environment by encouraging users to recycle creatively while sharing their solutions and discovering innovative reuse ideas from the other individuals.
+        Reform is a social platform that aims to change the way we perceive reusing and recycling. We aspire to create a positive impact on the environment by encouraging users to recycle creatively via sharing their solutions and discovering innovative reuse ideas from the community.
       </p>
       </div>
     </div>
@@ -45,14 +53,6 @@
         </div>
       </div>
      </div>
-      <div class="container">
-        <h2 class="title">
-       Browse Creative Ideas From Our Reformers
-        </h2>
-        <div class="grid-container four-col">
-          <item-card v-for="item in itemsList.slice(0, 4)" v-bind:key="item._id" :item="item" :users="usersList"></item-card>
-        </div>
-      </div>
 	</div>
 </template>
 
@@ -107,7 +107,12 @@ export default {
 		.then((data) => {
 			this.usersList = data
 		})
-	}
+  },
+  computed: {
+    isLoggedIn(){
+			return this.$store.getters.isLoggedIn
+		}
+  }
 }
 </script>
 
